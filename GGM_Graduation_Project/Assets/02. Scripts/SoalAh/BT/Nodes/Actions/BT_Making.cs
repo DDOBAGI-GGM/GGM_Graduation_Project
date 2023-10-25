@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BehaviorTree
 {
-    public class BT_Attack : BT_Node
+    public class BT_Making : BT_Node
     {
         public override NodeType Evaluate()
         {

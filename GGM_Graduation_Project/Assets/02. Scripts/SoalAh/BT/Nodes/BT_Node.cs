@@ -2,17 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BT_Node : MonoBehaviour
+namespace BehaviorTree
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum NodeType
     {
-        
+        SUCCESS = 1,
+        FAILURE,
+        RUNNING
     }
 
-    // Update is called once per frame
-    void Update()
+    public enum ActionType
     {
-        
+        NONE = 0,
+        PICK,
+        MAKING,
+        ATTACK
+    }
+
+    public enum ObjectType
+    {
+        NONE = 0,
+        SOURCE,
+        PROCESSED,
+        PRODUCT
+    }
+
+    public enum DeviceType
+    {
+        SOURCE = 0,
+        PROCESS_FIRST,
+        PROCESS_SECOND,
+        ATTACK,
+        BREAKDOWN
+    }
+
+    public abstract class BT_Node : MonoBehaviour
+    {
+        protected NodeType _nodeState;
+        public NodeType nodeType => _nodeState;
+        protected ActionType _action = ActionType.NONE;
+
+        public abstract NodeType Evaluate();
     }
 }

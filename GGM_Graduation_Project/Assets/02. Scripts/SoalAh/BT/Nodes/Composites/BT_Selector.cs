@@ -1,13 +1,14 @@
+using BehaviorTree;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace BehaviorTree
 {
-    public class BT_Sequence : BT_Node
+    public class BT_Selector : BT_Node
     {
         protected List<BT_Node> nodes = new List<BT_Node>();
-        public BT_Sequence(List<BT_Node> _nodes) { nodes = _nodes; }
+        public BT_Selector(List<BT_Node> _nodes) { nodes = _nodes; }
 
         public override NodeType Evaluate()
         {
@@ -17,16 +18,16 @@ namespace BehaviorTree
                 {
                     case NodeType.RUNNING:
                         _nodeState = NodeType.RUNNING;
-                        break;
+                        return _nodeState;
                     case NodeType.SUCCESS:
                         _nodeState = NodeType.SUCCESS;
-                        break;
-                    case NodeType.FAILURE:
-                        _nodeState= NodeType.FAILURE;
                         return _nodeState;
+                    case NodeType.FAILURE:
+                        break;
                 }
             }
 
+            _nodeState = NodeType.FAILURE;
             return _nodeState;
         }
     }

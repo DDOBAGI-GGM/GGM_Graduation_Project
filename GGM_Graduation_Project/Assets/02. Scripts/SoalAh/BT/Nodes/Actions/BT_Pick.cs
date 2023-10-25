@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BT_Pick : MonoBehaviour
+namespace BehaviorTree
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BT_Pick : BT_Node
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override NodeType Evaluate()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
