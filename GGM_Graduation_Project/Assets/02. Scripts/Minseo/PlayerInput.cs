@@ -20,7 +20,6 @@ public class PlayerInput : MonoBehaviour
     {
         Vector2 inputVector = _playerControls.Player.Movement.ReadValue<Vector2>();
         OnMovement?.Invoke(inputVector);
-        Debug.Log(inputVector);
 
         if (_playerControls.Player.Interaction.triggered)
         {
