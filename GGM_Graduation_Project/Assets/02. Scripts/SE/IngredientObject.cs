@@ -19,8 +19,9 @@ public class IngredientObject : Object
         return ingredient;
     }
 
-    public override void Interaction()
+    public override void Interaction(Ingredient type)
     {
-
+        Delay(3f);
+        type.Type = type.Type + 1;
     }
 }

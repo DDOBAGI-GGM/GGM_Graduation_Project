@@ -39,14 +39,17 @@ public class Ingredient : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            Debug.Log("raw");
             Type = IngredientType.raw;
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
+            Debug.Log("processing");
             Type = IngredientType.processing;
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
+            Debug.Log("completion");
             Type = IngredientType.completion;
         }
     }

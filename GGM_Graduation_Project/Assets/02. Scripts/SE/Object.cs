@@ -6,8 +6,13 @@ public abstract class Object : MonoBehaviour
 {
     public IEnumerator Delay(float time)
     {
-        yield return new WaitForSeconds(time);
+        for (int i = 0; i < time; i++)
+        {
+            Debug.Log(i + "ÃÊ Áö³²");
+            yield return new WaitForSeconds(1f);
+        }
+        yield return null;
     }
 
-    public abstract void Interaction();
+    public abstract void Interaction(Ingredient type);
 }
