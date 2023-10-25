@@ -52,6 +52,11 @@ public class Ingredient : MonoBehaviour
             Debug.Log("completion");
             Type = IngredientType.completion;
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Debug.Log("Interaction");
+            FindObjectOfType<IngredientObject>().Interaction(this, 1f);
+        }
     }
 #endif
 }
