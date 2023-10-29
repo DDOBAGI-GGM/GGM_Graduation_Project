@@ -141,16 +141,16 @@ public class Player : MonoBehaviour
                             closestDistance = distanceToCollider;
                             closestObject = hit.transform.name;
                         }
-                    }
 
-                    // 테스트를 위한 그림
-                    Debug.DrawRay(playerPosition, (hit.transform.position - playerPosition).normalized * viewDistance, Color.red);
+                        // 테스트를 위한 그림
+                        Debug.DrawRay(playerPosition, (hit.transform.position - playerPosition).normalized * viewDistance, Color.red);
+                    }
                 }
             }
         }
 
         // 가장 가까운 오브젝트의 이름을 출력
-        if (!string.IsNullOrEmpty(closestObject))
+        if (!string.IsNullOrEmpty(closestObject)) // 공백이거나 NULL이 아니라면
         {
             Debug.Log("가장 가까운 오브젝트: " + closestObject);
         }
