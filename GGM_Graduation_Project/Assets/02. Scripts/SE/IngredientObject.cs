@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IngredientObject : MonoBehaviour
+public class IngredientObject : Ingredient<ThreeIngredientType>
 {
-    [SerializeField] private GameObject ingredientPrefab;
-    [SerializeField] private IngredientType inputType = IngredientType.raw;        // 들어와야 하는 재료의 단계
+    //[SerializeField] private GameObject ingredientPrefab;
+    //[SerializeField] private ThreeIngredientType inputType = ThreeIngredientType.raw;        // 들어와야 하는 재료의 단계
 
     private Vector3 createPos;
 
-    private void Awake()
+   /* private void Awake()
     {
         createPos = transform.position;
     }
@@ -52,6 +52,6 @@ public class IngredientObject : MonoBehaviour
     {
         // 풀링 사용해서 해주기
         Destroy(garbage);
-    }
-    #endregion
+    }*/
+    //#endregion
 }

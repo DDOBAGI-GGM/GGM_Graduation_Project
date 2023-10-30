@@ -1,62 +1,54 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum IngredientType
+public enum ThreeIngredientType
 {
     raw = 0,
     processing = 1,
-    completion = 2
+    completion = 2,
+    typeNumber = 3,
 }
 
-public class Ingredient : MonoBehaviour
+public enum TwoIngredientType
+{
+    raw = 0,
+    completion = 1,
+    typeNumber = 2,
+}
+
+public class Ingredient<T> : MonoBehaviour where T : struct      // 이넘값만 받아오깅
 {
     /*
      ingredient : 특히 요리 등의) 재료, (…을 이루는 데 중요한) 구성 요소
      */
- 
-    [SerializeField] private IngredientType type;
-    public IngredientType Type
+
+    [SerializeField] T type;     // 재료의 상태를 정할 때
+    [SerializeField] protected GameObject[] visual;           // 이러면 용량이 너무 많아 지지 않나?
+
+   public T Type
     {
         get { return type; }
         set 
         { 
-            ChangeType(type, value);
-            type = value;
+            type = ChangeType(type, value);
         }
     }
-    [SerializeField] private GameObject[] visual = new GameObject[3];           // 이러면 용량이 너무 많아 지지 않나?
 
-    public void ChangeType(IngredientType before, IngredientType after)
+    public T ChangeType<T>(T before, T after)           // 재료 상태 변경해줌.
     {
-        visual[(int)before].SetActive(false);
-        visual[(int)after].SetActive(true);
+        if (Convert.ToInt32(type) + 1 == (int)type.GetType().GetField("typeNumber").GetValue(type))
+        {
+            Debug.LogError(this.gameObject.name + " is completion.");
+            return before;
+        }
+
+        Debug.Log($"{Convert.ToInt32(before)} 는 현재, {Convert.ToInt32(after)} 는 바꿀것");
+        visual[Convert.ToInt32(before)].SetActive(false);
+        visual[Convert.ToInt32(after)].SetActive(true);        // 일반화 하기
+
         Debug.Log("visual 외향 변경해주기");
+        return after;
     }
-
-#if UNITY_EDITOR        // 디버그용
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Debug.Log("raw");
-            Type = IngredientType.raw;
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("processing");
-            Type = IngredientType.processing;
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Debug.Log("completion");
-            Type = IngredientType.completion;
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Debug.Log("Interaction");
-            FindObjectOfType<IngredientObject>().Interaction(this, 1f);
-        }
-    }
-#endif
 }
