@@ -5,16 +5,10 @@ using UnityEngine;
 public class ThreeIngredientObject : Ingredient<ThreeIngredientType>
 {
     [SerializeField] private GameObject ingredientPrefab;
-    private Vector3 createPos;
 
     private void Awake()
     {
-        createPos = transform.position;
-        visual = new GameObject[(int)ThreeIngredientType.typeNumber];
-        for (int i = 0; i < 3; i++)
-        {
-            visual[i] =  gameObject.transform.GetChild(i).gameObject;
-        }
+        base.Awake();
     }
 
     #region 재료 생성
