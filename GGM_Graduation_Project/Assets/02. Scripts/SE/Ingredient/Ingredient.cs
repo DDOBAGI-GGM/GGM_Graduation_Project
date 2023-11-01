@@ -38,6 +38,7 @@ public class Ingredient<T> : MonoBehaviour where T : struct      // 이넘값만 받�
         }
     }
 
+    // 변수 초기화해주고 오브젝트들 넣어주기
     public void Awake()
     {
         createPos = transform.position;

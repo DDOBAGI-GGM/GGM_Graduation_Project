@@ -31,16 +31,3 @@ public class testcode : MonoBehaviour
         }*/
     }
 }
-
-
-public abstract class testclass<T> where T : testcode 
-{
-
-}
-
-
-
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
-{
-
-}

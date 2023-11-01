@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TwoIngredientObject : Ingredient<TwoIngredientType>
+public interface IObject
 {
-
+    void Interaction(GameObject ingredient = null);
 }
