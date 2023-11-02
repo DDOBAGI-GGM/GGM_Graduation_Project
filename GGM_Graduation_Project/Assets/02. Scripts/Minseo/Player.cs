@@ -162,8 +162,8 @@ public class Player : MonoBehaviour
 
     private void ItemPickUpAndPuttingDown() // 오브젝트 들고 내려놓기
     {
-        if(gameObject.CompareTag("Object"))
-        {
+        //if(gameObject.CompareTag("Object"))
+        //{
             if (currentObjectInHand == null) // 손에 아무것도 들고 있지 않을 때
             {
                 // 오브젝트를 들어주는 로직을 작성
@@ -187,6 +187,6 @@ public class Player : MonoBehaviour
                     currentObjectInHand = null; // 손에 들고 있는 오브젝트를 해제
                 }
             }
-        }
+        //}
     }
 }

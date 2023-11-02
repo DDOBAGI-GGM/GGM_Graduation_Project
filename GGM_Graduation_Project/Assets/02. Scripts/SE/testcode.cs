@@ -17,17 +17,18 @@ public class testcode : MonoBehaviour
         }
     }
 
+    GameObject a;
+
     private void dd()
     {
-      /*  float a = 0;
-        a = Time.time;
-        while (true)
+     /*   var scripts = a.GetComponents<MonoBehaviour>();
+        foreach (var script in scripts)
         {
-            Debug.Log(a);
-            if (a  - Time.time < -5)
+            if (script.GetType().IsSubclassOf(typeof(Ingredient)))
             {
-                break;
+                // 원하는 처리를 수행합니다.
             }
         }*/
+
     }
 }
