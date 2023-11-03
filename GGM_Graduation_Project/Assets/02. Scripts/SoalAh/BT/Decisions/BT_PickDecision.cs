@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BT_PickDecision : BT_Node
+namespace BehaviorTree
 {
-    public override NodeType Evaluate()
+    public class BT_PickDecision : BT_Node
     {
-        throw new System.NotImplementedException();
+        public override NodeType Evaluate()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

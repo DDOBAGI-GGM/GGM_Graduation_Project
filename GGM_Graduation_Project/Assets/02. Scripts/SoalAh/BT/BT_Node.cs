@@ -27,7 +27,7 @@ namespace BehaviorTree
         PRODUCT
     }
 
-    public enum DeviceType
+    public enum DvcType
     {
         SOURCE = 0,
         PROCESS_FIRST,

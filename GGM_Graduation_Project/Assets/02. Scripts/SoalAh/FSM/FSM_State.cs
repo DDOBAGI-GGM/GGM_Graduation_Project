@@ -23,6 +23,6 @@ public class FSM_State : MonoBehaviour
 
     public void PlayAction()
     {
-        // BT »£√‚
+        _action.Action();
     }
 }

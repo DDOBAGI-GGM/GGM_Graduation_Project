@@ -1,18 +1,15 @@
+using BehaviorTree;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BT_AttackDecision : MonoBehaviour
+namespace BehaviorTree
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BT_AttackDecision : BT_Node
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override NodeType Evaluate()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
