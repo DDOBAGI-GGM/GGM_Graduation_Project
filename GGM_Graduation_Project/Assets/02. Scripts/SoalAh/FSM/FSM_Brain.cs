@@ -12,7 +12,7 @@ public class FSM_Brain : MonoBehaviour
 
     [SerializeField] FSM_State curState; // 현재 상태
     [SerializeField] List<FSM_State> states = new List<FSM_State>(); // 상태 리스트
-    //public List<GameObject> targets = new List<GameObject>(); // 오브젝트 리스트
+    public List<List<GameObject>> objPos = new List<List<GameObject>>(); // 오브젝트 리스트
 
     [SerializeField] GameObject _hand = null;
     public ObjectType _curObjType = ObjectType.NONE;
@@ -38,13 +38,14 @@ public class FSM_Brain : MonoBehaviour
         curState = _state;
     }
 
-    public bool SetDestination(List<GameObject> _targets, float _speed)
+    public bool SetDestination(DvcType _targets)
     {
         // 속도 설정
-        _agent.speed = _speed;
-        // 목적지로 이동
+        //_agent.speed = _speed;
+        // 목적지로 이동 (1. 종류, 2. 사용에 가능?, 3. 가장 가까운)
+        
         // 도마가 2개일 수도 있잖아... 그럼 두 개 중에 어떤 도마를 쓸건지? 확인하는? for
-        //_agent.SetDestination(_target.transform.position);
+        //_agent.SetDestination(objPos[_targets][0].transform.position);
 
         // 플레이어가 목적지에 거의 다 도달했다면
         if (_agent.remainingDistance > 0.5f && _agent.velocity.sqrMagnitude > 0.5f)
