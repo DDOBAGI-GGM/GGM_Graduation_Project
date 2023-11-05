@@ -3,32 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviorTree
+public class BT_Selector : BT_Node
 {
-    public class BT_Selector : BT_Node
+    protected List<BT_Node> nodes = new List<BT_Node>();
+    public BT_Selector(List<BT_Node> _nodes) { nodes = _nodes; }
+
+    public override NodeType Evaluate()
     {
-        protected List<BT_Node> nodes = new List<BT_Node>();
-        public BT_Selector(List<BT_Node> _nodes) { nodes = _nodes; }
-
-        public override NodeType Evaluate()
+        foreach (BT_Node node in nodes)
         {
-            foreach (BT_Node node in nodes)
+            switch (node.Evaluate())
             {
-                switch (node.Evaluate())
-                {
-                    case NodeType.RUNNING:
-                        _nodeState = NodeType.RUNNING;
-                        return _nodeState;
-                    case NodeType.SUCCESS:
-                        _nodeState = NodeType.SUCCESS;
-                        return _nodeState;
-                    case NodeType.FAILURE:
-                        break;
-                }
+                case NodeType.RUNNING:
+                    _nodeState = NodeType.RUNNING;
+                    return _nodeState;
+                case NodeType.SUCCESS:
+                    _nodeState = NodeType.SUCCESS;
+                    return _nodeState;
+                case NodeType.FAILURE:
+                    break;
             }
-
-            _nodeState = NodeType.FAILURE;
-            return _nodeState;
         }
+
+        _nodeState = NodeType.FAILURE;
+        return _nodeState;
     }
 }

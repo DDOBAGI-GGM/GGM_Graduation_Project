@@ -16,7 +16,9 @@ namespace BehaviorTree
         NONE = 0,
         PICK,
         MAKING,
-        ATTACK
+        ATTACK,
+        FIX,
+        THROWOUT
     }
 
     public enum ObjectType
@@ -33,6 +35,7 @@ namespace BehaviorTree
         PROCESS_FIRST,
         PROCESS_SECOND,
         ATTACK,
+        GARBAGE,
         BREAKDOWN
     }
 
