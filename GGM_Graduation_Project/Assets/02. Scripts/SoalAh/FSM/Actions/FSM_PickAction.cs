@@ -7,6 +7,6 @@ public class FSM_PickAction : FSM_Action
 {
     public override void Action()
     {
-        
+        Debug.Log("선택 액션 실행중");
     }
 }
