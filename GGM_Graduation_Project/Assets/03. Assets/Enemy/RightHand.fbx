@@ -8,11 +8,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2023
 		Month: 11
-		Day: 5
-		Hour: 23
-		Minute: 35
-		Second: 13
-		Millisecond: 844
+		Day: 6
+		Hour: 0
+		Minute: 43
+		Second: 30
+		Millisecond: 470
 	}
 	Creator: "FBX SDK/FBX Plugins version 2020.3.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -28,19 +28,19 @@ FBXHeaderExtension:  {
 			Comment: ""
 		}
 		Properties70:  {
-			P: "DocumentUrl", "KString", "Url", "", "D:\Project\GGM_Graduation_Project\Player\Player_Hand.fbx"
-			P: "SrcDocumentUrl", "KString", "Url", "", "D:\Project\GGM_Graduation_Project\Player\Player_Hand.fbx"
+			P: "DocumentUrl", "KString", "Url", "", "D:\Project\GGM_Graduation_Project\Player\RightHand.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "D:\Project\GGM_Graduation_Project\Player\RightHand.fbx"
 			P: "Original", "Compound", "", ""
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2022"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "05/11/2023 14:35:13.843"
-			P: "Original|FileName", "KString", "", "", "D:\Project\GGM_Graduation_Project\Player\Player_Hand.fbx"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "05/11/2023 15:43:30.468"
+			P: "Original|FileName", "KString", "", "", "D:\Project\GGM_Graduation_Project\Player\RightHand.fbx"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2022"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "05/11/2023 14:35:13.843"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "05/11/2023 15:43:30.468"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\user\Documents\3ds Max 2022"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "D:\Project\GGM_Graduation_Project\Player.max"
 		}
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 1419061350896, "", "Scene" {
+	Document: 2210018357856, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -305,7 +305,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 1419200651824, "Geometry::", "Mesh" {
+	Geometry: 2212096155648, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.450980392156863,0.450980392156863,0.450980392156863
 		}
@@ -441,7 +441,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 1419059031840, "Model::Hand", "Mesh" {
+	Model: 2210157607744, "Model::RightHand", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
@@ -449,13 +449,14 @@ Objects:  {
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Rotation", "Lcl Rotation", "", "A",90.0000025044781,-0,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.9999974955219,-0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",-1,-1,-1
 			P: "MaxHandle", "int", "Integer", "UH",42
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 1419200653264, "Material::02 - Default", "" {
+	Material: 2212096157568, "Material::02 - Default", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -476,17 +477,17 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Video: 1419200654224, "Video::Map #1", "Clip" {
+	Video: 2212096158528, "Video::Map #1", "Clip" {
 		Type: "Clip"
 		Properties70:  {
-			P: "Path", "KString", "XRefUrl", "", "D:\Project\GGM_Graduation_Project\Player_Hand.psd"
-			P: "RelPath", "KString", "XRefUrl", "", "..\Player_Hand.psd"
+			P: "Path", "KString", "XRefUrl", "", "D:\Project\GGM_Graduation_Project\Enemy\Enemy_Hand.psd"
+			P: "RelPath", "KString", "XRefUrl", "", "..\Enemy\Enemy_Hand.psd"
 		}
 		UseMipMap: 0
-		Filename: "D:\Project\GGM_Graduation_Project\Player_Hand.psd"
-		RelativeFilename: "..\Player_Hand.psd"
+		Filename: "D:\Project\GGM_Graduation_Project\Enemy\Enemy_Hand.psd"
+		RelativeFilename: "..\Enemy\Enemy_Hand.psd"
 	}
-	Texture: 1419200628304, "Texture::Map #1", "" {
+	Texture: 2212096162848, "Texture::Map #1", "" {
 		Type: "TextureVideoClip"
 		Version: 202
 		TextureName: "Texture::Map #1"
@@ -495,20 +496,20 @@ Objects:  {
 			P: "UseMaterial", "bool", "", "",1
 		}
 		Media: "Video::Map #1"
-		FileName: "D:\Project\GGM_Graduation_Project\Player_Hand.psd"
-		RelativeFilename: "..\Player_Hand.psd"
+		FileName: "D:\Project\GGM_Graduation_Project\Enemy\Enemy_Hand.psd"
+		RelativeFilename: "..\Enemy\Enemy_Hand.psd"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	AnimationStack: 1418579768064, "AnimStack::Take 001", "" {
+	AnimationStack: 2210010242544, "AnimStack::Take 001", "" {
 		Properties70:  {
 			P: "LocalStop", "KTime", "Time", "",153953860000
 			P: "ReferenceStop", "KTime", "Time", "",153953860000
 		}
 	}
-	AnimationLayer: 1417650302112, "AnimLayer::BaseLayer", "" {
+	AnimationLayer: 2210013279920, "AnimLayer::BaseLayer", "" {
 	}
 }
 
@@ -517,23 +518,23 @@ Objects:  {
 
 Connections:  {
 	
-	;Model::Hand, Model::RootNode
-	C: "OO",1419059031840,0
+	;Model::RightHand, Model::RootNode
+	C: "OO",2210157607744,0
 	
 	;AnimLayer::BaseLayer, AnimStack::Take 001
-	C: "OO",1417650302112,1418579768064
+	C: "OO",2210013279920,2210010242544
 	
-	;Geometry::, Model::Hand
-	C: "OO",1419200651824,1419059031840
+	;Geometry::, Model::RightHand
+	C: "OO",2212096155648,2210157607744
 	
-	;Material::02 - Default, Model::Hand
-	C: "OO",1419200653264,1419059031840
+	;Material::02 - Default, Model::RightHand
+	C: "OO",2212096157568,2210157607744
 	
 	;Texture::Map #1, Material::02 - Default
-	C: "OP",1419200628304,1419200653264, "DiffuseColor"
+	C: "OP",2212096162848,2212096157568, "DiffuseColor"
 	
 	;Video::Map #1, Texture::Map #1
-	C: "OO",1419200654224,1419200628304
+	C: "OO",2212096158528,2212096162848
 }
 ;Takes section
 ;----------------------------------------------------
