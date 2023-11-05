@@ -16,11 +16,12 @@ public class BT_SetDestination : BT_Node
 
     public override NodeType Evaluate()
     {
-        //while (_brain.SetDestination(_dvcType) == false)
-        //{
-        // // while로 돌려서 무조건 한 번 검사할 때 이동까지 시킬건지 아님 거리 안 되면 fsm에 false 반환할건지?
-        //}
+        while (_brain.SetDestination(_dvcType) == false)
+        {
+            // while로 돌려서 무조건 한 번 검사할 때 이동까지 시킬건지 아님 거리 안 되면 fsm에 false 반환할건지?
+        }
 
-        return _brain.SetDestination(_dvcType) ? NodeType.SUCCESS : NodeType.FAILURE;
+        return NodeType.SUCCESS;
+        //return _brain.SetDestination(_dvcType) ? NodeType.SUCCESS : NodeType.FAILURE;
     }
 }
