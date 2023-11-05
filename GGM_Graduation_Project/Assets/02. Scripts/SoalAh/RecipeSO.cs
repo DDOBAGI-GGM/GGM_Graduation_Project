@@ -19,7 +19,7 @@ public class RecipeSO : ScriptableObject
     public GameObject obj;
     public ObjectType objType;
     public List<RecipeSO> source;
-    public List<DvcType> device;
+    public DvcType device;
     // 이미지
     // 오브젝트 (시작 재료, 중간,,... 에 맞는 조리 기구, 이미지)
 }

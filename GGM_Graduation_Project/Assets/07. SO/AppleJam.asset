@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0509af16975a15e489e9a28f123131b4, type: 3}
-  m_Name: Jam_Apple
+  m_Name: AppleJam
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   objType: 3
   source:
-  - {fileID: 11400000, guid: 6a19f3b1ebdd15c42ad979e6bc6b06d1, type: 2}
-  - {fileID: 11400000, guid: eb0cc2aead255a245a04291b615fcd63, type: 2}
-  device: 02000000
+  - {fileID: 11400000, guid: 12a2eb50157d53149bdd80365945d074, type: 2}
+  - {fileID: 11400000, guid: a25d1a6cdb709824fbef48b78cb656cf, type: 2}
+  device: 3

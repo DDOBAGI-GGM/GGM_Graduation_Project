@@ -12,10 +12,10 @@ public class FSM_Brain : MonoBehaviour
 
     [SerializeField] FSM_State curState; // 현재 상태
     [SerializeField] List<FSM_State> states = new List<FSM_State>(); // 상태 리스트
-    public List<List<GameObject>> objPos = new List<List<GameObject>>(); // 오브젝트 리스트
+    public List<GameObject> objPos = new List<GameObject>(); // 오브젝트 리스트
 
-    [SerializeField] GameObject _hand = null;
-    public ObjectType _curObjType = ObjectType.NONE;
+    [SerializeField] GameObject _hand = null; // 현재 AI가 들고 있는 아이템
+    public ObjectType _curObjType = ObjectType.NONE; // 손에 들려있는 아이템 타입
 
     private void Awake()
     {
@@ -30,6 +30,9 @@ public class FSM_Brain : MonoBehaviour
 
         // 행동 실행
         curState?.PlayAction();
+
+        hand();
+        // 손 상태...
     }
 
     public void ChangeState(FSM_State _state)
@@ -43,9 +46,9 @@ public class FSM_Brain : MonoBehaviour
         // 속도 설정
         //_agent.speed = _speed;
         // 목적지로 이동 (1. 종류, 2. 사용에 가능?, 3. 가장 가까운)
-        
+
         // 도마가 2개일 수도 있잖아... 그럼 두 개 중에 어떤 도마를 쓸건지? 확인하는? for
-        //_agent.SetDestination(objPos[_targets][0].transform.position);
+        //_agent.SetDestination(objPos[m].transform.position);
 
         // 플레이어가 목적지에 거의 다 도달했다면
         if (_agent.remainingDistance > 0.5f && _agent.velocity.sqrMagnitude > 0.5f)
@@ -53,4 +56,12 @@ public class FSM_Brain : MonoBehaviour
 
         return false;
     }
-}
+
+    private void hand()
+    {
+        if (_hand.transform.childCount == 0)
+            _curObjType = ObjectType.NONE;
+        else
+            _curObjType = _hand.transform.GetChild(0).GetComponent<RecipeSO>().objType;
+    }
+ }
