@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class ProcessIngredient : MonoBehaviour, IObject
+public class Table : MonoBehaviour, IObject
 {
     private bool interactive = false;
 
     private PlayerFOV playerFOV;
     private PlayerInteraction playerInteraction;
 
-    [SerializeField] private float deleyTime;
+    public GameObject Interaction(GameObject ingredient = null)
+    {
+        if (interactive) {
+            ingredient.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+            ingredient.transform.parent = transform;
+            //playerInteraction.CurrentObjectInHand = null;
+        }
+        return null;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,9 +33,9 @@ public class ProcessIngredient : MonoBehaviour, IObject
             }
             if (playerFOV.CheckForObjectsInView() == gameObject.transform.name)
             {
-                playerInteraction.is_Object = true;
                 interactive = true;
-                Debug.Log("플레이어 인터랙션 시 재료의 프로세싱이 시작되요.");
+                //playerInteraction.is_Object = true;
+                Debug.Log("플레이어 인터랙션 시 테이블에 재료를 올려놓아요.");
             }
         }
     }
@@ -37,35 +45,9 @@ public class ProcessIngredient : MonoBehaviour, IObject
         if (other.gameObject.CompareTag("Player"))
         {
             //상호작용 가능 표시해주기
-            playerInteraction.is_Object = false;
+            //playerInteraction.is_Object = true;
             interactive = false;
         }
-    }
-
-    public GameObject Interaction(GameObject ingredient)        // 이고 확인해주기
-    {
-        if (interactive)
-        {
-            // 스크립트 받아와주기
-            Debug.Log("프로세싱");
-            StopCoroutine(InteractionRoutine(ingredient));
-            StartCoroutine(InteractionRoutine(ingredient));
-        }
-        return null;
-    }
-
-    public IEnumerator InteractionRoutine(GameObject ingredient)
-    {
-        var time = new WaitForSeconds(1f);
-        for (int i = 1; i <= deleyTime; i++)
-        {
-            yield return time;
-            Debug.Log($"기다리는 중... {i}/{deleyTime}");
-        }
-        //Ingredient next = ingredient.GetComponent<Ingredient>();
-        Apple idf = ingredient.GetComponent<Apple>();
-        Debug.Log(idf);
-        idf.TypeChange();
     }
 
 #if UNITY_EDITOR

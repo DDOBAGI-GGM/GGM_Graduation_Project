@@ -11,7 +11,7 @@ public class PlayerFOV : MonoBehaviour
 
     private void Update()
     {
-        CheckForObjectsInView();
+        //CheckForObjectsInView();
     }
 
     public string CheckForObjectsInView() // 시야각 체크
@@ -42,7 +42,7 @@ public class PlayerFOV : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("Object"))
                     {
-                        Debug.Log("오브젝트 이름 : " + hit.transform.name);
+                        //Debug.Log("오브젝트 이름 : " + hit.transform.name);
 
                         // 거리가 더 가까운 오브젝트 
                         float distanceToCollider = Vector3.Distance(playerPosition, hit.transform.position);
@@ -69,4 +69,26 @@ public class PlayerFOV : MonoBehaviour
         return closestObject;   
     }
 
+/*#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        if (UnityEditor.Selection.activeObject == gameObject)
+        {
+            Gizmos.color = Color.green;
+            Vector3 playerPosition = transform.position; // 플레이어 위치
+            Vector3 forward = transform.forward;
+
+            float halfFOV = fieldOfViewAngle / 2f; // 시야각의 반 각도
+
+            // 시야 범위를 시각적으로 표시
+            Vector3 leftBoundary = Quaternion.Euler(0, -halfFOV, 0) * forward;
+            Vector3 rightBoundary = Quaternion.Euler(0, halfFOV, 0) * forward;
+            //Debug.DrawRay(playerPosition, leftBoundary * viewDistance, Color.green);
+            Gizmos.DrawLine(playerPosition, leftBoundary * viewDistance);
+            //Debug.DrawRay(playerPosition, rightBoundary * viewDistance, Color.green);
+            Gizmos.DrawLine(playerPosition, rightBoundary * viewDistance);
+            Gizmos.color = Color.green;
+        }
+    }
+#endif*/
 }

@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class Apple : Ingredient
 {
-    private ThreeIngredientType type;
+    public ThreeIngredientType type = ThreeIngredientType.raw;
 
     private void Awake()
     {
         Init(type);
+    }
+
+    public void TypeChange()
+    {
+        if (ChangeType(type))
+        {
+            type = type + 1;
+        }
     }
 }
