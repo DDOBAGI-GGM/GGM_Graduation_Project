@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Apple : Ingredient
+public class ThreeIngredient : Ingredient
 {
     public ThreeIngredientType type = ThreeIngredientType.raw;
 

@@ -7,14 +7,14 @@ public class PlayerFOV : MonoBehaviour
     [SerializeField] private float fieldOfViewAngle = 120f; // 시야각 
     [SerializeField] private float viewDistance = 1.5f;     // 시야 범위 길이 
 
-    private string closestObject = "";      // 가장 가까운 오브젝트
+    private GameObject closestObject;      // 가장 가까운 오브젝트
 
     private void Update()
     {
         //CheckForObjectsInView();
     }
 
-    public string CheckForObjectsInView() // 시야각 체크
+    public GameObject CheckForObjectsInView() // 시야각 체크
     {
         Vector3 playerPosition = transform.position; // 플레이어 위치
         Vector3 forward = transform.forward;
@@ -49,7 +49,7 @@ public class PlayerFOV : MonoBehaviour
                         if (distanceToCollider < closestDistance)
                         {
                             closestDistance = distanceToCollider;
-                            closestObject = hit.transform.name;
+                            closestObject = hit.collider.gameObject;
                         }
 
                         // 테스트를 위한 그림
@@ -60,9 +60,21 @@ public class PlayerFOV : MonoBehaviour
         }
 
         // 가장 가까운 오브젝트의 이름을 출력
-        if (!string.IsNullOrEmpty(closestObject)) // 공백이거나 NULL이 아니라면
+        if (closestObject != null) // 공백이거나 NULL이 아니라면
         {
-            Debug.Log("가장 가까운 오브젝트: " + closestObject);
+            //Debug.Log("가장 가까운 오브젝트: " + closestObject.name);
+            if (closestObject.name == "Table")
+            {
+                Table table = closestObject.GetComponent<Table>();
+                if (table != null)
+                {
+                     Debug.Log(table.Is_existObject);
+                    if (table.Is_existObject && table.Interactive)
+                    {
+                        closestObject = table.Interaction();
+                    }
+                }
+            }
             return closestObject;
         }
 
