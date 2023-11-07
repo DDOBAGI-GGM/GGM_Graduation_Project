@@ -63,7 +63,7 @@ public class PlayerFOV : MonoBehaviour
         if (closestObject != null) // 공백이거나 NULL이 아니라면
         {
             //Debug.Log("가장 가까운 오브젝트: " + closestObject.name);
-            if (closestObject.name == "Table")
+            if (closestObject.name == "Table")      // 테이블일 경우
             {
                 Table table = closestObject.GetComponent<Table>();
                 if (table != null)
@@ -75,10 +75,11 @@ public class PlayerFOV : MonoBehaviour
                     }
                 }
             }
+            //Debug.Log(closestObject);
             return closestObject;
         }
 
-        return closestObject;   
+        return null;        // 위에서 널체크 해주니까.   
     }
 
 /*#if UNITY_EDITOR

@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 616068966}
   m_Layer: 0
   m_Name: MergingTable
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -556,6 +556,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a871c6222bfc9da43a7c05d46672668a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pen:
+  - {fileID: 1055824551}
+  - {fileID: 1420632334}
+  recipe: []
 --- !u!135 &616068967
 SphereCollider:
   m_ObjectHideFlags: 0

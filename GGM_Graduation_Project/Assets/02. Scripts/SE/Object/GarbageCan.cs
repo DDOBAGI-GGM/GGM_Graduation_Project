@@ -17,6 +17,7 @@ public class GarbageCan : MonoBehaviour, IObject
         {
             //풀링 사용해서 해주기
             Debug.Log("버려주기");
+            playerInteraction.CurrentObjectInHand = null;       // 손에서 버려주기
             Destroy(ingredient);
         }
         return null;

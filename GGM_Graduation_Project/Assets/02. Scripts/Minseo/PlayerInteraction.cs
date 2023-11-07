@@ -11,7 +11,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Transform _handPos; // 손 위치
 
     private GameObject currentObjectInHand; // 현재 있는 오브젝트
-    public GameObject CurrentObjectInHand { get { return currentObjectInHand; } set { currentObjectInHand = value; } }
+    public GameObject CurrentObjectInHand { get { return currentObjectInHand; } set { currentObjectInHand = value; } }        // 이거에 대해서 수정해보기
 
     private bool is_GetIngredient = false;
     public bool Is_GetIngredient { get { return is_GetIngredient; } set { is_GetIngredient = value; } }
@@ -30,7 +30,7 @@ public class PlayerInteraction : MonoBehaviour
         //Debug.Log("상호작용 키를 눌렀습니다.");
         if (!is_GetIngredient && !is_Object)
         {
-            Debug.Log("테이블 오브젝트 줍기");
+            Debug.Log("테이블 오브젝트를 줍거나 머지대에 가거나");
             ItemPickUpAndPuttingDown();         // 바닥? 에있는 오브젝트를 줍는 것.
         }
         else if (is_GetIngredient)
@@ -45,14 +45,14 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    private void ItemPickUpAndPuttingDown() // 오브젝트 들고 내려놓기
+    private void ItemPickUpAndPuttingDown() // 오브젝트 들고 내려놓기     테이블에서 가져오는 경우
     {
         // if(gameObject.CompareTag("Object"))
         // {
-        if (currentObjectInHand == null) // 손에 아무것도 들고 있지 않을 때
+            GameObject objectToPickup = _playerFOV.CheckForObjectsInView();
+        if (currentObjectInHand == null && objectToPickup != null) // 손에 아무것도 들고 있지 않을 때
         {
             // 오브젝트를 들어주는 로직을 작성
-            GameObject objectToPickup = _playerFOV.CheckForObjectsInView();        // 이거 추후 코드 수정하기
             Debug.Log(objectToPickup);
             if (objectToPickup != null && objectToPickup.gameObject.CompareTag("Item"))     // 아이템일 경우에만
             {
@@ -61,16 +61,18 @@ public class PlayerInteraction : MonoBehaviour
                 currentObjectInHand = objectToPickup; // 손에 오브젝트를 들었다고 표시
             }
         }
-     /*   else // 손에 이미 오브젝트를 들고 있을 때
+        else if (objectToPickup != null)       // 손에 뭘 들고 있고 지금꺼가 작업대(머지) 이면
         {
-            // 오브젝트를 놓는 로직을 작성
-            if (currentObjectInHand != null)
+            if (objectToPickup.gameObject.name == "MergingTable")
             {
-                currentObjectInHand.transform.parent = null; // 오브젝트의 부모 설정을 해제
-                currentObjectInHand = null; // 손에 들고 있는 오브젝트를 해제
+                Debug.Log("손에 뭘 들고 있고 지금꺼가 작업대일 때만");
+                IObject merge = objectToPickup.GetComponent<IObject>();
+                if (merge != null)      // 널이 아닌경우에만
+                {
+                    merge.Interaction(currentObjectInHand);
+                }
             }
-        }*/
-        // }
+        }
     }
 
     private void ItemGetInteraction()
@@ -90,7 +92,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    private void ItemObjectInteraction()
+    private void ItemObjectInteraction()        // 테이블에 두는 경우와 무기, 쓰레기통과 조합대에서
     {
         if (currentObjectInHand != null)        // 손에 뭘 들고 있으면
         {
