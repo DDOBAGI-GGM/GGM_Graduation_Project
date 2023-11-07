@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab02a616ede474641a751903c3a59cd9, type: 3}
+  m_Name: AppleJam-Floor
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 7725048403696125913, guid: d87d40f15a8242842839d90a0c115d22,
+    type: 3}
+  recipe:
+  - fruit
+  - sugar
+  weaponType: 0

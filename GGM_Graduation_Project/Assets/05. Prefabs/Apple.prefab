@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6034862031060237746}
   m_Layer: 0
   m_Name: Apple
-  m_TagString: Object
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visual: []
+  type: 0
 --- !u!1 &5785083958222630185
 GameObject:
   m_ObjectHideFlags: 0
