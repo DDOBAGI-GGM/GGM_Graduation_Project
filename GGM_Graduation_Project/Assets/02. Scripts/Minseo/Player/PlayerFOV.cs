@@ -7,14 +7,14 @@ public class PlayerFOV : MonoBehaviour
     [SerializeField] private float fieldOfViewAngle = 120f; // 시야각 
     [SerializeField] private float viewDistance = 1.5f;     // 시야 범위 길이 
 
-    private string closestObject = "";      // 가장 가까운 오브젝트
+    private GameObject closestObject;      // 가장 가까운 오브젝트
 
     private void Update()
     {
-        CheckForObjectsInView();
+        //CheckForObjectsInView();
     }
 
-    public string CheckForObjectsInView() // 시야각 체크
+    public GameObject CheckForObjectsInView() // 시야각 체크
     {
         Vector3 playerPosition = transform.position; // 플레이어 위치
         Vector3 forward = transform.forward;
@@ -42,14 +42,14 @@ public class PlayerFOV : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("Object"))
                     {
-                        Debug.Log("오브젝트 이름 : " + hit.transform.name);
+                        //Debug.Log("오브젝트 이름 : " + hit.transform.name);
 
                         // 거리가 더 가까운 오브젝트 
                         float distanceToCollider = Vector3.Distance(playerPosition, hit.transform.position);
                         if (distanceToCollider < closestDistance)
                         {
                             closestDistance = distanceToCollider;
-                            closestObject = hit.transform.name;
+                            closestObject = hit.collider.gameObject;
                         }
 
                         // 테스트를 위한 그림
@@ -60,13 +60,48 @@ public class PlayerFOV : MonoBehaviour
         }
 
         // 가장 가까운 오브젝트의 이름을 출력
-        if (!string.IsNullOrEmpty(closestObject)) // 공백이거나 NULL이 아니라면
+        if (closestObject != null) // 공백이거나 NULL이 아니라면
         {
-            Debug.Log("가장 가까운 오브젝트: " + closestObject);
+            //Debug.Log("가장 가까운 오브젝트: " + closestObject.name);
+            if (closestObject.name == "Table")      // 테이블일 경우
+            {
+                Table table = closestObject.GetComponent<Table>();
+                if (table != null)
+                {
+                     Debug.Log(table.Is_existObject);
+                    if (table.Is_existObject && table.Interactive)
+                    {
+                        closestObject = table.Interaction();
+                    }
+                }
+            }
+            //Debug.Log(closestObject);
             return closestObject;
         }
 
-        return closestObject;   
+        return null;        // 위에서 널체크 해주니까.   
     }
 
+/*#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        if (UnityEditor.Selection.activeObject == gameObject)
+        {
+            Gizmos.color = Color.green;
+            Vector3 playerPosition = transform.position; // 플레이어 위치
+            Vector3 forward = transform.forward;
+
+            float halfFOV = fieldOfViewAngle / 2f; // 시야각의 반 각도
+
+            // 시야 범위를 시각적으로 표시
+            Vector3 leftBoundary = Quaternion.Euler(0, -halfFOV, 0) * forward;
+            Vector3 rightBoundary = Quaternion.Euler(0, halfFOV, 0) * forward;
+            //Debug.DrawRay(playerPosition, leftBoundary * viewDistance, Color.green);
+            Gizmos.DrawLine(playerPosition, leftBoundary * viewDistance);
+            //Debug.DrawRay(playerPosition, rightBoundary * viewDistance, Color.green);
+            Gizmos.DrawLine(playerPosition, rightBoundary * viewDistance);
+            Gizmos.color = Color.green;
+        }
+    }
+#endif*/
 }

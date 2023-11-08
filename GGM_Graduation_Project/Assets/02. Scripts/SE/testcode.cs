@@ -1,12 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+public class Recipe : ScriptableObject
+{
+    public GameObject completion;           // 무기
+    public List<GameObject> items;          // 필요한 상태들?
+}
 
 public class testcode : MonoBehaviour
 {
+    HashSet<Recipe> recipes = new HashSet<Recipe>();
+
+    private void Start()
+    {
+        recipes.Add(new Recipe());
+    }
+
+
     public static testcode instance;
 
     public static testcode Instance { get { return instance; } }
+
+    public Button button;
 
     private void Update()
     {
@@ -14,6 +31,15 @@ public class testcode : MonoBehaviour
         {
             dd();
             Debug.Log("tlqk");
+        }
+
+        if (Input.GetKey(KeyCode.F))
+        {
+            button.interactable = false;
+        }
+        else
+        {
+            button.interactable = true;
         }
     }
 

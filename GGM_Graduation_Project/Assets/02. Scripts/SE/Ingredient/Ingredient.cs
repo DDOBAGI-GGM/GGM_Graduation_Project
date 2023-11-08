@@ -38,20 +38,21 @@ public class Ingredient : MonoBehaviour
         }
     }
 
-    public void ChangeType<T>(T type)           // 재료 상태 변경해줌.
+    public bool ChangeType<T>(T type)           // 재료 상태 변경해줌.
     {
         if (Convert.ToInt32(type) + 1 == (int)type.GetType().GetField("end").GetValue(type))
         // 타입 가져오고 그 타입에서 end 가 있는지 확인해서 그 필드(자료형?) 을 가져와서 필드 안 함수 GetValue 를 통해 값을 오브젝트로 받아와 인트로 언박싱 해준다.
         {
             Debug.LogError(this.gameObject.name + " is completion.");       // 완성되어있다. 이미 끝 단계.
-            return;
+            return false;
         }
-
         //Debug.Log($"{Convert.ToInt32(before)} 는 현재, {Convert.ToInt32(after)} 는 바꿀것");
         visual[Convert.ToInt32(type)].SetActive(false);
-        visual[Convert.ToInt32(type) + 1].SetActive(true);        // 오브젝트 꺼주기
+        visual[Convert.ToInt32(type) + 1].SetActive(true);        // 오브젝트 끄고 켜주기
 
-        //Debug.Log("visual 외향 변경해주기");
+        Debug.Log("visual 외향 변경해주기");
+
+        return true;
     }
 }
 
