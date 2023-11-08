@@ -12,5 +12,5 @@ public abstract class FSM_Action : MonoBehaviour
         _brain = GetComponentInParent<FSM_Brain>();
     }
 
-    public abstract void Action();
+    public abstract void Action(GameObject _destination);
 }

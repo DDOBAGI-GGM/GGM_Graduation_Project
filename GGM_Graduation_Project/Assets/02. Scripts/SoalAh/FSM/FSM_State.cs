@@ -21,8 +21,8 @@ public class FSM_State : MonoBehaviour
             _brain.ChangeState(this); // 상태를 변경할 수 있다면 현재 상태를 넘긴다
     }
 
-    public void PlayAction()
+    public void PlayAction(GameObject _destination)
     {
-        _action.Action(); // 액션 실행
+        _action.Action(_destination); // 액션 실행
     }
 }
