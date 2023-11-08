@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1305386051574472644}
   - component: {fileID: 1705618896749315901}
   - component: {fileID: 1730887825282897208}
+  - component: {fileID: 8468508968535287456}
   m_Layer: 0
-  m_Name: Garbage - NoWeapon
-  m_TagString: Untagged
+  m_Name: AppleJam-Floor
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c3e98df6f3bb67644a106ce5870b5390, type: 2}
+  - {fileID: 2100000, guid: e2c02a0414428984eb9ed2178ac7f90e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,3 +108,15 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &8468508968535287456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725048403696125913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea1b8f5b6137494ca600d6a0bf04a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

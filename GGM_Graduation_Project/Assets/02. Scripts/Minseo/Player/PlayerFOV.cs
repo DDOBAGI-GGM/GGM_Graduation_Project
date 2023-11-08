@@ -65,13 +65,25 @@ public class PlayerFOV : MonoBehaviour
             //Debug.Log("가장 가까운 오브젝트: " + closestObject.name);
             if (closestObject.name == "Table")      // 테이블일 경우
             {
-                Table table = closestObject.GetComponent<Table>();
+                Table table = closestObject.GetComponent<Table>();          // 얘네는 계속해서 가져오는 거니까 변경해주기 테이블이 여러개인지 물어보고
                 if (table != null)
                 {
-                     Debug.Log(table.Is_existObject);
+                     //Debug.Log(table.Is_existObject);
                     if (table.Is_existObject && table.Interactive)
                     {
                         closestObject = table.Interaction();
+                    }
+                }
+            }
+            else if (closestObject.name == "MergingTable")      // 만약 머지테이블에서 나온 완성 품이라면
+            {
+                MergeIngredient merge = closestObject.GetComponent<MergeIngredient>();
+                if (merge != null)
+                {
+                    //Debug.Log(merge.Result);
+                    if (merge.Result && merge.Interactive)       // 리솔츠가 있으면
+                    {
+                        closestObject = merge.Interaction();
                     }
                 }
             }

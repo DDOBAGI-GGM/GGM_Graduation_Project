@@ -15,6 +15,6 @@ MonoBehaviour:
   weaponPrefab: {fileID: 7725048403696125913, guid: d87d40f15a8242842839d90a0c115d22,
     type: 3}
   recipe:
-  - fruit
-  - sugar
-  weaponType: 0
+  - Apple-completion
+  - Sugar
+  weaponType: 2

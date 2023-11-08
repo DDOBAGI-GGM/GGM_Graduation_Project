@@ -12,7 +12,6 @@ public class GarbageCan : MonoBehaviour, IObject
 
     public GameObject Interaction(GameObject ingredient)
     {
-        Debug.Log("qjfud");
         if (interactive)
         {
             //풀링 사용해서 해주기
