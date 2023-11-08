@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1705618896749315901}
   - component: {fileID: 1730887825282897208}
   m_Layer: 0
-  m_Name: Garbage - NoWeapon
-  m_TagString: Untagged
+  m_Name: Garbage
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

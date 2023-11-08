@@ -559,7 +559,10 @@ MonoBehaviour:
   pen:
   - {fileID: 1055824551}
   - {fileID: 1420632334}
-  recipe: []
+  recipes:
+  - {fileID: 11400000, guid: 9190bb17d9c911844b3b1a8326fda674, type: 2}
+  garbagePrefab: {fileID: 7725048403696125913, guid: 087edf9e2f16a9645af5c176887fe715,
+    type: 3}
 --- !u!135 &616068967
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1913,8 +1916,10 @@ GameObject:
   - component: {fileID: 1740878632}
   - component: {fileID: 1740878631}
   - component: {fileID: 1740878630}
+  - component: {fileID: 1740878634}
+  - component: {fileID: 1740878633}
   m_Layer: 0
-  m_Name: "IngredientBox-\uBB50\uC2DC\uAE7D\uC2A4"
+  m_Name: IngredientBox-Sugar
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2006,6 +2011,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740878628}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1740878633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740878628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d991f584a2aafb4997f3e31ea7f1dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  giveIngredientPrefab: {fileID: 378313577594068557, guid: 516c0b07318e6eb458f7087487eb6f52,
+    type: 3}
+--- !u!135 &1740878634
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740878628}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1784886230
 GameObject:
   m_ObjectHideFlags: 0

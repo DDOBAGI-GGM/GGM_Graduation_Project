@@ -63,9 +63,21 @@ public class ProcessIngredient : MonoBehaviour, IObject
             Debug.Log($"기다리는 중... {i}/{deleyTime}");
         }
         //Ingredient next = ingredient.GetComponent<Ingredient>();
-        ThreeIngredient idf = ingredient.GetComponent<ThreeIngredient>();
-        Debug.Log(idf);
-        idf.TypeChange();
+        ThreeIngredient three = ingredient.GetComponent<ThreeIngredient>();
+        if (three != null)
+        {
+            Debug.Log("세 개를 찾았어요!");
+            three.TypeChange();
+        }
+        else
+        {
+            TwoIngredient two = ingredient.GetComponent<TwoIngredient>();
+            if (two != null)
+            {
+                Debug.Log("두 개를 찾았어요!");
+                two.TypeChange();
+            }
+        }
     }
 
 #if UNITY_EDITOR

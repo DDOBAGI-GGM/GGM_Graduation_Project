@@ -19,7 +19,7 @@ public class IngredientBox : MonoBehaviour, IObject
             // 인터랙션 코드 작성
             // 오브젝트 풀링 사용하기?
             GameObject item = Instantiate(giveIngredientPrefab, transform.position, Quaternion.identity);
-            item.name = item.name.Substring(0, item.name.IndexOf('('));
+            //item.name = item.name.Substring(0, item.name.IndexOf('('));
             return item;
         }
         return null; 

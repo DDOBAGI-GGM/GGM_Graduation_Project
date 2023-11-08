@@ -30,7 +30,7 @@ public class PlayerInteraction : MonoBehaviour
         //Debug.Log("상호작용 키를 눌렀습니다.");
         if (!is_GetIngredient && !is_Object)
         {
-            Debug.Log("테이블 오브젝트를 줍거나 머지대에 가거나");
+            Debug.Log("테이블 오브젝트를 줍거나 머지대에 재료를 두거나 머지대의 완성품을 가져오거나");
             ItemPickUpAndPuttingDown();         // 바닥? 에있는 오브젝트를 줍는 것.
         }
         else if (is_GetIngredient)
@@ -65,7 +65,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (objectToPickup.gameObject.name == "MergingTable")
             {
-                Debug.Log("손에 뭘 들고 있고 지금꺼가 작업대일 때만");
+                //Debug.Log("손에 뭘 들고 있고 지금꺼가 작업대일 때만");
                 IObject merge = objectToPickup.GetComponent<IObject>();
                 if (merge != null)      // 널이 아닌경우에만
                 {
@@ -85,9 +85,12 @@ public class PlayerInteraction : MonoBehaviour
             {
                 GameObject item = objectToPickup.Interaction();
                 //Debug.Log(item);
-                item.transform.position = _handPos.position;        // 오브젝트 손 위치로 이동
-                item.transform.parent = _handPos;       // 손의 자식으로 설정
-                currentObjectInHand = item;     // 손에 들고 있음!
+                if (item != null)
+                {
+                    item.transform.position = _handPos.position;        // 오브젝트 손 위치로 이동
+                    item.transform.parent = _handPos;       // 손의 자식으로 설정
+                    currentObjectInHand = item;     // 손에 들고 있음!
+                }
             }
         }
     }

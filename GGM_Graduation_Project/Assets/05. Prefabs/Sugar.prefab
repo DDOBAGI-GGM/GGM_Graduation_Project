@@ -11,7 +11,27 @@ PrefabInstance:
     - target: {fileID: 4106161784340808154, guid: ae5aecf54fe1683449fd37829a709e86,
         type: 3}
       propertyPath: m_Name
-      value: Yellow Variant
+      value: Sugar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106161784340808154, guid: ae5aecf54fe1683449fd37829a709e86,
+        type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517321580840350032, guid: ae5aecf54fe1683449fd37829a709e86,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517321580840350032, guid: ae5aecf54fe1683449fd37829a709e86,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517321580840350032, guid: ae5aecf54fe1683449fd37829a709e86,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6517321580840350032, guid: ae5aecf54fe1683449fd37829a709e86,
         type: 3}
@@ -68,8 +88,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 82b23f3c4a51e0f47a7dd81b9ea33c42, type: 2}
+    - target: {fileID: 6910084699088277528, guid: ae5aecf54fe1683449fd37829a709e86,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4106161784340808154, guid: ae5aecf54fe1683449fd37829a709e86,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4527961319485969673}
   m_SourcePrefab: {fileID: 100100000, guid: ae5aecf54fe1683449fd37829a709e86, type: 3}
+--- !u!1 &378313577594068557 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4106161784340808154, guid: ae5aecf54fe1683449fd37829a709e86,
+    type: 3}
+  m_PrefabInstance: {fileID: 4448446281443483543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4527961319485969673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378313577594068557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2466ddead45cb3643a7f132ed717c1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Sugar
