@@ -7,6 +7,6 @@ public class BT_AttackDecision : BT_Decision
 {
     public override NodeType Evaluate()
     {
-        throw new System.NotImplementedException();
+        return NodeType.SUCCESS;
     }
 }

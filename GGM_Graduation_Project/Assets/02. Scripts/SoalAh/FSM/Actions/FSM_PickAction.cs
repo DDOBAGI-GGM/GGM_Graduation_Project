@@ -12,6 +12,7 @@ public class FSM_PickAction : FSM_Action
         {
             Debug.Log("선택 액션 실행중");
             _brain.Reset();
+            //_brain._hand = _brain.interaction_Dic[deviceName].Interaction();
         }
     }
 }
