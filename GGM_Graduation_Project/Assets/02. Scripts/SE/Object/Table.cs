@@ -5,7 +5,7 @@ public class Table : MonoBehaviour, IObject
 {
     private bool interactive = false;
     public bool Interactive { get { return interactive; } set { interactive = value; } }
-    private bool is_existObject = false;
+    private bool is_existObject = false;            // 지금 오브젝트가 보관중이니?
     public bool Is_existObject
     {
         get { return is_existObject; }
@@ -28,7 +28,7 @@ public class Table : MonoBehaviour, IObject
                 ingredient.transform.localPosition = new Vector3(0, 0.5f, 0);
                 playerInteraction.CurrentObjectInHand = null;
                 is_existObject = true;   
-                playerInteraction.Is_Object = false;
+                playerInteraction.Is_Object = false;        // 플레이어는 이제 손에 없으니까.
                 Debug.Log("테이블에 넣어짐");
             }
             else
@@ -74,10 +74,7 @@ public class Table : MonoBehaviour, IObject
         if (other.gameObject.CompareTag("Player"))
         {
             //상호작용 가능 표시해주기
-            if (!is_existObject)
-            {
-                playerInteraction.Is_Object = false;
-            }
+            playerInteraction.Is_Object = false;
             interactive = false;
         }
     }

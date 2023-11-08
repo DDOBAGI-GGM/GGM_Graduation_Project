@@ -100,7 +100,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4106161784340808154, guid: ae5aecf54fe1683449fd37829a709e86,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4527961319485969673}
+      addedObject: {fileID: 1605522712191933844}
   m_SourcePrefab: {fileID: 100100000, guid: ae5aecf54fe1683449fd37829a709e86, type: 3}
 --- !u!1 &378313577594068557 stripped
 GameObject:
@@ -108,7 +108,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4448446281443483543}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4527961319485969673
+--- !u!114 &1605522712191933844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 378313577594068557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2466ddead45cb3643a7f132ed717c1f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ea1b8f5b6137494ca600d6a0bf04a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Sugar

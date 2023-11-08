@@ -9,7 +9,7 @@ public enum WeaponType
     floorAttack
 }
 
-[CreateAssetMenu(menuName = "SO/Recipee", fileName = "Recipee")]
+[CreateAssetMenu(menuName = "SO/Recipes", fileName = "Recipes")]
 public class RecipeListSO : ScriptableObject
 {
     public GameObject weaponPrefab;

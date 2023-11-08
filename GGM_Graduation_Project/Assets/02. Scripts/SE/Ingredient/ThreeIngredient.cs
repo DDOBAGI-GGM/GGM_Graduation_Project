@@ -10,7 +10,6 @@ public class ThreeIngredient : Ingredient
     private void Awake()
     {
         Init(type);
-        gameObject.name = gameObject.name.Substring(0, gameObject.name.IndexOf('('));
         name = gameObject.name;
         gameObject.name = $"{name}-{System.Enum.GetName(typeof(ThreeIngredientType), type)}";
     }

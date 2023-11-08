@@ -66,7 +66,7 @@ public class MergeIngredient : MonoBehaviour, IObject
         else if (interactive && (!one || !two) && result)       // 인터랙션 가능하고 조합이 완료되었으며 리솔츠가 있을 때
         {
             if (playerInteraction.CurrentObjectInHand == null) {
-                Debug.Log("완성품 가져갑니다!");
+                //Debug.Log("완성품 가져갑니다!");
                 playerInteraction.Is_Object = true;     // 오브젝트가 손에 들려있으니까.
                 result = false;     // 가져갔으니까.
                 return resultObject;
@@ -86,9 +86,13 @@ public class MergeIngredient : MonoBehaviour, IObject
                 playerFOV = other.gameObject.GetComponent<PlayerFOV>();
                 playerInteraction = other.gameObject.GetComponent<PlayerInteraction>();
             }
-            Debug.Log(playerFOV.CheckForObjectsInView().name);
+            //Debug.Log(playerFOV.CheckForObjectsInView().name);
             if (playerFOV.CheckForObjectsInView().name == gameObject.transform.name)
             {
+                if (!one || !two)
+                {
+                    playerInteraction.Is_Object = true;
+                }
                 interactive = true;
                 // Debug.Log("플레이어 인터랙션 시 재료를 버려요.");
             }
@@ -99,6 +103,7 @@ public class MergeIngredient : MonoBehaviour, IObject
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            playerInteraction.Is_Object = false;
             interactive = false;
         }
     }
@@ -107,7 +112,7 @@ public class MergeIngredient : MonoBehaviour, IObject
     {
         if (one && two)
         {
-            Debug.Log("레시피를 확인해서 결과가 나와용");
+            //Debug.Log("레시피를 확인해서 결과가 나와용");
             // 레시피 확인해주기
             inputList.Sort();
             bool exist = false;
@@ -129,14 +134,14 @@ public class MergeIngredient : MonoBehaviour, IObject
                     }
                 }
 
-                Debug.Log("확인");
+                //Debug.Log("확인");
 
                 if (exist)
                 {
-                    Debug.Log("아이템 생성됨");
-                    Debug.Log(recipes[i].weaponPrefab);
+                    //Debug.Log("아이템 생성됨");
+                    //Debug.Log(recipes[i].weaponPrefab);
                     resultObject = Instantiate(recipes[i].weaponPrefab,  transform.position, Quaternion.identity);
-                    Debug.Log(resultObject);
+                    //Debug.Log(resultObject);
                     resultObject.transform.parent = gameObject.transform;     // 내꺼에 자식으로 넣어줌.
                     resultObject.transform.localPosition = new Vector3(0, 0.5f, 0);        // 위치설정
                     break;
