@@ -13,8 +13,9 @@ public class FSM_ThrowOutDecision : FSM_Decision
 
         BT_Exception _exception = new BT_Exception(ActionType.THROWOUT, _brain._curObjType, DvcType.GARBAGE);
         BT_ThrowOutDecision _decision = new BT_ThrowOutDecision();
-        BT_SetDestination _setDestination = new BT_SetDestination(_brain, DvcType.GARBAGE);
-        _topNode = new BT_Sequence(new List<BT_Node> { _exception, _decision, _setDestination });
+        _topNode = new BT_Sequence(new List<BT_Node> { _exception, _decision });
+        //BT_SetDestination _setDestination = new BT_SetDestination(_brain, DvcType.GARBAGE);
+        //_topNode = new BT_Sequence(new List<BT_Node> { _exception, _decision, _setDestination });
     }
 
     public override bool Decision()
