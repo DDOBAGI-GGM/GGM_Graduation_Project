@@ -41,7 +41,8 @@ public class FSM_Brain : MonoBehaviour
         curState = _state;
     }
 
-    public bool SetDestination(DvcType _targets)
+    //public bool SetDestination(DvcType _targets)
+    public bool SetDestination(GameObject _targets)
     {
         // 속도 설정
         //_agent.speed = _speed;
