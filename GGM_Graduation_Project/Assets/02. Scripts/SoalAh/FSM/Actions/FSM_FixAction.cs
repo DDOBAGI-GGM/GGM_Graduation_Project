@@ -10,6 +10,7 @@ public class FSM_FixAction : FSM_Action
         if (_brain.SetDestination(_destination))
         {
             Debug.Log("수리 액션 실행중");
+            // 아직 안 만들어진 거 같은데...
             _brain.Reset();
         }
     }

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class BT_Decision : BT_Node
 {
-    [SerializeField] protected int trol;
     public override NodeType Evaluate()
     {
+        Debug.Log("중간 값 실행...");
         throw new System.NotImplementedException();
     }
 }

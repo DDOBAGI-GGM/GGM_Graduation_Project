@@ -10,7 +10,7 @@ public class FSM_State : MonoBehaviour
 
     private void Awake()
     {
-        _brain = GetComponent<FSM_Brain>();
+        _brain = GetComponentInParent<FSM_Brain>();
         _action = GetComponent<FSM_Action>();
         _decision = GetComponent<FSM_Decision>();
     }
