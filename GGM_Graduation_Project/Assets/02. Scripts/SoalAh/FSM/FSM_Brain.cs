@@ -1,7 +1,9 @@
 using BehaviorTree;
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using UnityEditor.Animations.Rigging;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,17 +15,31 @@ public class FSM_Brain : MonoBehaviour
     [Header("State")]
     [SerializeField] FSM_State curState; // 현재 상태
     [SerializeField] List<FSM_State> states = new List<FSM_State>(); // 상태 리스트
-    public List<GameObject> objPos = new List<GameObject>(); // 오브젝트 리스트
+    public List<GameObject> devicePos = new List<GameObject>(); // 오브젝트 리스트
 
     [Header("Hand")]
-    [SerializeField] GameObject _hand = null; // 현재 AI가 들고 있는 아이템
+    public GameObject _hand = null; // 현재 AI가 들고 있는 아이템
     public ObjectType _curObjType = ObjectType.NONE; // 손에 들려있는 아이템 타입
+    public GameObject destination;
 
-    protected GameObject destination;
+    public Dictionary<string, IObject> interaction_Dic;
 
     private void Awake()
     {
         _agent= GetComponent<NavMeshAgent>();
+
+        // 각 오브젝트에 있는 기능을 사용하기 위해 Iobject를 받아오고 싶은데 못 받아온다...
+        //for (int i = 0; i < devicePos.Count; ++i)
+        //{
+        //    Debug.Log(i);
+        //    IObject obj = devicePos[i].GetComponent<IObject>();
+        //    if (obj != null)
+        //    {
+        //        Debug.Log(obj.GetType());
+        //        interaction_Dic.Add("ws", obj);
+        //    }
+        //    //interaction_Dic.Add(devicePos[i].name, obj);
+        //}
     }
 
     public void Reset()
@@ -48,18 +64,21 @@ public class FSM_Brain : MonoBehaviour
     public void ChangeState(FSM_State _state)
     {
         // 상태 변환
+        Debug.Log(_state.name);
         curState = _state;
     }
 
     public bool SetDestination(GameObject _targets)
     {
+        Debug.Log("이동");
+        return true;
         // 도착할 때까지 반복
-        while (true)
-        {
-            // 도착했다면
-            if (_agent.remainingDistance > 0.5f && _agent.velocity.sqrMagnitude > 0.5f) 
-                return true;
-        }
+        //while (true)
+        //{
+        //    // 도착했다면
+        //    if (_agent.remainingDistance > 0.5f && _agent.velocity.sqrMagnitude > 0.5f) 
+        //        return true;
+        //}
     }
 
     private void hand()
