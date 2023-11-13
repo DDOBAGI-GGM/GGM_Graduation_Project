@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+// using UnityEngine.Pool 공부해서 그걸로 쓰기!
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField]
