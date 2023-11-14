@@ -4,19 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Windows;
 
-[RequireComponent(typeof(SphereCollider))]
 public class MergeIngredient : MonoBehaviour, IObject
 {
-    private bool interactive = false;
-    public bool Interactive { get { return interactive; } private set { } }
-
     private List<string> inputList = new List<string> ();           // 내가 넣은 재료들
     private List<string>[] recipeList;          // 레시피들 3가지
     private bool one, two, result = false;      // 이렇게 해서 만들어주기?
     public bool Result { get { return result; } private set { } }
-
-    private PlayerFOV playerFOV;
-    private PlayerInteraction playerInteraction;
 
     [SerializeField] private Transform[] pen = new Transform[2];
     [SerializeField] private RecipeListSO[] recipes;
@@ -45,10 +38,9 @@ public class MergeIngredient : MonoBehaviour, IObject
 
     public GameObject Interaction(GameObject ingredient = null)
     {
-        if (interactive && (!one || !two) && !result)
+        if (((!one || !two) && !result) && ingredient)
         {
             //Debug.Log("재료합치기");
-            playerInteraction.CurrentObjectInHand = null;       // 손에서 내려두고
             ingredient.transform.parent = this.transform;       // 부모 설정해주고
             if (!one)       // 첫번째에 재료가 없으면
             {
@@ -60,52 +52,18 @@ public class MergeIngredient : MonoBehaviour, IObject
                 ingredient.transform.position = pen[1].transform.position;
                 two = true;
             }
-            playerInteraction.Is_Object = false;
             inputList.Add(ingredient.name);            // 이렇게 받아와주는데 후 수정가능하게? 이름 수정하기잉 
         }
-        else if (interactive && (!one || !two) && result)       // 인터랙션 가능하고 조합이 완료되었으며 리솔츠가 있을 때
+        else if (((!one || !two) && result) && ingredient == null)       // 인터랙션 가능하고 조합이 완료되었으며 리솔츠가 있고 매개변수로 들어온 값이 없을 때
         {
-            if (playerInteraction.CurrentObjectInHand == null) {
+           /* if (playerInteraction.CurrentObjectInHand == null) {
                 //Debug.Log("완성품 가져갑니다!");
-                playerInteraction.Is_Object = true;     // 오브젝트가 손에 들려있으니까.
+                playerInteraction.Is_Object = true;     // 오브젝트가 손에 들려있으니까.*/
                 result = false;     // 가져갔으니까.
                 return resultObject;
-             }
+             //}
         }
         return null;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            //Debug.Log("F키로 상호작용이 가능해요!");
-            // 상호작용 가능 표시해주기
-            if (playerFOV == null)
-            {
-                playerFOV = other.gameObject.GetComponent<PlayerFOV>();
-                playerInteraction = other.gameObject.GetComponent<PlayerInteraction>();
-            }
-            //Debug.Log(playerFOV.CheckForObjectsInView().name);
-            if (playerFOV.CheckForObjectsInView().name == gameObject.transform.name)
-            {
-                if (!one || !two)
-                {
-                    playerInteraction.Is_Object = true;
-                }
-                interactive = true;
-                // Debug.Log("플레이어 인터랙션 시 재료를 버려요.");
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            playerInteraction.Is_Object = false;
-            interactive = false;
-        }
     }
 
     private void LateUpdate()
@@ -168,16 +126,4 @@ public class MergeIngredient : MonoBehaviour, IObject
             one = two = false;
         }
     }
-
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        //if (UnityEditor.Selection.activeObject == gameObject)
-        //{
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(gameObject.transform.position, 1);
-        Gizmos.color = Color.green;
-        //}
-    }
-#endif
 }
