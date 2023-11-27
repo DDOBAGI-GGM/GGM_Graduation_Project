@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class FSM_FixAction : FSM_Action
 {
-    public override void Action()
+    public override void Action(GameObject _destination)
     {
-        Debug.Log("수리 액션 실행중");
+        // 도착했다면
+        if (_brain.SetDestination(_destination))
+        {
+            Debug.Log("수리 액션 실행중");
+            // 아직 안 만들어진 거 같은데...
+            _brain.Reset();
+        }
     }
 }

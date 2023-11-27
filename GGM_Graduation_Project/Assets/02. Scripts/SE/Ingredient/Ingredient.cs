@@ -31,6 +31,7 @@ public class Ingredient : MonoBehaviour
     public void Init<T>(T type)
     {
         createPos = transform.position;
+        gameObject.name = gameObject.name.Substring(0, gameObject.name.IndexOf('('));
         visual = new GameObject[(int)type.GetType().GetField("end").GetValue(type)];
         for (int i = 0; i < visual.Length; i++)
         {

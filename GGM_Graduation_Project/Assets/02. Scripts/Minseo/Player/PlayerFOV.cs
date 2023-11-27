@@ -11,7 +11,7 @@ public class PlayerFOV : MonoBehaviour
 
     private void Update()
     {
-        //CheckForObjectsInView();
+        CheckForObjectsInView();
     }
 
     public GameObject CheckForObjectsInView() // 시야각 체크
@@ -28,8 +28,8 @@ public class PlayerFOV : MonoBehaviour
         // 시야 범위를 시각적으로 표시
         Vector3 leftBoundary = Quaternion.Euler(0, -halfFOV, 0) * forward;
         Vector3 rightBoundary = Quaternion.Euler(0, halfFOV, 0) * forward;
-        Debug.DrawRay(playerPosition, leftBoundary * viewDistance, Color.green);
-        Debug.DrawRay(playerPosition, rightBoundary * viewDistance, Color.green);
+        Debug.DrawRay(playerPosition, leftBoundary * viewDistance, Color.red);
+        Debug.DrawRay(playerPosition, rightBoundary * viewDistance, Color.red);
 
         float closestDistance = Mathf.Infinity;
 
@@ -42,18 +42,17 @@ public class PlayerFOV : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("Object"))
                     {
-                        //Debug.Log("오브젝트 이름 : " + hit.transform.name);
-
                         // 거리가 더 가까운 오브젝트 
                         float distanceToCollider = Vector3.Distance(playerPosition, hit.transform.position);
                         if (distanceToCollider < closestDistance)
                         {
+                            Debug.Log("거리가 더 가까운 오브젝트 이름 : " + hit.transform.name);
                             closestDistance = distanceToCollider;
                             closestObject = hit.collider.gameObject;
                         }
 
                         // 테스트를 위한 그림
-                        Debug.DrawRay(playerPosition, (hit.transform.position - playerPosition).normalized * viewDistance, Color.red);
+                        Debug.DrawRay(playerPosition, (hit.transform.position - playerPosition).normalized * viewDistance, Color.blue);
                     }
                 }
             }
@@ -63,18 +62,30 @@ public class PlayerFOV : MonoBehaviour
         if (closestObject != null) // 공백이거나 NULL이 아니라면
         {
             //Debug.Log("가장 가까운 오브젝트: " + closestObject.name);
-            if (closestObject.name == "Table")      // 테이블일 경우
+            /*if (closestObject.name == "Table")      // 테이블일 경우
             {
-                Table table = closestObject.GetComponent<Table>();
+                Table table = closestObject.GetComponent<Table>();          // 얘네는 계속해서 가져오는 거니까 변경해주기 테이블이 여러개인지 물어보고
                 if (table != null)
                 {
-                     Debug.Log(table.Is_existObject);
+                     //Debug.Log(table.Is_existObject);
                     if (table.Is_existObject && table.Interactive)
                     {
                         closestObject = table.Interaction();
                     }
                 }
             }
+            else if (closestObject.name == "MergingTable")      // 만약 머지테이블에서 나온 완성 품이라면
+            {
+                MergeIngredient merge = closestObject.GetComponent<MergeIngredient>();
+                if (merge != null)
+                {
+                    //Debug.Log(merge.Result);
+                    if (merge.Result && merge.Interactive)       // 리솔츠가 있으면
+                    {
+                        closestObject = merge.Interaction();
+                    }
+                }
+            }*/
             //Debug.Log(closestObject);
             return closestObject;
         }

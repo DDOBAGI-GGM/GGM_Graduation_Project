@@ -7,19 +7,20 @@ namespace BehaviorTree
 {
     public class BT_Exception : BT_Node
     {
-        private ActionType actionType;
-        private ObjectType objectType;
-        private DvcType deviceType;
+        [SerializeField] private ActionType actionType;
+        [SerializeField] private ObjectType objectType;
+        [SerializeField] private DvcType deviceType;
        
-        public BT_Exception(ActionType _actType, ObjectType _objType, DvcType _dvcType)
-        {
-            actionType = _actType;
-            objectType = _objType;
-            deviceType = _dvcType;
-        }
+        //public BT_Exception(ActionType _actType, ObjectType _objType, DvcType _dvcType)
+        //{
+        //    actionType = _actType;
+        //    objectType = _objType;
+        //    deviceType = _dvcType;
+        //}
 
         public override NodeType Evaluate()
         {
+            return NodeType.SUCCESS;
             switch (actionType)
             {
                 case ActionType.PICK:
