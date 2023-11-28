@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using UnityEditor.Animations.Rigging;
+//using UnityEditor.Animations.Rigging;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -22,24 +22,24 @@ public class FSM_Brain : MonoBehaviour
     public ObjectType _curObjType = ObjectType.NONE; // 손에 들려있는 아이템 타입
     public GameObject destination;
 
-    public Dictionary<string, IObject> interaction_Dic;
+    public Dictionary<string, IObject> interaction_Dic = new Dictionary<string, IObject>();
 
     private void Awake()
     {
         _agent= GetComponent<NavMeshAgent>();
 
         // 각 오브젝트에 있는 기능을 사용하기 위해 Iobject를 받아오고 싶은데 못 받아온다...
-        //for (int i = 0; i < devicePos.Count; ++i)
-        //{
-        //    Debug.Log(i);
-        //    IObject obj = devicePos[i].GetComponent<IObject>();
-        //    if (obj != null)
-        //    {
-        //        Debug.Log(obj.GetType());
-        //        interaction_Dic.Add("ws", obj);
-        //    }
-        //    //interaction_Dic.Add(devicePos[i].name, obj);
-        //}
+        for (int i = 0; i < devicePos.Count; ++i)
+        {
+            Debug.Log(i);
+            IObject obj = devicePos[i].GetComponent<IObject>();
+            if (obj != null)
+            {
+                interaction_Dic.Add(devicePos[i].name, obj);
+                Debug.Log(interaction_Dic[devicePos[i].name]);
+            }
+            //interaction_Dic.Add(devicePos[i].name, obj);
+        }
     }
 
     public void Reset()
