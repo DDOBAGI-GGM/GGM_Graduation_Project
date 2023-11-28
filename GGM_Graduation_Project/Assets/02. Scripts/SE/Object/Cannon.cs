@@ -6,9 +6,19 @@ using UnityEngine;
 //[RequireComponent(typeof(SphereCollider))]
 public class Cannon : MonoBehaviour, IObject
 {
-    [SerializeField] private Transform floorPos;
-    [SerializeField] private Transform enemyPos;
-    [SerializeField] private Transform objectPos;
+    [Header("Floor")]
+    [SerializeField] private Transform[] floorPos = new Transform[4];
+    [Header("Enemy")]
+    [SerializeField] private Transform[] enemyPos = new Transform[4];
+    [Header("Object")]
+    [SerializeField] private Transform[] objectPos = new Transform[4];         // 4개 까지만 가능
+
+    private AttackCurve attackCurve;
+
+    private void Awake()
+    {
+        attackCurve = GetComponent<AttackCurve>();
+    }
 
     public GameObject Interaction(GameObject ingredient)
     {
@@ -18,20 +28,21 @@ public class Cannon : MonoBehaviour, IObject
             ingredient.transform.parent = transform;            // 자식으로 넣을까 안넣을까
             ingredient.transform.localPosition = new Vector3(0, 0.5f, 0);
             ingredient.transform.parent = null;
-            Debug.Log("무기발사 가보자고!");
+            //Debug.Log("무기발사 가보자고!");
 
             string type = ingredient.gameObject.name.Substring(ingredient.gameObject.name.IndexOf('-') + 1);
             Debug.Log(type);
             switch (type)
             {
                 case "Floor":
-                    Attack(ingredient, floorPos.position);
+                    //Debug.Log("플로어 공격시잗!");
+                    Attack(ingredient, floorPos);
                     break;
                 case "Object":
-                    Attack(ingredient, objectPos.position);
+                    Attack(ingredient, objectPos);
                     break;
                 case "Enemy":
-                    Attack(ingredient, enemyPos.position);
+                    Attack(ingredient, enemyPos);
                     break;
                 default:
                     Debug.Log("올바른 무기 유형이 아니여서 터졌어요!");
@@ -43,8 +54,8 @@ public class Cannon : MonoBehaviour, IObject
         return null;
     }
 
-    private void Attack(GameObject weapon, Vector3 pos)
+    private void Attack(GameObject weapon, Transform[] pos)
     {
-        weapon.transform.DOMove(pos, 2f);
+        attackCurve.MakeCurve(weapon, pos);
     }
 }

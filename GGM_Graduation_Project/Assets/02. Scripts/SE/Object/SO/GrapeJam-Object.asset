@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab02a616ede474641a751903c3a59cd9, type: 3}
   m_Name: GrapeJam-Object
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 0}
-  recipe: []
-  weaponType: 0
+  weaponPrefab: {fileID: 7725048403696125913, guid: 2b92e99e7fec790449445eb350136a13,
+    type: 3}
+  recipe:
+  - Grape-completion
+  - Sugar
+  weaponType: 1

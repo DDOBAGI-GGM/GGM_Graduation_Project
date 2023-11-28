@@ -12,7 +12,7 @@ public class ProcessIngredient : MonoBehaviour, IObject
         if (ingredient != null)
         {
             // 스크립트 받아와주기
-            Debug.Log("프로세싱");
+            //Debug.Log("프로세싱");
             StopCoroutine(InteractionRoutine(ingredient));
             StartCoroutine(InteractionRoutine(ingredient));
         }
