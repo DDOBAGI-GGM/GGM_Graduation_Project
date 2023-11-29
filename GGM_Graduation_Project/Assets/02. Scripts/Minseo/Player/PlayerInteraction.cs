@@ -82,7 +82,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (currentObjectInHand == null) // 손에 아무것도 들고 있지 않을 때만
         {
-            Debug.Log("오브젝트 들어주기");
+            //Debug.Log("오브젝트 들어주기");
             // 오브젝트를 들어주는 로직을 작성
             GameObject item = _playerFOV.CheckForObjectsInView();
             if (item != null)
@@ -90,7 +90,7 @@ public class PlayerInteraction : MonoBehaviour
                 IObject objectToPickup = item.GetComponent<IObject>();           // 오브젝트 가져오기
                 if (objectToPickup != null)
                 {
-                    Debug.Log(objectToPickup);
+                    //Debug.Log(objectToPickup);
                     GameObject pickUpItem = objectToPickup.Interaction();
                     if (pickUpItem != null)
                     {
@@ -106,23 +106,32 @@ public class PlayerInteraction : MonoBehaviour
             GameObject item = _playerFOV.CheckForObjectsInView();       // 오브젝트 가져오기
             if (item != null)
             {
+                if (item.gameObject.name == "MergingTable")
+                {
+                    //Debug.Log("머지테이블에 뭐가 있잖니");
+                    MergeIngredient merge = item.GetComponent<MergeIngredient>();       // 이것들 다 바꿔주기
+                    if (merge.Result == true)
+                    {
+                        return;     // 리솔츠가 있으니까 멈춰주기
+                    }
+                }
+                if (item.gameObject.name == "Table")
+                {
+                    Debug.Log("테이블일 때 테이블에 뭐가 있을 수 있고 없을 수 있고");
+                    Table table = item.GetComponent<Table>();
+                    if (table.Is_existObject == true)
+                    {
+                        return;
+                    }
+                }
                 IObject objectToPickup = item.GetComponent<IObject>();
                 if (objectToPickup != null)
                 {
-                    if (item.gameObject.name == "MergingTable")
-                    {
-                        Debug.Log("아좀 있지나");
-                        MergeIngredient merge = item.GetComponent<MergeIngredient>();
-                        if (merge.Result == true)
-                        {
-                            return;     // 리솔츠가 있으니까 멈춰주기
-                        }
-                    }
                     objectToPickup.Interaction(currentObjectInHand);
                     if (item.gameObject.name != "ProcessingIngredient")
                     {
-                        Debug.Log("내 손에 없어용");
-                        currentObjectInHand = null;         // 테이블이였어서 지워주기
+                        //Debug.Log("내 손에 없어용");
+                        currentObjectInHand = null;
                     }
                 }
             }

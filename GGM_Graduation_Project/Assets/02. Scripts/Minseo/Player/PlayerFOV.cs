@@ -46,7 +46,7 @@ public class PlayerFOV : MonoBehaviour
                         float distanceToCollider = Vector3.Distance(playerPosition, hit.transform.position);
                         if (distanceToCollider < closestDistance)
                         {
-                            Debug.Log("거리가 더 가까운 오브젝트 이름 : " + hit.transform.name);
+                            //Debug.Log("거리가 더 가까운 오브젝트 이름 : " + hit.transform.name);
                             closestDistance = distanceToCollider;
                             closestObject = hit.collider.gameObject;
                         }

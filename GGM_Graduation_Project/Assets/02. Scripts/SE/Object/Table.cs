@@ -3,6 +3,7 @@ using UnityEngine;
 public class Table : MonoBehaviour, IObject
 {
     private bool is_existObject = false;            // 지금 오브젝트가 보관중이니?
+    public bool Is_existObject { get { return is_existObject; } }
 
     public GameObject Interaction(GameObject ingredient = null)
     {

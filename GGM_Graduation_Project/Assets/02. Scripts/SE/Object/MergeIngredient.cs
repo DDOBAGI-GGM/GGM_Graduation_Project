@@ -127,3 +127,8 @@ public class MergeIngredient : MonoBehaviour, IObject
         }
     }
 }
+
+
+
+// 로직 설명 : 레시피 SO의 레시피들(string 배열)을 정렬해주고 들어온 것들의 재료 이름 또한 정렬해서 서로 확인해줌.
+// 그래서 맞으면 해당 레시피의 완성 품을 보여줌.

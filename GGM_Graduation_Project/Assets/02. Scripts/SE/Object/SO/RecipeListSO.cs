@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum WeaponType
 {
-    playerAttack = 0,
+    enemyAttack = 0,
     objectAttack,
     floorAttack
 }
