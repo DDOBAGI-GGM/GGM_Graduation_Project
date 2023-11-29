@@ -9,19 +9,19 @@
                     "name": "Movement",
                     "type": "Value",
                     "id": "b5f326c5-f3b1-47bf-ad79-8e066d257823",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
                     "name": "Interaction",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "cd19ae65-d2ff-4d2d-be22-a9c5f6fa47cc",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -82,11 +82,33 @@
                 },
                 {
                     "name": "",
+                    "id": "1d716e93-8285-4dfc-a193-46e04d0f4dc9",
+                    "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "StickDeadzone",
+                    "groups": "Gamepad",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "adc51713-d852-4b22-919e-a41e2f2f2cfd",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6303c413-40de-4d6a-8405-4959804be0e9",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Interaction",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -99,6 +121,17 @@
             "name": "PC",
             "bindingGroup": "PC",
             "devices": []
+        },
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": [
+                {
+                    "devicePath": "<XInputController>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
         }
     ]
 }
