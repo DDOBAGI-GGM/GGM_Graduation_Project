@@ -1,27 +1,37 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour
+[CreateAssetMenu(menuName = "SO/Input/PlayerInput")]
+public class PlayerInput : ScriptableObject, PlayerControls.IPlayerActions
 {
     private PlayerControls _playerControls;
 
     public Action<Vector2> OnMovement;
     public Action OnInteraction;    
 
-    private void Awake()
+    private void OnEnable()
     {
-        _playerControls = new PlayerControls();
+        if (_playerControls == null)
+        {
+            _playerControls = new PlayerControls();
+            _playerControls.Player.SetCallbacks(this);
+        }
         _playerControls.Player.Enable();
     }
 
-    private void Update()
+    void PlayerControls.IPlayerActions.OnMovement(InputAction.CallbackContext context)
     {
-        Vector2 inputVector = _playerControls.Player.Movement.ReadValue<Vector2>();
+        Vector2 inputVector = context.ReadValue<Vector2>();
         OnMovement?.Invoke(inputVector);
+    }
 
-        if (_playerControls.Player.Interaction.triggered)
+    void PlayerControls.IPlayerActions.OnInteraction(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
             OnInteraction?.Invoke();
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -28,13 +29,21 @@ public class Player : MonoBehaviour
         set => _activeMove = value;
     }
 
-    private PlayerInput _playerInput;  
+    [SerializeField] private PlayerInput _playerInput;
+    [SerializeField] private OtherPlayerInput _otherPlayerInput;
 
     private void Awake()
     {
-        _characterController = GetComponent<CharacterController>(); 
-        _playerInput = GetComponent<PlayerInput>();                
-        _playerInput.OnMovement += SetPlayerMovement;               // 이동 이벤트 연결
+        _characterController = GetComponent<CharacterController>();            
+        //_playerInput.OnMovement += SetPlayerMovement;               // 이동 이벤트 연결
+        //_otherPlayerInput.OnMovement += SetPlayerMovement;
+
+        if (_playerInput == null)
+            _otherPlayerInput.OnMovement += SetPlayerMovement;               // 이동 이벤트 연결
+
+        if (_otherPlayerInput == null)
+            _playerInput.OnMovement += SetPlayerMovement;
+
     }
 
     private void FixedUpdate()

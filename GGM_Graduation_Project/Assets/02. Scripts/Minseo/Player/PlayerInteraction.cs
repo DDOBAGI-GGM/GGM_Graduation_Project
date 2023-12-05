@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    [SerializeField]
     private PlayerInput _playerInput;
+    [SerializeField] 
+    private OtherPlayerInput _otherPlayerInput;
+
     private PlayerFOV _playerFOV;
 
     [SerializeField] private Transform _handPos; // 손 위치
@@ -19,9 +23,15 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
         _playerFOV = GetComponent<PlayerFOV>(); 
-        _playerInput.OnInteraction += PerformInteraction;           // 상호작용 이벤트 연결
+        //_playerInput.OnInteraction += PerformInteraction;           // 상호작용 이벤트 연결
+        //_otherPlayerInput.OnInteraction += PerformInteraction;
+
+        if (_playerInput == null)
+            _otherPlayerInput.OnInteraction += PerformInteraction;
+
+        if (_otherPlayerInput == null)
+            _playerInput.OnInteraction += PerformInteraction;
     }
 
     private void PerformInteraction()

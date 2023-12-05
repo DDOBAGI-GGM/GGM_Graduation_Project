@@ -16,12 +16,12 @@
                 },
                 {
                     "name": "Interaction",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "5208acf4-3d36-46fa-bf35-3b40249165d3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -37,12 +37,78 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "WASD",
+                    "id": "7d8a1cf8-304a-4aa1-8870-96a2901f414e",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "aadf4d3c-6885-4a2a-b4be-13e6215c1309",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "5fd57a14-7658-4842-85e0-45058271f7f3",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "9de2645d-7f4d-40bf-ad3d-7522d98a90ac",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "5be9ef30-7212-4dc1-88c8-80be9e303267",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "24a7cb49-3ff0-4b62-a7d5-4d79f5b45b37",
                     "path": "<XInputController>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fac4b6ea-fdc3-471e-a9cd-581c15006971",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
                     "action": "Interaction",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -57,6 +123,17 @@
             "devices": [
                 {
                     "devicePath": "<XInputController>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "PC",
+            "bindingGroup": "PC",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
                     "isOptional": false,
                     "isOR": false
                 }
