@@ -53,10 +53,38 @@ public class CSVReader
         return list;
     }
 
-    //public static 
+    public static List<List<string>> IngrediendRead()       // 재료 반환
+    {
+        TextAsset data = Resources.Load("CSV/Recipe") as TextAsset;     // 텍스트 에셋을 가져와주는 것. 이름으로 가져와주고 TextAsset 으로 넣어줌. 없으면 null;
+
+        Debug.Log(data);
+
+        var lines = Regex.Split(data.text, LINE_SPLIT_RE);      // 정규식을 사용해서 줄을 나눠줌.
+
+        List<List<string>> list = new List<List<string>>();
+        for (int i = 1; i < lines.Length; i++)      // 헤더는 제외하고
+        {
+            list.Add(new List<string>());
+        }
+
+        if (lines.Length <= 1) return list;     // 1이 더 크면 리턴.  헤더만 있는 경우 배제
+
+        int headerCnt = Regex.Split(lines[0], SPLIT_RE).Length;       // 해더, 머리에 있는 값들을 가져와줌. , 기준으로 해서
+
+        for (int i = 0; i < lines.Length - 1; i++)
+        {
+            string[] values = Regex.Split(lines[i + 1], SPLIT_RE);               // 헤더 빼고 첫번째 것 부터 , 기준으로 나눠줌.
+            if (values.Length == 0 || values[0] == "") continue;        // 첫번째가 비었거나 길이가 0이면 값이 없는 것임.
+
+            for (int j = 0; j < values.Length; j++)
+            {
+                list[i].Add(values[j]);
+            }
+        }
+
+        return list;
+    }
 }
 
-// https://bravenewmethod.com/2014/09/13/lightweight-csv-reader-for-unity/#comment-7111
-
-
-// Resources.Load() 는 실시간에 사용하는 것은 매우 나쁘다.
+// https://bravenewmethod.com/2014/09/13/lightweight-csv-reader-for-unity/#comment-7111         CSV 코드
+// https://blog.naver.com/nicecapj/220451022167          Resources.Load() 는 실시간에 사용하는 것은 매우 나쁘므로 캐싱해서 사용해주자.

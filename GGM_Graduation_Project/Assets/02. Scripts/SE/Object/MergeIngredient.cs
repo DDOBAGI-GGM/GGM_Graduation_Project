@@ -18,6 +18,21 @@ public class MergeIngredient : MonoBehaviour, IObject
 
     private void Awake()
     {
+       /* List<List<string>> recipeTest = CSVReader.IngrediendRead();
+
+        Debug.Log(recipeTest.Count);
+
+        for (int i = 0; i < recipeTest.Count; i++)
+        {
+            recipes[i] = ScriptableObject.CreateInstance<RecipeListSO>();
+            for (int j = 2; j < recipeTest[i].Count; j++)       // 두번째 재료부터 시작해서 넣어주기
+            {
+                //Debug.Log(recipeTest[i][j]);
+                recipes[i].recipe.Add(recipeTest[i][j]);
+            }
+        }*/
+       // CSV 연동
+
         recipeList = new List<string>[recipes.Length];       // 레시피SO 개수랑 같음.
         //Debug.Log(recipeList.Length);
 
