@@ -7,9 +7,10 @@ public class FSM<T> where T : IState
     private Dictionary<string, T> states = new Dictionary<string, T>();
     private T currentState;
 
-    public void AddState(string stateName, T state)
+    public void AddState(string stateName, T _state)
     {
-        states[stateName] = state;
+        states[stateName] = _state;
+        //states[stateName] = default(T);
     }
 
     public void ChangeState(string stateName)
