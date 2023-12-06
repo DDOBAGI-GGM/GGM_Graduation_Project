@@ -1,0 +1,4 @@
+Name,Type,Ingredient_1,Ingredient_2
+StrawberryJam,Enemy,Strawberry-completion,Sugar
+GrapeJam,Object,Grape-completion,Sugar
+AppleJam,Floor,Apple-completion,Sugar
