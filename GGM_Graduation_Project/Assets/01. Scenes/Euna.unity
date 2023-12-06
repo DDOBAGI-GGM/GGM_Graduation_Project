@@ -371,6 +371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   gravity: -9.8
+  _playerInput: {fileID: 0}
+  _otherPlayerInput: {fileID: 0}
 --- !u!114 &255848214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ada26abd6e36c47b8c9768cb1422f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerInput: {fileID: 0}
+  _otherPlayerInput: {fileID: 0}
   _handPos: {fileID: 593237441}
 --- !u!114 &255848217
 MonoBehaviour:
