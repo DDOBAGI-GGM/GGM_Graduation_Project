@@ -7,45 +7,45 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIController : MonoBehaviour
 {
-    private FSM<IState> stateManager;
-    private BehaviourTreeManager<INode> btManager;
+    //private FSM<IState> stateManager;
+    //private BehaviourTreeManager<INode> btManager;
 
-    private NavMeshAgent agent;
+    //private NavMeshAgent agent;
 
-    private Transform destination;
+    //private Transform destination;
 
-    private void Awake()
-    {
-        agent = GetComponent<NavMeshAgent>();
-    }
+    //private void Awake()
+    //{
+    //    agent = GetComponent<NavMeshAgent>();
+    //}
 
-    private void Start()
-    {
-        stateManager = new FSM<IState>();
-        stateManager.AddState("Idle", new IdleState());
-        stateManager.AddState("Move", new MoveState());
-        stateManager.ChangeState("Idle");
+    //private void Start()
+    //{
+    //    stateManager = new FSM<IState>();
+    //    stateManager.AddState("Idle", new IdleState());
+    //    stateManager.AddState("Move", new MoveState());
+    //    stateManager.ChangeState("Idle");
 
-        btManager = new BehaviourTreeManager<INode>();
-        btManager.SetRoot(new SelectorNode(new SequenceNode(
-            new ConditionNode(CanMove),
-            new ActionNode(Move))));
-    }
+    //    btManager = new BehaviourTreeManager<INode>();
+    //    btManager.SetRoot(new SelectorNode(new SequenceNode(
+    //        new ConditionNode(CanMove),
+    //        new ActionNode(Move))));
+    //}
 
-    private void Update()
-    {
-        stateManager.Update();
-        btManager.Update();
-    }
+    //private void Update()
+    //{
+    //    stateManager.Update();
+    //    btManager.Update();
+    //}
 
-    bool CanMove()
-    {
-        return true;
-    }
-    void Move()
-    {
-        Debug.Log("이동중");
-    }
+    //bool CanMove()
+    //{
+    //    return true;
+    //}
+    //void Move()
+    //{
+    //    Debug.Log("이동중");
+    //}
 }
 
 // 거리 체크 (nav, destination)

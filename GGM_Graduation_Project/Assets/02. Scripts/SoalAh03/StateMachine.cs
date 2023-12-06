@@ -51,8 +51,10 @@ public sealed class StateMachine<T>
 
         beforeState = nowState;
         nowState = stateLists[newType];
+
         nowState.OnStart();
         stateDurationTime = .0f;
+
         return nowState as Q;
     }
 }
