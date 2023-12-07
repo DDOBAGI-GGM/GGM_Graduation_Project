@@ -11,9 +11,9 @@ public class ActionNode : INode
     {
         this.action = action;
     }
-    public NodeState Execute()
+    public TNodeState Execute()
     {
         action();
-        return NodeState.Success;
+        return TNodeState.Success;
     }
 }

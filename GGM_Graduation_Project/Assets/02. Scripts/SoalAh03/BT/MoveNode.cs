@@ -11,10 +11,10 @@ public class MoveNode : INode
     {
         this.action = action;
     }
-    public NodeState Execute()
+    public TNodeState Execute()
     {
         while (action())
             action();
-        return NodeState.Success;
+        return TNodeState.Success;
     }
 }

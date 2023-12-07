@@ -12,8 +12,8 @@ public class ConditionNode : INode
         this.condition = condition;
     }
 
-    public NodeState Execute()
+    public TNodeState Execute()
     {
-        return condition() ? NodeState.Success : NodeState.Failure;
+        return condition() ? TNodeState.Success : TNodeState.Failure;
     }
 }

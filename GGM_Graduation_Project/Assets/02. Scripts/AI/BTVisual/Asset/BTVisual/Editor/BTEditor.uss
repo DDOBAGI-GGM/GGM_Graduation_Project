@@ -1,0 +1,30 @@
+#tree-view {
+    flex-grow: 1;
+}
+
+#tree-view GridBackground {
+    --grid-background-color: rgb(40, 40, 40);
+    --spacing: 15;
+    --line-color: rgba(193, 196, 192, 0.1);
+    --thick-line-color: rgba(193, 196, 192, 0.1);
+}
+
+#inspector-view {
+    flex-grow: 1;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.title-label {
+    background-color: rgb(47, 47, 47);
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 17px;
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+}
