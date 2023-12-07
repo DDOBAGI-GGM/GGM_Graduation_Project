@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1774274650}
-  _nextScene: {fileID: 102900000, guid: 751ca21e5c9b7134fa05ea88907d45ca, type: 3}
+  _nextScene: {fileID: 102900000, guid: bb34b0f12a17f624c99636f9bee9642f, type: 3}
 --- !u!4 &1155766594
 Transform:
   m_ObjectHideFlags: 0
