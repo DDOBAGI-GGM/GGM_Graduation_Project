@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class AI : MonoBehaviour
 {
-    // 현재 조리법
-    [SerializeField] private RecipeListSO curRecipe;
-
-    // 손
     [Header("AI")]
-    [SerializeField] GameObject hand;
+    // 손
+    public GameObject hand = null;
+    public Transform handPos;
+    // 현재 조리법
+    public RecipeListSO recipe;
+    // 속도
+    public float speed;
 
-    // 정보
-    //[Header("Intelligence")]
-    private float speed;
+    [Header("Intelligence")]
+    public List<RecipeListSO> recipes;
+    //public Dictionary<string, List<GameObject>> objects;
+    public List<GameObject> objects;
 }
