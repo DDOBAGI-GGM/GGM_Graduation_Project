@@ -1,0 +1,131 @@
+#node-border {
+    background-color: rgb(118, 118, 118);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-left-color: rgb(58, 58, 58);
+    border-right-color: rgb(58, 58, 58);
+    border-top-color: rgb(58, 58, 58);
+    border-bottom-color: rgb(58, 58, 58);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#selection-border {
+    border-left-color: rgb(0, 73, 255);
+    border-right-color: rgb(0, 73, 255);
+    border-top-color: rgb(0, 73, 255);
+    border-bottom-color: rgb(0, 73, 255);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#input {
+    align-items: center;
+}
+
+#output {
+    align-items: center;
+}
+
+:hover > #selection-border {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+:selected > #selection-border {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+:hover:selected > #selection-border {
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+}
+
+.node {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    min-width: 150px;
+}
+
+#title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    -unity-text-align: upper-center;
+}
+
+#divider {
+    min-height: 1px;
+    background-color: rgb(89, 89, 89);
+}
+
+.action #input {
+    background-color: rgb(71, 87, 255);
+}
+
+.root #input {
+    background-color: rgb(255, 0, 0);
+    min-height: 24px;
+}
+
+.decorator #input {
+    background-color: rgb(255, 234, 0);
+}
+
+.composite #input {
+    background-color: rgb(101, 255, 0);
+}
+
+#title > #title-label {
+    -unity-font-style: bold;
+    font-size: 17px;
+    color: rgb(255, 255, 255);
+}
+
+#description {
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+
+#node-state {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.running #node-state {
+    background-color: rgb(255, 255, 0);
+}
+
+.failure #node-state {
+    background-color: rgb(255, 0, 0);
+}
+
+.success #node-state {
+    background-color: rgb(0, 255, 0);
+}
