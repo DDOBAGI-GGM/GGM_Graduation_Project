@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab02a616ede474641a751903c3a59cd9, type: 3}
-  m_Name: StrawberryJam-Enemy
+  m_Name: Enemy
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 7725048403696125913, guid: c7407eab9bf38274daa0e1899f2c0d37,
     type: 3}
   recipe:
   - Strawberry-completion
-  - Sugar
+  - Paint_Pot
   weaponType: 0
