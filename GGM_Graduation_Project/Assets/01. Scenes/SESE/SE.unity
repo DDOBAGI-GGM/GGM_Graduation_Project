@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 122050677}
   - component: {fileID: 122050678}
   m_Layer: 0
-  m_Name: IngredientBox-Apple
+  m_Name: IngredientBox-Hydrangea
   m_TagString: Object
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d991f584a2aafb4997f3e31ea7f1dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giveIngredientPrefab: {fileID: 2792718877454889077, guid: cd29009380895224486834246591612b,
+  giveIngredientPrefab: {fileID: 6744387478562132690, guid: 2977b26da37ba39439fd9ebbaeb6691c,
     type: 3}
 --- !u!1001 &127491377
 PrefabInstance:
@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 355705822}
   - component: {fileID: 355705821}
   m_Layer: 0
-  m_Name: IngredientBox-Strawberry
+  m_Name: IngredientBox-Maple_Leaf
   m_TagString: Object
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d991f584a2aafb4997f3e31ea7f1dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giveIngredientPrefab: {fileID: 2792718877454889077, guid: fa784c4a02ba17b488fa381dde01d716,
+  giveIngredientPrefab: {fileID: 8823161407868274700, guid: 7765999c4cc5a974ba9829a5da8a4536,
     type: 3}
 --- !u!65 &355705822
 BoxCollider:
@@ -1182,8 +1182,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.548746, y: 0.38482088, z: 0.5929066}
-  m_Center: {x: -0.0011497736, y: 0.19241026, z: 0.020957649}
+  m_Size: {x: 0.548746, y: 0.61872303, z: 0.5929066}
+  m_Center: {x: -0.0011497736, y: 0.30936134, z: 0.020957649}
 --- !u!1 &616068961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,6 +1311,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9190bb17d9c911844b3b1a8326fda674, type: 2}
   - {fileID: 11400000, guid: 6b4fc092382baed4fbc4eb348a744720, type: 2}
   - {fileID: 11400000, guid: efdda6220604b124fb71137b9f6d88e6, type: 2}
+  - {fileID: 11400000, guid: f547286b47ca24f4e98ce2d33f584556, type: 2}
   garbagePrefab: {fileID: 3001696662067315541, guid: 030da40e3a357784193d76dd5a5f35f5,
     type: 3}
 --- !u!1 &641021016
@@ -3347,11 +3348,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7515521480706069517, guid: fe9732f2dba0f234a8cdff138b99fab9,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1432300021}
+      addedObject: {fileID: 1432300020}
     - targetCorrespondingSourceObject: {fileID: 7515521480706069517, guid: fe9732f2dba0f234a8cdff138b99fab9,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1432300020}
+      addedObject: {fileID: 1432300024}
   m_SourcePrefab: {fileID: 100100000, guid: fe9732f2dba0f234a8cdff138b99fab9, type: 3}
 --- !u!4 &1432300018 stripped
 Transform:
@@ -3378,8 +3379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deleyTime: 1
---- !u!135 &1432300021
-SphereCollider:
+--- !u!136 &1432300024
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3396,9 +3397,11 @@ SphereCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Radius: 0.23082055
-  m_Center: {x: 0, y: 0.21492028, z: -0.000000074505806}
+  m_Height: 0.8347541
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.40147674, z: -0.000000074505806}
 --- !u!1 &1477305169
 GameObject:
   m_ObjectHideFlags: 0
@@ -3781,7 +3784,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884571353}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.36563468, y: 0.000000022648607, z: -0.00000000889717, w: 0.9307585}
+  m_LocalRotation: {x: 0.36563468, y: -0.000000022648608, z: 0.000000008897168, w: 0.9307585}
   m_LocalPosition: {x: 0, y: 5.39, z: -4.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4194,7 +4197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079625949}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.36563468, y: 0.000000022648607, z: -0.00000000889717, w: 0.9307585}
+  m_LocalRotation: {x: 0.36563468, y: -0.000000022648608, z: 0.000000008897168, w: 0.9307585}
   m_LocalPosition: {x: 0, y: 5.39, z: -4.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4321,7 +4324,7 @@ GameObject:
   - component: {fileID: 2145572609}
   - component: {fileID: 2145572608}
   m_Layer: 0
-  m_Name: IngredientBox-Grape
+  m_Name: IngredientBox-Forsythia
   m_TagString: Object
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4354,7 +4357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d991f584a2aafb4997f3e31ea7f1dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giveIngredientPrefab: {fileID: 2792718877454889077, guid: 2c04d5243a7d2634285849a8ef854d77,
+  giveIngredientPrefab: {fileID: 7049973264733305656, guid: cbcb8c0814b35ed469dfbc9b78b8de34,
     type: 3}
 --- !u!65 &2145572609
 BoxCollider:

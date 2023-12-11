@@ -44,6 +44,9 @@ public class Cannon : MonoBehaviour, IObject
                 case "Enemy":
                     Attack(ingredient, enemyPos);
                     break;
+                case "Recovery":
+                    Debug.Log("회복템 사용됨.");
+                    break;
                 default:
                     Debug.Log("올바른 무기 유형이 아니여서 터졌어요!");
                     // 풀링사용하기?

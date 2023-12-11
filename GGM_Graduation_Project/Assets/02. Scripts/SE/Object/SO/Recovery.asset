@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab02a616ede474641a751903c3a59cd9, type: 3}
-  m_Name: Floor
+  m_Name: Recovery
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 6057014094844509124, guid: 937b90ff105d1ec4e83dfaf7361b6bb7,
+  weaponPrefab: {fileID: 6829876970955186434, guid: 4b60060095aa3254e8451e6abec1fa96,
     type: 3}
   recipe:
-  - Hydrangea-completion
-  - Paint_Pot
-  weaponType: 2
+  - P1_Paint_Red-Floor
+  - P1_Paint_Yellow-Object
+  weaponType: 3

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab02a616ede474641a751903c3a59cd9, type: 3}
   m_Name: Enemy
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 7725048403696125913, guid: c7407eab9bf38274daa0e1899f2c0d37,
+  weaponPrefab: {fileID: 2981936137921399894, guid: ac8c6a4e3f50c67478ab1202f3da2a6e,
     type: 3}
   recipe:
-  - Strawberry-completion
+  - Maple_Leaf-completion
   - Paint_Pot
   weaponType: 0
