@@ -390,8 +390,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: PRESS ANY BUTTON
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a5f9dfc5c30c02946800b1cc26ad1692, type: 2}
+  m_sharedMaterial: {fileID: -4502428735729801299, guid: a5f9dfc5c30c02946800b1cc26ad1692,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -700,6 +701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1635602026}
   - component: {fileID: 1635602027}
+  - component: {fileID: 1635602028}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -736,6 +738,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadePanel: {fileID: 1331561337}
   _nextScene: {fileID: 102900000, guid: e4a32ec66935e6c45a02fd83182a6fbc, type: 3}
+--- !u!114 &1635602028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635602025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28de927dc4c2d8141a6c85e44c3e96db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 2120696967}
 --- !u!1 &2020038909
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,10 +912,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME TITLE
+  m_text: "\uC6B0\uB2F9\uD0D5\uD0D5\n\uD63C\uB3C8\uC758 \uC81C\uC791\uC18C!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a5f9dfc5c30c02946800b1cc26ad1692, type: 2}
+  m_sharedMaterial: {fileID: -4502428735729801299, guid: a5f9dfc5c30c02946800b1cc26ad1692,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -930,7 +946,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
