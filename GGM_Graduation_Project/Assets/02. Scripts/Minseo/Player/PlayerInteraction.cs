@@ -36,7 +36,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void PerformInteraction()
     {
-        Debug.Log("상호작용 키를 눌렀습니다.");
+        //Debug.Log("상호작용 키를 눌렀습니다.");
         //if (currentObjectInHand == null)
         //{
             ItemGetInteraction();
@@ -134,13 +134,15 @@ public class PlayerInteraction : MonoBehaviour
                         return;
                     }
                 }
+
                 IObject objectToPickup = item.GetComponent<IObject>();
-                if (objectToPickup != null)
+                if (objectToPickup != null)      
                 {
+                    Debug.Log("가공은 여기서");
                     objectToPickup.Interaction(currentObjectInHand);
-                    if (item.gameObject.name != "ProcessingIngredient")
+                    if (item.gameObject.name != "ProcessingIngredient" && item.gameObject.name.IndexOf('-') == -1)      // - 이게 찾아와지지 않으면. 즉 재료 상자가 아니면
                     {
-                        //Debug.Log("내 손에 없어용");
+                        Debug.Log("내 손에 없어용");
                         currentObjectInHand = null;
                     }
                 }

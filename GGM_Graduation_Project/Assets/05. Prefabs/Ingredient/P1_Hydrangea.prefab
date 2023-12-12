@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 451470548111495077}
   - component: {fileID: 5990029316665820796}
   - component: {fileID: 800105450668794580}
+  - component: {fileID: 446520863625476909}
   m_Layer: 0
   m_Name: P1_Hydrangea
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +31,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3640817919619134793}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5990029316665820796
@@ -83,3 +85,97 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &446520863625476909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7250973255908765792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada5a98860e59a0448b68ecceecbe1dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visual: []
+  type: 0
+  name: Hydrangea
+--- !u!1001 &4908147344394101642
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 451470548111495077}
+    m_Modifications:
+    - target: {fileID: 4158591205815661165, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+        type: 3}
+      propertyPath: m_Name
+      value: P1_Pigment_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 4158591205815661165, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546695863196800707, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546695863196800707, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546695863196800707, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546695863196800707, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546695863196800707, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546695863196800707, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546695863196800707, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546695863196800707, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546695863196800707, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546695863196800707, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e3ea2b3e448d3f14eb9fba7a9152af34, type: 3}
+--- !u!4 &3640817919619134793 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8546695863196800707, guid: e3ea2b3e448d3f14eb9fba7a9152af34,
+    type: 3}
+  m_PrefabInstance: {fileID: 4908147344394101642}
+  m_PrefabAsset: {fileID: 0}

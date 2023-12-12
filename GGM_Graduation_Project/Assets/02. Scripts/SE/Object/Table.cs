@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Table : MonoBehaviour, IObject
 {
+    [SerializeField] private Vector3 tableObjectPosition = new Vector3(0, 0.5f, 0);
+
     private bool is_existObject = false;            // 지금 오브젝트가 보관중이니?
     public bool Is_existObject { get { return is_existObject; } }
 
@@ -12,7 +14,7 @@ public class Table : MonoBehaviour, IObject
             if (ingredient != null)
             {
                 ingredient.transform.parent = transform;
-                ingredient.transform.localPosition = new Vector3(0, 0.5f, 0);
+                ingredient.transform.localPosition = tableObjectPosition;
                 is_existObject = true;
                 Debug.Log("테이블에 넣어짐");
             }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5891551085677685460}
   m_Layer: 0
   m_Name: P2_Maple_Leaf
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

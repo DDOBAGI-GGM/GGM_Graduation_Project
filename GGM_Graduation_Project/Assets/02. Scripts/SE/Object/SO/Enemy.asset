@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab02a616ede474641a751903c3a59cd9, type: 3}
-  m_Name: AppleJam-Floor
+  m_Name: Enemy
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 7725048403696125913, guid: d87d40f15a8242842839d90a0c115d22,
+  weaponPrefab: {fileID: 2981936137921399894, guid: ac8c6a4e3f50c67478ab1202f3da2a6e,
     type: 3}
   recipe:
-  - Apple-completion
-  - Sugar
-  weaponType: 2
+  - Maple_Leaf-completion
+  - Paint_Pot
+  weaponType: 0

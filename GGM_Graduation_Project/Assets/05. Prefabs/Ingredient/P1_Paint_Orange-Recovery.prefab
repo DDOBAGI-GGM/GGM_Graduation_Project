@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3145327423326520629}
   - component: {fileID: 5435387554483692740}
   - component: {fileID: 2405928834784044900}
+  - component: {fileID: 4132185021826719311}
   m_Layer: 0
-  m_Name: P1_Paint_Orange
-  m_TagString: Untagged
+  m_Name: P1_Paint_Orange-Recovery
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4132185021826719311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829876970955186434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea1b8f5b6137494ca600d6a0bf04a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
