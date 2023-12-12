@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-[RequireComponent(typeof(LineRenderer))]
+//[RequireComponent(typeof(LineRenderer))]
 public class AttackCurve : MonoBehaviour
 {
     //private LineRenderer lineRenderer;
