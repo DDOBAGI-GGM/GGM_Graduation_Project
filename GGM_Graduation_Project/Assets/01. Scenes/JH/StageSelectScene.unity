@@ -406,8 +406,23 @@ PrefabInstance:
         type: 3}
       propertyPath: scene
       value: 
-      objectReference: {fileID: 102900000, guid: 0d09719c9d7179c4186e1a8fa944b352,
+      objectReference: {fileID: 102900000, guid: 1f05891708931d445a8f8f0f6d7ddf5a,
         type: 3}
+    - target: {fileID: 770571033447156523, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
+        type: 3}
+      propertyPath: promptMessage
+      value: PRESS F
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544120088906048504, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544120088906048504, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7972228753701068135, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
       propertyPath: m_Name
@@ -541,7 +556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 100, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1138665184
@@ -772,7 +787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _whatIsBase:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
 --- !u!195 &1176180935
 NavMeshAgent:
   m_ObjectHideFlags: 0
