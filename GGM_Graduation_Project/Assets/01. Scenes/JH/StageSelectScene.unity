@@ -1292,7 +1292,7 @@ PrefabInstance:
     - target: {fileID: 770571033447156523, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
       propertyPath: promptMessage
-      value: PRESS F
+      value: PREPARING
       objectReference: {fileID: 0}
     - target: {fileID: 1147465565927043263, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
@@ -1396,7 +1396,7 @@ PrefabInstance:
     - target: {fileID: 770571033447156523, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
       propertyPath: promptMessage
-      value: PRESS F
+      value: PREPARING
       objectReference: {fileID: 0}
     - target: {fileID: 1147465565927043263, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
@@ -1506,7 +1506,7 @@ PrefabInstance:
     - target: {fileID: 770571033447156523, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
       propertyPath: promptMessage
-      value: PRESS F
+      value: PREPARING
       objectReference: {fileID: 0}
     - target: {fileID: 1147465565927043263, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
