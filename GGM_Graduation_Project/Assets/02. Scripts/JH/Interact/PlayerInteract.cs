@@ -27,7 +27,7 @@ public class PlayerInteract : MonoBehaviour
         interactUI = GetComponent<InteractUI>();
     }
 
-    void Update()
+    private void Update()
     {
         interactUI.UpdateText(string.Empty);
         Ray ray = new Ray(transform.position, Vector3.down);
