@@ -9,9 +9,11 @@ public class IntroSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKeyDown)
+        //if (Input.GetKeyDown(KeyCode.C))        // 테스트용으로
+        if (Input.anyKey)        // 테스트용으로
         {
             cloud.Move();
+            LoadingSceneManager.Instance.ChangeLoadScene("StageSelect_Scene");
         }
     }
 }

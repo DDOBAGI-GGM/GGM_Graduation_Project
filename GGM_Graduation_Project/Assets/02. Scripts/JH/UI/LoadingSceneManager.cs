@@ -6,8 +6,8 @@ using DG.Tweening;
 
 public class LoadingSceneManager : MonoBehaviour
 {
-    [Header("로딩 패널 캔버스")][SerializeField] private CanvasGroup _loadingPanel;
     [Header("로딩 슬라이더")][SerializeField] private Slider _slider;
+    public static string changeScene = "";
     private float _time;
 
     public static LoadingSceneManager Instance;
@@ -18,14 +18,30 @@ public class LoadingSceneManager : MonoBehaviour
             Instance = this;
         else
             Destroy(this.gameObject);
+
+        DontDestroyOnLoad(gameObject);
+        //시작 시 이벤트를 등록해 줍니다.
+        SceneManager.sceneLoaded += LoadedsceneEvent;
+}
+
+    private void LoadedsceneEvent(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log(scene.name + "으로 변경되었습니다.");
+        if (SceneManager.GetActiveScene().name == "Loading_Scene")
+        {
+            _slider = FindObjectOfType<Slider>();
+            StartLoading(changeScene);
+        }
+    }
+
+    public void ChangeLoadScene(string change)
+    {
+        changeScene = change;
     }
 
     public void StartLoading(string sceneName)
     {
-        _loadingPanel.DOFade(1, 1f).SetEase(Ease.OutCubic).OnComplete(() =>
-        {
-            StartCoroutine(LoadAsyncSceneCoroutine(sceneName));
-        });
+        StartCoroutine(LoadAsyncSceneCoroutine(sceneName));
     }
 
     public IEnumerator LoadAsyncSceneCoroutine(string sceneName)

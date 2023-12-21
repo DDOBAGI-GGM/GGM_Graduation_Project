@@ -52,7 +52,7 @@ public class CloudManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+/*        if (Input.GetKeyDown(KeyCode.N))
         {
             panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, 1f);       // 배경이 그냥 흰색이면 1, 1, 1, 1로 해도됨.
             panel.DOFade(0, fadeTime).OnComplete(() =>
@@ -73,7 +73,7 @@ public class CloudManager : MonoBehaviour
                 clouds[i].Show(true, animTime);
             }
             is_SceneChange = true;
-        }
+        }*/
 
         if (is_SceneChange)
         {
@@ -82,7 +82,7 @@ public class CloudManager : MonoBehaviour
             {
                 is_SceneChange=false;
                 nowTime = 0;
-                panel.DOFade(1, fadeTime).OnComplete(() => SceneManager.LoadScene("LoadingScene"));
+                panel.DOFade(1, fadeTime).OnComplete(() => SceneManager.LoadScene("Loading_Scene"));
             }
         }
     }

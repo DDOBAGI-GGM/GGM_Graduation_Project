@@ -6,21 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/01. Scenes/JH/StartScene.unity
-    guid: d29ebf3e1747b004c84f92f0218e6286
+    path: Assets/01. Scenes/Main/Start_Scene.unity
+    guid: 64cbff4d1aed5124c971ec27713d0a6a
   - enabled: 1
-    path: Assets/01. Scenes/Game/Loading_Scene.unity
-    guid: e4a32ec66935e6c45a02fd83182a6fbc
+    path: Assets/01. Scenes/Main/Loading_Scene.unity
+    guid: f032208cbb66707498868f7056ef0541
   - enabled: 1
-    path: Assets/01. Scenes/Game/StageSelect_Scene.unity
+    path: Assets/01. Scenes/Main/StageSelect_Scene.unity
     guid: bb34b0f12a17f624c99636f9bee9642f
   - enabled: 1
-    path: Assets/01. Scenes/SESE/SE.unity
-    guid: 0d09719c9d7179c4186e1a8fa944b352
-  - enabled: 1
-    path: Assets/01. Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/01. Scenes/MapLetsGo.unity
+    path: Assets/01. Scenes/Main/Stage/Stage_1.unity
     guid: 1f05891708931d445a8f8f0f6d7ddf5a
   m_configObjects: {}

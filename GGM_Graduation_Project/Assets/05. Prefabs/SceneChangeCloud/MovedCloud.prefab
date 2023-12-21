@@ -1613,7 +1613,7 @@ GameObject:
   - component: {fileID: 587051571750084807}
   - component: {fileID: 8978540781263147317}
   m_Layer: 5
-  m_Name: Cloud 1
+  m_Name: MovedCloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

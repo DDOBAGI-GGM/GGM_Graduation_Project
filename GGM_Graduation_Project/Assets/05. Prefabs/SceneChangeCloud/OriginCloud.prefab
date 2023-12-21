@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 2608639320262491031}
   - component: {fileID: 3898706294944917794}
   m_Layer: 5
-  m_Name: Cloud
+  m_Name: OriginCloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
