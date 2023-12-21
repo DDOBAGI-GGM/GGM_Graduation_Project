@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CloudManager : MonoBehaviour
 {
@@ -31,6 +32,22 @@ public class CloudManager : MonoBehaviour
                 is_panelNow = false;
             });
         }
+        else
+        {
+            for (int i = 0; i < clouds.Length; i++)
+            {
+                clouds[i].Init();
+            }
+        }
+    }
+
+    public void Move()
+    {
+        for (int i = 0; i < clouds.Length; i++)
+        {
+            clouds[i].Show(true, animTime);
+        }
+        is_SceneChange = true;
     }
 
     private void Update()
@@ -63,9 +80,9 @@ public class CloudManager : MonoBehaviour
             nowTime += Time.deltaTime;
             if (nowTime > sceneChangeTime)
             {
-                panel.DOFade(1, fadeTime).OnComplete(() => Debug.Log("여기에 씬 변환을 만들어줘용"));
                 is_SceneChange=false;
                 nowTime = 0;
+                panel.DOFade(1, fadeTime).OnComplete(() => SceneManager.LoadScene("LoadingScene"));
             }
         }
     }

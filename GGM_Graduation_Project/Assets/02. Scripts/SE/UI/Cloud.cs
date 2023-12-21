@@ -8,12 +8,18 @@ public class Cloud : MonoBehaviour
     private CanvasGroup _canvasGroup;           // 알파값 조절
     [SerializeField] private float speed = 0;
     [SerializeField] private Ease outEase = Ease.OutCubic, inEase = Ease.InCubic;
-    private Vector3 originPos;
+    private Vector3 originPos;      // 0, 0, 0 화면이 다 구름에 가려져 있을 때임
+    private Vector2 movePos;
 
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         originPos = transform.localPosition;
+    }
+
+    public void Init()
+    {
+            originPos = new Vector2(originPos.x + 1080, originPos.y + 540);
     }
 
     public void Show(bool value, float duration)
