@@ -1214,7 +1214,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 130950600596981607, guid: 24c1046912a5f83418226c8d0beaf27d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2502,7 +2503,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 130950600596981607, guid: 24c1046912a5f83418226c8d0beaf27d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4232,7 +4234,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 970316980}
-  - component: {fileID: 970316979}
   m_Layer: 0
   m_Name: test
   m_TagString: Untagged
@@ -4240,19 +4241,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &970316979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970316978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 550e52899c8c8a64bbfc6aca1864c4af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 479791359}
 --- !u!4 &970316980
 Transform:
   m_ObjectHideFlags: 0
@@ -8109,7 +8097,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: P1_Hydrangea
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 446520863625476909, guid: 0210437907a197b42a739c538b61a4c7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
