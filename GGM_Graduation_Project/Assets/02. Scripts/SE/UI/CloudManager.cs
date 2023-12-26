@@ -12,10 +12,22 @@ public class CloudManager : MonoBehaviour
     [SerializeField] private Image panel;
     [SerializeField] private float sceneChangeTime = 1.0f;
     [SerializeField] private bool is_panelNow = false;
-    [SerializeField] private float fadeTime = 0.5f;
+    [SerializeField] private float fadeTime = 0.3f;
     [SerializeField] private float animTime = 1;
     private float nowTime = 0.0f;
     private bool is_SceneChange = false;
+
+    public static CloudManager Instance;        // 싱글턴으로 만들어주고
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this.gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
@@ -41,18 +53,33 @@ public class CloudManager : MonoBehaviour
         }
     }
 
-    public void Move()
+    public void Move(bool is_goOrigin)      // 트루면 오리지널 위치로 돌아오게, 펄스면 바깥으로 밀려나가게
     {
-        for (int i = 0; i < clouds.Length; i++)
+        if (is_goOrigin)
         {
-            clouds[i].Show(true, animTime);
+            for (int i = 0; i < clouds.Length; i++)
+            {
+                clouds[i].Show(true, animTime);
+            }
+            is_SceneChange = true;
         }
-        is_SceneChange = true;
+        else
+        {
+            panel.DOFade(0, fadeTime).OnComplete(() =>
+            {
+                //DontShow();
+                for (int i = 0; i < clouds.Length; i++)
+                {
+                    clouds[i].Show(false, animTime);
+                }
+                is_panelNow = false;
+            });
+        }
     }
 
     private void Update()
     {
-/*        if (Input.GetKeyDown(KeyCode.N))
+  /*      if (Input.GetKeyDown(KeyCode.N))
         {
             panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, 1f);       // 배경이 그냥 흰색이면 1, 1, 1, 1로 해도됨.
             panel.DOFade(0, fadeTime).OnComplete(() =>
