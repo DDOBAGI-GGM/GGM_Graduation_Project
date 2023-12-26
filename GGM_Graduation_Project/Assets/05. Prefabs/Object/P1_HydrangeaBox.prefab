@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5906949185861578375}
   - component: {fileID: 1877897034465868602}
   - component: {fileID: 7069925807061248240}
+  - component: {fileID: 936303813718424290}
+  - component: {fileID: 3011673809661781968}
   m_Layer: 0
   m_Name: P1_HydrangeaBox
   m_TagString: Untagged
@@ -83,3 +85,38 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &936303813718424290
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310879779581531122}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.45190588, y: 0.45190597, z: 0.45190597}
+  m_Center: {x: 0, y: 0.22595295, z: -0.000000044703484}
+--- !u!114 &3011673809661781968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310879779581531122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d991f584a2aafb4997f3e31ea7f1dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  giveIngredientPrefab: {fileID: 6744387478562132690, guid: 2977b26da37ba39439fd9ebbaeb6691c,
+    type: 3}

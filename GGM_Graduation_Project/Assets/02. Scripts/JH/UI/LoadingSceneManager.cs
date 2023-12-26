@@ -73,24 +73,24 @@ public class LoadingSceneManager : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(changeScene);
         operation.allowSceneActivation = false;
 
+        //while (!operation.isDone)
+        //{
+        //    _time += Time.deltaTime;
+        //    _time += 0.1f;
+
+        //    _slider.value = _time / 3f;
+
+        //    if (_time > 3)
+        //    {
+        //        CloudManager.Instance?.gameObject.SetActive(true);
+        //        CloudManager.Instance?.Move(false);
+        //        operation.allowSceneActivation = true;
+        //    }
+
+        //    yield return new WaitForSeconds(0.1f);
+        //}
+
         while (!operation.isDone)
-        {
-            _time += Time.deltaTime;
-            _time += 0.1f;
-
-            _slider.value = _time / 3f;
-
-            if (_time > 3)
-            {
-                CloudManager.Instance?.gameObject.SetActive(true);
-                CloudManager.Instance?.Move(false);
-                operation.allowSceneActivation = true;
-            }
-
-            yield return new WaitForSeconds(0.1f);
-        }
-
-        /*while (!operation.isDone)
         {
             yield return null;
 
@@ -118,6 +118,6 @@ public class LoadingSceneManager : MonoBehaviour
                     yield break;
                 }
             }
-        }*/
+        }
     }
 }

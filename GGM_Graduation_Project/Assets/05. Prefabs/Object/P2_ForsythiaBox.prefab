@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3642310202899983742}
   - component: {fileID: 4451184177255093292}
   - component: {fileID: 2012992473322495988}
+  - component: {fileID: -7779494207395201524}
+  - component: {fileID: 3946418286118208915}
   m_Layer: 0
   m_Name: P2_ForsythiaBox
   m_TagString: Untagged
@@ -83,3 +85,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-7779494207395201524
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5573429686214309022}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.45190588, y: 0.45190597, z: 0.45190597}
+  m_Center: {x: 0, y: 0.22595295, z: -0.000000044703484}
+--- !u!114 &3946418286118208915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5573429686214309022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d991f584a2aafb4997f3e31ea7f1dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  giveIngredientPrefab: {fileID: 0}
