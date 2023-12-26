@@ -36,7 +36,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void PerformInteraction()
     {
-        //Debug.Log("상호작용 키를 눌렀습니다.");
+        Debug.Log("상호작용 키를 눌렀습니다.");
         //if (currentObjectInHand == null)
         //{
             ItemGetInteraction();

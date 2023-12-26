@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3367483066046398991}
   m_Layer: 0
   m_Name: P1_MapleLeafBox
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
