@@ -8,7 +8,7 @@ public class PlayerInteract : MonoBehaviour
     private float distance = 3f;
     [SerializeField]
     private LayerMask mask;
-    private InteractUI interactUI;
+    //private InteractUI interactUI;
 
     private Camera cam;
     public Camera Cam
@@ -24,12 +24,12 @@ public class PlayerInteract : MonoBehaviour
     }
     private void Awake()
     {
-        interactUI = GetComponent<InteractUI>();
+        //interactUI = GetComponent<InteractUI>();
     }
 
     private void Update()
     {
-        interactUI.UpdateText(string.Empty);
+        //interactUI.UpdateText(string.Empty);
         Ray ray = new Ray(transform.position, Vector3.down);
 
         Debug.DrawRay(ray.origin, ray.direction * distance, Color.red);
@@ -40,7 +40,7 @@ public class PlayerInteract : MonoBehaviour
             if (hitInfo.collider.GetComponent<Interactable>() != null)
             {
                 Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
-                interactUI.UpdateText(interactable.promptMessage);
+                //interactUI.UpdateText(interactable.promptMessage);
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
