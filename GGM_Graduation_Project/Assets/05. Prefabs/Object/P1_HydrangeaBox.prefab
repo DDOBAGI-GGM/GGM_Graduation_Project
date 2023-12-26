@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3011673809661781968}
   m_Layer: 0
   m_Name: P1_HydrangeaBox
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

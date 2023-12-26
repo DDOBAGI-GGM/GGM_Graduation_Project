@@ -12,3 +12,7 @@ public class InteractUI : MonoBehaviour
         promptText.text = promptMessage;
     }
 }
+
+
+// 이거 코드 안쓸 듯
+// 관련된거 주석처리했음. 나중에 지워주기!
