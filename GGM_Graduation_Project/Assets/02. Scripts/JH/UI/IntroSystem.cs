@@ -5,17 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class IntroSystem : MonoBehaviour
 {
-    [Header("페이드 이미지")][SerializeField] private Image _fadePanel;
-    [Header("이동할 씬")][SerializeField] private Object _nextScene;
-
     private void Update()
     {
-        if (Input.anyKeyDown)
+        //if (Input.GetKeyDown(KeyCode.C))        // 테스트용으로
+        if (Input.anyKey)        // 테스트용으로
         {
-            _fadePanel.DOFade(1, 1f).SetEase(Ease.OutCubic).OnComplete(() =>
-            {
-                SceneManager.LoadScene(_nextScene.name);
-            });
+            CloudManager.Instance?.Move(true);
+            LoadingSceneManager.Instance?.ChangeLoadScene("StageSelect_Scene");
         }
     }
 }

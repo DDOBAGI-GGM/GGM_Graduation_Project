@@ -8,6 +8,8 @@ public class IngredientBox : MonoBehaviour, IObject
     [SerializeField] private GameObject giveIngredientPrefab;
     public GameObject Interaction(GameObject ingredient = null)
     {
+        Debug.Log("¿¡?");
+
         GameObject item = Instantiate(giveIngredientPrefab, transform.position, Quaternion.identity);
 
         return item;
