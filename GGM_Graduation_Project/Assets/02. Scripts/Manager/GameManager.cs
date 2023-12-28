@@ -8,7 +8,7 @@ using UnityEngine.UI;
 //    int my_persent;
 //}
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-
+    public StageDataSO nowStageData;
 }
