@@ -38,7 +38,7 @@ public class SettingManager : Singleton<SettingManager>
 
     private IEnumerator AddFadeAnim(bool is_PanelShow)
     {
-        Debug.Log("¾Æ");
+        //Debug.Log("¾Æ");
         if (is_PanelShow)
         {
             is_NowShow = true;

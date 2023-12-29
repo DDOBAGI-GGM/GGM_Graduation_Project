@@ -43,7 +43,7 @@ public class TimeOutManager : MonoBehaviour
 
         while (!operation.isDone)
         {
-            Debug.Log(operation.progress);
+            //Debug.Log(operation.progress);
             if (operation.progress >= 0.9f)      // 로드가 다 되었을 때
             {
                 SettingManager.Instance.FadeAnim(false);

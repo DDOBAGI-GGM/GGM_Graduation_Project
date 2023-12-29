@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,6 +11,7 @@ public class StageResultManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private Slider slider;
+    [SerializeField] private GameObject sliderGagePos;
     [SerializeField] private GameObject crownPrefab;        // 왕관
 
     private void Awake()
@@ -21,13 +23,42 @@ public class StageResultManager : MonoBehaviour
     {
         // 게임매니져의 SO를 가져와서 그걸 기반으로 하여 현제 씬의 여러가지를 설정해준다.
         title.text = nowStageData.stageName;
-        slider.value = nowStageData.myPersent;      // 이런거 다 해서 애니? 재생하게 해주기!
 
         for (int i = 0; i < 3; i++)
         {
+            slider.value = nowStageData.starPersent[i];
             GameObject crown = Instantiate(crownPrefab);
             crown.transform.parent = slider.transform;
-            crown.transform.localScale = new Vector2(0, 100);           // x 좌표에 와야 하는 것을 적어줘야함.
+            crown.transform.position = new Vector2(sliderGagePos.transform.position.x, 0);           // x 좌표 설정
+            crown.transform.localPosition = new Vector2(crown.transform.localPosition.x, 100);          // y 좌표 설정
         }
+
+        // 함수 불러주기 전에 값들 다 계산해서 넣어서 저장해주기!!
+
+
+        GageAnim();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))       // Enter 를 누르면 뒤로 가게.
+        {
+            Debug.Log("스테이지 선택 씬으로 이동하기");
+            CloudManager.Instance?.Move(true);
+            LoadingSceneManager.Instance?.ChangeLoadScene("StageSelect_Scene");     // 스테이지 씬으로 이동하기 하면서 저장도 해주고?
+        }
+    }
+
+    private void GageAnim()
+    {
+        slider.value = nowStageData.myPersent - 0.5f;      // 이런거 다 해서 애니? 재생하게 해주기! 50% 를 넘었는지도 판단해서 하기!
+
+        // 다 끝나면 별 확득 애니도 재생해주기
+        StarInstantiateAnim();
+    }
+
+    private void StarInstantiateAnim()
+    {
+        // 얻은 별 개수 출력
     }
 }
