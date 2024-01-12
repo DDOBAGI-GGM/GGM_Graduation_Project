@@ -382,7 +382,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 9013fdfdbdc0e1847b938fe9ff84aa27, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: c8ae0c29cb5995a49ac366a84650e2fb, type: 2}
   m_BuildHeightMesh: 0
 --- !u!191 &149031574
 OffMeshLink:
@@ -689,7 +689,7 @@ PrefabInstance:
     - target: {fileID: 8498987494796996601, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.46805498
+      value: 0.062
       objectReference: {fileID: 0}
     - target: {fileID: 8498987494796996601, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
@@ -960,7 +960,7 @@ GameObject:
   - component: {fileID: 1176180935}
   - component: {fileID: 1176180936}
   m_Layer: 0
-  m_Name: PlayerMouse
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1025,7 +1025,7 @@ Transform:
   m_GameObject: {fileID: 1176180923}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.54, y: 1, z: -3.63}
+  m_LocalPosition: {x: -16.46, y: 1, z: -3.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

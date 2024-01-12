@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour       // 그냥 실글턴
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour       // 그냥 싱글턴
 {
     static T instance;
+
+    [TextArea]
+    public string description;
 
     public static T Instance
     {

@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208d380d22643ec45951029c6a118a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: "\uC52C \uB85C\uB529\uD560 \uB54C \uB9C8\uB2E4 \uC2AC\uB77C\uC774\uB354
+    \uBC1B\uC544\uC640\uC11C \uD574\uC904\uB824\uACE0. \uB85C\uB529 \uC52C \uC77C\uB54C\uB9CC."
   _slider: {fileID: 0}
 --- !u!4 &34857825
 Transform:
@@ -591,6 +593,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55b5f249f341cd4b9845e3dc8bdf074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: "\uC18C\uB9AC\uB97C \uC7AC\uC0DD\uD574\uC8FC\uB294 \uB9E4\uB2C8\uC838\uC784.
+    \uB9AC\uC2A4\uD2B8\uB97C \uD558\uB098 \uCD94\uAC00\uD574\uC11C \uC774\uB984\uACFC
+    \uD074\uB9BD\uC744 \uB123\uC740 \uB4A4 \uCF54\uB4DC\uC5D0\uC11C SoundManager.Instance.PlayBGM
+    \uD558\uAC70\uB098 PlaySFX \uD574\uC8FC\uBA74 \uB40C."
   bgmSounds:
   - soundName: Base
     clip: {fileID: 8300000, guid: 513f78c50f5c01c46ba2e37ccd8e5196, type: 3}
@@ -1296,6 +1302,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b0d4bd95e1127469839ebf0fcedfe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: "ESC \uD0A4\uB85C \uC774\uB3D9\uAC00\uB2A5\uD55C \uC124\uC815. \uB098\uC911\uC5D0
+    \uAC8C\uC784\uB9E4\uB2C8\uC838\uB791 \uC5F0\uAD00\uD574\uC11C \uAC8C\uC784 \uC52C
+    \uC77C \uB550 \uB610 \uB2E4\uB974\uAC8C \uC791\uB3D9\uD558\uAE30.\n\uADF8\uB9AC\uACE0
+    \uC2A4\uD14C\uC774\uC9C0\uC77C \uB54C\uC758 \uBE4C\uB4DC \uC778\uB371\uC2A4\uB97C
+    \uC0AC\uC6A9\uD558\uAE30 \uB584\uBB38\uC5D0 \uD655\uC778\uD55C\uBC88 \uC529 \uD574\uC904
+    \uAC83."
   settingPanel: {fileID: 1576400821}
   fadeAnim: {fileID: 554471600}
 --- !u!114 &550138777
@@ -4189,6 +4201,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881067e5beaeb2d4a9729fa1fac4f7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: "\uC52C \uC774\uB3D9\uD560 \uB54C \uAD6C\uB984\uC774 \uB098\uC624\uB294
+    \uD6A8\uACFC\uB97C \uC704\uD55C \uCE94\uBC84\uC2A4\uC774\uC790 \uC2F1\uAE00\uD134.
+    \uC52C \uC774\uB3D9\uD560 \uB54C          CloudManager.Instance?.Move(true);
+    \uC774\uB807\uAC8C \uD574\uC11C \uAD6C\uB984\uC744 \uBD88\uB7EC\uC640\uC90C.
+    \uBD80\uB974\uACE0 \uC52C \uC774\uB3D9\uD558\uB294\uAC74 \uBC14\uAFB8\uB294 \uCE5C\uAD6C
+    \uBD88\uB7EC\uC640\uC918\uC57C \uD568."
   clouds:
   - {fileID: 6202670378888598689}
   - {fileID: 3545012908263432326}
@@ -4225,7 +4243,7 @@ GameObject:
   - component: {fileID: 1635602026}
   - component: {fileID: 1635602027}
   m_Layer: 0
-  m_Name: Manager
+  m_Name: IntroManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
