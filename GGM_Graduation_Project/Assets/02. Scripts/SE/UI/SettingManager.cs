@@ -8,7 +8,8 @@ public class SettingManager : Singleton<SettingManager>
     [SerializeField] private GameObject gamePausePanel, settingPanel;
     [SerializeField] private Animator fadeAnim;
 
-    private bool is_NowShow = false;
+    [SerializeField] private bool is_NowShow = false;       // 확인용
+    [SerializeField] private bool is_GamePause = false;         // 게임펄스 창이 켜져 있냐 판단하는 불값.
     private bool is_Fading = false;     // 페이드 애니가 재생되고 있는 거 판단ㄴ
 
     private void Update()
@@ -35,15 +36,40 @@ public class SettingManager : Singleton<SettingManager>
         else StartCoroutine(AddFadeAnim(is_PanelShow, panel));
     }
 
+    public void OnSettingBackBtn()      // 셋팅화면만 나갈 때
+    {
+        ShowPanel(!is_NowShow, settingPanel);
+    }
+
+    public void OnGamePauseBackBtn()        // 게임 화면만 나갈 때
+    {
+        ShowPanel(!is_NowShow, gamePausePanel);
+    }
+
+    public void OnSettingShow()     // 게임 멈춤에서 사용하는 것.
+    {
+        ShowPanel(true, settingPanel);
+    }
+
     private IEnumerator AddFadeAnim(bool is_PanelShow, GameObject panel)
     {
+        if (panel == gamePausePanel)
+        {
+            is_GamePause = is_PanelShow;
+        }
+
         //Debug.Log("아");
         if (is_PanelShow)
         {
             is_NowShow = true;
         }
 
-        Time.timeScale = 1;     // 애니가 보여야 하니까.
+        Time.timeScale = 1;     // 애니가 보여야 하니까. 
+
+        if (is_PanelShow == true && is_GamePause)
+        {
+            Debug.Log("플레이어 멈추고 타이머 멈추고 해주십숑");
+        }
 
         is_Fading = true;
         FadeAnim(true);
@@ -58,11 +84,19 @@ public class SettingManager : Singleton<SettingManager>
 
         if (is_PanelShow == false)
         {
-            is_NowShow = false; 
+            if (is_GamePause == false)
+            {
+                is_NowShow = false; 
+                Debug.Log("플레이어 멈추고 타이머 멈춘거 풀어주십숑");
+            }
+            else
+            {
+                Time.timeScale = 0;     // 게임이 멈춘 상태니까.
+            }
         }
         else
         {
-            Time.timeScale = 0;     // 설정창이 켜진거면
+            Time.timeScale = 0;     // 설정창이든 뭐든 창이 켜진 것이면
         }
     }
 
