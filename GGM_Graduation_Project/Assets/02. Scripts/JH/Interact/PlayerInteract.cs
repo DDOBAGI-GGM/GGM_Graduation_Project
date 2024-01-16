@@ -8,43 +8,28 @@ public class PlayerInteract : MonoBehaviour
     private float distance = 3f;
     [SerializeField]
     private LayerMask mask;
-    //private InteractUI interactUI;
 
-    private Camera cam;
-    public Camera Cam
+    private Ray ray;
+    private RaycastHit hitInfo;
+    private StagePlatform platform;
+
+    private void Start()
     {
-        get
-        {
-            if (cam == null)
-            {
-                cam = Camera.main;
-            }
-            return cam;
-        }
-    }
-    private void Awake()
-    {
-        //interactUI = GetComponent<InteractUI>();
+        ray = new Ray(transform.position, Vector3.down);
     }
 
     private void Update()
     {
-        //interactUI.UpdateText(string.Empty);
-        Ray ray = new Ray(transform.position, Vector3.down);
+        //Debug.DrawRay(ray.origin, ray.direction * distance, Color.red);
 
-        Debug.DrawRay(ray.origin, ray.direction * distance, Color.red);
-
-        RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
-            if (hitInfo.collider.GetComponent<Interactable>() != null)
+            if (hitInfo.collider.TryGetComponent<StagePlatform>(out platform))
             {
-                Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
-                //interactUI.UpdateText(interactable.promptMessage);
-
+                GameManager.Instance.nowStageData = platform.thisStage;     // 현재 게임매니져의 것을 내것으로 바꿔줌.       SO 는 단 한개의 것만 가지고 있음.
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    interactable.BaseInteract();
+                    platform.Interact();
                 }
             }
         }

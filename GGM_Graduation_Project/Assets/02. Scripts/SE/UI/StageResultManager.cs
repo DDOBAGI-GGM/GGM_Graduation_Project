@@ -10,13 +10,15 @@ public class StageResultManager : MonoBehaviour
     private StageDataSO nowStageData;
 
     [SerializeField] private TextMeshProUGUI title;
-    [SerializeField] private Slider slider;
+    [SerializeField] private Slider resultSlider;
     [SerializeField] private GameObject sliderGagePos;
     [SerializeField] private GameObject crownPrefab;        // 왕관
+    //[SerializeField] private StageDataSO testSO;
 
     private void Awake()
     {
         nowStageData = GameManager.Instance.nowStageData;
+        //nowStageData = testSO;
     }
 
     void Start()
@@ -26,9 +28,9 @@ public class StageResultManager : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            slider.value = nowStageData.starPersent[i];
+            resultSlider.value = nowStageData.starPersent[i] * 2 - 1;         // 별의 위치를 정해주기 위해서임. 이걸 어떻게 하죠웅
             GameObject crown = Instantiate(crownPrefab);
-            crown.transform.parent = slider.transform;
+            crown.transform.SetParent(resultSlider.transform);
             crown.transform.position = new Vector2(sliderGagePos.transform.position.x, 0);           // x 좌표 설정
             crown.transform.localPosition = new Vector2(crown.transform.localPosition.x, 100);          // y 좌표 설정
         }
@@ -51,9 +53,9 @@ public class StageResultManager : MonoBehaviour
 
     private void GageAnim()
     {
-        slider.value = nowStageData.myPersent - 0.5f;      // 이런거 다 해서 애니? 재생하게 해주기! 50% 를 넘었는지도 판단해서 하기!
+        resultSlider.value = nowStageData.myPersent - 0.5f > 0 ? nowStageData.myPersent - 0.5f : 0 ;      // 이런거 다 해서 애니? 재생하게 해주기! 50% 를 넘었는지도 판단해서 하기!
 
-        // 다 끝나면 별 확득 애니도 재생해주기
+        // 다 끝나면 별 획득 애니도 재생해주기
         StarInstantiateAnim();
     }
 

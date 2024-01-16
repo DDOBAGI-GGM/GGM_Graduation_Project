@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageName: 1 - 2
   starPersent:
-  - 0.609
-  - 0.73
-  - 0.833
+  - 0.5
+  - 0.75
+  - 0.95
   star: 000000
-  myPersent: 0.602
+  myPersent: 0.683
