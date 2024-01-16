@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour       // 그냥 실글턴
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour       // 그냥 싱글턴
 {
     static T instance;
+
+    [TextArea]
+    public string description;
 
     public static T Instance
     {
@@ -10,6 +13,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour       // 그냥 
         {
             if (instance == null)
             {
+                return null;        // 없어요 없어 그냥 이거 나중에 지워도 되고 .... 
+
                 instance = GameObject.FindObjectOfType<T>();
 
                 if (instance == null)

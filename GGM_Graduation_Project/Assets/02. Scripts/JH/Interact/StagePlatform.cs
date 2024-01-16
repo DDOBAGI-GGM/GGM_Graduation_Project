@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StagePlatform : Interactable
 {
@@ -9,5 +10,9 @@ public class StagePlatform : Interactable
         //LoadingSceneManager.Instance.StartLoading(scene.name);
         CloudManager.Instance?.Move(true);
         LoadingSceneManager.Instance?.ChangeLoadScene(scene.name);
+        if (CloudManager.Instance == null && LoadingSceneManager.Instance == null)      // 디버그용 코드
+        {
+            SceneManager.LoadScene(scene.name);
+        }
     }
 }

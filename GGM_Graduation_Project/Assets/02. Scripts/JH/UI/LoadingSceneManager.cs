@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadingSceneManager : MonoBehaviour
+public class LoadingSceneManager : Singleton<LoadingSceneManager>
 {
     [Header("로딩 슬라이더")][SerializeField] private Slider _slider;
 
@@ -11,7 +11,7 @@ public class LoadingSceneManager : MonoBehaviour
     public static string changeScene = "";
     private float _time;
 
-    public static LoadingSceneManager Instance;
+/*    public static LoadingSceneManager Instance;
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class LoadingSceneManager : MonoBehaviour
         //시작 시 이벤트를 등록해 줍니다.
 
         //Debug.Log("LoadingScene의 Awake 야.");
-    }
+    }*/
 
     private void Update()
     {

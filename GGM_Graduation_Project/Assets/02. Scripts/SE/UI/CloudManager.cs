@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class CloudManager : MonoBehaviour
+public class CloudManager : Singleton<CloudManager>
 {
     [SerializeField] Cloud[] clouds = new Cloud[1];
 
@@ -16,8 +16,9 @@ public class CloudManager : MonoBehaviour
     [SerializeField] private float animTime = 1;
     private float nowTime = 0.0f;
     private bool is_SceneChange = false;
+    public bool Is_SceneChange { get { return is_SceneChange; } private set { } }
 
-    public static CloudManager Instance;        // 싱글턴으로 만들어주고
+/*    public static CloudManager Instance;        // 싱글턴으로 만들어주고
 
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class CloudManager : MonoBehaviour
             Destroy(this.gameObject);
 
         DontDestroyOnLoad(gameObject);
-    }
+    }*/
 
     private void Start()
     {

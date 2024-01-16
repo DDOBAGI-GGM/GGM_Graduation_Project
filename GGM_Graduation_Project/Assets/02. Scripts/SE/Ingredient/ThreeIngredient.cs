@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThreeIngredient : Ingredient
 {
     public ThreeIngredientType type = ThreeIngredientType.raw;
-    public string name;
+    public new string name;
 
     private void Awake()
     {
