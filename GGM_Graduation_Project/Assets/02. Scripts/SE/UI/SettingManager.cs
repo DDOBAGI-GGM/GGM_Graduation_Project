@@ -46,7 +46,7 @@ public class SettingManager : Singleton<SettingManager>
         ShowPanel(!is_NowShow, gamePausePanel);
     }
 
-    public void OnSettingShow()     // 게임 멈춤에서 사용하는 것.
+    public void OnSettingShow()     // 게임 멈춤에서 사용하는 것.  인트로에서도 찾아와서 사용해줌.
     {
         ShowPanel(true, settingPanel);
     }
