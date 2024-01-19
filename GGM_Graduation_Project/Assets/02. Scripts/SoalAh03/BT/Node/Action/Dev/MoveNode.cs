@@ -1,33 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
-public class MoveNode : MonoBehaviour
+public class MoveNode : INode
 {
-    NavMeshAgent agent;
-
-    private Transform destination;
+    private AI ai;
+    private GameObject destination;
+    //private Transform destination;
     private float speed;
 
 
-    public MoveNode(Transform destination, float speed = 5f)
+    public MoveNode(AI ai, GameObject destination/*Transform destination*/, float speed = 5f)
     {
+        this.ai = ai;
         this.destination = destination;
         this.speed = speed;
     }
 
     public void OnAwake()
     {
-        agent = GetComponent<NavMeshAgent>();
     }
 
     public void OnStart()
     {
-        agent.speed = speed;
-        agent.isStopped = false;
-        agent.SetDestination(agent.destination);
+        ai.agent.speed = speed;
+        ai.agent.isStopped = false;
+        ai.agent.SetDestination(ai.agent.destination);
     }
 
     public NodeState Execute()
@@ -45,11 +43,11 @@ public class MoveNode : MonoBehaviour
         //    return NodeState.Running;
         }
 
-        if (!agent.pathPending)
+        if (!ai.agent.pathPending)
         {
-            if (agent.remainingDistance <= agent.stoppingDistance)
+            if (ai.agent.remainingDistance <= ai.agent.stoppingDistance)
             {
-                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                if (!ai.agent.hasPath || ai.agent.velocity.sqrMagnitude == 0f)
                 {
                     return NodeState.Success;
                 }
@@ -60,6 +58,6 @@ public class MoveNode : MonoBehaviour
 
     public void OnEnd()
     {
-        agent.isStopped = true;
+        ai.agent.isStopped = true;
     }
 }

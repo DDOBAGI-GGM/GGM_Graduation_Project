@@ -5,12 +5,12 @@ using UnityEngine.AI;
 
 public class DestinationNode : INode
 {
-    private AIManager brain;
+    private AI ai;
     private AIStateType state;
 
-    public DestinationNode(AIManager brain, AIStateType state)
+    public DestinationNode(AI ai, AIStateType state)
     {
-        this.brain = brain;
+        this.ai = ai;
         this.state = state;
     }
 
@@ -28,7 +28,21 @@ public class DestinationNode : INode
         // 선택된 종류의 오브젝트 중 사용할 수 있는 것을 순회...
         // 고장이라면 사용하지 못 하고 사용할 수 있는게 2개 이상이라면 더 가까운 오브젝트 사용...
 
-        return NodeState.Running;
+        foreach (OBJ obj in ai.manager.objects)
+        {
+            if (obj.name == state.ToString())
+            {
+                foreach (GameObject item in obj.obj)
+                {
+                    if (item.activeSelf == true)
+                    {
+                        ai.destination = item;
+                    }
+                }
+            }
+        }
+
+        return NodeState.Success;
     }
 
     public void OnEnd()
