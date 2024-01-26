@@ -4,12 +4,11 @@ using UnityEngine;
 
 public enum AIStateType
 {
-    None = 0,
-    ingredient = 1,
-    processing = 2,
-    merge = 3,
-    shelf = 4,
-    attack = 5,
+    Ingredient = 0,
+    Processing = 1,
+    Merge = 2,
+    Shelf = 3,
+    Attack = 4
 }
 
 [System.Serializable]
@@ -19,10 +18,17 @@ public class OBJ
     public List<GameObject> obj = new List<GameObject>();
 }
 
+[System.Serializable]
+public class RECIPE
+{
+    public RecipeListSO recipe;
+    //public int percent
+}
+
 public class AIManager : MonoBehaviour
 {
     // 레시피
-    public List<GameObject> recipes = new List<GameObject>();
+    public List<RecipeListSO> recipes = new List<RecipeListSO>();
 
     // 오브젝트
     public List<OBJ> objects = new List<OBJ>();

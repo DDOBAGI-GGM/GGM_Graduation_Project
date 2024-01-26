@@ -5,15 +5,12 @@ using UnityEngine;
 public class MoveNode : INode
 {
     private AI ai;
-    private GameObject destination;
-    //private Transform destination;
     private float speed;
 
 
-    public MoveNode(AI ai, GameObject destination/*Transform destination*/, float speed = 5f)
+    public MoveNode(AI ai, float speed = 5f)
     {
         this.ai = ai;
-        this.destination = destination;
         this.speed = speed;
     }
 
@@ -24,30 +21,29 @@ public class MoveNode : INode
     public void OnStart()
     {
         ai.agent.speed = speed;
-        ai.agent.isStopped = false;
-        ai.agent.SetDestination(ai.agent.destination);
     }
 
     public NodeState Execute()
     {
-        {
-        //float distance = Vector3.Distance(transform.position, destination.position);
-        //Vector3 dir = destination.position - transform.position;
+        ai.agent.SetDestination(ai.destination.transform.position);
+        //float distance = Vector3.Distance(ai.transform.position, ai.destination.transform.position);
+        //Vector3 dir = ai.destination.transform.position - ai.transform.position;
         //RaycastHit hit;
-        //if (Physics.Raycast(transform.position, dir, out hit)
+        //if (Physics.Raycast(ai.transform.position, dir, out hit)
         //    && distance <= 5f && hit.transform.CompareTag("Object"))
         //{
-        //    return NodeState.Success;
+        //    if (hit.collider.gameObject.name == ai.destination.gameObject.name)
+        //        return NodeState.Success;
         //}
         //else
         //    return NodeState.Running;
-        }
+        //ai.agent.SetDestination(ai.agent.destination);
 
         if (!ai.agent.pathPending)
         {
             if (ai.agent.remainingDistance <= ai.agent.stoppingDistance)
             {
-                if (!ai.agent.hasPath || ai.agent.velocity.sqrMagnitude == 0f)
+                if (!ai.agent.hasPath || ai.agent.velocity.sqrMagnitude == 3f)
                 {
                     return NodeState.Success;
                 }
@@ -58,6 +54,6 @@ public class MoveNode : INode
 
     public void OnEnd()
     {
-        ai.agent.isStopped = true;
+        //ai.agent.isStopped = true;
     }
 }
