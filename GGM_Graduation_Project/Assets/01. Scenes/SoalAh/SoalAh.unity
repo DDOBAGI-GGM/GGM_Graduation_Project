@@ -581,9 +581,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   agent: {fileID: 0}
-  handPos: {fileID: 577649142}
-  state: 1
+  state: -1
   hand: {fileID: 0}
+  handPos: {fileID: 577649142}
   target: {fileID: 0}
   destination: {fileID: 0}
 --- !u!1 &570479941
@@ -707,7 +707,7 @@ Transform:
   m_GameObject: {fileID: 577649141}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.71, y: 0, z: 0}
+  m_LocalPosition: {x: -0.03, y: 0, z: 0.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1718,12 +1718,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6047dc0a5bbd2458f8dc806b0fcdf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipes: []
+  recipes:
+  - {fileID: 11400000, guid: efdda6220604b124fb71137b9f6d88e6, type: 2}
+  - {fileID: 11400000, guid: 9190bb17d9c911844b3b1a8326fda674, type: 2}
+  - {fileID: 11400000, guid: 6b4fc092382baed4fbc4eb348a744720, type: 2}
+  - {fileID: 11400000, guid: f547286b47ca24f4e98ce2d33f584556, type: 2}
   objects:
   - name: Ingredient
     obj:
     - {fileID: 1481042070}
     - {fileID: 1222060862}
+  - name: Processing
+    obj:
+    - {fileID: 2028630414}
+  - name: Merge
+    obj:
+    - {fileID: 960025425}
 --- !u!1001 &1222060860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1755,7 +1765,7 @@ PrefabInstance:
     - target: {fileID: 4981036880572724752, guid: a1e9f9cc4adbc1f46b03931a9a80682c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9300001
+      value: -9.36
       objectReference: {fileID: 0}
     - target: {fileID: 4981036880572724752, guid: a1e9f9cc4adbc1f46b03931a9a80682c,
         type: 3}

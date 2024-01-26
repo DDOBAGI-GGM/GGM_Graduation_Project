@@ -6,12 +6,10 @@ using UnityEngine.AI;
 public class DestinationNode : INode
 {
     private AI ai;
-    private AIStateType state;
 
-    public DestinationNode(AI ai, AIStateType state)
+    public DestinationNode(AI ai)
     {
         this.ai = ai;
-        this.state = state;
     }
 
     public void OnAwake()
@@ -28,9 +26,10 @@ public class DestinationNode : INode
         // 선택된 종류의 오브젝트 중 사용할 수 있는 것을 순회...
         // 고장이라면 사용하지 못 하고 사용할 수 있는게 2개 이상이라면 더 가까운 오브젝트 사용...
 
+
         foreach (OBJ obj in ai.manager.objects)
         {
-            if (obj.name == state.ToString())
+            if (obj.name == ((AIStateType)(ai.state + 1)).ToString())
             {
                 foreach (GameObject item in obj.obj)
                 {

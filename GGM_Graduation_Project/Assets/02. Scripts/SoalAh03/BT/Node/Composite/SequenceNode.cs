@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SequenceNode : INode
 {
-    private List<INode> nodes;
+    private List<INode> nodes = new List<INode>();
 
     public SequenceNode(params INode[] nodes)
     {
@@ -13,8 +13,6 @@ public class SequenceNode : INode
 
     public void OnAwake()
     {
-        nodes = new List<INode>();
-
         foreach (var node in nodes)
         {
             node.OnAwake();

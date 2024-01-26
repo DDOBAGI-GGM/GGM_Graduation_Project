@@ -20,16 +20,13 @@ public class ActionNode : INode
 
     public void OnAwake()
     {
-        throw new NotImplementedException();
     }
 
     public void OnEnd()
     {
-        throw new NotImplementedException();
     }
 
     public void OnStart()
     {
-        throw new NotImplementedException();
     }
 }

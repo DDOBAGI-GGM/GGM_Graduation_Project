@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SelectorNode : INode
 {
-    private List<INode> nodes;
+    private List<INode> nodes = new List<INode>();
 
     public SelectorNode(params INode[] nodes)
     {
@@ -13,8 +13,6 @@ public class SelectorNode : INode
 
     public void OnAwake()
     {
-        nodes = new List<INode>();
-
         foreach (var node in nodes)
         {
             node.OnAwake();
