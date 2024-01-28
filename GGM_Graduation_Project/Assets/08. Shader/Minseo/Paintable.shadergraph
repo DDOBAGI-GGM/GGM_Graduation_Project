@@ -7,6 +7,7 @@
             "m_Id": "8a76ef779b4c44a1a4242ab46eca8b7c"
         },
         {
+<<<<<<< Updated upstream
             "m_Id": "41271c3c5f484ca2a435c65087a81705"
         },
         {
@@ -34,6 +35,17 @@
             "m_Id": "2871f666316541908d110962eef07f02"
         },
         {
+=======
+            "m_Id": "3c9e15eb8c374e0495f36ea3d57473ab"
+        },
+        {
+            "m_Id": "7bf270fe91494824b4209d2dc1faae23"
+        },
+        {
+            "m_Id": "0de750b9c41b4a5daef844a1599f5ac7"
+        },
+        {
+>>>>>>> Stashed changes
             "m_Id": "b5cc7f6f25194a778cb438f45fbbce66"
         },
         {
@@ -56,7 +68,11 @@
     "m_Dropdowns": [],
     "m_CategoryData": [
         {
+<<<<<<< Updated upstream
             "m_Id": "4b51b2b40fab4ab2bb6bb32a10a866e0"
+=======
+            "m_Id": "7e6ef463d85748f4915d2ad2b7b07846"
+>>>>>>> Stashed changes
         }
     ],
     "m_Nodes": [
@@ -82,39 +98,51 @@
             "m_Id": "fd0649bfe0094f3b99ab1014b5f4359a"
         },
         {
+<<<<<<< Updated upstream
             "m_Id": "3cc81970230a4e2680f1056abe28f14c"
         },
         {
             "m_Id": "46f41194bebd49dd90523a9187559d47"
         },
         {
+=======
+>>>>>>> Stashed changes
             "m_Id": "ef39b7e1c5c6465f842c5dfa050e47e1"
         },
         {
             "m_Id": "b8b2c2e6de994b62bf46aa726c628243"
         },
         {
+<<<<<<< Updated upstream
             "m_Id": "df95a009d9374c2eb5e675bbb3e66274"
         },
         {
+=======
+>>>>>>> Stashed changes
             "m_Id": "f176bf104e364901a15faca7f74a33fd"
         },
         {
             "m_Id": "a7dee795de614222ba4e4569b151c9e8"
         },
         {
+<<<<<<< Updated upstream
             "m_Id": "5e12b3ba1670485a9c4c4952862ec7c9"
         },
         {
+=======
+>>>>>>> Stashed changes
             "m_Id": "d74a28341b3b47d2b929db9c36d76662"
         },
         {
             "m_Id": "c9309f6c8a3444369988184556880232"
         },
         {
+<<<<<<< Updated upstream
             "m_Id": "fc024f6cf113420a97850ebf6ce4161e"
         },
         {
+=======
+>>>>>>> Stashed changes
             "m_Id": "a50a3f7883c643f3ab2704942ad380db"
         },
         {
@@ -133,9 +161,12 @@
             "m_Id": "44bcc4e64933434780f8b817d3a0dffc"
         },
         {
+<<<<<<< Updated upstream
             "m_Id": "1a86dcb475f34e9c8bb3d74526142f51"
         },
         {
+=======
+>>>>>>> Stashed changes
             "m_Id": "9b0f9aa955274ecab73a1af354d451a4"
         },
         {
@@ -235,12 +266,15 @@
             "m_Id": "7221f6d1a9c247c7877252d52dede039"
         },
         {
+<<<<<<< Updated upstream
             "m_Id": "3efc3715e0e5445abba62d90c81ee51e"
         },
         {
             "m_Id": "0766fb1df8f64245a9db142093d03dc2"
         },
         {
+=======
+>>>>>>> Stashed changes
             "m_Id": "2032db54a42245aaa9312efadd4f15e3"
         },
         {
@@ -251,6 +285,12 @@
         },
         {
             "m_Id": "756af25b9cc44d6d984995465c5e60c6"
+<<<<<<< Updated upstream
+=======
+        },
+        {
+            "m_Id": "31fb80294c5447fea425b06ae66216de"
+>>>>>>> Stashed changes
         }
     ],
     "m_GroupDatas": [
@@ -266,6 +306,7 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+<<<<<<< Updated upstream
                     "m_Id": "0766fb1df8f64245a9db142093d03dc2"
                 },
                 "m_SlotId": 0
@@ -280,6 +321,8 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+=======
+>>>>>>> Stashed changes
                     "m_Id": "111d3aad4d3b47bc962dd03e407442da"
                 },
                 "m_SlotId": 2
@@ -294,6 +337,7 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+<<<<<<< Updated upstream
                     "m_Id": "1a86dcb475f34e9c8bb3d74526142f51"
                 },
                 "m_SlotId": 0
@@ -308,6 +352,8 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+=======
+>>>>>>> Stashed changes
                     "m_Id": "2032db54a42245aaa9312efadd4f15e3"
                 },
                 "m_SlotId": 0
@@ -364,6 +410,23 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+<<<<<<< Updated upstream
+=======
+                    "m_Id": "31fb80294c5447fea425b06ae66216de"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "d0fda5868f6b4db68479a71ea3297cf3"
+                },
+                "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+>>>>>>> Stashed changes
                     "m_Id": "33d05c2bee3a48cbad54c88a071627d0"
                 },
                 "m_SlotId": 0
@@ -434,6 +497,7 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+<<<<<<< Updated upstream
                     "m_Id": "3efc3715e0e5445abba62d90c81ee51e"
                 },
                 "m_SlotId": 3
@@ -448,6 +512,8 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+=======
+>>>>>>> Stashed changes
                     "m_Id": "410af66ac63f4b6ca91752d4e6c8c4b1"
                 },
                 "m_SlotId": 0
@@ -476,6 +542,7 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+<<<<<<< Updated upstream
                     "m_Id": "46f41194bebd49dd90523a9187559d47"
                 },
                 "m_SlotId": 0
@@ -490,6 +557,8 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+=======
+>>>>>>> Stashed changes
                     "m_Id": "472c4ae9e2c94183aeab11d54efdf6e9"
                 },
                 "m_SlotId": 1
@@ -546,6 +615,7 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+<<<<<<< Updated upstream
                     "m_Id": "5e12b3ba1670485a9c4c4952862ec7c9"
                 },
                 "m_SlotId": 0
@@ -560,6 +630,8 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+=======
+>>>>>>> Stashed changes
                     "m_Id": "6721bad2e28e4210a1fa01a48f73c858"
                 },
                 "m_SlotId": 0
@@ -972,6 +1044,23 @@
             },
             "m_InputSlot": {
                 "m_Node": {
+<<<<<<< Updated upstream
+=======
+                    "m_Id": "7433d00ef5f24c7e83298620fcd37d61"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "d74a28341b3b47d2b929db9c36d76662"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+>>>>>>> Stashed changes
                     "m_Id": "c9309f6c8a3444369988184556880232"
                 },
                 "m_SlotId": 2
@@ -1022,6 +1111,7 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+<<<<<<< Updated upstream
                     "m_Id": "df95a009d9374c2eb5e675bbb3e66274"
                 },
                 "m_SlotId": 0
@@ -1036,6 +1126,8 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+=======
+>>>>>>> Stashed changes
                     "m_Id": "ed002c12350a46b69f196e5d728582cd"
                 },
                 "m_SlotId": 0
@@ -1092,6 +1184,7 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+<<<<<<< Updated upstream
                     "m_Id": "fc024f6cf113420a97850ebf6ce4161e"
                 },
                 "m_SlotId": 0
@@ -1106,6 +1199,8 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+=======
+>>>>>>> Stashed changes
                     "m_Id": "fd0649bfe0094f3b99ab1014b5f4359a"
                 },
                 "m_SlotId": 3
@@ -1203,6 +1298,24 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
+=======
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "0072eb470b3a4f259e6b87b78ac0e915",
+    "m_Id": 0,
+    "m_DisplayName": "Out",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
     "m_ObjectId": "01612b2f09a24a9c9879c83799445b96",
     "m_Guid": {
@@ -1233,6 +1346,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
     "m_ObjectId": "01b25b456e3a4150ba31de69195b9de4",
     "m_Id": 1,
@@ -1267,6 +1381,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "02a7ff58821f4c6f892314bf08a61af8",
     "m_Id": 2,
@@ -1315,6 +1431,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "0766fb1df8f64245a9db142093d03dc2",
     "m_Group": {
@@ -1351,6 +1468,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "0bd1140981474aaeb3f66b1a396b180e",
     "m_Id": 2,
@@ -1553,6 +1672,24 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
+=======
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "11b2f7d3cd244645a2415d516a0de3bd",
+    "m_Id": 1,
+    "m_DisplayName": "X",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "X",
+    "m_StageCapability": 3,
+    "m_Value": 40.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "121021de378745df918cdf9959438926",
     "m_Id": 1,
@@ -1650,6 +1787,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "1a86dcb475f34e9c8bb3d74526142f51",
     "m_Group": {
@@ -1686,6 +1824,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.UVMaterialSlot",
     "m_ObjectId": "1ae41280cd3c43fa9c8e8ef17cd6edd7",
     "m_Id": 0,
@@ -2003,6 +2143,7 @@
 }
 
 {
+<<<<<<< Updated upstream
     "m_SGVersion": 1,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
     "m_ObjectId": "2871f666316541908d110962eef07f02",
@@ -2031,6 +2172,8 @@
 }
 
 {
+=======
+>>>>>>> Stashed changes
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.SamplerStateMaterialSlot",
     "m_ObjectId": "2b1bbd45db6d4485a7c2656133ce6b29",
@@ -2057,6 +2200,7 @@
 }
 
 {
+<<<<<<< Updated upstream
     "m_SGVersion": 1,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
     "m_ObjectId": "2c6f3ce4bba145b09c0a22fced0d7f85",
@@ -2107,6 +2251,8 @@
 }
 
 {
+=======
+>>>>>>> Stashed changes
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.MultiplyNode",
     "m_ObjectId": "2e36cc2586dc491abb678f1f1cf3d350",
@@ -2253,6 +2399,48 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
+=======
+    "m_Type": "UnityEditor.ShaderGraph.Vector1Node",
+    "m_ObjectId": "31fb80294c5447fea425b06ae66216de",
+    "m_Group": {
+        "m_Id": "76323c6b8d4f4941909a2ea11ff379f9"
+    },
+    "m_Name": "Float",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -4002.39990234375,
+            "y": 313.60003662109377,
+            "width": 171.19996643066407,
+            "height": 33.5999755859375
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "11b2f7d3cd244645a2415d516a0de3bd"
+        },
+        {
+            "m_Id": "0072eb470b3a4f259e6b87b78ac0e915"
+        }
+    ],
+    "synonyms": [
+        "Vector 1"
+    ],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Value": 0.0
+}
+
+{
+    "m_SGVersion": 0,
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "33d05c2bee3a48cbad54c88a071627d0",
     "m_Group": {
@@ -2263,10 +2451,17 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
+<<<<<<< Updated upstream
             "x": -2066.39990234375,
             "y": -228.80001831054688,
             "width": 115.19995880126953,
             "height": 33.59999084472656
+=======
+            "x": -2040.7999267578125,
+            "y": -240.00003051757813,
+            "width": 115.2000732421875,
+            "height": 34.399993896484378
+>>>>>>> Stashed changes
         }
     },
     "m_Slots": [
@@ -2616,6 +2811,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "3cc81970230a4e2680f1056abe28f14c",
     "m_Group": {
@@ -2652,6 +2848,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.DynamicValueMaterialSlot",
     "m_ObjectId": "3d08efa598494d7082a6cd53e3206482",
     "m_Id": 0,
@@ -2815,6 +3013,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.TilingAndOffsetNode",
     "m_ObjectId": "3efc3715e0e5445abba62d90c81ee51e",
     "m_Group": {
@@ -2857,6 +3056,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "3f4a5bcdb8a94558b47de2c072c23a2a",
     "m_Id": 1,
@@ -2917,6 +3118,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
     "m_ObjectId": "41271c3c5f484ca2a435c65087a81705",
     "m_Guid": {
@@ -2947,6 +3149,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.BlockNode",
     "m_ObjectId": "43ae84e143064c48aa6978cadc79a5bb",
     "m_Group": {
@@ -2994,6 +3198,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
     "m_ObjectId": "441d2023bbf84e52a4f8c50c2c807bc6",
     "m_Id": 2,
@@ -3015,6 +3220,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.OneMinusNode",
     "m_ObjectId": "44bcc4e64933434780f8b817d3a0dffc",
     "m_Group": {
@@ -3051,6 +3258,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "46f41194bebd49dd90523a9187559d47",
     "m_Group": {
@@ -3087,6 +3295,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.NormalizeNode",
     "m_ObjectId": "472c4ae9e2c94183aeab11d54efdf6e9",
     "m_Group": {
@@ -3181,6 +3391,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.CategoryData",
     "m_ObjectId": "4b51b2b40fab4ab2bb6bb32a10a866e0",
     "m_Name": "",
@@ -3238,6 +3449,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "4b94a72c4ffb408c83edd91e2d061192",
     "m_Id": 2,
@@ -3358,6 +3571,7 @@
 }
 
 {
+<<<<<<< Updated upstream
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
     "m_ObjectId": "53cdf091df1740039eedc6cc98197c6d",
@@ -3394,6 +3608,8 @@
 }
 
 {
+=======
+>>>>>>> Stashed changes
     "m_SGVersion": 1,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Vector2ShaderProperty",
     "m_ObjectId": "55edcb19ba1d459dbb3c027e66abbc1e",
@@ -3600,6 +3816,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "5e12b3ba1670485a9c4c4952862ec7c9",
     "m_Group": {
@@ -3636,6 +3853,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
     "m_ObjectId": "5efd066dc8024ee089254f7203922d49",
     "m_Id": 1,
@@ -3780,6 +3999,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.SamplerStateMaterialSlot",
     "m_ObjectId": "68b3c229bb614521a42c521dfcc9a3a5",
     "m_Id": 3,
@@ -3793,6 +4013,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "69e9f79dd00843fbbf998accb4073e86",
     "m_Id": 2,
@@ -4246,8 +4468,13 @@
     "m_ObjectId": "76323c6b8d4f4941909a2ea11ff379f9",
     "m_Title": "Ink",
     "m_Position": {
+<<<<<<< Updated upstream
         "x": -3989.60009765625,
         "y": -786.3999633789063
+=======
+        "x": -4027.199951171875,
+        "y": -749.5999755859375
+>>>>>>> Stashed changes
     }
 }
 
@@ -4492,6 +4719,48 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
+=======
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "7e6ef463d85748f4915d2ad2b7b07846",
+    "m_Name": "",
+    "m_ChildObjectList": [
+        {
+            "m_Id": "8a76ef779b4c44a1a4242ab46eca8b7c"
+        },
+        {
+            "m_Id": "3c9e15eb8c374e0495f36ea3d57473ab"
+        },
+        {
+            "m_Id": "7bf270fe91494824b4209d2dc1faae23"
+        },
+        {
+            "m_Id": "0de750b9c41b4a5daef844a1599f5ac7"
+        },
+        {
+            "m_Id": "b5cc7f6f25194a778cb438f45fbbce66"
+        },
+        {
+            "m_Id": "8e760635099b4147956bb9600d13cac2"
+        },
+        {
+            "m_Id": "01612b2f09a24a9c9879c83799445b96"
+        },
+        {
+            "m_Id": "55edcb19ba1d459dbb3c027e66abbc1e"
+        },
+        {
+            "m_Id": "f6677799b193415b8be7686b658a6e85"
+        },
+        {
+            "m_Id": "1bf9c5e6f5c34360a490da1c94e6a7c1"
+        }
+    ]
+}
+
+{
+    "m_SGVersion": 0,
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "7eb99f1bf1184ac4adeee7973427782f",
     "m_Id": 2,
@@ -4551,10 +4820,17 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
+<<<<<<< Updated upstream
             "x": -1884.0,
             "y": -266.0,
             "width": 184.0,
             "height": 253.0
+=======
+            "x": -1911.199951171875,
+            "y": -275.20001220703127,
+            "width": 186.39990234375,
+            "height": 250.40000915527345
+>>>>>>> Stashed changes
         }
     },
     "m_Slots": [
@@ -4599,6 +4875,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "82f5a55de81c4fcb88d9f599f6809182",
     "m_Id": 4,
@@ -4614,6 +4891,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "83440ace705646e19f80ef860206f007",
     "m_Id": 1,
@@ -4639,6 +4918,7 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+<<<<<<< Updated upstream
     "m_ObjectId": "8369cda39fab454bad8b11c684f2c617",
     "m_Id": 7,
     "m_DisplayName": "A",
@@ -4654,6 +4934,8 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+=======
+>>>>>>> Stashed changes
     "m_ObjectId": "8375612061e54898bc75d46adae4a233",
     "m_Id": 0,
     "m_DisplayName": "GlitterIntensity",
@@ -4721,6 +5003,7 @@
 }
 
 {
+<<<<<<< Updated upstream
     "m_SGVersion": 3,
     "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
     "m_ObjectId": "863351f5ceea4c998ef51baab6dd758b",
@@ -4751,6 +5034,8 @@
 }
 
 {
+=======
+>>>>>>> Stashed changes
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
     "m_ObjectId": "8a76ef779b4c44a1a4242ab46eca8b7c",
@@ -4834,6 +5119,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "8c21f3badeca479ba946108a299392f0",
     "m_Id": 0,
@@ -4859,6 +5145,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "8c49725d91664dc58e74aa20f171bd91",
     "m_Id": 5,
@@ -5132,6 +5420,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "94362420510742c0bdad87e0b56ce7c0",
     "m_Id": 0,
@@ -5147,6 +5436,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.NormalizeNode",
     "m_ObjectId": "956cacc929084d28952105a8c1bcea48",
     "m_Group": {
@@ -5533,10 +5824,17 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
+<<<<<<< Updated upstream
             "x": -1902.0001220703125,
             "y": 103.00007629394531,
             "width": 143.0,
             "height": 33.999996185302737
+=======
+            "x": -1862.4000244140625,
+            "y": 160.80001831054688,
+            "width": 146.4000244140625,
+            "height": 34.40000915527344
+>>>>>>> Stashed changes
         }
     },
     "m_Slots": [
@@ -5827,6 +6125,7 @@
 }
 
 {
+<<<<<<< Updated upstream
     "m_SGVersion": 1,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
     "m_ObjectId": "b160a6374fb04a77b114bb611b8c55e4",
@@ -5855,6 +6154,8 @@
 }
 
 {
+=======
+>>>>>>> Stashed changes
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicValueMaterialSlot",
     "m_ObjectId": "b474466274b04577be2fb95817534338",
@@ -6017,7 +6318,11 @@
         "m_Id": "f289e78aac424beb88b8669e32d2003f"
     },
     "m_AllowMaterialOverride": false,
+<<<<<<< Updated upstream
     "m_SurfaceType": 0,
+=======
+    "m_SurfaceType": 1,
+>>>>>>> Stashed changes
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
     "m_AlphaMode": 0,
@@ -6047,6 +6352,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "b7fffb07d0ba49a5a9362381345fe437",
     "m_Id": 5,
@@ -6062,6 +6368,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.SamplerStateMaterialSlot",
     "m_ObjectId": "b81759417aec4cd99c3b6622feb6dd25",
     "m_Id": 2,
@@ -6300,6 +6608,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "c483441fa5dc486186c5afc69c70eb7a",
     "m_Id": 6,
@@ -6315,6 +6624,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "c551a4d6fd90454c8320eac950ac91da",
     "m_Group": {
@@ -6399,6 +6710,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.UVMaterialSlot",
     "m_ObjectId": "c742d859b0104f65ac805321e46f0cb8",
     "m_Id": 2,
@@ -6421,6 +6733,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.ColorRGBMaterialSlot",
     "m_ObjectId": "c7b154501d0d4629bcad69744253ca39",
     "m_Id": 0,
@@ -6430,9 +6744,15 @@
     "m_ShaderOutputName": "Emission",
     "m_StageCapability": 2,
     "m_Value": {
+<<<<<<< Updated upstream
         "x": 0.0,
         "y": 0.0,
         "z": 0.0
+=======
+        "x": 0.23536984622478486,
+        "y": 0.23536984622478486,
+        "z": 0.23536984622478486
+>>>>>>> Stashed changes
     },
     "m_DefaultValue": {
         "x": 0.0,
@@ -6503,10 +6823,17 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
+<<<<<<< Updated upstream
             "x": -1664.000244140625,
             "y": 103.99998474121094,
             "width": 125.99999237060547,
             "height": 142.0
+=======
+            "x": -1391.199951171875,
+            "y": 52.80002975463867,
+            "width": 125.59998321533203,
+            "height": 142.40000915527345
+>>>>>>> Stashed changes
         }
     },
     "m_Slots": [
@@ -6765,10 +7092,17 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
+<<<<<<< Updated upstream
             "x": -2695.999755859375,
             "y": 203.99996948242188,
             "width": 208.0,
             "height": 302.4000244140625
+=======
+            "x": -2691.199951171875,
+            "y": 96.80001068115235,
+            "width": 208.0,
+            "height": 302.3999938964844
+>>>>>>> Stashed changes
         }
     },
     "m_Slots": [
@@ -6923,6 +7257,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.SampleTexture2DNode",
     "m_ObjectId": "df95a009d9374c2eb5e675bbb3e66274",
     "m_Group": {
@@ -6981,6 +7316,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.BlockNode",
     "m_ObjectId": "e083a115f3c244349872808d2dd29e52",
     "m_Group": {
@@ -7110,6 +7447,7 @@
 }
 
 {
+<<<<<<< Updated upstream
     "m_SGVersion": 1,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Vector2ShaderProperty",
     "m_ObjectId": "e97cb9b7b5564bc9857e7669e2d0b82f",
@@ -7138,6 +7476,8 @@
 }
 
 {
+=======
+>>>>>>> Stashed changes
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Texture2DInputMaterialSlot",
     "m_ObjectId": "e97fce6d8f0a46ea8683a4d292904bf7",
@@ -7467,6 +7807,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "f6ce1427767548659078cac0c8aa8a7a",
     "m_Id": 0,
@@ -7482,6 +7823,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "f8e7eab50d1443afbd64d79a88e192f9",
     "m_Id": 1,
@@ -7506,6 +7849,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.Texture2DInputMaterialSlot",
     "m_ObjectId": "fa3069e0fc8745b2b87296d870f7614d",
     "m_Id": 1,
@@ -7545,6 +7889,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "fbfa6df1aa41419093b26c706d58ee92",
     "m_Id": 3,
@@ -7569,6 +7915,7 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "fc024f6cf113420a97850ebf6ce4161e",
     "m_Group": {
@@ -7630,6 +7977,8 @@
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.LerpNode",
     "m_ObjectId": "fd0649bfe0094f3b99ab1014b5f4359a",
     "m_Group": {
@@ -7640,8 +7989,13 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
+<<<<<<< Updated upstream
             "x": -1472.0001220703125,
             "y": -132.7999725341797,
+=======
+            "x": -1473.599853515625,
+            "y": -275.20001220703127,
+>>>>>>> Stashed changes
             "width": 208.0,
             "height": 326.4000244140625
         }
@@ -7715,10 +8069,17 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
+<<<<<<< Updated upstream
             "x": -3839.999755859375,
             "y": 1051.0,
             "width": 155.99998474121095,
             "height": 33.999996185302737
+=======
+            "x": -3714.400146484375,
+            "y": 966.4000244140625,
+            "width": 158.39991760253907,
+            "height": 34.4000244140625
+>>>>>>> Stashed changes
         }
     },
     "m_Slots": [
