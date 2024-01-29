@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem.Controls;
 
 public class AI : MonoBehaviour
 {
@@ -38,52 +39,63 @@ public class AI : MonoBehaviour
             new SelectorNode
             (
                 new DestinationNode(this),  
-                new MoveNode(this, 2f),
+                new MoveNode(this, 3f),
                 //new WaitNode(1f),
                 new SequenceNode
                 (
                     // 재료 선택
                     new ConditionNode(HandNull),
+                    new LogNode("111"),
                     //new ConditionNode<AIStateType>(HandLevel, state, AIStateType.Ingredient),
                     //new ConditionNode<GameObject>(HandNull, hand, null),
-                    new RangeNode(this),
+                    //new RangeNode(this),
                     new InteractionNode(this),
                     new ActionNode(StateChange)
                 ),
                 //new WaitNode(1f),
-                //new DestinationNode(this),
-                //new MoveNode(this, 2f),
+                new DestinationNode(this),
+                new MoveNode(this, 3f),
                 new SequenceNode
                 (
                     //new ConditionNode<AIStateType>(HandLevel, state, AIStateType.Processing),
                     new ConditionNode(HandLevel_Raw),
-                    new LogNode("111"),
                     //new InverterNode(new ConditionNode<GameObject>(HandNull, hand, null)),
                     //new RepeaterNode(new InteractionNode(this), false, true, 4), // 리피터로 interaction 3초 반복하는 부분(실패)
-                    new RangeNode(this),
+                    //new RangeNode(this),
                     new InteractionNode(this),
                     new LogNode("222"),
                     new ActionNode(StateChange)
                 ),
                 //new WaitNode(1f),
-                //new DestinationNode(this),
-                //new MoveNode(this, 2f),
+                new DestinationNode(this),
+                new MoveNode(this, 3f),
                 new SequenceNode
                 (
                     //new ConditionNode<AIStateType>(HandLevel, state, AIStateType.Merge),
                     new WaitNode(2f),
                     new ConditionNode(HandLevel_Pro),
-                    new RangeNode(this),
+                    //new RangeNode(this),
                     new InteractionNode(this),
-                    new ActionNode(t),
+                    //new ActionNode(HandClear),
                     new SequenceNode
                     (
                         // 아이템 완성이라면?
-                        new InverterNode(new ConditionNode(HandNull)),
-                        new LogNode("얏따")
-                    ),
+                        //new InverterNode(new ConditionNode(HandNull)),
+                        new ConditionNode(aa),
+                        new LogNode("얏따"),
+                        new ActionNode(HandClear),
+                        new InteractionNode(this),
+                        new SequenceNode
+                        (
+                            //new ConditionNode(bb),
+                            new ActionNode(tt),
+                            new DestinationNode(this),
+                            new MoveNode(this, 3f),
+                            new InteractionNode(this)
+                        )
+                    )
+                    //new ActionNode(t)
                     //new ActionNode(StateChange),
-                    new LogNode("끝")
                 )
             //new LogNode("1회전 성공"),
             )
@@ -98,6 +110,10 @@ public class AI : MonoBehaviour
     void t()
     {
         state = -1;
+    }
+    void tt()
+    {
+        state = 2;
     }
 
     void StateChange()
@@ -126,6 +142,29 @@ public class AI : MonoBehaviour
     bool HandNull()
     {
         return hand == null ? true : false;
+    }
+
+    void HandClear()
+    {
+        hand = null;
+    }
+
+    bool aa()
+    {
+        MergeIngredient item = destination.GetComponent<MergeIngredient>();
+        if (item.one && item.two)
+        {
+            Debug.Log("들어왔다```");
+            return true;
+        }
+        return false;
+    }
+
+    bool bb()
+    {
+        if (hand.name == "Trash")
+            return true;
+        return false;
     }
 
     bool HandLevel_Raw()

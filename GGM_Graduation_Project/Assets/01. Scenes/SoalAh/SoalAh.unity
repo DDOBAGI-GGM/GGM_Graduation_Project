@@ -586,6 +586,7 @@ MonoBehaviour:
   handPos: {fileID: 577649142}
   target: {fileID: 0}
   destination: {fileID: 0}
+  recipe: {fileID: 0}
 --- !u!1 &570479941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a871c6222bfc9da43a7c05d46672668a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  one: 0
+  two: 0
+  result: 0
   pen:
   - {fileID: 230319230}
   - {fileID: 230319230}
@@ -1734,6 +1738,9 @@ MonoBehaviour:
   - name: Merge
     obj:
     - {fileID: 960025425}
+  - name: Attack
+    obj:
+    - {fileID: 570479941}
 --- !u!1001 &1222060860
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,6 +26,8 @@ public class MoveNode : INode
     public NodeState Execute()
     {
         ai.agent.SetDestination(ai.destination.transform.position);
+
+
         //float distance = Vector3.Distance(ai.transform.position, ai.destination.transform.position);
         //Vector3 dir = ai.destination.transform.position - ai.transform.position;
         //RaycastHit hit;
@@ -37,6 +39,8 @@ public class MoveNode : INode
         //}
         //else
         //    return NodeState.Running;
+        //return NodeState.Failure;
+
         //ai.agent.SetDestination(ai.agent.destination);
 
         if (!ai.agent.pathPending)

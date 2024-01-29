@@ -7,8 +7,8 @@ public enum AIStateType
     Ingredient = 0,
     Processing = 1,
     Merge = 2,
-    Shelf = 3,
-    Attack = 4
+    Attack = 3,
+    Shelf = 4,
 }
 
 [System.Serializable]

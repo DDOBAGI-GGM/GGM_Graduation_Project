@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem.Controls;
 
 public class InteractionNode : INode
 {
@@ -38,7 +39,6 @@ public class InteractionNode : INode
         //return NodeState.Failure;
 
         ///////////////////// 재료, 가공, 병합의 과정을 나눈 버전...
-        Debug.Log(ai.test);
         switch (((AIStateType)(ai.state + 1)).ToString())
         {
             case "Ingredient":
@@ -56,12 +56,6 @@ public class InteractionNode : INode
             case "Processing":
                 {
                     ai.destination.GetComponent<IObject>().Interaction(ai.hand);
-                    //GameObject item = ai.destination.GetComponent<IObject>().Interaction(ai.hand);
-                    //if (item != null)
-                    //    return NodeState.Success;
-                    //return NodeState.Success;
-                    //return wait.Execute() == NodeState.Success ? NodeState.Success : NodeState.Failure;
-
                     if (ai.hand != null)
                     {
                         if (ai.hand.transform.GetChild(1).gameObject.activeSelf == true)
@@ -73,16 +67,30 @@ public class InteractionNode : INode
                 }
             case "Merge":
                 {
+                    Debug.Log(ai.hand);
                     GameObject item = ai.destination.GetComponent<IObject>().Interaction(ai.hand);
+                    //MergeIngredient t = ai.destination.GetComponent<MergeIngredient>();
+                    //if (t.one && t.two)
+                    //{
+                    //    ai.hand = null;
+                    //    item = ai.destination.GetComponent<IObject>().Interaction(null);
+                    //}
                     if (item != null)
                     {
                         item.transform.position = ai.handPos.position;        // 오브젝트 손 위치로 이동
                         item.transform.parent = ai.handPos;       // 손의 자식으로 설정
                         ai.hand = item;
-                        return NodeState.Success;
+                        Debug.Log(item.name);
+                        return NodeState.Success;    
                     }
+                    else
+                        ai.hand = null;
                     return NodeState.Success;
                 }
+            case "Attack":
+                Debug.Log("ttttttttttttttttttttttttttttt");
+                ai.destination.GetComponent<IObject>().Interaction(ai.hand);
+                return NodeState.Success;
             default: return NodeState.Failure;
         }
 
