@@ -435,6 +435,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333614948}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &442791211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2424745937764275507, guid: 9b79d47c145053944a513865616326f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1929351117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &466540981
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +593,8 @@ MonoBehaviour:
   target: {fileID: 0}
   destination: {fileID: 0}
   recipe: {fileID: 0}
+  recipeIdx: 0
+  AArecipe: {fileID: 0}
 --- !u!1 &570479941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,17 +1738,30 @@ MonoBehaviour:
   objects:
   - name: Ingredient
     obj:
-    - {fileID: 1481042070}
-    - {fileID: 1222060862}
+    - name: Hydrangea
+      item: {fileID: 1481042070}
+    - name: Forsythia
+      item: {fileID: 442791211}
+    - name: Leaf
+      item: {fileID: 1222060862}
+    - name: Pot
+      item: {fileID: 1876478735}
   - name: Processing
     obj:
-    - {fileID: 2028630414}
+    - name: 
+      item: {fileID: 2028630414}
   - name: Merge
     obj:
-    - {fileID: 960025425}
+    - name: 
+      item: {fileID: 960025425}
   - name: Attack
     obj:
-    - {fileID: 570479941}
+    - name: 
+      item: {fileID: 570479941}
+  - name: Trash
+    obj:
+    - name: 
+      item: {fileID: 1016026868}
 --- !u!1001 &1222060860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2719,6 +2740,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829439411}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1876478735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8524079786986728253, guid: f0e1b3acc4a56ab4188234e3373dce28,
+    type: 3}
+  m_PrefabInstance: {fileID: 1814840091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1929351117
 PrefabInstance:
   m_ObjectHideFlags: 0

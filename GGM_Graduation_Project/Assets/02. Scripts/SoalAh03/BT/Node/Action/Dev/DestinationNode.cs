@@ -27,19 +27,19 @@ public class DestinationNode : INode
         // 고장이라면 사용하지 못 하고 사용할 수 있는게 2개 이상이라면 더 가까운 오브젝트 사용...
 
 
-        foreach (OBJ obj in ai.manager.objects)
-        {
-            if (obj.name == ((AIStateType)(ai.state + 1)).ToString())
-            {
-                foreach (GameObject item in obj.obj)
-                {
-                    if (item.activeSelf == true)
-                    {
-                        ai.destination = item;
-                    }
-                }
-            }
-        }
+        //foreach (OBJ obj in ai.manager.objects)
+        //{
+        //    if (obj.name == ((AIStateType)(ai.state + 1)).ToString())
+        //    {
+        //        foreach (GameObject item in obj.obj)
+        //        {
+        //            if (item.activeSelf == true)
+        //            {
+        //                ai.destination = item;
+        //            }
+        //        }
+        //    }
+        //}
 
         return NodeState.Success;
     }

@@ -15,7 +15,14 @@ public enum AIStateType
 public class OBJ
 {
     public string name;
-    public List<GameObject> obj = new List<GameObject>();
+    public List<ITEM> obj = new List<ITEM>();
+}
+
+[System.Serializable]
+public class ITEM
+{
+    public string name;
+    public GameObject item;
 }
 
 [System.Serializable]
