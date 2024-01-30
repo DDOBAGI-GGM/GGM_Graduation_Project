@@ -8,7 +8,7 @@ public class MergeIngredient : MonoBehaviour, IObject
 {
     private List<string> inputList = new List<string> ();           // 내가 넣은 재료들
     private List<string>[] recipeList;          // 레시피들 3가지
-    private bool one, two, result = false;      // 이렇게 해서 만들어주기?
+    public bool one, two, result = false;      // 이렇게 해서 만들어주기?
     public bool Result { get { return result; } private set { } }
 
     [SerializeField] private Transform[] pen = new Transform[2];

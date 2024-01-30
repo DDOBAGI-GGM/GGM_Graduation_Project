@@ -1,4 +1,4 @@
-public enum TNodeState
+public enum NodeState
 {
     Success,
     Failure,
@@ -7,5 +7,8 @@ public enum TNodeState
 
 public interface INode
 {
-    TNodeState Execute();
+    void OnAwake();
+    void OnStart();
+    NodeState Execute();
+    void OnEnd();
 }

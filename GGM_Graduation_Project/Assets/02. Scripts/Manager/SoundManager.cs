@@ -5,51 +5,32 @@ using UnityEngine;
 [System.Serializable]
 public class Sound
 {
-    public string soundName;
+    public string soundName;        // 이거 쓰는 거 귀찮으면 클립이릉을 바꿔서 그걸로 판단하게 하기!
     public AudioClip clip;
 }
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : Singleton<SoundManager>
 {
-    static public SoundManager instance;
+   /* static public SoundManager instance;
     private void Awake()
     {
         if (instance == null)
             instance = this;
         else
             Destroy(this.gameObject);
-    }
+    }*/
     public Sound[] bgmSounds;           // BGM 사운드 저장
     public Sound[] effectSounds;        // SFX 사운드 저장
     public AudioSource audioSourceBgmPlayers;           // BGM을 출력할 오디오 소스
-    public AudioSource[] audioSourceEffectsPlayers;     // SFX를 출력할 오디오 소스
-    public string[] playSoundName;                      // 플레이할 사운드 이름
+    public AudioSource audioSourceEffectsPlayers;     // SFX를 출력할 오디오 소스
+    //public string[] playSoundName;                      // 플레이할 사운드 이름
 
     private void Start()
     {
-        playSoundName = new string[audioSourceEffectsPlayers.Length];
-        PlayBGM("BGM");
+        //playSoundName = new string[audioSourceEffectsPlayers.Length];
+        PlayBGM("Base");
     }
-    public void PlaySFX(string name) 
-    {
-        for (int i = 0; i < effectSounds.Length; i++)
-        {
-            if (name == effectSounds[i].soundName)
-            {
-                for (int j = 0; j < audioSourceEffectsPlayers.Length; j++)
-                {
-                    if (!audioSourceEffectsPlayers[j].isPlaying) // 현재 사용하려는 오디오소스가 사용중이 아니라면
-                    {
-                        audioSourceEffectsPlayers[j].clip = effectSounds[i].clip; // 현재 오디오소스를 사용
-                        audioSourceEffectsPlayers[j].Play(); // 실행
-                        playSoundName[j] = effectSounds[i].soundName; 
-                        return;
-                    }
-                }
-                return;
-            }
-        }
-    }
+
     public void PlayBGM(string name) // BGM 실행
     {
         for (int i = 0; i < bgmSounds.Length; i++)
@@ -62,7 +43,20 @@ public class SoundManager : MonoBehaviour
             }
         }
     }
-    public void StopBGM()
+
+    public void PlaySFX(string name) 
+    {
+        for (int i = 0; i < effectSounds.Length; i++)
+        {
+            if (name == effectSounds[i].soundName)
+            {
+                audioSourceEffectsPlayers.PlayOneShot(effectSounds[i].clip);        // 소리 한번만 딱 내주는 것.
+                return;
+            }
+        }
+    }
+
+/*    public void StopBGM()
     {
         audioSourceBgmPlayers.Stop();
     }
@@ -83,5 +77,5 @@ public class SoundManager : MonoBehaviour
                 break;
             }
         }
-    }
+    }*/
 }

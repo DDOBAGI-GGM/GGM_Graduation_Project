@@ -3,9 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-// using UnityEngine.Pool 공부해서 그걸로 쓰기!
+// using UnityEngine.Pool 공부해서 그걸로 쓰기?
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField]
@@ -76,10 +74,12 @@ public class ObjectPool : MonoBehaviour
         {
             if (item == null)
                 continue;
-            else if (item.activeSelf == false || alwaysDestroy) //트랙마크 다 지워주게 
+            else if (item.activeSelf == false || alwaysDestroy)         // 서서히 다 지워지게
                 Destroy(item);
             else
                 item.GetComponent<DestroyIfDisabled>().SelfDestructionEnabled = true;
         }   
     }
 }
+
+// 이 코드 안 쓰고 있음.

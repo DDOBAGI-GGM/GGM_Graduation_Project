@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7955881379764886525}
   - component: {fileID: 1811143483306273005}
   - component: {fileID: 7348032203320792018}
+  - component: {fileID: 3033872759799496424}
   m_Layer: 0
   m_Name: Trash
   m_TagString: Item
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3033872759799496424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001696662067315541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea1b8f5b6137494ca600d6a0bf04a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -8,7 +8,11 @@ public class BehaviourTreeManager<T> where T : INode
 
     public void SetRoot(T rootNode)
     {
+        if (root != null)
+            root.OnEnd();
+
         root = rootNode;
+        root.OnAwake();
     }
 
     public void Update()

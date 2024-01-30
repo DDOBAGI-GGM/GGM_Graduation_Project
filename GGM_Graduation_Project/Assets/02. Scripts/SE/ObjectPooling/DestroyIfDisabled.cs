@@ -14,3 +14,5 @@ public class DestroyIfDisabled : MonoBehaviour
         }
     }
 }
+
+// 이 코드 안 쓰고 있음.
