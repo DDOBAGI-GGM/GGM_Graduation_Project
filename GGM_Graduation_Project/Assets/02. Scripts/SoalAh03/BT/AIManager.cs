@@ -9,6 +9,7 @@ public enum AIStateType
     Merge = 2,
     Attack = 3,
     Shelf = 4,
+    Trash = 5 ,
 }
 
 [System.Serializable]
