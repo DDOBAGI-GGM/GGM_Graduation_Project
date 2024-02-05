@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum AIStateType
 {
+    None,
     Ingredient = 0,
     Processing = 1,
     Merge = 2,

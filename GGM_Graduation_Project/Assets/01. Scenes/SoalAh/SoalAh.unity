@@ -588,13 +588,13 @@ MonoBehaviour:
   manager: {fileID: 0}
   agent: {fileID: 0}
   state: -1
+  stateType: 0
   hand: {fileID: 0}
   handPos: {fileID: 577649142}
-  target: {fileID: 0}
   destination: {fileID: 0}
   recipe: {fileID: 0}
   recipeIdx: 0
-  AArecipe: {fileID: 0}
+  AArecipe: {fileID: 11400000, guid: efdda6220604b124fb71137b9f6d88e6, type: 2}
 --- !u!1 &570479941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1742,7 @@ MonoBehaviour:
       item: {fileID: 1481042070}
     - name: Forsythia
       item: {fileID: 442791211}
-    - name: Leaf
+    - name: Maple_Leaf
       item: {fileID: 1222060862}
     - name: Pot
       item: {fileID: 1876478735}

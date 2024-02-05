@@ -24,11 +24,11 @@ public class RecipeNode : INode
     public NodeState Execute()
     {
         string temp = ExtractName(ai.recipe.recipe[ai.recipeIdx]);
+        GameObject target = null;
         switch (temp)
         {
             case "completion":
                 {
-                    GameObject target = null;
                     temp = ExtractName(temp);
                     foreach (ITEM str in ai.manager.objects[0].obj)
                     {
@@ -44,9 +44,9 @@ public class RecipeNode : INode
                     foreach (ITEM str in ai.manager.objects[0].obj)
                     {
                         if (str.name == temp)
-                            ai.target = str.item;
+                            target = str.item;
                     }
-                    if (ai.target == null)
+                    if (target == null)
                         Debug.LogError("목적지를 설정할 수 없음");
                     return NodeState.Success;
                 }
