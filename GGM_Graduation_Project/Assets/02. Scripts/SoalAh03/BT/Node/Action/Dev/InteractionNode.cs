@@ -97,10 +97,12 @@ public class InteractionNode : INode
             case AIStateType.Attack:
                 Debug.Log("ttttttttttttttttttttttttttttt");
                 ai.destination.GetComponent<IObject>().Interaction(ai.hand);
+                ai.hand = null;
                 return NodeState.Success;
             case AIStateType.Trash:
                 Debug.Log("쓰레기통 사용");
                 ai.destination.GetComponent<IObject>().Interaction(ai.hand);
+                ai.hand = null;
                 return NodeState.Success;
             default: return NodeState.Failure;
         }
