@@ -132,31 +132,24 @@ public class AI : MonoBehaviour
             new SequenceNode
             (
                 new ConditionNode(NullDestination),
-                new ActionNode(Destination)
-                //new MoveNode(this, 3f),
+                new ActionNode(Destination),
+                new MoveNode(this, 3f)
             ),
-
-            //// 목적지 설정 (1. 현재 스탭 확인, 2. 손 상태 확인)
-            //new SequenceNode
-            //(
-            //    new LogNode("dd")
-            //    //new InverterNode(new ConditionNode(NullDestination)),
-            //    //new LogNode(destination.name + " - 목적지 설정") 
-            //),
 
             // 재료 선택
             new SequenceNode
             (
                 //new ActionNode(Destination),
                 //new InverterNode(new ConditionNode(NullDestination)),
-                new MoveNode(this, 3f),
                 // 재료 선택 스탭이 맞는지?
                 //new CheckStateNode(this, AIStateType.Ingredient),
+                new RangeNode(this),
                 new ConditionNode(StepIngredient),
                 new LogNode(stateType.ToString() + " 재료 선택"),
                     //new ConditionNode(StepIngredient),
                 // 손이 비었는지
                 new ConditionNode(HandNull),
+                new WaitNode(1f),
                 // 상호작용
                 new InteractionNode(this),
                 // 제대로 손에 들어왔는지?
@@ -167,176 +160,187 @@ public class AI : MonoBehaviour
                 new ActionNode(ChangePro)
             ),
 
-            // 가공 체크 
-            new SequenceNode
+            // 가공 (가공 검사, 가공)
+            new SelectorNode
             (
-                new ConditionNode(StepProcessing),
-                new InverterNode(new ConditionNode(HandNull)),
-                // 가공이 필요하지 않다면
-                new InverterNode(new ConditionNode(NeedProcessing)),
-                // 다음 단계 ㄹㅊㄱ NextStep
-                new ActionNode(NextStep),
-                //new ChangeStateNode(this, AIStateType.Merge)
-                new ActionNode(ChangeMer)
-            ),
-
-            // 가공
-            new SequenceNode
-            (
-                //new ActionNode(Destination),
-                //new InverterNode(new ConditionNode(NullDestination)),
-                //new MoveNode(this, 3f),
-                // 가공 스탭이 맞는지?
-                //new CheckStateNode(this, AIStateType.Processing),
-                new RangeNode(this),
-                new ConditionNode(StepProcessing),
-                new LogNode(stateType.ToString() + " 가공중"),
-                    //new ConditionNode(StepProcessing), // 구 버전
-                // 빈손은 아닌지
-                new InverterNode(new ConditionNode(HandNull)),
-                // 상호작용 (상호작용 성공했다는 가정하에 Success 반환)
-                new InteractionNode(this), // 이건 무조건 success만 반환해서 고장났던 거... 얘가 원인이다
-                new LogNode("가공 성공..."),
-                // 다음 단계 ㄹㅊㄱ NextStep
-                new ActionNode(NextStep),
-                //new ChangeStateNode(this, AIStateType.Merge)
-                new ActionNode(ChangeMer)
-            ),
-
-            // 병합
-            new SequenceNode
-            (
-                //new ActionNode(Destination),
-                //new InverterNode(new ConditionNode(NullDestination)),
-                //new MoveNode(this, 3f),
-                // 병합 스탭이 맞는지?
-                //new CheckStateNode(this, AIStateType.Merge),
-                new RangeNode(this),
-                new ConditionNode(StepMerge),
-                //new ConditionNode(StepProcessing), // 구 버전
-                // 빈 손은 아닌지
-                new InverterNode(new ConditionNode(HandNull)),
-                // 상호작용 (상호작용 성공했다는 가정하에 Success 반환)
-                new InteractionNode(this),
-                // 아이템이 완성 됐는지 (상호작용 후 null이 아니라면 아이템을 꺼낸 것)
-                new LogNode(stateType.ToString() + " 병합중"),
-                //new InverterNode(new ConditionNode(HandNull)),
-                /////// 다음 레시피 스탭 or (공격 or 쓰레기통) (둘 중 하나만 실행됨) - 위에 한 줄 하고 같이 삭제 예정 
-                // 병합 완성이 아니라면
-                new SelectorNode
-                (
-                    // 다음 레시피 스탭
-                    new SequenceNode
-                    (
-                        // 빈 손 이라면
-                        new ConditionNode(HandNull),
-                        new LogNode("조합 1단계"),
-                        // 다음 레시피 스탭을 진행한다 (state도 ingredient 설정)
-                        new ActionNode(NextRecipe)
-                    )
-                    //// 공격 or 쓰레기통
-                    //new SequenceNode
-                    //(
-                    //    // 빈 손이 아니라면 (아이템 획득)
-                    //    new InverterNode(new ConditionNode(HandNull)),
-                    //    new SelectorNode
-                    //    (
-                    //        // 공격
-                    //        new SequenceNode
-                    //        (
-                    //            // 쓰레기가 아니라면
-                    //            new InverterNode(new ConditionNode(CheckTrash)),
-                    //            new LogNode("아이템 획득"),
-                    //            // 현재 State를 attack으로 변경해주고
-                    //            //new ChangeStateNode(this, AIStateType.Attack)
-                    //            new ActionNode(ChangeAttackt)
-                    //        ),
-                    //        // 쓰레기통
-                    //        new SequenceNode
-                    //        (
-                    //            // 쓰레기라면
-                    //            new InverterNode(new ConditionNode(CheckTrash)),
-                    //            new LogNode("쓰레기 획득"),
-                    //            // 현재 State를 trash로 변경해주고
-                    //            //new ChangeStateNode(this, AIStateType.Trash)
-                    //            new ActionNode(ChangeAttackt)
-                    //        )
-                    //    ),
-                    //    // 목적지 설정
-                    //    new ActionNode(Destination),
-                    //    // 이동
-                    //    new MoveNode(this, 3f),
-                    //    // 상호작용
-                    //    new LogNode(stateType.ToString() + " 공격 or 폐기"),
-                    //    new InteractionNode (this),
-                    //    // 상호작용 성공
-                    //    new ConditionNode(HandNull),
-                    //    // 레시피 삭제
-                    //    new ActionNode(ClearRecipe)
-                    //) // - 공격 or 쓰레기통 일 때...
-                ) // - 병합 완성이 아닐 때,...
-            ),
-
-            // 병합 회수
-            new SequenceNode
-            (
-                new RangeNode(this),
-                // 병합 회수 스탭이 맞는지?
-                new ConditionNode(MergeComplete),
-                // 빈 손?
-                new ConditionNode(HandNull),
-                //new InverterNode(new ConditionNode(NullDestination)),
-                //new MoveNode(this, 3f),
-                    new LogNode("ㄷ촥??"),
-                //new ConditionNode(StepMerge),
-                // 아이템 완성인가?
-                new InteractionNode(this),
-                // 아이템이 완성 됐는지 (상호작용 후 null이 아니라면 아이템을 꺼낸 것)
-
-                // 공격 or 쓰레기통
+                // 가공 검사
                 new SequenceNode
                 (
+                    new ConditionNode(StepProcessing),
+                    new InverterNode(new ConditionNode(HandNull)),
+                    // 가공이 필요하지 않다면
+                    new InverterNode(new ConditionNode(NeedProcessing)),
+                    // 다음 단계 ㄹㅊㄱ NextStep
+                    new ActionNode(NextStep),
+                    //new ChangeStateNode(this, AIStateType.Merge)
+                    new ActionNode(ChangeMer)
+                ),
+
+                // 가공
+                new SequenceNode
+                (
+                    //new ActionNode(Destination),
+                    //new InverterNode(new ConditionNode(NullDestination)),
+                    //new MoveNode(this, 3f),
+                    // 가공 스탭이 맞는지?
+                    //new CheckStateNode(this, AIStateType.Processing),
+                    new RangeNode(this),
+                    new ConditionNode(StepProcessing),
+                    new LogNode(stateType.ToString() + " 가공중"),
+                        //new ConditionNode(StepProcessing), // 구 버전
+                    // 빈손은 아닌지
+                    new InverterNode(new ConditionNode(HandNull)),
+                    // 상호작용 (상호작용 성공했다는 가정하에 Success 반환)
+                    new InteractionNode(this), // 이건 무조건 success만 반환해서 고장났던 거... 얘가 원인이다
+                    new LogNode("가공 성공..."),
+                    // 다음 단계 ㄹㅊㄱ NextStep
+                    new ActionNode(NextStep),
+                    //new ChangeStateNode(this, AIStateType.Merge)
+                    new ActionNode(ChangeMer)
+                )
+            ),
+
+            // 병합 (넣기, 받기)
+            new SelectorNode
+            (
+                // 넣기
+                new SequenceNode
+                (
+                    //new ActionNode(Destination),
+                    //new InverterNode(new ConditionNode(NullDestination)),
+                    //new MoveNode(this, 3f),
+                    // 병합 스탭이 맞는지?
+                    //new CheckStateNode(this, AIStateType.Merge),
+                    new RangeNode(this),
+                    new ConditionNode(StepMerge),
+                    //new ConditionNode(StepProcessing), // 구 버전
+                    // 빈 손은 아닌지
+                    new InverterNode(new ConditionNode(HandNull)),
+                    // 상호작용 (상호작용 성공했다는 가정하에 Success 반환)
+                    new WaitNode(1f),
+                    new InteractionNode(this),
+                    // 아이템이 완성 됐는지 (상호작용 후 null이 아니라면 아이템을 꺼낸 것)
+                    new LogNode(stateType.ToString() + " 병합중"),
+                    //new InverterNode(new ConditionNode(HandNull)),
+                    /////// 다음 레시피 스탭 or (공격 or 쓰레기통) (둘 중 하나만 실행됨) - 위에 한 줄 하고 같이 삭제 예정 
+                    // 병합 완성이 아니라면
+                    // 빈 손 이라면
+                    new ConditionNode(HandNull),
+                    new LogNode("조합 1단계"),
+                    // 다음 레시피 스탭을 진행한다 (state도 ingredient 설정)
+                    new ActionNode(NextRecipe)
+                    //new SelectorNode
+                    //(
+                    //    // 다음 레시피 스탭
+                    //    new SequenceNode
+                    //    (
+                    //    )
+                    //    //// 공격 or 쓰레기통
+                    //    //new SequenceNode
+                    //    //(
+                    //    //    // 빈 손이 아니라면 (아이템 획득)
+                    //    //    new InverterNode(new ConditionNode(HandNull)),
+                    //    //    new SelectorNode
+                    //    //    (
+                    //    //        // 공격
+                    //    //        new SequenceNode
+                    //    //        (
+                    //    //            // 쓰레기가 아니라면
+                    //    //            new InverterNode(new ConditionNode(CheckTrash)),
+                    //    //            new LogNode("아이템 획득"),
+                    //    //            // 현재 State를 attack으로 변경해주고
+                    //    //            //new ChangeStateNode(this, AIStateType.Attack)
+                    //    //            new ActionNode(ChangeAttackt)
+                    //    //        ),
+                    //    //        // 쓰레기통
+                    //    //        new SequenceNode
+                    //    //        (
+                    //    //            // 쓰레기라면
+                    //    //            new InverterNode(new ConditionNode(CheckTrash)),
+                    //    //            new LogNode("쓰레기 획득"),
+                    //    //            // 현재 State를 trash로 변경해주고
+                    //    //            //new ChangeStateNode(this, AIStateType.Trash)
+                    //    //            new ActionNode(ChangeAttackt)
+                    //    //        )
+                    //    //    ),
+                    //    //    // 목적지 설정
+                    //    //    new ActionNode(Destination),
+                    //    //    // 이동
+                    //    //    new MoveNode(this, 3f),
+                    //    //    // 상호작용
+                    //    //    new LogNode(stateType.ToString() + " 공격 or 폐기"),
+                    //    //    new InteractionNode (this),
+                    //    //    // 상호작용 성공
+                    //    //    new ConditionNode(HandNull),
+                    //    //    // 레시피 삭제
+                    //    //    new ActionNode(ClearRecipe)
+                    //    //) // - 공격 or 쓰레기통 일 때...
+                    //) // - 병합 완성이 아닐 때,...
+                ),
+
+                // 받기
+                new SequenceNode
+                (
+                    new RangeNode(this),
+                    new ConditionNode(StepMerge),
+                    // 병합 회수 스탭이 맞는지?
+                    new ConditionNode(MergeComplete),
+                    // 빈 손?
+                    new ConditionNode(HandNull),
+                    //new InverterNode(new ConditionNode(NullDestination)),
+                    //new MoveNode(this, 3f),
+                        new LogNode("ㄷ촥??"),
+                    //new ConditionNode(StepMerge),
+                    // 아이템 완성인가?
+                    new WaitNode(1f),
+                    new InteractionNode(this),
+                    // 아이템이 완성 됐는지 (상호작용 후 null이 아니라면 아이템을 꺼낸 것)
                     // 빈 손이 아니라면 (아이템 획득)
                     new InverterNode(new ConditionNode(HandNull)),
                     new LogNode("획득"),
-                    new ActionNode(ChangeNone),
+                    //new ActionNode(ChangeNone),
                     new ActionNode(NextStep),
-                    new SelectorNode
-                    (
-                        // 공격
-                        new SequenceNode
+
+                    // 공격 or 쓰레기통
+                    //new SequenceNode
+                    //(
+                        new SelectorNode
                         (
-                            // 쓰레기가 아니라면
-                            new InverterNode(new ConditionNode(CheckTrash)),
-                            new LogNode("아이템 획득"),
-                            // 현재 State를 attack으로 변경해주고
-                            //new ChangeStateNode(this, AIStateType.Attack)
-                            new ActionNode(ChangeAttack)
-                        ),
-                        // 쓰레기통
-                        new SequenceNode
-                        (
-                            // 쓰레기라면
-                            new ConditionNode(CheckTrash),
-                            new LogNode("쓰레기 획득"),
-                            // 현재 State를 trash로 변경해주고
-                            //new ChangeStateNode(this, AIStateType.Trash)
-                            new ActionNode(ChangeTrash)
+                            // 공격
+                            new SequenceNode
+                            (
+                                // 쓰레기가 아니라면
+                                new InverterNode(new ConditionNode(CheckTrash)),
+                                new LogNode("아이템 획득"),
+                                // 현재 State를 attack으로 변경해주고
+                                //new ChangeStateNode(this, AIStateType.Attack)
+                                new ActionNode(ChangeAttack)
+                            ),
+                            // 쓰레기통
+                            new SequenceNode
+                            (
+                                // 쓰레기라면
+                                new ConditionNode(CheckTrash),
+                                new LogNode("쓰레기 획득"),
+                                // 현재 State를 trash로 변경해주고
+                                //new ChangeStateNode(this, AIStateType.Trash)
+                                new ActionNode(ChangeTrash)
+                            )
                         )
-                    )
-                    //new LogNode("여기 안 오나?..."), // - ㅇㅇ 안 옴 이유가 뭐지 ㅅㅂ;
-                    //// 목적지 설정
-                    //new ActionNode(Destination),
-                    //// 이동
-                    //new MoveNode(this, 3f),
-                    //// 상호작용
-                    //new LogNode(stateType.ToString() + " 공격 or 폐기"),
-                    //new InteractionNode(this),
-                    //// 상호작용 성공
-                    //new ConditionNode(HandNull),
-                    //// 레시피 삭제
-                    //new ActionNode(ClearRecipe)
-                ) // - 공격 or 쓰레기통 일 때...
+                        //new LogNode("여기 안 오나?..."), // - ㅇㅇ 안 옴 이유가 뭐지 ㅅㅂ;
+                        //// 목적지 설정
+                        //new ActionNode(Destination),
+                        //// 이동
+                        //new MoveNode(this, 3f),
+                        //// 상호작용
+                        //new LogNode(stateType.ToString() + " 공격 or 폐기"),
+                        //new InteractionNode(this),
+                        //// 상호작용 성공
+                        //new ConditionNode(HandNull),
+                        //// 레시피 삭제
+                        //new ActionNode(ClearRecipe)
+                    //) // - 공격 or 쓰레기통 일 때...
+                )
             ),
 
             // 공격
