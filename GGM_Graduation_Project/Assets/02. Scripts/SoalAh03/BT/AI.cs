@@ -148,7 +148,7 @@ public class AI : MonoBehaviour
             new SequenceNode
             (
                 //new ActionNode(Destination),
-                new InverterNode(new ConditionNode(NullDestination)),
+                //new InverterNode(new ConditionNode(NullDestination)),
                 new MoveNode(this, 3f),
                 // 재료 선택 스탭이 맞는지?
                 //new CheckStateNode(this, AIStateType.Ingredient),
@@ -184,10 +184,11 @@ public class AI : MonoBehaviour
             new SequenceNode
             (
                 //new ActionNode(Destination),
-                new InverterNode(new ConditionNode(NullDestination)),
-                new MoveNode(this, 3f),
+                //new InverterNode(new ConditionNode(NullDestination)),
+                //new MoveNode(this, 3f),
                 // 가공 스탭이 맞는지?
                 //new CheckStateNode(this, AIStateType.Processing),
+                new RangeNode(this),
                 new ConditionNode(StepProcessing),
                 new LogNode(stateType.ToString() + " 가공중"),
                     //new ConditionNode(StepProcessing), // 구 버전
@@ -206,10 +207,11 @@ public class AI : MonoBehaviour
             new SequenceNode
             (
                 //new ActionNode(Destination),
-                new InverterNode(new ConditionNode(NullDestination)),
-                new MoveNode(this, 3f),
+                //new InverterNode(new ConditionNode(NullDestination)),
+                //new MoveNode(this, 3f),
                 // 병합 스탭이 맞는지?
                 //new CheckStateNode(this, AIStateType.Merge),
+                new RangeNode(this),
                 new ConditionNode(StepMerge),
                 //new ConditionNode(StepProcessing), // 구 버전
                 // 빈 손은 아닌지
@@ -278,12 +280,13 @@ public class AI : MonoBehaviour
             // 병합 회수
             new SequenceNode
             (
+                new RangeNode(this),
                 // 병합 회수 스탭이 맞는지?
                 new ConditionNode(MergeComplete),
                 // 빈 손?
                 new ConditionNode(HandNull),
-                new InverterNode(new ConditionNode(NullDestination)),
-                new MoveNode(this, 3f),
+                //new InverterNode(new ConditionNode(NullDestination)),
+                //new MoveNode(this, 3f),
                     new LogNode("ㄷ촥??"),
                 //new ConditionNode(StepMerge),
                 // 아이템 완성인가?
@@ -297,6 +300,7 @@ public class AI : MonoBehaviour
                     new InverterNode(new ConditionNode(HandNull)),
                     new LogNode("획득"),
                     new ActionNode(ChangeNone),
+                    new ActionNode(NextStep),
                     new SelectorNode
                     (
                         // 공격
@@ -338,13 +342,14 @@ public class AI : MonoBehaviour
             // 공격
             new SequenceNode
             (
+                new RangeNode(this),
                 // 공격 스탭이 맞다면
                 new ConditionNode(StepAttack),
                 new InverterNode(new ConditionNode(HandNull)),
-                // 목적지 설정
-                new ActionNode(Destination),
-                // 이동
-                new MoveNode(this, 3f),
+                //// 목적지 설정
+                //new ActionNode(Destination),
+                //// 이동
+                //new MoveNode(this, 3f),
                 // 상호작용
                 new LogNode(stateType.ToString() + " 공격"),
                 new InteractionNode(this),
@@ -357,13 +362,14 @@ public class AI : MonoBehaviour
             // 폐기
             new SequenceNode
             (
+                new RangeNode(this),
                 // 폐기 스탭이 맞다면
                 new ConditionNode(StepTrash),
                 new InverterNode(new ConditionNode(HandNull)),
-                // 목적지 설정
-                new ActionNode(Destination),
-                // 이동
-                new MoveNode(this, 3f),
+                //// 목적지 설정
+                //new ActionNode(Destination),
+                //// 이동
+                //new MoveNode(this, 3f),
                 // 상호작용
                 new LogNode(stateType.ToString() + " 폐기"),
                 new InteractionNode(this),

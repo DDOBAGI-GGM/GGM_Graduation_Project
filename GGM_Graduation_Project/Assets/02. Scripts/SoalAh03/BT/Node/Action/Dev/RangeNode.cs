@@ -25,7 +25,7 @@ public class RangeNode : INode
             return NodeState.Failure;
 
         float distance = Vector3.Distance(ai.transform.position , ai.destination.transform.position);
-        if (distance < 5f)
+        if (distance < 2f)
             return NodeState.Success;
         return NodeState.Failure;
 
