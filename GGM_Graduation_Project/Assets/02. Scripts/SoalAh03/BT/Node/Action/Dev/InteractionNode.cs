@@ -63,7 +63,6 @@ public class InteractionNode : INode
                     {
                         if (ai.hand.transform.GetChild(1).gameObject.activeSelf == true)
                         {
-                            Debug.Log("가공 과정이 끝났다");
                             return NodeState.Success;
                         }
                         else
