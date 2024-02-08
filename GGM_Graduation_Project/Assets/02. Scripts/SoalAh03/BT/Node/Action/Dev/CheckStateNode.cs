@@ -25,7 +25,6 @@ public class CheckStateNode : INode
     {
         if (ai.stateType == state)
         {
-            Debug.Log(ai.stateType.ToString() + " " + state.ToString());
             return NodeState.Success;
         }
         return NodeState.Failure;

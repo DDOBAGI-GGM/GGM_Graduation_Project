@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -22,26 +24,96 @@ public class DestinationNode : INode
 
     public NodeState Execute()
     {
-        // state에 따른 목적지 설정 (state 이름과 obj 종류의 이름을 통일...) - 딕셔너리 쓸가...
-        // 선택된 종류의 오브젝트 중 사용할 수 있는 것을 순회...
-        // 고장이라면 사용하지 못 하고 사용할 수 있는게 2개 이상이라면 더 가까운 오브젝트 사용...
+        GameObject target = null;
 
+        switch (ai.stateType)
+        {
+            case AIStateType.Ingredient:
+            {
+                target = CheckRecipe();
+                break;
+            }
+            case AIStateType.Processing:
+            {
+                // 1. 고장 또는 사용중인지 / 2. 거리순
+                target = ai.manager.objects[1].obj[0].item; // 임시
+                break;
+            }
+            case AIStateType.Merge:
+            {
+                // 1. 고장 또는 사용중인지 / 2. 거리순
+                target = ai.manager.objects[2].obj[0].item; // 임시
+                break;
+            }
+            case AIStateType.Attack:
+            {
+                target = ai.manager.objects[3].obj[0].item;
+                break;
+            }
+            case AIStateType.Trash:
+            {
+                target = ai.manager.objects[4].obj[0].item;
+                break;
+            }
+        }
 
-        //foreach (OBJ obj in ai.manager.objects)
-        //{
-        //    if (obj.name == ((AIStateType)(ai.state + 1)).ToString())
-        //    {
-        //        foreach (GameObject item in obj.obj)
-        //        {
-        //            if (item.activeSelf == true)
-        //            {
-        //                ai.destination = item;
-        //            }
-        //        }
-        //    }
-        //}
-
+        ai.destination = target;
         return NodeState.Success;
+    }
+
+    GameObject CheckRecipe()
+    {
+        string temp = ExtractName(ai.recipe.recipe[ai.recipeIdx]);
+        string prefix = null;
+        GameObject target = null;
+
+        switch (temp)
+        {
+            case "completion":
+            {
+                prefix = ExtractPrefix(ai.recipe.recipe[ai.recipeIdx]);
+                foreach (ITEM str in ai.manager.objects[0].obj)
+                {
+                    if (str.name == prefix)
+                        target = str.item;
+                }
+                break;
+            }
+            case "Pot":
+            {
+                foreach (ITEM str in ai.manager.objects[0].obj)
+                {
+                    if (str.name == temp)
+                        target = str.item;
+                }
+                break;
+            }
+            case "Floor":
+            case "Object":
+            case "Enemy":
+                Debug.LogError("미개발 ㅋ");
+                break;
+            default:
+                Debug.LogError("이럴리가 없는데... ㄱㅗ$ㅈ3ㅑㅇ! ㅠㅡㅠ");
+                break;
+        }
+
+        if (target == null)
+            Debug.LogError("목적지를 설정할 수 없음");
+
+        return target;
+    }
+
+    string ExtractName(string itemName)
+    {
+        string pattern = @"-";
+        Match match = Regex.Match(itemName, pattern);
+        return itemName.Split('-')[1];
+    }
+
+    string ExtractPrefix(string itemName)
+    {
+        return itemName.Split('-')[0];
     }
 
     public void OnEnd()
