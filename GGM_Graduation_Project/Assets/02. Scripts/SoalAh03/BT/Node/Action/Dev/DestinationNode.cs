@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations.Rigging;
 
 public class DestinationNode : INode
 {
@@ -114,6 +116,27 @@ public class DestinationNode : INode
     string ExtractPrefix(string itemName)
     {
         return itemName.Split('-')[0];
+    }
+
+    // 가장 가까운 오브젝트를 찾는...
+    GameObject Closest(List<ITEM> objs)
+    {
+        GameObject target = null;
+        float minDistance = 0;
+
+        foreach (ITEM obj in objs)
+        {
+            float distance = Vector3.Distance(ai.transform.position, obj.item.transform.position);
+            if (minDistance > distance || minDistance == 0)
+            {
+                minDistance = distance;
+                target = obj.item;
+            }
+        }
+
+        if (target == null)
+            Debug.LogError("가장 가까운 목적지 설정 실패");
+        return target;
     }
 
     public void OnEnd()
