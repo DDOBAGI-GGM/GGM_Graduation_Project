@@ -52,7 +52,8 @@ public class AI : MonoBehaviour
                 // 레시피가 없다면
                 new ConditionNode(NullRecipe),
                 // 레시피를 지정한다
-                new ActionNode(GiveRecipe),
+                //new ActionNode(GiveRecipe),
+                new RecipeNode(this),
                 // 레시피가 있다면 (레시피가 지정됐다면)
                 new InverterNode(new ConditionNode(NullRecipe)),
                 // 레시피 로그 출력
