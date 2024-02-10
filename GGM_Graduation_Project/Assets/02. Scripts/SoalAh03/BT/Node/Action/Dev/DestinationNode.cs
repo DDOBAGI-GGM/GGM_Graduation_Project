@@ -38,13 +38,15 @@ public class DestinationNode : INode
             case AIStateType.Processing:
             {
                 // 1. 고장 또는 사용중인지 / 2. 거리순
-                target = ai.manager.objects[1].obj[0].item; // 임시
+                //target = ai.manager.objects[1].obj[0].item; // 임시
+                target = Closest(ai.manager.objects[1].obj);
                 break;
             }
             case AIStateType.Merge:
             {
                 // 1. 고장 또는 사용중인지 / 2. 거리순
-                target = ai.manager.objects[2].obj[0].item; // 임시
+                //target = ai.manager.objects[2].obj[0].item; // 임시
+                target = Closest(ai.manager.objects[2].obj);
                 break;
             }
             case AIStateType.Attack:
@@ -118,7 +120,7 @@ public class DestinationNode : INode
         return itemName.Split('-')[0];
     }
 
-    // 가장 가까운 오브젝트를 찾는...
+    // 가장 가까운 오브젝트를 찾는... (테스트 성공) + 고장 또는 사용중인지 선별하기...
     GameObject Closest(List<ITEM> objs)
     {
         GameObject target = null;

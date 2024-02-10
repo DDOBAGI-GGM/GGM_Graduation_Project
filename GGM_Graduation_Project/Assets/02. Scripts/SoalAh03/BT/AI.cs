@@ -12,23 +12,24 @@ using UnityEngine.UIElements;
 
 public class AI : MonoBehaviour
 {
+    [Header("Attribute")]
     public AIManager manager;
-    BehaviourTreeManager<INode> bt;
-
+    public BehaviourTreeManager<INode> bt;
     public NavMeshAgent agent;
 
-    public int state;
+    [Header("Recipe")]
+    public RecipeListSO recipe;
+    public int recipeIdx;
+
+    [Header("Destination")]
+    public GameObject destination;
+
+    [Header("State")]
     public AIStateType stateType;
-    //public AIStateType state;
+
+    [Header("Hand")]
     public GameObject hand;
     public Transform handPos;
-    //public GameObject target;
-    public GameObject destination; // 테스트용
-    public RecipeListSO recipe; // 테스트용
-    public int recipeIdx;
-    public RecipeListSO AArecipe; // 테스트용
-    public IObject test;
-    //public Transform destination;
 
     public string stateTxt;
     public bool isComplete = false; // 가능하면 manager recipe 저장하는 곳에 bool 만들어서 레시피 각각에서 관리하도록 바꾸기!
@@ -270,17 +271,12 @@ public class AI : MonoBehaviour
     }
 
 
-    // 22
+ 
     bool NullRecipe()
     {
         if (recipe != null)
             return false;
         return true;
-    }
-
-    void GiveRecipe()
-    {
-        recipe = AArecipe;
     }
 
     void ClearRecipe()
@@ -291,7 +287,6 @@ public class AI : MonoBehaviour
 
     void ResetRecipe()
     {
-        //stateType = AIStateType.Ingredient;
         recipeIdx = 0;
         destination = null;
     }
@@ -308,71 +303,6 @@ public class AI : MonoBehaviour
             stateType = AIStateType.Ingredient;
         destination = null;
     }
-
-    void CheckStep() // ActionNode를 통해 부르지 않고 다른 함수에 의해 부르는 중 == 이걸 RecipeNode에 넣자!
-    {
-        //Debug.Log(recipe.recipe[recipeIdx] + " 현재 레시피");
-        string temp = ExtractName(recipe.recipe[recipeIdx]);
-        string prefix = null;
-        GameObject target = null;
-        switch (temp)
-        {
-            case "completion":
-                {
-                    prefix = ExtractPrefix(recipe.recipe[recipeIdx]);
-                    foreach (ITEM str in manager.objects[0].obj)
-                    {
-                        if (str.name == prefix)
-                            target = str.item;
-                    }
-                    if (target == null)
-                        Debug.LogError("목적지를 설정할 수 없음");
-                    break;
-                }
-            case "Pot":
-                {
-                    Debug.Log("페인트 드가자");
-                    foreach (ITEM str in manager.objects[0].obj)
-                    {
-                        if (str.name == temp)
-                            target = str.item;
-                    }
-                    if (target == null)
-                        Debug.LogError("목적지를 설정할 수 없음");
-                    break;
-                }
-            case "Floor":
-            case "Object":
-            case "Enemy":
-                Debug.LogError("미개발 ㅋ");
-                break;
-            default:
-                Debug.LogError("이럴리가 없는데... ㄱㅗ$ㅈ3ㅑㅇ! ㅠㅡㅠ");
-                break;
-        }
-
-        destination = target;
-    }
-
-    string ExtractPrefix(string itemName)
-    {
-        return itemName.Split('-')[0];
-    }
-
-    string ExtractName(string itemName)
-    {
-        string pattern = @"-";
-        Match match = Regex.Match(itemName, pattern);
-        //    Debug.Log(itemName);    
-        //if (itemName.Split('-')[1] == null)
-        //    Debug.Log("  ddfdf");    
-        return itemName.Split('-')[1];
-    }
-
-    //void ChangePro()
-    //{
-    //    destination = manager.objects[1].obj[0].item;
-    //}
 
     bool NeedProcessing()
     {
@@ -397,111 +327,7 @@ public class AI : MonoBehaviour
    void ClearState()
    {
         destination = null;
-        //stateType++;
-        //if (((int)stateType) > (int)AIStateType.Shelf)
-        //    Debug.LogError("스탭 오버플로");
    }
-
-    //// 노드 만들어서 매개변수로 Aistatetype 지정해서 비교... 아래는 임시
-    bool StepIngredient()
-    {
-        if (stateType == AIStateType.Ingredient)
-            return true;
-        return false;
-    }
-
-    bool StepProcessing()
-    {
-        if (stateType == AIStateType.Processing)
-            return true;
-        return false;
-    }
-
-    bool StepMerge()
-    {
-        if (stateType == AIStateType.Merge)
-            return true;
-        return false;
-    }
-
-    bool StepAttack()
-    {
-        if (stateType == AIStateType.Attack)
-            return true;
-        return false;
-    }
-
-    bool StepTrash()
-    {
-        if (stateType == AIStateType.Trash)
-            return true;
-        return false;
-    }
-
-    void ChangeIngredient()
-    {
-        stateType = AIStateType.Ingredient;
-    }
-
-    void ChangePro()
-    {
-        stateType = AIStateType.Processing;
-    }
-    void ChangeMer()
-    {
-        stateType = AIStateType.Merge;
-    }
-    void ChangeAttack()
-    {
-        stateType = AIStateType.Attack;
-    }
-
-    void ChangeTrash()
-    {
-        stateType = AIStateType.Trash;
-    }
-
-    void ChangeNone()
-    {
-        stateType = AIStateType.None;
-    }
-
-
-    void Destination()
-    {
-        switch (stateType)
-        {
-            case AIStateType.Ingredient:
-            {
-                // 현재 레시피 순서에 맞는 재료 선택
-                //Debug.Log("재료");
-                CheckStep();
-                break;
-            }
-            case AIStateType.Processing:
-            {
-                // 1. 고장 또는 사용중인지 / 2. 거리순
-                destination = manager.objects[1].obj[0].item; // 임시
-                break;
-            }
-            case AIStateType.Merge:
-            {
-                // 1. 고장 또는 사용중인지 / 2. 거리순
-                destination = manager.objects[2].obj[0].item; // 임시
-                break;
-            }
-            case AIStateType.Attack:
-            {
-                destination = manager.objects[3].obj[0].item;
-                break;
-            }
-            case AIStateType.Trash:
-                {
-                    destination = manager.objects[4].obj[0].item;
-                    break;
-                }
-        }
-    }
 
     bool CheckTrash()
     {
@@ -509,82 +335,9 @@ public class AI : MonoBehaviour
             return true;
         return false;
     }
-    //
-
-
-
-    void t()
-    {
-        state = -1;
-    }
-    void tt()
-    {
-        state = 2;
-    }
-
-    void StateChange()
-    {
-        //state += 1;
-
-        if (hand != null)
-        {
-            TwoIngredient two = hand.GetComponent<TwoIngredient>();
-            if (two == null)
-            {
-                ThreeIngredient three = hand.GetComponent<ThreeIngredient>();
-                state = ((int)three.type);
-            }
-            else
-            {
-                state = ((int)two.type);
-            }
-        }
-        else
-        {
-            state = -1;
-        }
-    }
 
     bool HandNull()
     {
         return hand == null ? true : false;
-    }
-
-    void HandClear()
-    {
-        hand = null;
-    }
-
-    bool aa()
-    {
-        MergeIngredient item = destination.GetComponent<MergeIngredient>();
-        if (item.one && item.two)
-        {
-            Debug.Log("들어왔다```");
-            return true;
-        }
-        return false;
-    }
-
-    bool bb()
-    {
-        if (hand.name == "Trash")
-            return true;
-        return false;
-    }
-
-    bool HandLevel_Raw()
-    {
-        return state ==  0 ? true : false;  
-    }
-
-    bool HandLevel_Pro()
-    {
-        return state == 1 ? true : false;
-    }
-
-    bool HandLevel_Mer()
-    {
-        return state == 2 ? true : false;
     }
 }

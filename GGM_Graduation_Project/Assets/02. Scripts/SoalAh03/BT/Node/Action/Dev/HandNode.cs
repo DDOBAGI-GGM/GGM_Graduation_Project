@@ -23,28 +23,7 @@ public class HandNode : INode
 
     public NodeState Execute()
     {
-        if (ai.hand)
-        {
-            string str = t(ai.hand.name);
-
-            switch (str)
-            {
-                case "igredient":
-                    break;
-            }
-        }
-        else
-        {
-            ai.state = -1;
-        }
-
         return NodeState.Success;
-    }
-
-    string t(string str)
-    {
-        Match match = Regex.Match(str, "-");
-        return match.Value;
     }
 
     public void OnEnd()
