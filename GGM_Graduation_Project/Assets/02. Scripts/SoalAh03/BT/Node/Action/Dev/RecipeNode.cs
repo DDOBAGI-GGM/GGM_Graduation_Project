@@ -23,49 +23,25 @@ public class RecipeNode : INode
 
     public NodeState Execute()
     {
-        string temp = ExtractName(ai.recipe.recipe[ai.recipeIdx]);
-        GameObject target = null;
-        switch (temp)
-        {
-            case "completion":
-                {
-                    temp = ExtractName(temp);
-                    foreach (ITEM str in ai.manager.objects[0].obj)
-                    {
-                        if (str.name == temp)
-                            target = str.item;
-                    }
-                    if (target == null)
-                        Debug.LogError("목적지를 설정할 수 없음");
-                    return NodeState.Success;
-                }
-            case "Pot":
-                {
-                    foreach (ITEM str in ai.manager.objects[0].obj)
-                    {
-                        if (str.name == temp)
-                            target = str.item;
-                    }
-                    if (target == null)
-                        Debug.LogError("목적지를 설정할 수 없음");
-                    return NodeState.Success;
-                }
-            case "Floor":
-            case "Object":
-            case "Enemy":
-                Debug.LogError("미개발 ㅋ");
-                return NodeState.Failure;
-            default:
-                Debug.LogError("이럴리가 없는데... ㄱㅗ$ㅈ3ㅑㅇ! ㅠㅡㅠ");
-                return NodeState.Failure;
-        }
-    }
+        int totalProbability = 0;
+        foreach (RECIPE recipe in ai.manager.recipes)
+            totalProbability += recipe.probability;
 
-    string ExtractName(string itemName)
-    {
-        string pattern = @"-_";
-        Match match = Regex.Match(itemName, pattern);
-        return match.Value;
+        int random = Random.Range(1, totalProbability);
+
+        int gainProbability = 0;
+        foreach (RECIPE recipe in ai.manager.recipes)
+        {
+            if (gainProbability < random && random <= gainProbability + recipe.probability)
+            {
+                ai.recipe = recipe.recipe;
+                return NodeState.Success;
+            }
+
+            gainProbability += recipe.probability;
+        }
+
+        return NodeState.Failure;
     }
 
     public void OnEnd()

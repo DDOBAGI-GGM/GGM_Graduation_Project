@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,13 @@ public enum AIStateType
 }
 
 [System.Serializable]
+public class RECIPE
+{
+    public RecipeListSO recipe;
+    public int probability;
+}
+
+[System.Serializable]
 public class OBJ
 {
     public string name;
@@ -27,22 +35,13 @@ public class ITEM
     public GameObject item;
 }
 
-[System.Serializable]
-public class RECIPE
-{
-    public RecipeListSO recipe;
-    //public int percent
-}
-
 public class AIManager : MonoBehaviour
 {
     // 레시피
-    public List<RecipeListSO> recipes = new List<RecipeListSO>();
+    public List<RECIPE> recipes = new List<RECIPE>();
 
     // 오브젝트
     public List<OBJ> objects = new List<OBJ>();
-
-    //public SerializableDictionary<string, GameObject> dictionary = new SerializableDictionary<string, GameObject>();
 
     private void Awake()
     {

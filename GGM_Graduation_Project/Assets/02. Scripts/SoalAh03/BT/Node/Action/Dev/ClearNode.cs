@@ -1,16 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class CheckStateNode : INode
+public class ClearNode<T> :INode
 {
     AI ai;
-    AIStateType state;
-
-    public CheckStateNode(AI ai, AIStateType state)
+    T obj;
+ 
+    public ClearNode(AI ai, ref T obj)
     {
         this.ai = ai;
-        this.state = state;
+        this.obj = obj;
     }
 
     public void OnAwake()
@@ -23,11 +25,7 @@ public class CheckStateNode : INode
 
     public NodeState Execute()
     {
-        if (ai.stateType == state)
-        {
-            return NodeState.Success;
-        }
-        return NodeState.Failure;
+        return NodeState.Success;
     }
 
     public void OnEnd()
