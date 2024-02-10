@@ -15,7 +15,10 @@ public class AI : MonoBehaviour
     [Header("Attribute")]
     public AIManager manager;
     public BehaviourTreeManager<INode> bt;
+
+    [Header("Component")]
     public NavMeshAgent agent;
+    public Animator animator;
 
     [Header("Recipe")]
     public RecipeListSO recipe;
@@ -26,19 +29,24 @@ public class AI : MonoBehaviour
 
     [Header("State")]
     public AIStateType stateType;
+    public bool isComplete = false;
+    public bool isRecovery = false;
 
     [Header("Hand")]
     public GameObject hand;
     public Transform handPos;
 
+    [Header("Test")]
     public string stateTxt;
-    public bool isComplete = false; // 가능하면 manager recipe 저장하는 곳에 bool 만들어서 레시피 각각에서 관리하도록 바꾸기!
+    // 가능하면 manager recipe 저장하는 곳에 bool 만들어서 레시피 각각에서 관리하도록 바꾸기!
+    // -> 보류. 선반 사용하려나?..
 
 
     private void Awake()
     {
         manager = GameObject.Find("AIMgr").GetComponent<AIManager>();
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -62,7 +70,6 @@ public class AI : MonoBehaviour
                 // 레시피 초기화
                 new ActionNode(ResetRecipe),
                 // 재료 상태로 변경
-                //new ActionNode(ChangeIngredient)
                 new ChangeStateNode(this, AIStateType.Ingredient)
                 ),
 
@@ -72,7 +79,6 @@ public class AI : MonoBehaviour
                 // 목적지가 없다면 (상태 변경이 일어났다면)
                 new ConditionNode(NullDestination),
                 // 목적지를 설정
-                //new ActionNode(Destination),
                 new DestinationNode(this),
                 // 이동
                 new MoveNode(this, 3f)
@@ -82,7 +88,6 @@ public class AI : MonoBehaviour
             new SequenceNode
             (
                 // 재료 스탭이 맞다면
-                //new ConditionNode(StepIngredient),
                 new CheckStateNode(this, AIStateType.Ingredient),
                 // 거리가 된다면
                 new RangeNode(this),
@@ -98,7 +103,6 @@ public class AI : MonoBehaviour
                 // 상태 초기화
                 new ActionNode(ClearState),
                 // 가공 상태로 변경
-                //new ActionNode(ChangePro)
                 new ChangeStateNode(this, AIStateType.Processing)
             ),
 
@@ -109,7 +113,6 @@ public class AI : MonoBehaviour
                 new SequenceNode
                 (
                     // 가공 스탭이 맞다면
-                    //new ConditionNode(StepProcessing),
                     new CheckStateNode(this, AIStateType.Processing),
                     // 아이템을 들고 있다면
                     new InverterNode(new ConditionNode(HandNull)),
@@ -118,7 +121,6 @@ public class AI : MonoBehaviour
                     // 상태 초기화
                     new ActionNode(ClearState),
                     // 병합 상태로 변경
-                    //new ActionNode(ChangeMer)
                     new ChangeStateNode(this, AIStateType.Merge)
                 ),
 
@@ -126,7 +128,6 @@ public class AI : MonoBehaviour
                 new SequenceNode
                 (
                     // 가공 스탭이 맞다면
-                    //new ConditionNode(StepProcessing),
                     new CheckStateNode(this, AIStateType.Processing),
                     // 거리가 된다면
                     new RangeNode(this),
@@ -141,7 +142,6 @@ public class AI : MonoBehaviour
                     // 상태 초기화
                     new ActionNode(ClearState),
                     // 병합 상태로 변경
-                    //new ActionNode(ChangeMer)
                     new ChangeStateNode(this, AIStateType.Merge)
                 )
             ),
@@ -153,7 +153,6 @@ public class AI : MonoBehaviour
                 new SequenceNode
                 (
                     // 병합 스탭이 맞다면
-                    //new ConditionNode(StepMerge),
                     new CheckStateNode(this, AIStateType.Merge),
                     // 회수 단계가 아니라면
                     new InverterNode(new ConditionNode(MergeComplete)),
@@ -176,7 +175,6 @@ public class AI : MonoBehaviour
                 new SequenceNode
                 (
                     // 병합 스탭이 맞다면
-                    //new ConditionNode(StepMerge),
                     new CheckStateNode(this, AIStateType.Merge),
                     // 회수 단계가 맞다면
                     new ConditionNode(MergeComplete),
@@ -204,7 +202,6 @@ public class AI : MonoBehaviour
                             // 정보 로그 출력
                             new LogNode("아이템"),
                             // 공격 상태로 변경
-                            //new ActionNode(ChangeAttack)
                             new ChangeStateNode(this, AIStateType.Attack)
                         ),
                         // 폐기
@@ -215,7 +212,6 @@ public class AI : MonoBehaviour
                             // 정보 로그 출력
                             new LogNode("폐기"),
                             // 폐기 상태로 변경
-                            //new ActionNode(ChangeTrash)
                             new ChangeStateNode(this, AIStateType.Trash)
                         )
                     )
@@ -226,7 +222,6 @@ public class AI : MonoBehaviour
             new SequenceNode
             (
                 // 공격 스탭이 맞다면
-                //new ConditionNode(StepAttack),
                 new CheckStateNode(this, AIStateType.Attack),
                 // 거리가 된다면,
                 new RangeNode(this),
@@ -246,7 +241,6 @@ public class AI : MonoBehaviour
             new SequenceNode
             (
                 // 폐기 스탭이 맞다면
-                //new ConditionNode(StepTrash),
                 new CheckStateNode(this, AIStateType.Trash),
                 // 거리가 된다면,
                 new RangeNode(this),

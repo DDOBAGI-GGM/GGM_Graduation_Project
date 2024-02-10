@@ -43,8 +43,6 @@ public class AIManager : MonoBehaviour
     // 오브젝트
     public List<OBJ> objects = new List<OBJ>();
 
-    //public SerializableDictionary<string, GameObject> dictionary = new SerializableDictionary<string, GameObject>();
-
     private void Awake()
     {
     }

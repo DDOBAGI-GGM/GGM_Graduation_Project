@@ -629,9 +629,10 @@ GameObject:
   - component: {fileID: 466540985}
   - component: {fileID: 466540984}
   - component: {fileID: 466540983}
-  - component: {fileID: 466540987}
   - component: {fileID: 466540986}
+  - component: {fileID: 466540989}
   - component: {fileID: 466540988}
+  - component: {fileID: 466540987}
   m_Layer: 0
   m_Name: AI
   m_TagString: Player
@@ -764,16 +765,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   agent: {fileID: 0}
-  state: -1
-  stateType: 0
-  hand: {fileID: 0}
-  handPos: {fileID: 577649142}
-  destination: {fileID: 0}
+  animator: {fileID: 0}
   recipe: {fileID: 0}
   recipeIdx: 0
-  AArecipe: {fileID: 11400000, guid: 9190bb17d9c911844b3b1a8326fda674, type: 2}
-  stateTxt: 
+  destination: {fileID: 0}
+  stateType: 0
   isComplete: 0
+  hand: {fileID: 0}
+  handPos: {fileID: 577649142}
+  stateTxt: 
+--- !u!95 &466540989
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466540981}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14c5f886187b47544a145b164440b515, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &507740570
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,7 +937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 577649142}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HandPos
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2153,6 +2174,8 @@ MonoBehaviour:
     probability: 10
   - recipe: {fileID: 11400000, guid: 9190bb17d9c911844b3b1a8326fda674, type: 2}
     probability: 10
+  - recipe: {fileID: 11400000, guid: f547286b47ca24f4e98ce2d33f584556, type: 2}
+    probability: 5
   objects:
   - name: Ingredient
     obj:

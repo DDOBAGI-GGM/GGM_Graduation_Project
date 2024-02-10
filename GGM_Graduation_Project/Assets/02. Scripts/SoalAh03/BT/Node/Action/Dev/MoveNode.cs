@@ -27,22 +27,6 @@ public class MoveNode : INode
     {
         ai.agent.SetDestination(ai.destination.transform.position);
 
-
-        //float distance = Vector3.Distance(ai.transform.position, ai.destination.transform.position);
-        //Vector3 dir = ai.destination.transform.position - ai.transform.position;
-        //RaycastHit hit;
-        //if (Physics.Raycast(ai.transform.position, dir, out hit)
-        //    && distance <= 5f && hit.transform.CompareTag("Object"))
-        //{
-        //    if (hit.collider.gameObject.name == ai.destination.gameObject.name)
-        //        return NodeState.Success;
-        //}
-        //else
-        //    return NodeState.Running;
-        //return NodeState.Failure;
-
-        //ai.agent.SetDestination(ai.agent.destination);
-
         if (!ai.agent.pathPending)
         {
             if (ai.agent.remainingDistance <= ai.agent.stoppingDistance)
@@ -58,6 +42,5 @@ public class MoveNode : INode
 
     public void OnEnd()
     {
-        //ai.agent.isStopped = true;
     }
 }
