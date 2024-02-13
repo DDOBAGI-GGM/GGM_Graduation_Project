@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4811035055181216559}
   - component: {fileID: 130950600596981607}
   m_Layer: 0
-  m_Name: Paint_Pot
+  m_Name: Paint-Pot
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

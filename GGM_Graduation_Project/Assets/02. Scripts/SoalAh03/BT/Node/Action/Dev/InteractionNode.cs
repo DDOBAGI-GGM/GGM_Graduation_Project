@@ -75,6 +75,20 @@ public class InteractionNode : INode
                 ai.hand = null;
                 return NodeState.Success;
             }
+            case AIStateType.Shelf:
+                {
+                    GameObject item = ai.destination.GetComponent<IObject>().Interaction(ai.hand);
+                    if (item != null)
+                    {
+                        item.transform.position = ai.handPos.position;
+                        item.transform.parent = ai.handPos;
+                        ai.hand = item;
+                        return NodeState.Success;
+                    }
+                    else
+                        ai.hand = null;
+                    return NodeState.Success;
+                }
             default: return NodeState.Failure;
         }
     }
