@@ -3,9 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class StagePlatform : MonoBehaviour
 {
-    [Header("이동할 씬")][SerializeField] private string scene;
+    [SerializeField] private string moveSceneName;
+    public StageDataSO thisStageData;
+    [SerializeField] private GameObject stageCanvas;
 
-    public StageDataSO thisStage;
+    private PlayerInteract playerInteract;
 
     public void Interact()
     {
@@ -16,7 +18,29 @@ public class StagePlatform : MonoBehaviour
         if (CloudManager.Instance == null && LoadingSceneManager.Instance == null)      // 디버그용 코드. 씬 셀렉트 씬에서 바로 이동할 때 사용함.
         {
             GameManager.Instance.nowStageData = ScriptableObject.CreateInstance<StageDataSO>();         // 새 것으로 복사해서 넣어줌.
-            SceneManager.LoadScene(scene);
+            SceneManager.LoadScene(moveSceneName);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            stageCanvas.SetActive(true);
+            if (playerInteract == null)
+            {
+                playerInteract = other.GetComponent<PlayerInteract>();
+            }
+            playerInteract.platform = this;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            stageCanvas.SetActive(false);
+            playerInteract.platform = null;
         }
     }
 }
