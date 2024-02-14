@@ -12,7 +12,9 @@ public class OffNeshJump : MonoBehaviour
     private float gravity = -9.8f;
 
     [SerializeField]
-    private int offMexhAreaNumber = 2;
+    private int offMexhAreaNumber = 2;      // Jump 레이어
+
+    [SerializeField] private GameObject airplane;
 
     private NavMeshAgent navAgent;
 
@@ -59,16 +61,21 @@ public class OffNeshJump : MonoBehaviour
 
         navAgent.CompleteOffMeshLink();
         navAgent.isStopped = false;
+
+        airplane.transform.SetParent(null);
+        airplane.transform.position = new Vector3(airplane.transform.position.x, 0.35f, airplane.transform.position.z);
     }
 
     private bool IsOnJump()
     {
-        if (navAgent.isOnOffMeshLink)
+        if (navAgent.isOnOffMeshLink)       // 링크 타면 (점프 하면)
         {
             OffMeshLinkData linkData = navAgent.currentOffMeshLinkData;
 
             if (linkData.offMeshLink != null && linkData.offMeshLink.area == offMexhAreaNumber)
             {
+                airplane.transform.SetParent(gameObject.transform);
+                airplane.transform.localPosition = Vector3.zero;
                 return true;
             }
         }
