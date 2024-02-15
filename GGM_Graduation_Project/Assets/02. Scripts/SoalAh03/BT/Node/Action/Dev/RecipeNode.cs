@@ -23,23 +23,23 @@ public class RecipeNode : INode
 
     public NodeState Execute()
     {
-        int totalProbability = 0;
-        foreach (RECIPE recipe in ai.manager.recipes)
-            totalProbability += recipe.probability;
+        //int totalProbability = 0;
+        //foreach (RECIPE recipe in ai.manager.recipes)
+        //    totalProbability += recipe.probability;
 
-        int random = Random.Range(1, totalProbability);
+        //int random = Random.Range(1, totalProbability);
 
-        int gainProbability = 0;
-        foreach (RECIPE recipe in ai.manager.recipes)
-        {
-            if (gainProbability < random && random <= gainProbability + recipe.probability)
-            {
-                ai.recipe = recipe.recipe;
-                return NodeState.Success;
-            }
+        //int gainProbability = 0;
+        //foreach (RECIPE recipe in ai.manager.recipes)
+        //{
+        //    if (gainProbability < random && random <= gainProbability + recipe.probability)
+        //    {
+        //        ai.recipe = recipe.recipe;
+        //        return NodeState.Success;
+        //    }
 
-            gainProbability += recipe.probability;
-        }
+        //    gainProbability += recipe.probability;
+        //}
 
         return NodeState.Failure;
     }

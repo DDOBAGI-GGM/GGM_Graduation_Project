@@ -18,7 +18,14 @@ public enum AIStateType
 public class RECIPE
 {
     public RecipeListSO recipe;
-    public int probability;
+    public int value;
+}
+
+[System.Serializable]
+public class RECIPE01
+{
+    public RecipeListSO recipe;
+    public RecipeListSO oldRecipe;
 }
 
 [System.Serializable]

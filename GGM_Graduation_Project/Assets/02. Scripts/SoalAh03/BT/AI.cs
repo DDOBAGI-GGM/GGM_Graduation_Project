@@ -21,9 +21,11 @@ public class AI : MonoBehaviour
     public Animator animator;
 
     [Header("Recipe")]
-    public RecipeListSO oldRecipe;
-    public RecipeListSO recipe;
-    public int oldRecipeIdx;
+    //public RecipeListSO oldRecipe;
+    //public RecipeListSO recipe;
+    //public int oldRecipeIdx;
+    //public int recipeIdx;
+    public List<RECIPE01> recipes = new List<RECIPE01>();
     public int recipeIdx;
 
     [Header("Destination")]
@@ -61,12 +63,12 @@ public class AI : MonoBehaviour
             new SequenceNode
             (
                 // 레시피가 없다면
-                new ConditionNode(NullRecipe),
+                //new ConditionNode(NullRecipe),
                 // 레시피를 지정한다
                 //new ActionNode(GiveRecipe),
                 new RecipeNode(this),
                 // 레시피가 있다면 (레시피가 지정됐다면)
-                new InverterNode(new ConditionNode(NullRecipe)),
+                //new InverterNode(new ConditionNode(NullRecipe)),
                 // 레시피 로그 출력
                 new LogNode("레시피"),
                 // 레시피 초기화
@@ -177,15 +179,6 @@ public class AI : MonoBehaviour
                     // 레시피 다음 단계
                     new ActionNode(NextStep)
                 ),
-                
-                //// ttt 선반 -- 망한듯? 선반 부분에서 넣는 거 빼는 걸 구분하면서 쑈부 봐야할듯
-                //new SequenceNode
-                //(
-                //    new ConditionNode(Recovery1),
-                //    new ChangeStateNode(this, AIStateType.Shelf),
-                //    new DestinationNode(this),
-                //    new MoveNode(this, 3f)
-                //),
 
                 // 회수
                 new SequenceNode
@@ -210,30 +203,30 @@ public class AI : MonoBehaviour
                     // 공격-폐기 상태 검사
                     new SelectorNode
                     (
-                        // 회복 - test .ver (recovery인 경우...)
-                        new SequenceNode
-                        (
-                            // 일단 회복 그걸 만드는 중 일 때만...
-                            new ConditionNode(Recovery),
-                            // 근데 건진 게 쓰레기면 안 됨;;
-                            new InverterNode(new ConditionNode(CheckTrash)),
-                            new SelectorNode
-                            (
-                                // 선반
-                                new SequenceNode
-                                (
-                                    new ConditionNode(Recovery1),
-                                    new LogNode("일단 선반에 쟁여둬"),
-                                    new ChangeStateNode(this, AIStateType.Shelf)
-                                ),
-                                // 선반은 아니고... 회복이라서 ... .ㅎ.ㅎ.ㅎ
-                                new SequenceNode
-                                (
-                                    new ConditionNode(Recovery2),
-                                    new InteractionNode(this)
-                                )
-                            )
-                        ),
+                        //// 회복 - test .ver (recovery인 경우...)
+                        //new SequenceNode
+                        //(
+                        //    // 일단 회복 그걸 만드는 중 일 때만...
+                        //    new ConditionNode(Recovery),
+                        //    // 근데 건진 게 쓰레기면 안 됨;;
+                        //    new InverterNode(new ConditionNode(CheckTrash)),
+                        //    new SelectorNode
+                        //    (
+                        //        // 선반
+                        //        new SequenceNode
+                        //        (
+                        //            new ConditionNode(Recovery1),
+                        //            new LogNode("일단 선반에 쟁여둬"),
+                        //            new ChangeStateNode(this, AIStateType.Shelf)
+                        //        ),
+                        //        // 선반은 아니고... 회복이라서 ... .ㅎ.ㅎ.ㅎ
+                        //        new SequenceNode
+                        //        (
+                        //            new ConditionNode(Recovery2),
+                        //            new InteractionNode(this)
+                        //        )
+                        //    )
+                        //),
                         new SequenceNode(
                             new InverterNode(new ConditionNode(Recovery)),
                         // 공격
@@ -261,43 +254,43 @@ public class AI : MonoBehaviour
                 )
             ),
 
-            // 선반
-            new SequenceNode
-            (
-                // 선반에 두러 오는 것과 회수 하러 오는 것을 구분해야함.)
-                // 공격 스탭이 맞다면
-                new CheckStateNode(this, AIStateType.Shelf),
-                // 거리가 된다면,
-                new RangeNode(this),
-                new SelectorNode
-                (
-                    // 회수
-                    new SequenceNode
-                    (
-                        new ConditionNode(Recovery2),
-                        new ConditionNode(HandNull),
-                        new InteractionNode(this),
-                        new LogNode(" 선반 - 회수"),
-                        new InverterNode(new ConditionNode(HandNull)),
-                        new ChangeStateNode(this, AIStateType.Merge)
-                    ),
-                    // 보관
-                    new SequenceNode
-                    (   
-                        new ConditionNode(Recovery1),
-                        new InverterNode(new ConditionNode(HandNull)),
-                        new InteractionNode(this),
-                        new LogNode(" 선반 - 보관"),
-                        new ConditionNode(HandNull),
-                        new ActionNode(NextRecipe)
-                    )
-                )
-                // 아이템을 들고 있다면
-                // 상호작용
-                // 상호작용 성공
-                // 상태 로그 출력
-                // 레시피 초기화
-            ),
+            //// 선반
+            //new SequenceNode
+            //(
+            //    // 선반에 두러 오는 것과 회수 하러 오는 것을 구분해야함.)
+            //    // 공격 스탭이 맞다면
+            //    new CheckStateNode(this, AIStateType.Shelf),
+            //    // 거리가 된다면,
+            //    new RangeNode(this),
+            //    new SelectorNode
+            //    (
+            //        // 회수
+            //        new SequenceNode
+            //        (
+            //            new ConditionNode(Recovery2),
+            //            new ConditionNode(HandNull),
+            //            new InteractionNode(this),
+            //            new LogNode(" 선반 - 회수"),
+            //            new InverterNode(new ConditionNode(HandNull)),
+            //            new ChangeStateNode(this, AIStateType.Merge)
+            //        ),
+            //        // 보관
+            //        new SequenceNode
+            //        (   
+            //            new ConditionNode(Recovery1),
+            //            new InverterNode(new ConditionNode(HandNull)),
+            //            new InteractionNode(this),
+            //            new LogNode(" 선반 - 보관"),
+            //            new ConditionNode(HandNull),
+            //            new ActionNode(NextRecipe)
+            //        )
+            //    )
+            //    // 아이템을 들고 있다면
+            //    // 상호작용
+            //    // 상호작용 성공
+            //    // 상태 로그 출력
+            //    // 레시피 초기화
+            //),
 
             // 공격
             new SequenceNode
@@ -355,18 +348,22 @@ public class AI : MonoBehaviour
         stateTxt = stateType.ToString();
     }
 
+    //bool NullRecipe()
+    //{
+    //    if (recipe != null)
+    //        return false;
+    //    return true;
+    //}
 
- 
-    bool NullRecipe()
-    {
-        if (recipe != null)
-            return false;
-        return true;
-    }
-
+    //void ClearRecipe()
+    //{
+    //    recipe = null;
+    //    isComplete = false;
+    //}
+    
     void ClearRecipe()
     {
-        recipe = null;
+        recipes[recipeIdx] = null;
         isComplete = false;
     }
 
@@ -376,23 +373,24 @@ public class AI : MonoBehaviour
         destination = null;
     }
 
-    void NextRecipe()
-    {
-        if (oldRecipeIdx < 2)
-            oldRecipeIdx++;
+    //void NextRecipe()
+    //{
+    //    if (oldRecipeIdx < 2)
+    //        oldRecipeIdx++;
 
-        if (oldRecipeIdx == 2)
-        {
-            oldRecipe = null;
-            oldRecipeIdx = 0;
-            isRecovery = false;
-        }
+    //    if (oldRecipeIdx == 2)
+    //    {
+    //        oldRecipe = null;
+    //        oldRecipeIdx = 0;
+    //        isRecovery = false;
+    //    }
 
-        if (isRecovery == false)
-            stateType = AIStateType.Ingredient;
+    //    //if (isRecovery == false)
+    //        stateType = AIStateType.Ingredient;
+    //    recipeIdx = 0;
 
-        destination = null;
-    }
+    //    destination = null;
+    //}
 
     void NextStep()
     {
@@ -425,15 +423,15 @@ public class AI : MonoBehaviour
         return isRecovery;
     }
 
-    bool Recovery1()
-    {
-        return oldRecipeIdx == 0;
-    }
+    //bool Recovery1()
+    //{
+    //    return oldRecipeIdx == 0;
+    //}
 
-    bool Recovery2()
-    {
-        return oldRecipeIdx == 1;
-    }
+    //bool Recovery2()
+    //{
+    //    return oldRecipeIdx == 1;
+    //}
 
     bool NullDestination()
     {

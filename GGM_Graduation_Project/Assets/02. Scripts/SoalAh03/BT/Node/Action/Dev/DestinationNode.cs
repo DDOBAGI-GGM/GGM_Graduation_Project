@@ -32,7 +32,7 @@ public class DestinationNode : INode
         {
             case AIStateType.Ingredient:
             {
-                target = CheckRecipe();
+                //target = CheckRecipe();
                 break;
             }
             case AIStateType.Processing:
@@ -66,61 +66,61 @@ public class DestinationNode : INode
         return NodeState.Success;
     }
 
-    GameObject CheckRecipe()
-    {
-        string temp = ExtractName(ai.recipe.recipe[ai.recipeIdx]);
-        string prefix = null;
-        GameObject target = null;
+    //GameObject CheckRecipe()
+    //{
+    //    string temp = ExtractName(ai.recipe.recipe[ai.recipeIdx]);
+    //    string prefix = null;
+    //    GameObject target = null;
 
-        switch (temp)
-        {
-            case "completion":
-            {
-                prefix = ExtractPrefix(ai.recipe.recipe[ai.recipeIdx]);
-                foreach (ITEM str in ai.manager.objects[0].obj)
-                {
-                    if (str.name == prefix)
-                        target = str.item;
-                }
-                break;
-            }
-            case "Pot":
-            {
-                foreach (ITEM str in ai.manager.objects[0].obj)
-                {
-                    if (str.name == temp)
-                        target = str.item;
-                }
-                break;
-            }
-            case "Floor":
-            case "Object":
-                {
-                    // recovery라면 현재 레시피(회복)는 oldrecipe에 옮겨 저장
-                    // 현재 recipe는 recovery의 
-                    ai.oldRecipe = ai.recipe;
-                    foreach (RECIPE test in ai.manager.recipes)
-                    {
-                        string ss = ExtractName(ai.oldRecipe.recipe[ai.oldRecipeIdx]);
-                        if (test.recipe.name == ss)
-                        {
-                            ai.recipe = test.recipe;
-                        }
-                    }
-                    ai.isRecovery = true;
-                }
-            //case "Enemy":
-                break;
-            default:
-                Debug.LogError("이럴리가 없는데... ㄱㅗ$ㅈ3ㅑㅇ! ㅠㅡㅠ");
-                break;
-        }
+    //    switch (temp)
+    //    {
+    //        case "completion":
+    //        {
+    //            prefix = ExtractPrefix(ai.recipe.recipe[ai.recipeIdx]);
+    //            foreach (ITEM str in ai.manager.objects[0].obj)
+    //            {
+    //                if (str.name == prefix)
+    //                    target = str.item;
+    //            }
+    //            break;
+    //        }
+    //        case "Pot":
+    //        {
+    //            foreach (ITEM str in ai.manager.objects[0].obj)
+    //            {
+    //                if (str.name == temp)
+    //                    target = str.item;
+    //            }
+    //            break;
+    //        }
+    //        case "Floor":
+    //        case "Object":
+    //            {
+    //                // recovery라면 현재 레시피(회복)는 oldrecipe에 옮겨 저장
+    //                // 현재 recipe는 recovery의 
+    //                ai.oldRecipe = ai.recipe;
+    //                foreach (RECIPE test in ai.manager.recipes)
+    //                {
+    //                    string ss = ExtractName(ai.oldRecipe.recipe[ai.oldRecipeIdx]);
+    //                    if (test.recipe.name == ss)
+    //                    {
+    //                        ai.recipe = test.recipe;
+    //                    }
+    //                }
+    //                ai.isRecovery = true;
+    //            }
+    //        //case "Enemy":
+    //            break;
+    //        default:
+    //            Debug.LogError("이럴리가 없는데... ㄱㅗ$ㅈ3ㅑㅇ! ㅠㅡㅠ");
+    //            break;
+    //    }
 
-        //if (target == null)
-        //    Debug.LogError("목적지를 설정할 수 없음");
+    //    //if (target == null)
+    //    //    Debug.LogError("목적지를 설정할 수 없음");
 
-        return target;
-    }
+    //    return target;
+    //}
 
     string ExtractName(string itemName)
     {
