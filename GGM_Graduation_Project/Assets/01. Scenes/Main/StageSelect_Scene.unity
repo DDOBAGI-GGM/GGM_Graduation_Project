@@ -261,8 +261,14 @@ PrefabInstance:
     - target: {fileID: 770571033447156523, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
       propertyPath: moveSceneName
-      value: Stage_2
+      value: Test
       objectReference: {fileID: 0}
+    - target: {fileID: 770571033447156523, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
+        type: 3}
+      propertyPath: thisStageData
+      value: 
+      objectReference: {fileID: 11400000, guid: e9fb1f03239f97d4588270b990bd8b8a,
+        type: 2}
     - target: {fileID: 1911310707344393993, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
       propertyPath: m_Layer
@@ -723,8 +729,7 @@ PrefabInstance:
         type: 3}
       propertyPath: thisStageData
       value: 
-      objectReference: {fileID: 11400000, guid: e9fb1f03239f97d4588270b990bd8b8a,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5076536978531871586, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
       propertyPath: m_IsActive

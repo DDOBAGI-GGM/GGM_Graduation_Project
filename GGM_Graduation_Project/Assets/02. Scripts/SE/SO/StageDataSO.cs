@@ -22,4 +22,14 @@ public class StageDataSO : ScriptableObject
             }
         }
     }
+
+    public StageDataSO CopySO(StageDataSO copy)        // 커피하는 것에 오리진에 있는 데이터를 복사해서 넣어줌.
+    {
+        copy.stageName = this.stageName;
+        copy.starPersent = this.starPersent;
+        copy.star = this.star;
+        copy.myPersent = this.myPersent;
+        copy.gameTime = this.gameTime;
+        return copy;
+    }
 }

@@ -24,15 +24,19 @@ public class StagePlatform : MonoBehaviour
 
     public void Interact()
     {
-        Debug.Log("이동된다");
-        //CloudManager.Instance?.Move(true);
-        //LoadingSceneManager.Instance?.ChangeLoadScene(scene);
+        Debug.Log("F 키 누름.");
+        StageDataSO copySO= ScriptableObject.CreateInstance<StageDataSO>(); ;     // 새 것으로 복사해서 넣어줌.
+        copySO = thisStageData.CopySO(copySO);
+        GameManager.Instance.nowStageData = copySO;     // 넣어주기
 
-        if (CloudManager.Instance == null && LoadingSceneManager.Instance == null)      // 디버그용 코드. 씬 셀렉트 씬에서 바로 이동할 때 사용함.
+        CloudManager.Instance?.Move(true);
+        LoadingSceneManager.Instance?.ChangeLoadScene(moveSceneName);
+
+/*        if (CloudManager.Instance == null && LoadingSceneManager.Instance == null)      // 디버그용 코드. 씬 셀렉트 씬에서 바로 이동할 때 사용함.
         {
             GameManager.Instance.nowStageData = ScriptableObject.CreateInstance<StageDataSO>();         // 새 것으로 복사해서 넣어줌.
             SceneManager.LoadScene(moveSceneName);
-        }
+        }*/
     }
 
     public void StarInit(int starCnt = 0)
