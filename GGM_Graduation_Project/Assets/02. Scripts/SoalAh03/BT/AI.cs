@@ -22,11 +22,13 @@ public class AI : MonoBehaviour
 
     [Header("Recipe")]
     //public RecipeListSO oldRecipe;
-    //public RecipeListSO recipe;
     //public int oldRecipeIdx;
+    public RECIPE_Dev recipe;
     //public int recipeIdx;
-    public List<RECIPE01> recipes = new List<RECIPE01>();
-    public int recipeIdx;
+
+    // 두 개 이상의 레시피를 병행할 때 (수리 상태 제외) - hard 모드에서 개발하자...
+    //public List<RECIPE> recipes = new List<RECIPE>();
+    //public int recipeIdx;
 
     [Header("Destination")]
     public GameObject destination;
@@ -63,18 +65,25 @@ public class AI : MonoBehaviour
             new SequenceNode
             (
                 // 레시피가 없다면
-                //new ConditionNode(NullRecipe),
+                new ConditionNode(NullRecipe),
                 // 레시피를 지정한다
-                //new ActionNode(GiveRecipe),
+                    //new ActionNode(GiveRecipe),
                 new RecipeNode(this),
                 // 레시피가 있다면 (레시피가 지정됐다면)
-                //new InverterNode(new ConditionNode(NullRecipe)),
+                new InverterNode(new ConditionNode(NullRecipe)),
                 // 레시피 로그 출력
                 new LogNode("레시피"),
                 // 레시피 초기화
                 new ActionNode(ResetRecipe),
                 // 재료 상태로 변경
                 new ChangeStateNode(this, AIStateType.Ingredient)
+            ),
+
+            // 수리
+            new SequenceNode
+            (
+                // hp가 n보다 낮다면
+                // manager recipes에서 가장 마지막 값의 available을 true로
             ),
 
             // 목적지 설정 및 이동
@@ -84,11 +93,12 @@ public class AI : MonoBehaviour
                 new ConditionNode(NullDestination),
                 // 목적지를 설정
                 new DestinationNode(this),
-                //new SequenceNode
-                //(
-                //    new ConditionNode(Recovery),
-                //    new DestinationNode(this)
-                //),
+                    // 위에서 수리 관련 bool 값을 풀어준다면 여기서 이 지랄 안 해도 됨!
+                    //new SequenceNode
+                    //(
+                    //    new ConditionNode(Recovery),
+                    //    new DestinationNode(this)
+                    //),
                 // 이동
                 new MoveNode(this, 3f)
             ),
@@ -348,28 +358,23 @@ public class AI : MonoBehaviour
         stateTxt = stateType.ToString();
     }
 
-    //bool NullRecipe()
-    //{
-    //    if (recipe != null)
-    //        return false;
-    //    return true;
-    //}
+    bool NullRecipe()
+    {
+        if (recipe != null)
+            return false;
+        return true;
+    }
 
-    //void ClearRecipe()
-    //{
-    //    recipe = null;
-    //    isComplete = false;
-    //}
-    
     void ClearRecipe()
     {
-        recipes[recipeIdx] = null;
+        recipe = null;
         isComplete = false;
     }
 
     void ResetRecipe()
     {
-        recipeIdx = 0;
+        //recipeIdx = 0;
+        recipe = null;
         destination = null;
     }
 
@@ -386,18 +391,46 @@ public class AI : MonoBehaviour
     //    }
 
     //    //if (isRecovery == false)
-    //        stateType = AIStateType.Ingredient;
+    //    stateType = AIStateType.Ingredient;
     //    recipeIdx = 0;
 
+    //    destination = null;
+    //}
+    void NextRecipe()
+    {
+        if (recipe.oldRecipe.index < 2)
+            recipe.oldRecipe.index++;
+
+        if (recipe.oldRecipe.index == 2)
+        {
+            recipe.oldRecipe = null;
+            recipe.oldRecipe.index = 0;
+            isRecovery = false;
+        }
+
+        stateType = AIStateType.Ingredient;
+        destination = null;
+    }
+
+    //void NextStep()
+    //{
+    //    if (recipeIdx < 2)
+    //        recipeIdx++;
+
+    //    if (recipeIdx == 2)
+    //        isComplete = true;
+
+    //    if (isComplete == false)
+    //        stateType = AIStateType.Ingredient;
     //    destination = null;
     //}
 
     void NextStep()
     {
-        if (recipeIdx < 2)
-            recipeIdx++;
+        if (recipe.recipe.index < 2)
+            recipe.recipe.index++;
 
-        if (recipeIdx == 2)
+        if (recipe.recipe.index == 2)
             isComplete = true;
 
         if (isComplete == false)

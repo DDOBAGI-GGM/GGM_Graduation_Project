@@ -18,14 +18,16 @@ public enum AIStateType
 public class RECIPE
 {
     public RecipeListSO recipe;
-    public int value;
+    public int index;
 }
 
 [System.Serializable]
-public class RECIPE01
+public class RECIPE_Dev
 {
-    public RecipeListSO recipe;
-    public RecipeListSO oldRecipe;
+    public RECIPE recipe;
+    public RECIPE oldRecipe;
+    public int probability;
+    public bool available;
 }
 
 [System.Serializable]
@@ -45,7 +47,7 @@ public class ITEM
 public class AIManager : MonoBehaviour
 {
     // 레시피
-    public List<RECIPE> recipes = new List<RECIPE>();
+    public List<RECIPE_Dev> recipes = new List<RECIPE_Dev>();
 
     // 오브젝트
     public List<OBJ> objects = new List<OBJ>();

@@ -766,9 +766,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   agent: {fileID: 0}
   animator: {fileID: 0}
-  oldRecipe: {fileID: 0}
-  recipe: {fileID: 0}
-  oldRecipeIdx: 0
+  recipes: []
   recipeIdx: 0
   destination: {fileID: 0}
   stateType: 0
@@ -2172,13 +2170,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipes:
   - recipe: {fileID: 11400000, guid: 6b4fc092382baed4fbc4eb348a744720, type: 2}
-    probability: 1
+    value: 1
+    available: 0
   - recipe: {fileID: 11400000, guid: efdda6220604b124fb71137b9f6d88e6, type: 2}
-    probability: 1
+    value: 1
+    available: 0
   - recipe: {fileID: 11400000, guid: 9190bb17d9c911844b3b1a8326fda674, type: 2}
-    probability: 1
+    value: 1
+    available: 0
   - recipe: {fileID: 11400000, guid: f547286b47ca24f4e98ce2d33f584556, type: 2}
-    probability: 50
+    value: 1
+    available: 0
   objects:
   - name: Ingredient
     obj:
@@ -4686,9 +4688,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   agent: {fileID: 0}
   animator: {fileID: 0}
-  oldRecipe: {fileID: 0}
-  recipe: {fileID: 0}
-  oldRecipeIdx: 0
+  recipes: []
   recipeIdx: 0
   destination: {fileID: 0}
   stateType: 0
