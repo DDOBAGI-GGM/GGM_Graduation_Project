@@ -21,8 +21,8 @@ public class ProcessIngredient : MonoBehaviour, IObject
         if (ingredient != null)
         {
             // 스크립트 받아와주기
-            Debug.Log(ingredient.transform.position);
-            Debug.Log(playerTrm);
+            //Debug.Log(ingredient.transform.position);
+            //Debug.Log(playerTrm);
             deleySlider.gameObject.SetActive(true);
             playerTrm = ingredient.transform.position;
             StopCoroutine(InteractionRoutine(ingredient));
