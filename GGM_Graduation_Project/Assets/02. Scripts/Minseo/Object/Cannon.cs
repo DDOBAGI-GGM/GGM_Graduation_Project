@@ -3,15 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[RequireComponent(typeof(SphereCollider))]
 public class Cannon : MonoBehaviour, IObject
 {
     [Header("Floor")]
-    [SerializeField] private Transform[] floorPos = new Transform[4];
+    [SerializeField] private Transform[] floorPos = new Transform[7];
     [Header("Enemy")]
-    [SerializeField] private Transform[] enemyPos = new Transform[4];
+    [SerializeField] private Transform[] enemyPos = new Transform[1];
     [Header("Object")]
-    [SerializeField] private Transform[] objectPos = new Transform[4];         // 4개 까지만 가능
+    [SerializeField] private Transform[] objectPos = new Transform[7];   
 
     private AttackCurve attackCurve;
 

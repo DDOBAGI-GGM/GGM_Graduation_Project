@@ -25,7 +25,6 @@ public class PaintManager : MonoBehaviour
     public Shader texturePaint;
     public Shader extendIslands;
 
-    // 변수의 키값들
     private int prepareUVID = Shader.PropertyToID("_PrepareUV");
     private int positionID = Shader.PropertyToID("_PainterPosition");
     private int hardnessID = Shader.PropertyToID("_Hardness");
@@ -38,8 +37,7 @@ public class PaintManager : MonoBehaviour
 
     private Material paintMaterial;
     private Material extendMaterial;
-    
-    // 그래픽 명령을 실행할 버퍼...??
+   
     private CommandBuffer command;
 
     public void Awake()
@@ -73,7 +71,7 @@ public class PaintManager : MonoBehaviour
 
     public void Paint(Paintable paintable, Vector3 pos, float radius = 1f, float hardness = .5f, float strength = .5f, Color? color = null)
     {
-        // Render Texture => 런타임 중에 생성, 갱신되는 텍스쳐!
+        Debug.Log("그리기 시작");
         RenderTexture mask = paintable.getMask();
         RenderTexture uvIslands = paintable.getUVIslands();
         RenderTexture extend = paintable.getExtend();
@@ -89,20 +87,17 @@ public class PaintManager : MonoBehaviour
         extendMaterial.SetFloat(uvOffsetID, paintable.extendsIslandOffset);
         extendMaterial.SetTexture(uvIslandsID, uvIslands);
 
-        // paintMaterial에 mask를,
-        // rend paintMaterial에 렌더한다
         command.SetRenderTarget(mask);
         command.DrawRenderer(paintable.getRenderer(), paintMaterial, 0);
 
-        // 원래 있던 support를 mask에 그림??
         command.SetRenderTarget(support);
         command.Blit(mask, support);
 
         command.SetRenderTarget(extend);
         command.Blit(mask, extend, extendMaterial);
 
-        // 위에 추가한 명령들 싹 다 실행하고 초기화
         Graphics.ExecuteCommandBuffer(command);
         command.Clear();
+        Debug.Log("그리기 끝");
     }
 }

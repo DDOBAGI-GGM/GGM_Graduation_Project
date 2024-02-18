@@ -4,28 +4,41 @@ using UnityEngine;
 
 public class PaintingObject : MonoBehaviour
 {
-    private Color color;
-    private int baseColorID = Shader.PropertyToID("_BaseColor");
-    new private Renderer renderer;
+    [SerializeField] private Color paintColor;
 
-    private void Start()
-    {
-        renderer = GetComponent<Renderer>();
-    }
+    [SerializeField] private float minRadius = 0.05f;
+    [SerializeField] private float maxRadius = 0.2f;
+    [SerializeField] private float strength = 1;
+    [SerializeField] private float hardness = 1;
+
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    Debug.Log(collision.gameObject.name);
+    //    if (collision.gameObject.CompareTag("Plane"))
+    //    {
+    //        Debug.Log("¥Í¿Ω   ");
+
+    //        Paintable paintableObjects = collision.transform.gameObject.GetComponent<Paintable>();
+
+    //        if (paintableObjects == null || paintableObjects.Length == 0) return;
+
+    //        Vector3 point = collision.contacts[0].point;
+
+    //        foreach (Paintable obj in paintableObjects)
+    //        {
+    //            PaintManager.Instance.Paint(paintableObjects, point, Random.Range(minRadius, maxRadius), hardness, strength, paintColor);
+    //        }
+    //        Debug.Log("≥°");
+    //    }
+    //}
 
     private void OnCollisionEnter(Collision collision)
     {
-        color = renderer.material.GetColor(baseColorID);
-
-        Paintable[] paintableObjects = collision.transform.GetComponentsInChildren<Paintable>();
-
-        if (paintableObjects == null || paintableObjects.Length == 0) return;
-
-        Vector3 point = collision.contacts[0].point;
-
-        foreach (Paintable obj in paintableObjects)
+        Paintable p = collision.collider.GetComponent<Paintable>();
+        if (p != null)
         {
-            PaintManager.Instance.Paint(obj, point, Random.Range(0.5f, 0.9f), 1, 1, color);
+            Vector3 pos = collision.contacts[0].point;
+            PaintManager.Instance.Paint(p, pos, Random.Range(minRadius, maxRadius), hardness, strength, paintColor);
         }
     }
 }
