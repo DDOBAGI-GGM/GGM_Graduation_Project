@@ -25,20 +25,26 @@ public class RecipeNode : INode
     {
         int totalProbability = 0;
         foreach (RECIPE_Dev recipe in ai.manager.recipes)
-            totalProbability += recipe.probability;
+        {
+            if (recipe.available)
+                totalProbability += recipe.probability;
+        }
 
         int random = Random.Range(1, totalProbability);
 
         int gainProbability = 0;
         foreach (RECIPE_Dev recipe in ai.manager.recipes)
         {
-            if (gainProbability < random && random <= gainProbability + recipe.probability)
-            {
-                ai.recipe = recipe;
-                return NodeState.Success;
-            }
+            if (recipe.available)
+            {                
+                if (gainProbability < random && random <= gainProbability + recipe.probability)
+                {
+                    ai.recipe = recipe;
+                    return NodeState.Success;
+                }
 
-            gainProbability += recipe.probability;
+                gainProbability += recipe.probability;
+            }
         }
 
         return NodeState.Failure;

@@ -44,6 +44,8 @@ public class AI : MonoBehaviour
 
     [Header("Test")]
     public string stateTxt;
+    public bool twoRecipe;
+    public int hp;
     // 가능하면 manager recipe 저장하는 곳에 bool 만들어서 레시피 각각에서 관리하도록 바꾸기!
     // -> 보류. 선반 사용하려나?..
 
@@ -61,6 +63,15 @@ public class AI : MonoBehaviour
         bt.SetRoot(new SelectorNode
         (
             // 3차 - Dev
+            // 수리
+            new SequenceNode
+            (
+                // hp가 n보다 낮다면
+                // manager recipes에서 가장 마지막 값의 available을 true로
+                new ConditionNode(fix)
+
+            ),
+
             // 레시피 선택
             new SequenceNode
             (
@@ -77,13 +88,6 @@ public class AI : MonoBehaviour
                 new ActionNode(ResetRecipe),
                 // 재료 상태로 변경
                 new ChangeStateNode(this, AIStateType.Ingredient)
-            ),
-
-            // 수리
-            new SequenceNode
-            (
-                // hp가 n보다 낮다면
-                // manager recipes에서 가장 마지막 값의 available을 true로
             ),
 
             // 목적지 설정 및 이동
@@ -412,6 +416,13 @@ public class AI : MonoBehaviour
         destination = null;
     }
 
+    bool fix()
+    {
+        if (hp < 100)
+            return true;
+        return false;
+    }
+
     //void NextStep()
     //{
     //    if (recipeIdx < 2)
@@ -454,6 +465,11 @@ public class AI : MonoBehaviour
     bool Recovery()
     {
         return isRecovery;
+    }
+
+    void CanFixed()
+    {
+
     }
 
     //bool Recovery1()
