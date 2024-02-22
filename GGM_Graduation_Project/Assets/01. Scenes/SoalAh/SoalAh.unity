@@ -766,8 +766,15 @@ MonoBehaviour:
   manager: {fileID: 0}
   agent: {fileID: 0}
   animator: {fileID: 0}
-  recipes: []
-  recipeIdx: 0
+  recipe:
+    recipe:
+      recipe: {fileID: 0}
+      index: 0
+    oldRecipe:
+      recipe: {fileID: 0}
+      index: 0
+    probability: 0
+    available: 0
   destination: {fileID: 0}
   stateType: 0
   isComplete: 0
@@ -775,6 +782,8 @@ MonoBehaviour:
   hand: {fileID: 0}
   handPos: {fileID: 577649142}
   stateTxt: 
+  twoRecipe: 0
+  hp: 0
 --- !u!95 &466540989
 Animator:
   serializedVersion: 5
@@ -2169,18 +2178,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipes:
-  - recipe: {fileID: 11400000, guid: 6b4fc092382baed4fbc4eb348a744720, type: 2}
-    value: 1
-    available: 0
   - recipe: {fileID: 11400000, guid: efdda6220604b124fb71137b9f6d88e6, type: 2}
-    value: 1
-    available: 0
+    index: 1
   - recipe: {fileID: 11400000, guid: 9190bb17d9c911844b3b1a8326fda674, type: 2}
-    value: 1
-    available: 0
-  - recipe: {fileID: 11400000, guid: f547286b47ca24f4e98ce2d33f584556, type: 2}
-    value: 1
-    available: 0
+    index: 1
+  - recipe: {fileID: 11400000, guid: 6b4fc092382baed4fbc4eb348a744720, type: 2}
+    index: 1
+  recovery:
+    recipe: {fileID: 11400000, guid: f547286b47ca24f4e98ce2d33f584556, type: 2}
+    index: 80
   objects:
   - name: Ingredient
     obj:
@@ -4688,8 +4694,15 @@ MonoBehaviour:
   manager: {fileID: 0}
   agent: {fileID: 0}
   animator: {fileID: 0}
-  recipes: []
-  recipeIdx: 0
+  recipe:
+    recipe:
+      recipe: {fileID: 0}
+      index: 0
+    oldRecipe:
+      recipe: {fileID: 0}
+      index: 0
+    probability: 0
+    available: 0
   destination: {fileID: 0}
   stateType: 0
   isComplete: 0
@@ -4697,6 +4710,8 @@ MonoBehaviour:
   hand: {fileID: 0}
   handPos: {fileID: 1664952765354384951}
   stateTxt: 
+  twoRecipe: 0
+  hp: 0
 --- !u!95 &5301105215529708511
 Animator:
   serializedVersion: 5

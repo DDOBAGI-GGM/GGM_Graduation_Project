@@ -68,7 +68,20 @@ public class DestinationNode : INode
 
     GameObject CheckRecipe()
     {
-        string temp = ExtractName(ai.recipe.recipe.recipe.recipe[ai.recipe.recipe.index]);
+        string test = "";
+
+        //if (ai.twoRecipe)
+        //    test = ai.oldRecipe.recipe.recipe[ai.oldRecipe.index];
+        //else
+        //    test = ai.recipe.recipe.recipe[ai.recipe.index];
+
+        if (ai.recipe != null)
+            test = ai.recipe.recipe.recipe[ai.recipe.index];
+        else
+            test = ai.oldRecipe.recipe.recipe[ai.oldRecipe.index];
+
+        //string temp = ExtractName(ai.recipe.recipe.recipe.recipe[ai.recipe.recipe.index]);
+        string temp = ExtractName(test);
         string prefix = null;
         GameObject target = null;
 
@@ -76,7 +89,14 @@ public class DestinationNode : INode
         {
             case "completion":
                 {
-                    prefix = ExtractPrefix(ai.recipe.recipe.recipe.recipe[ai.recipe.recipe.index]);
+                    //prefix = ExtractPrefix(ai.recipe.recipe.recipe.recipe[ai.recipe.recipe.index]);
+                    //foreach (ITEM str in ai.manager.objects[0].obj)
+                    //{
+                    //    if (str.name == prefix)
+                    //        target = str.item;
+                    //}
+
+                    prefix = ExtractPrefix(test);
                     foreach (ITEM str in ai.manager.objects[0].obj)
                     {
                         if (str.name == prefix)
@@ -109,9 +129,8 @@ public class DestinationNode : INode
                     //}
                     //ai.isRecovery = true;
 
-                    ai.recipe.oldRecipe = ai.recipe.recipe;
-                    ai.recipe.recipe = null; // 엥?
-
+                    //ai.recipe.recipe = ai.oldRecipe.recipe[ai.oldRecipe.index];
+                    // ai recipe 자체에 알맞는 so를 찾아서 넣어줘야함...
                 }
                 //case "Enemy":
                 break;
