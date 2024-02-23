@@ -32,7 +32,7 @@ public class DestinationNode : INode
         {
             case AIStateType.Ingredient:
             {
-                target = CheckRecipe();
+                target = CheckRecipe(ai.recipe.recipe.recipe[ai.recipe.index]);
                 break;
             }
             case AIStateType.Processing:
@@ -66,22 +66,23 @@ public class DestinationNode : INode
         return NodeState.Success;
     }
 
-    GameObject CheckRecipe()
+    GameObject CheckRecipe(string tttt)
     {
-        string test = "";
+        //string test = "";
 
         //if (ai.twoRecipe)
         //    test = ai.oldRecipe.recipe.recipe[ai.oldRecipe.index];
         //else
         //    test = ai.recipe.recipe.recipe[ai.recipe.index];
 
-        if (ai.recipe != null)
-            test = ai.recipe.recipe.recipe[ai.recipe.index];
-        else
-            test = ai.oldRecipe.recipe.recipe[ai.oldRecipe.index];
+        //if (ai.recipe != null)
+        //    test = ai.recipe.recipe.recipe[ai.recipe.index];
+        //else
+        //    test = ai.oldRecipe.recipe.recipe[ai.oldRecipe.index];
 
-        //string temp = ExtractName(ai.recipe.recipe.recipe.recipe[ai.recipe.recipe.index]);
-        string temp = ExtractName(test);
+        string temp = ExtractName(tttt);
+        //string temp = ExtractName(ai.recipe.recipe.recipe[ai.recipe.index]);
+        //string temp = ExtractName(test);
         string prefix = null;
         GameObject target = null;
 
@@ -96,7 +97,7 @@ public class DestinationNode : INode
                     //        target = str.item;
                     //}
 
-                    prefix = ExtractPrefix(test);
+                    prefix = ExtractPrefix(tttt);
                     foreach (ITEM str in ai.manager.objects[0].obj)
                     {
                         if (str.name == prefix)
@@ -119,15 +120,17 @@ public class DestinationNode : INode
                     // recovery라면 현재 레시피(회복)는 oldrecipe에 옮겨 저장
                     // 현재 recipe는 recovery의 
                     //ai.oldRecipe = ai.recipe;
-                    //foreach (RECIPE test in ai.manager.recipes)
-                    //{
-                    //    string ss = ExtractName(ai.oldRecipe.recipe[ai.oldRecipeIdx]);
-                    //    if (test.recipe.name == ss)
-                    //    {
-                    //        ai.recipe = test.recipe;
-                    //    }
-                    //}
-                    //ai.isRecovery = true;
+                    foreach (RECIPE a in ai.manager.recipes)
+                    {
+                        //string ss = ExtractName(ai.recipe.recipe.recipe[ai.recipe.index]);
+                        if (a.recipe.name == temp/*ss*/)
+                        {
+                            ai.oldRecipe.recipe = a.recipe;
+                            CheckRecipe(ai.oldRecipe.recipe.recipe[ai.oldRecipe.index]);
+                        }
+                    }
+
+                    ai.isRecovery = true;
 
                     //ai.recipe.recipe = ai.oldRecipe.recipe[ai.oldRecipe.index];
                     // ai recipe 자체에 알맞는 so를 찾아서 넣어줘야함...
