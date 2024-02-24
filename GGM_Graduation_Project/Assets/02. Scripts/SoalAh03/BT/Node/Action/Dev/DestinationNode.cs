@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEditor;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations.Rigging;
@@ -10,6 +11,7 @@ using UnityEngine.Animations.Rigging;
 public class DestinationNode : INode
 {
     private AI ai;
+    private GameObject target = null;
 
     public DestinationNode(AI ai)
     {
@@ -33,6 +35,7 @@ public class DestinationNode : INode
             case AIStateType.Ingredient:
             {
                 target = CheckRecipe(ai.recipe.recipe.recipe[ai.recipe.index]);
+                    //Debug.Log(target.ToString());
                 break;
             }
             case AIStateType.Processing:
@@ -84,7 +87,7 @@ public class DestinationNode : INode
         //string temp = ExtractName(ai.recipe.recipe.recipe[ai.recipe.index]);
         //string temp = ExtractName(test);
         string prefix = null;
-        GameObject target = null;
+        
 
         switch (temp)
         {
@@ -129,9 +132,6 @@ public class DestinationNode : INode
                             CheckRecipe(ai.oldRecipe.recipe.recipe[ai.oldRecipe.index]);
                         }
                     }
-
-                    ai.isRecovery = true;
-
                     //ai.recipe.recipe = ai.oldRecipe.recipe[ai.oldRecipe.index];
                     // ai recipe 자체에 알맞는 so를 찾아서 넣어줘야함...
                 }

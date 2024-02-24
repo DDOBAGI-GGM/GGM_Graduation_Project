@@ -60,7 +60,8 @@ public class RecipeNode : INode
         {
             if (gainProbability < random && random <= gainProbability + recipe.index)
             {
-                ai.recipe = recipe;
+                ai.recipe.recipe = recipe.recipe;
+                ai.recipe.index = 0;
                 return NodeState.Success;
             }
 
