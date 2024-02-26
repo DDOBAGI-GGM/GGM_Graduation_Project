@@ -4489,8 +4489,8 @@ MonoBehaviour:
   hand: {fileID: 0}
   handPos: {fileID: 1664952765354384951}
   stateTxt: 
-  twoRecipe: 0
-  hp: 99
+  canFix: 0
+  hp: 90
 --- !u!95 &5301105215529708511
 Animator:
   serializedVersion: 5

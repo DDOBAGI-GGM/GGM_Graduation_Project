@@ -45,7 +45,8 @@ public class AI : MonoBehaviour
 
     [Header("Test")]
     public string stateTxt;
-    public bool twoRecipe;
+    //public bool twoRecipe;
+    public bool canFix;
     public int hp;
     // 가능하면 manager recipe 저장하는 곳에 bool 만들어서 레시피 각각에서 관리하도록 바꾸기!
     // -> 보류. 선반 사용하려나?..
@@ -67,32 +68,18 @@ public class AI : MonoBehaviour
         bt.SetRoot(new SelectorNode
         (
             // 3차 - Dev
-            // 수리
-            new SequenceNode
-            (
-                // hp가 n보다 낮다면
-                // manager recipes에서 가장 마지막 값의 available을 true로
-                new ConditionNode(NullRecipe),
-                new ConditionNode(fix),
-                new ActionNode(heal),
-                new ActionNode(getRecovery),
-                new ChangeStateNode(this, AIStateType.Ingredient)
-            ),
 
-            // 레시피 선택
+            // 레시피 선택 + 수리
             new SequenceNode
             (
                 // 레시피가 없다면
                 new ConditionNode(NullRecipe),
                 // 레시피를 지정한다
-                //new ActionNode(GiveRecipe),
                 new RecipeNode(this),
                 // 레시피가 있다면 (레시피가 지정됐다면)
                 new InverterNode(new ConditionNode(NullRecipe)),
                 // 레시피 로그 출력
                 new LogNode("레시피"),
-                // 레시피 초기화
-                //new ActionNode(ResetRecipe),
                 // 재료 상태로 변경
                 new ChangeStateNode(this, AIStateType.Ingredient)
             ),
@@ -104,12 +91,6 @@ public class AI : MonoBehaviour
                 new ConditionNode(NullDestination),
                 // 목적지를 설정
                 new DestinationNode(this),
-                // 위에서 수리 관련 bool 값을 풀어준다면 여기서 이 지랄 안 해도 됨!
-                //new SequenceNode
-                //(
-                //    new ConditionNode(Recovery),
-                //    new DestinationNode(this)
-                //),
                 // 이동
                 new MoveNode(this, 3f)
             ),
@@ -362,11 +343,6 @@ public class AI : MonoBehaviour
                 new LogNode(" 공격"),
                 // 레시피 초기화
                 new ActionNode(ClearRecipe)
-            //new SequenceNode
-            //(
-            //    new ConditionNode(Recovery),
-            //    new ActionNode(NextRecipe)
-            //)
             ),
 
             // 폐기
@@ -386,11 +362,6 @@ public class AI : MonoBehaviour
                 new LogNode(" 폐기"),
                 // 레시피 초기화
                 new ActionNode(ClearRecipe)
-            //new SequenceNode
-            //(
-            //    new ConditionNode(Recovery),
-            //    new ActionNode(NextRecipe)
-            //)
             )
         ));
     }
@@ -399,6 +370,11 @@ public class AI : MonoBehaviour
     {
         bt.Update();
         stateTxt = stateType.ToString();
+
+        if (hp < 100)
+            canFix = true;
+        else
+            canFix = false;
     }
 
     bool NullRecipe()
@@ -413,7 +389,6 @@ public class AI : MonoBehaviour
         recipe.recipe = null;
         recipe.index = 0;
         isComplete = false;
-        twoRecipe = false;
         destination = null; 
     }
 
@@ -474,15 +449,15 @@ public class AI : MonoBehaviour
         return false;
     }
 
-    void two()
-    {
-        twoRecipe = true;
-    }
+    //void two()
+    //{
+    //    twoRecipe = true;
+    //}
 
     void heal()
     {
         isRecovery = true;
-        twoRecipe = true;
+        //twoRecipe = true;
     }
 
     void testtest()
@@ -497,7 +472,7 @@ public class AI : MonoBehaviour
 
     void getRecovery()
     {
-        recipe = manager.recovery;
+        recipe.recipe = manager.recovery.recipe;
         recipe.index = 0;
     }
 
@@ -516,7 +491,7 @@ public class AI : MonoBehaviour
 
     void NextStep()
     {
-        if (twoRecipe && oldRecipe.recipe != null && oldRecipe.index >= 0)
+        if (isRecovery && oldRecipe.recipe != null && oldRecipe.index >= 0)
         {
             if (oldRecipe.index < 2)
                 oldRecipe.index++;
