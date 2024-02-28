@@ -104,7 +104,7 @@ public class AI : MonoBehaviour
                 new RangeNode(this),
                 // 빈 손이라면
                 new ConditionNode(HandNull),
-                new WaitNode(1f),
+                    //new WaitNode(1f),
                 // 상호작용
                 new InteractionNode(this),
                 // 빈 손이 아니라면 (아이템 획득)
@@ -178,12 +178,12 @@ public class AI : MonoBehaviour
                     new LogNode("병합"),
                     // 빈 손이라면 (아이템 부착)
                     new ConditionNode(HandNull),
+                    // 선반
                     new SelectorNode
                     (
                         new SequenceNode
                         (
                             new InverterNode(new ConditionNode(pick)),
-                            // 레시피 다음 단계
                             new ActionNode(NextStep),
                             new WaitNode(1f)
                         ),
@@ -191,8 +191,7 @@ public class AI : MonoBehaviour
                         (
                             new ConditionNode(pick),
                             new ActionNode(testtest),
-                            new ActionNode(EndRecovery),
-                            new LogNode("에에에에에에ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ")
+                            new ActionNode(EndRecovery)
                         )
                     )
                 ),
@@ -216,21 +215,19 @@ public class AI : MonoBehaviour
                     // 상태 로그 출력
                     new LogNode("획득"),
                     new ActionNode(testtest22),
-                    // 상태 초기화
-                    //new ActionNode(ClearState),
-                    // 공격-폐기 상태 검사
+                    // 선반 or (공격 or 폐기)
                     new SelectorNode
                     (
-                        // 회복 - test .ver (recovery인 경우...)
+                        // 선반
                         new SequenceNode
                         (
-                            // 일단 회복 그걸 만드는 중 일 때만...
+                            // 선반 사용이라면 (현재 수리으로 검사)
                             new ConditionNode(Recovery),
                             // 근데 건진 게 쓰레기면 안 됨;;
                             new InverterNode(new ConditionNode(CheckTrash)),
                             new SelectorNode
                             (
-                                // 선반
+                                // 선반 보관
                                 new SequenceNode
                                 (
                                     new ConditionNode(canShelf),
@@ -239,11 +236,10 @@ public class AI : MonoBehaviour
                                     new ChangeStateNode(this, AIStateType.Shelf),
                                     new ActionNode(ClearState)
                                 ),
-                                // 선반은 아니고... 회복이라서 ... .ㅎ.ㅎ.ㅎ
+                                // 병합 넣기
                                 new SequenceNode
                                 (
                                     new ConditionNode(save),
-                                    new WaitNode(1f),
                                     new InverterNode(new ConditionNode(HandNull)),
                                     new InteractionNode(this),
                                     new LogNode("일단 다시 넣어둬"),
@@ -253,6 +249,7 @@ public class AI : MonoBehaviour
                                 )
                             )
                         ),
+                        // 공격-폐기 상태 검사
                         new SequenceNode
                         (
                             new InverterNode(new ConditionNode(Recovery)),
@@ -286,7 +283,6 @@ public class AI : MonoBehaviour
             // 선반
             new SequenceNode
             (
-                // 선반에 두러 오는 것과 회수 하러 오는 것을 구분해야함.)
                 // 공격 스탭이 맞다면
                 new CheckStateNode(this, AIStateType.Shelf),
                 // 거리가 된다면,
@@ -303,8 +299,6 @@ public class AI : MonoBehaviour
                         new InverterNode(new ConditionNode(HandNull)),
                         new ChangeStateNode(this, AIStateType.Merge),
                         new ActionNode(ClearState),
-                        //new ActionNode(NextStep),
-                        //new ActionNode(NextRecipe),
                         new LogNode("회수 성공")
                     ),
                     // 보관
@@ -319,11 +313,6 @@ public class AI : MonoBehaviour
                         new ActionNode(NextRecipe)
                     )
                 )
-            // 아이템을 들고 있다면
-            // 상호작용
-            // 상호작용 성공
-            // 상태 로그 출력
-            // 레시피 초기화
             ),
 
             // 공격

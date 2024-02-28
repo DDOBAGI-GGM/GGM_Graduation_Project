@@ -12,6 +12,7 @@ public class DestinationNode : INode
 {
     private AI ai;
     private GameObject target = null;
+        private string recovery1, recovery2;
 
     public DestinationNode(AI ai)
     {
@@ -20,6 +21,9 @@ public class DestinationNode : INode
 
     public void OnAwake()
     {
+        recovery1 = ExtractName(ai.manager.recovery.recipe.recipe[0]);
+        recovery2 = ExtractName(ai.manager.recovery.recipe.recipe[1]);
+        Debug.Log(recovery1 + " " + recovery2);
     }
 
     public void OnStart()
@@ -35,7 +39,6 @@ public class DestinationNode : INode
             case AIStateType.Ingredient:
             {
                 target = CheckRecipe(ai.recipe.recipe.recipe[ai.recipe.index]);
-                    //Debug.Log(target.ToString());
                 break;
             }
             case AIStateType.Processing:
@@ -71,79 +74,81 @@ public class DestinationNode : INode
 
     GameObject CheckRecipe(string tttt)
     {
-        //string test = "";
-
-        //if (ai.twoRecipe)
-        //    test = ai.oldRecipe.recipe.recipe[ai.oldRecipe.index];
-        //else
-        //    test = ai.recipe.recipe.recipe[ai.recipe.index];
-
-        //if (ai.recipe != null)
-        //    test = ai.recipe.recipe.recipe[ai.recipe.index];
-        //else
-        //    test = ai.oldRecipe.recipe.recipe[ai.oldRecipe.index];
-
         string temp = ExtractName(tttt);
-        //string temp = ExtractName(ai.recipe.recipe.recipe[ai.recipe.index]);
-        //string temp = ExtractName(test);
         string prefix = null;
         
+        //switch (temp)
+        //{
+        //    case "completion":
+        //        {
+        //            prefix = ExtractPrefix(tttt);
+        //            foreach (ITEM str in ai.manager.objects[0].obj)
+        //            {
+        //                if (str.name == prefix)
+        //                    target = str.item;
+        //            }
+        //            break;
+        //        }
+        //    case "Pot":
+        //        {
+        //            foreach (ITEM str in ai.manager.objects[0].obj)
+        //            {
+        //                if (str.name == temp)
+        //                    target = str.item;
+        //            }
+        //            break;
+        //        }
+        //    case "Floor":
+        //    case "Object":
+        //        {
+        //            foreach (RECIPE a in ai.manager.recipes)
+        //            {
+        //                if (a.recipe.name == temp)
+        //                {
+        //                    ai.oldRecipe.recipe = a.recipe;
+        //                    CheckRecipe(ai.oldRecipe.recipe.recipe[ai.oldRecipe.index]);
+        //                }
+        //            }
+        //        }
+        //        break;
+        //    default:
+        //        Debug.LogError("올바르지 않은 레시피 값이 읽혔다.");
+        //        break;
+        //}
 
-        switch (temp)
+        if (temp == "completion")
         {
-            case "completion":
-                {
-                    //prefix = ExtractPrefix(ai.recipe.recipe.recipe.recipe[ai.recipe.recipe.index]);
-                    //foreach (ITEM str in ai.manager.objects[0].obj)
-                    //{
-                    //    if (str.name == prefix)
-                    //        target = str.item;
-                    //}
-
-                    prefix = ExtractPrefix(tttt);
-                    foreach (ITEM str in ai.manager.objects[0].obj)
-                    {
-                        if (str.name == prefix)
-                            target = str.item;
-                    }
-                    break;
-                }
-            case "Pot":
-                {
-                    foreach (ITEM str in ai.manager.objects[0].obj)
-                    {
-                        if (str.name == temp)
-                            target = str.item;
-                    }
-                    break;
-                }
-            case "Floor":
-            case "Object":
-                {
-                    // recovery라면 현재 레시피(회복)는 oldrecipe에 옮겨 저장
-                    // 현재 recipe는 recovery의 
-                    //ai.oldRecipe = ai.recipe;
-                    foreach (RECIPE a in ai.manager.recipes)
-                    {
-                        //string ss = ExtractName(ai.recipe.recipe.recipe[ai.recipe.index]);
-                        if (a.recipe.name == temp/*ss*/)
-                        {
-                            ai.oldRecipe.recipe = a.recipe;
-                            CheckRecipe(ai.oldRecipe.recipe.recipe[ai.oldRecipe.index]);
-                        }
-                    }
-                    //ai.recipe.recipe = ai.oldRecipe.recipe[ai.oldRecipe.index];
-                    // ai recipe 자체에 알맞는 so를 찾아서 넣어줘야함...
-                }
-                //case "Enemy":
-                break;
-            default:
-                Debug.LogError("이럴리가 없는데... ㄱㅗ$ㅈ3ㅑㅇ! ㅠㅡㅠ");
-                break;
+            prefix = ExtractPrefix(tttt);
+            foreach (ITEM str in ai.manager.objects[0].obj)
+            {
+                if (str.name == prefix)
+                    target = str.item;
+            }
         }
+        else if (temp == "Pot")
+        {
+            foreach (ITEM str in ai.manager.objects[0].obj)
+            {
+                if (str.name == temp)
+                    target = str.item;
+            }
+        }
+        else if (temp == recovery1 || temp == recovery2)
+        {
+            foreach (RECIPE a in ai.manager.recipes)
+            {
+                if (a.recipe.name == temp)
+                {
+                    ai.oldRecipe.recipe = a.recipe;
+                    CheckRecipe(ai.oldRecipe.recipe.recipe[ai.oldRecipe.index]);
+                }
+            }
+        }
+        else
+            Debug.LogError("올바르지 않은 레시피 값이 읽혔다.");
 
-        //if (target == null)
-        //    Debug.LogError("목적지를 설정할 수 없음");
+        if (target == null)
+            Debug.LogError("목적지를 설정할 수 없음");
 
         return target;
     }
@@ -160,7 +165,6 @@ public class DestinationNode : INode
         return itemName.Split('-')[0];
     }
 
-    // 가장 가까운 오브젝트를 찾는... (테스트 성공) + 고장 또는 사용중인지 선별하기...
     GameObject Closest(List<ITEM> objs)
     {
         GameObject target = null;
@@ -178,6 +182,7 @@ public class DestinationNode : INode
 
         if (target == null)
             Debug.LogError("가장 가까운 목적지 설정 실패");
+
         return target;
     }
 
