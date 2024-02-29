@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private OtherPlayerInput _otherPlayerInput;
 
+    private Animator animator;
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();            
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour
         if (_otherPlayerInput == null)
             _playerInput.OnMovement += SetPlayerMovement;
 
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -69,6 +72,11 @@ public class Player : MonoBehaviour
         if (_movementVelocity.sqrMagnitude > 0)
         {
             transform.rotation = Quaternion.LookRotation(_movementVelocity); // 가야할 방향을 바라보게 함
+            animator.SetBool("Move", true);
+        }
+        else
+        {
+            animator.SetBool("Move", false);
         }
     }
 
