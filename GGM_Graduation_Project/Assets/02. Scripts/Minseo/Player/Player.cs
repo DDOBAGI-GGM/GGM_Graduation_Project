@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -34,6 +35,8 @@ public class Player : MonoBehaviour
 
     private Animator animator;
 
+    private RigBuilder rb;      // 손에 물건 둔 것 애니메이션해줄려고.
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();            
@@ -47,6 +50,7 @@ public class Player : MonoBehaviour
             _playerInput.OnMovement += SetPlayerMovement;
 
         animator = GetComponent<Animator>();
+        rb = GetComponent<RigBuilder>();
     }
 
     private void FixedUpdate()
@@ -106,5 +110,11 @@ public class Player : MonoBehaviour
         {
             _characterController.Move(_movementVelocity);
         }
+    }
+
+    public void HandUp(bool isUp)
+    {
+        Debug.Log($"손의 상태가 {isUp} 입니다.");
+        rb.layers[0].active = isUp;
     }
 }
