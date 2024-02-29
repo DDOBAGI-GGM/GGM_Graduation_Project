@@ -21,15 +21,8 @@ public class AI : MonoBehaviour
     public Animator animator;
 
     [Header("Recipe")]
-    //public RecipeListSO oldRecipe;
-    //public int oldRecipeIdx;
     public RECIPE recipe;
     public RECIPE oldRecipe;
-    //public int recipeIdx;
-
-    // 두 개 이상의 레시피를 병행할 때 (수리 상태 제외) - hard 모드에서 개발하자...
-    //public List<RECIPE> recipes = new List<RECIPE>();
-    //public int recipeIdx;
 
     [Header("Destination")]
     public GameObject destination;
@@ -45,11 +38,8 @@ public class AI : MonoBehaviour
 
     [Header("Test")]
     public string stateTxt;
-    //public bool twoRecipe;
     public bool canFix;
     public int hp;
-    // 가능하면 manager recipe 저장하는 곳에 bool 만들어서 레시피 각각에서 관리하도록 바꾸기!
-    // -> 보류. 선반 사용하려나?..
 
 
     private void Awake()
@@ -104,7 +94,6 @@ public class AI : MonoBehaviour
                 new RangeNode(this),
                 // 빈 손이라면
                 new ConditionNode(HandNull),
-                    //new WaitNode(1f),
                 // 상호작용
                 new InteractionNode(this),
                 // 빈 손이 아니라면 (아이템 획득)
@@ -178,19 +167,21 @@ public class AI : MonoBehaviour
                     new LogNode("병합"),
                     // 빈 손이라면 (아이템 부착)
                     new ConditionNode(HandNull),
-                    // 선반
+                    // 수리
                     new SelectorNode
                     (
+                        // 하나 넣었을 때
                         new SequenceNode
                         (
                             new InverterNode(new ConditionNode(pick)),
                             new ActionNode(NextStep),
                             new WaitNode(1f)
                         ),
+                        // 두 개 넣었을 때
                         new SequenceNode
                         (
                             new ConditionNode(pick),
-                            new ActionNode(testtest),
+                            new ActionNode(NextStep),
                             new ActionNode(EndRecovery)
                         )
                     )
@@ -214,7 +205,6 @@ public class AI : MonoBehaviour
                     new InverterNode(new ConditionNode(HandNull)),
                     // 상태 로그 출력
                     new LogNode("획득"),
-                    new ActionNode(testtest22),
                     // 선반 or (공격 or 폐기)
                     new SelectorNode
                     (
@@ -231,7 +221,6 @@ public class AI : MonoBehaviour
                                 new SequenceNode
                                 (
                                     new ConditionNode(canShelf),
-                                    //new ActionNode(NextStep),
                                     new LogNode("일단 선반에 쟁여둬"),
                                     new ChangeStateNode(this, AIStateType.Shelf),
                                     new ActionNode(ClearState)
@@ -239,7 +228,7 @@ public class AI : MonoBehaviour
                                 // 병합 넣기
                                 new SequenceNode
                                 (
-                                    new ConditionNode(save),
+                                    new ConditionNode(canMerge),
                                     new InverterNode(new ConditionNode(HandNull)),
                                     new InteractionNode(this),
                                     new LogNode("일단 다시 넣어둬"),
@@ -292,7 +281,7 @@ public class AI : MonoBehaviour
                     // 회수
                     new SequenceNode
                     (
-                        new ConditionNode(save),
+                        new ConditionNode(canMerge),
                         new ConditionNode(HandNull),
                         new InteractionNode(this),
                         new LogNode(" 선반 - 회수"),
@@ -381,47 +370,6 @@ public class AI : MonoBehaviour
         destination = null; 
     }
 
-    void ResetRecipe()
-    {
-        //recipeIdx = 0;
-        recipe = null;
-        destination = null;
-    }
-
-    //void NextRecipe()
-    //{
-    //    if (oldRecipeIdx < 2)
-    //        oldRecipeIdx++;
-
-    //    if (oldRecipeIdx == 2)
-    //    {
-    //        oldRecipe = null;
-    //        oldRecipeIdx = 0;
-    //        isRecovery = false;
-    //    }
-
-    //    //if (isRecovery == false)
-    //    stateType = AIStateType.Ingredient;
-    //    recipeIdx = 0;
-
-    //    destination = null;
-    //}
-    //void NextRecipe()
-    //{
-    //    if (recipe.oldRecipe.index < 2)
-    //        recipe.oldRecipe.index++;
-
-    //    if (recipe.oldRecipe.index == 2)
-    //    {
-    //        recipe.oldRecipe = null;
-    //        recipe.oldRecipe.index = 0;
-    //        isRecovery = false;
-    //    }
-
-    //    stateType = AIStateType.Ingredient;
-    //    destination = null;
-    //}
-
     void NextRecipe()
     {
         oldRecipe.recipe = null;
@@ -431,68 +379,15 @@ public class AI : MonoBehaviour
         destination = null;
     }
 
-    bool fix()
-    {
-        if (hp < 100)
-            return true;
-        return false;
-    }
-
-    //void two()
-    //{
-    //    twoRecipe = true;
-    //}
-
-    void heal()
-    {
-        isRecovery = true;
-        //twoRecipe = true;
-    }
-
-    void testtest()
-    {
-        isComplete = true;
-    }
-
-    void testtest22()
-    {
-        isComplete = false;
-    }
-
-    void getRecovery()
-    {
-        recipe.recipe = manager.recovery.recipe;
-        recipe.index = 0;
-    }
-
-    //void NextStep()
-    //{
-    //    if (recipeIdx < 2)
-    //        recipeIdx++;
-
-    //    if (recipeIdx == 2)
-    //        isComplete = true;
-
-    //    if (isComplete == false)
-    //        stateType = AIStateType.Ingredient;
-    //    destination = null;
-    //}
-
     void NextStep()
     {
-        if (isRecovery && oldRecipe.recipe != null && oldRecipe.index >= 0)
+        if (isRecovery && oldRecipe.recipe != null && oldRecipe.index < 2)
         {
             if (oldRecipe.index < 2)
                 oldRecipe.index++;
 
             if (oldRecipe.index == 2)
-            {
                 isComplete = true;
-                oldRecipe.index = -1;
-            }
-
-            if (isComplete == false)
-                stateType = AIStateType.Ingredient;
         }
         else
         {
@@ -500,14 +395,11 @@ public class AI : MonoBehaviour
                 recipe.index++;
 
             if (recipe.index == 2)
-            {
                 isComplete = true;
-                recipe.index = -1;
-            }
-
-            if (isComplete == false)
-                stateType = AIStateType.Ingredient;
         }
+
+        if (isComplete == false)
+            stateType = AIStateType.Ingredient;
 
         destination = null;
     }
@@ -535,30 +427,20 @@ public class AI : MonoBehaviour
         isRecovery = false; 
     }
 
-    void CanFixed()
-    {
-
-    }
-
     bool canShelf()
     {
         return recipe.index == 0;
     }
 
-    bool save()
+    bool canMerge()
     {
         return recipe.index == 1;
     }
 
     bool pick()
     {
-        return recipe.index == -1;
+        return recipe.index == 2;
     }
-
-    //bool Recovery2()
-    //{
-    //    return oldRecipeIdx == 1;
-    //}
 
     bool NullDestination()
     {
@@ -578,11 +460,6 @@ public class AI : MonoBehaviour
             return true;
         return false;
     }
-
-    //bool Test()
-    //{
-    //    if (oldRecipeIdx == 1)
-    //}
 
     bool HandNull()
     {

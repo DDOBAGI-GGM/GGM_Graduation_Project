@@ -22,15 +22,6 @@ public class RECIPE
 }
 
 [System.Serializable]
-public class RECIPE_Dev
-{
-    public RECIPE recipe;
-    public RECIPE oldRecipe;
-    public int probability;
-    public bool available;
-}
-
-[System.Serializable]
 public class OBJ
 {
     public string name;
