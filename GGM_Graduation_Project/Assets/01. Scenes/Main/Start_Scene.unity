@@ -2330,7 +2330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &232603269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3041,8 +3041,6 @@ MonoBehaviour:
   gamePausePanel: {fileID: 276436183}
   settingPanel: {fileID: 862097742}
   fadeAnim: {fileID: 1793066219}
-  is_NowShow: 0
-  is_GamePause: 0
 --- !u!114 &295732730
 MonoBehaviour:
   m_ObjectHideFlags: 0

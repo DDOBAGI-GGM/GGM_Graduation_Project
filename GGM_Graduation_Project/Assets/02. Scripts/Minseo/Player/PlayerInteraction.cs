@@ -10,6 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] 
     private OtherPlayerInput _otherPlayerInput;
 
+    private Player _player;
     private PlayerFOV _playerFOV;
 
     [SerializeField] private Transform _handPos; // 손 위치
@@ -23,6 +24,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Awake()
     {
+        _player = GetComponent<Player>();
         _playerFOV = GetComponent<PlayerFOV>(); 
         //_playerInput.OnInteraction += PerformInteraction;           // 상호작용 이벤트 연결
         //_otherPlayerInput.OnInteraction += PerformInteraction;
@@ -40,6 +42,7 @@ public class PlayerInteraction : MonoBehaviour
         //if (currentObjectInHand == null)
         //{
             ItemGetInteraction();
+        _player.HandUp(currentObjectInHand != null ? true : false);
         //}
         /* if (!is_GetIngredient && !is_Object)
          {

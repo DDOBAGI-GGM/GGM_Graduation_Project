@@ -24,3 +24,6 @@ public class StageTag : MonoBehaviour
         transform.rotation = cam.transform.rotation;
     }
 }
+
+// 이거 코드 안 쓸 뜻? 플레이어가 자기에게서 멀어지면 나의 크키가 커지게 하는 코드임.
+// 오버쿡트에 들어가있긴 함.
