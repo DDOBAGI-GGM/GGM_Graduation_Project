@@ -23,6 +23,20 @@ public class AnimationNode : INode
 
     public NodeState Execute()
     {
+        Debug.LogError("AnimationNode 진입");
+        if (ai.agent.isStopped)
+        {
+            ai.animator.SetBool("Move", false);
+            Debug.Log(ai.agent.isStopped + "  : 정지");
+        }
+        else
+        {
+            ai.animator.SetBool("Move", true);
+            Debug.Log(ai.agent.isStopped + "  : 이동");
+        }
+
+        return NodeState.Success;
+
         // 현재 State에 따라 다른 애니메이션을 호출...
 
         switch (ai.stateType)

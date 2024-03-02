@@ -16,11 +16,12 @@ public class MoveNode : INode
 
     public void OnAwake()
     {
+        ai.agent.speed = speed;
     }
 
     public void OnStart()
     {
-        ai.agent.speed = speed;
+        ai.agent.isStopped = false;
     }
 
     public NodeState Execute()
@@ -42,5 +43,6 @@ public class MoveNode : INode
 
     public void OnEnd()
     {
+        ai.agent.isStopped = true;
     }
 }

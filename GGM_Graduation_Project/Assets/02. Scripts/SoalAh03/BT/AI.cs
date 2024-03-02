@@ -74,6 +74,7 @@ public class AI : MonoBehaviour
                 new ChangeStateNode(this, AIStateType.Ingredient)
             ),
 
+                new AnimationNode(this),
             // 목적지 설정 및 이동
             new SequenceNode
             (
@@ -82,6 +83,8 @@ public class AI : MonoBehaviour
                 // 목적지를 설정
                 new DestinationNode(this),
                 // 이동
+                new InverterNode(new RangeNode(this)),
+                new LogNode("이동", true, false), 
                 new MoveNode(this, 3f)
             ),
 
@@ -98,6 +101,7 @@ public class AI : MonoBehaviour
                 new InteractionNode(this),
                 // 빈 손이 아니라면 (아이템 획득)
                 new InverterNode(new ConditionNode(HandNull)),
+                //new WaitNode(1.5f),
                 // 상태 로그 출력
                 new LogNode("재료"),
                 // 상태 초기화
@@ -118,6 +122,7 @@ public class AI : MonoBehaviour
                     new InverterNode(new ConditionNode(HandNull)),
                     // 가공이 필요하지 않다면
                     new InverterNode(new ConditionNode(NeedProcessing)),
+                    //new WaitNode(1.5f),
                     // 상태 초기화
                     new ActionNode(ClearState),
                     // 병합 상태로 변경
@@ -133,6 +138,7 @@ public class AI : MonoBehaviour
                     new RangeNode(this),
                     // 아이템을 들고 있다면
                     new InverterNode(new ConditionNode(HandNull)),
+                    //new WaitNode(1.5f),
                     // 상호작용 로그 출력
                     new LogNode("가공중"),
                     // 상호작용
@@ -160,9 +166,9 @@ public class AI : MonoBehaviour
                     new RangeNode(this),
                     // 아이템을 들고 있다면
                     new InverterNode(new ConditionNode(HandNull)),
-                    new WaitNode(1f),
                     // 상호작용
                     new InteractionNode(this),
+                    //new WaitNode(1.5f),
                     // 상태 로그 출력
                     new LogNode("병합"),
                     // 빈 손이라면 (아이템 부착)
@@ -174,8 +180,8 @@ public class AI : MonoBehaviour
                         new SequenceNode
                         (
                             new InverterNode(new ConditionNode(pick)),
-                            new ActionNode(NextStep),
-                            new WaitNode(1f)
+                            new ActionNode(NextStep)
+                            //new WaitNode(1f)
                         ),
                         // 두 개 넣었을 때
                         new SequenceNode
@@ -198,9 +204,10 @@ public class AI : MonoBehaviour
                     new RangeNode(this),
                     // 빈 손이라면
                     new ConditionNode(HandNull),
-                    new WaitNode(1f),
+                    //new WaitNode(1f),
                     // 상호작용
                     new InteractionNode(this),
+                    //new WaitNode(1.5f),
                     // 빈 손이 아니라면 (아이템 획득)
                     new InverterNode(new ConditionNode(HandNull)),
                     // 상태 로그 출력
@@ -231,6 +238,7 @@ public class AI : MonoBehaviour
                                     new ConditionNode(canMerge),
                                     new InverterNode(new ConditionNode(HandNull)),
                                     new InteractionNode(this),
+                                    //new WaitNode(1.5f), 
                                     new LogNode("일단 다시 넣어둬"),
                                     new ActionNode(NextRecipe),
                                     new ChangeStateNode(this, AIStateType.Shelf),
@@ -315,6 +323,7 @@ public class AI : MonoBehaviour
                 new InverterNode(new ConditionNode(HandNull)),
                 // 상호작용
                 new InteractionNode(this),
+                //new WaitNode(1.5f),
                 // 상호작용 성공
                 new ConditionNode(HandNull),
                 // 상태 로그 출력
@@ -334,6 +343,7 @@ public class AI : MonoBehaviour
                 new InverterNode(new ConditionNode(HandNull)),
                 // 상호작용
                 new InteractionNode(this),
+                //new WaitNode(1.5f),
                 // 상호작용 성공
                 new ConditionNode(HandNull),
                 // 상태 로그 출력
