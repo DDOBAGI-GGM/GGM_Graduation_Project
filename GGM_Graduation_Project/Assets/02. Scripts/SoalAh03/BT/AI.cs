@@ -98,6 +98,7 @@ public class AI : MonoBehaviour
                 // 빈 손이라면
                 new ConditionNode(HandNull),
                 // 상호작용
+                    new WaitNode(1.5f),
                 new InteractionNode(this),
                 // 빈 손이 아니라면 (아이템 획득)
                 new InverterNode(new ConditionNode(HandNull)),
@@ -167,6 +168,7 @@ public class AI : MonoBehaviour
                     // 아이템을 들고 있다면
                     new InverterNode(new ConditionNode(HandNull)),
                     // 상호작용
+                        new WaitNode(1.5f),
                     new InteractionNode(this),
                     //new WaitNode(1.5f),
                     // 상태 로그 출력
@@ -206,6 +208,7 @@ public class AI : MonoBehaviour
                     new ConditionNode(HandNull),
                     //new WaitNode(1f),
                     // 상호작용
+                        new WaitNode(1.5f),
                     new InteractionNode(this),
                     //new WaitNode(1.5f),
                     // 빈 손이 아니라면 (아이템 획득)
@@ -237,6 +240,7 @@ public class AI : MonoBehaviour
                                 (
                                     new ConditionNode(canMerge),
                                     new InverterNode(new ConditionNode(HandNull)),
+                                        new WaitNode(1.5f),         
                                     new InteractionNode(this),
                                     //new WaitNode(1.5f), 
                                     new LogNode("일단 다시 넣어둬"),
@@ -291,6 +295,7 @@ public class AI : MonoBehaviour
                     (
                         new ConditionNode(canMerge),
                         new ConditionNode(HandNull),
+                            new WaitNode(1.5f),         
                         new InteractionNode(this),
                         new LogNode(" 선반 - 회수"),
                         new InverterNode(new ConditionNode(HandNull)),
@@ -303,6 +308,7 @@ public class AI : MonoBehaviour
                     (
                         new ConditionNode(canShelf),
                         new InverterNode(new ConditionNode(HandNull)),
+                            new WaitNode(1.5f),         
                         new InteractionNode(this),
                         new LogNode(" 선반 - 보관"),
                         new ConditionNode(HandNull),
@@ -322,6 +328,7 @@ public class AI : MonoBehaviour
                 // 아이템을 들고 있다면
                 new InverterNode(new ConditionNode(HandNull)),
                 // 상호작용
+                    new WaitNode(1.5f),           
                 new InteractionNode(this),
                 //new WaitNode(1.5f),
                 // 상호작용 성공
@@ -342,6 +349,7 @@ public class AI : MonoBehaviour
                 // 아이템을 들고 있다면
                 new InverterNode(new ConditionNode(HandNull)),
                 // 상호작용
+                    new WaitNode(1.5f),           
                 new InteractionNode(this),
                 //new WaitNode(1.5f),
                 // 상호작용 성공
