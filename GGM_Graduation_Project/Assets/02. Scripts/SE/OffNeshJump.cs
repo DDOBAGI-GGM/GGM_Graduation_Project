@@ -17,6 +17,7 @@ public class OffNeshJump : MonoBehaviour
     [SerializeField] private GameObject airplane;
 
     private NavMeshAgent navAgent;
+    private bool goRight = false;
 
     private void Awake()
     {
@@ -56,6 +57,20 @@ public class OffNeshJump : MonoBehaviour
             pos.y = Mathf.Clamp(pos.y, 1, 5);
 
             transform.position = pos;
+
+            Debug.Log(percent);
+
+            if (goRight)
+            {
+                Debug.Log("¿À¸¥ÂÊ");
+                gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
+            else
+            {
+                Debug.Log("¿ÞÂÊ");
+                gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
+
             yield return null;
         }
 
@@ -75,7 +90,10 @@ public class OffNeshJump : MonoBehaviour
             if (linkData.offMeshLink != null && linkData.offMeshLink.area == offMexhAreaNumber)
             {
                 airplane.transform.SetParent(gameObject.transform);
-                airplane.transform.localPosition = Vector3.zero;
+                airplane.transform.localPosition = new Vector3(0, 0.15f, 0);
+                airplane.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                goRight = navAgent.destination.x > transform.position.x ? true : false;
+
                 return true;
             }
         }

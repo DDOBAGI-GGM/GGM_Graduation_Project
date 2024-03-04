@@ -22,10 +22,12 @@ public class ChaseNavAgent : MonoBehaviour
     }
 
     private NavMeshAgent _agent;
+    private Animator _animator;
 
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -37,6 +39,15 @@ public class ChaseNavAgent : MonoBehaviour
             {
                 _agent.SetDestination(pos);
             }
+        }
+
+        if (_agent.velocity.sqrMagnitude > 0.2f)
+        {
+            _animator.SetBool("Move", true);
+        }
+        else
+        {
+            _animator.SetBool("Move", false);
         }
     }
 
