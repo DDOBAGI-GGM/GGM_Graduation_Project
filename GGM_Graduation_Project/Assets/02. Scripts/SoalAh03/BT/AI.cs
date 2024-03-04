@@ -84,7 +84,7 @@ public class AI : MonoBehaviour
                 new DestinationNode(this),
                 // 이동
                 new InverterNode(new RangeNode(this)),
-                new LogNode("이동", true, false), 
+                new LogNode("이동"), 
                 new MoveNode(this, 3f)
             ),
 

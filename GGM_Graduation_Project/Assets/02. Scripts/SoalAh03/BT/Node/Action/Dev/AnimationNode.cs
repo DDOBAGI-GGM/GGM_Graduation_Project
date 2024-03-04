@@ -23,8 +23,8 @@ public class AnimationNode : INode
 
     public NodeState Execute()
     {
-        Debug.LogError("AnimationNode 진입");
-        if (ai.agent.velocity.sqrMagnitude <= 0.2f)
+        Debug.Log("AnimationNode 진입");
+        if (ai.agent.velocity.sqrMagnitude <= 0.5f)
         {
             ai.animator.SetBool("Move", false);
             Debug.Log(ai.agent.isStopped + "  : 정지");
