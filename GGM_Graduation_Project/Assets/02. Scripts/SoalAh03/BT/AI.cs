@@ -335,6 +335,7 @@ public class AI : MonoBehaviour
                 new ConditionNode(HandNull),
                 // 상태 로그 출력
                 new LogNode(" 공격"),
+                new ActionNode(test),
                 // 레시피 초기화
                 new ActionNode(ClearRecipe)
             ),
@@ -371,6 +372,11 @@ public class AI : MonoBehaviour
             canFix = true;
         else
             canFix = false;
+    }
+
+    void test()
+    {
+        HP.Instance.SetValue(false);
     }
 
     bool NullRecipe()
