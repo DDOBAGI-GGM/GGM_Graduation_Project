@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 17510042}
   - component: {fileID: 17510044}
   m_Layer: 0
-  m_Name: Player (1)
+  m_Name: Dance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13457,7 +13457,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 295732729}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
-        m_MethodName: OnGamePauseBackBtn
+        m_MethodName: BackBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15672,7 +15672,7 @@ GameObject:
   - component: {fileID: 1114236507864896753}
   - component: {fileID: 2303433662883810664}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Dance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
