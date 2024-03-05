@@ -79,6 +79,7 @@ public class DestinationNode : INode
         if (temp == "completion")
         {
             prefix = ExtractPrefix(tttt);
+            Debug.Log(prefix);
             foreach (ITEM str in ai.manager.objects[0].obj)
             {
                 if (str.name == prefix)

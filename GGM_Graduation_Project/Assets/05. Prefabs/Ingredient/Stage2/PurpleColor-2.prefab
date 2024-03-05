@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7816834761376322470}
   - component: {fileID: 5299920454681091599}
   m_Layer: 0
-  m_Name: PurpleColor
+  m_Name: PurpleColor-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visual: []
   type: 0
-  name: R
+  name: PurpleColor-2
 --- !u!1 &1893509238515973839
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,6 @@ MonoBehaviour:
   weaponPrefab: {fileID: 4542663045351260797, guid: 5e709f1e56587c54b9375d714297146e,
     type: 3}
   recipe:
-  - Forsythia_completion
+  - Forsythia-2_completion
   - Paint_Pot
   weaponType: 1

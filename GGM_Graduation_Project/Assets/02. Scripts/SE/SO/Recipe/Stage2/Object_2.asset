@@ -15,6 +15,6 @@ MonoBehaviour:
   weaponPrefab: {fileID: 3201847435891974445, guid: e1f0571c684a8df4cb49021e44820c92,
     type: 3}
   recipe:
-  - PurpleColor_completion
+  - PurpleColor-2_completion
   - Flask
   weaponType: 1

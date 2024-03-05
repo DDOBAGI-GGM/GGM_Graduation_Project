@@ -9313,11 +9313,11 @@ MonoBehaviour:
   objects:
   - name: Ingredient
     obj:
-    - name: Forsythia
+    - name: Forsythia-2
       item: {fileID: 1840410127}
-    - name: Hydrangea
+    - name: Hydrangea-2
       item: {fileID: 981948720}
-    - name: Maple-Leaf
+    - name: Maple-Leaf-2
       item: {fileID: 2107194274}
     - name: Pot
       item: {fileID: 918421623}

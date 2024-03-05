@@ -15,6 +15,6 @@ MonoBehaviour:
   weaponPrefab: {fileID: 3201847435891974445, guid: b1b60fd5f3150ed47b69684d1d5c3819,
     type: 3}
   recipe:
-  - BrownColor_completion
+  - BrownColor-2_completion
   - Flask
   weaponType: 0

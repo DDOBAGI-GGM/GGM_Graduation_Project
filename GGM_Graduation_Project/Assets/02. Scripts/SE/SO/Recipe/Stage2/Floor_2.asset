@@ -15,6 +15,6 @@ MonoBehaviour:
   weaponPrefab: {fileID: 3201847435891974445, guid: 92c765ec900afb445a6698638ef32d09,
     type: 3}
   recipe:
-  - SkyBlue_completion
+  - SkyBlue-2_completion
   - Flask
   weaponType: 2

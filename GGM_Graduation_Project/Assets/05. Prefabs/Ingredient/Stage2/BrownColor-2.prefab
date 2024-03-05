@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1101215983909161303
 Transform:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7816834761376322470}
   - component: {fileID: 5299920454681091599}
   m_Layer: 0
-  m_Name: SkyBlueColor
+  m_Name: BrownColor-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visual: []
   type: 0
-  name: R
+  name: BrownColor-2
 --- !u!1 &1893509238515973839
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 534d12b3534c55346ac1f2437ee83300, type: 2}
+  - {fileID: 2100000, guid: 61767debd03a10945a6dc2f5c795635a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -309,7 +309,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 534d12b3534c55346ac1f2437ee83300, type: 2}
+  - {fileID: 2100000, guid: 61767debd03a10945a6dc2f5c795635a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
