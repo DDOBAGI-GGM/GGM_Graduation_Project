@@ -12,17 +12,12 @@ public class ProcessIngredient : MonoBehaviour, IObject
 
     private Vector3 playerTrm;
 
-    private void Awake()
+    public GameObject Interaction(GameObject ingredient)
     {
-    }
-
-    public GameObject Interaction(GameObject ingredient)        // 이고 확인해주기
-    {
-        if (ingredient != null)
+        string name = ingredient.name;
+        if (ingredient.GetComponent<Ingredient>() != null && name.IndexOf("completion") == -1)
         {
             // 스크립트 받아와주기
-            //Debug.Log(ingredient.transform.position);
-            //Debug.Log(playerTrm);
             deleySlider.gameObject.SetActive(true);
             playerTrm = ingredient.transform.position;
             StopCoroutine(InteractionRoutine(ingredient));
@@ -38,14 +33,14 @@ public class ProcessIngredient : MonoBehaviour, IObject
         {
             Tween t = DOTween.To(() => deleySlider.value, value => deleySlider.value  = value,  i / deleyTime, 1f);
             t.Play();
-            //deleySlider.value = i / deleyTime;
             yield return time;
-            if (ingredient.transform.position != playerTrm)
+            if (Vector3.Distance(ingredient.transform.position, playerTrm) > 1f)
             {
                 // 또 여러가지 작업중...
                 deleySlider.value = 0;
                 deleySlider.gameObject.SetActive(false);
                 StopCoroutine(InteractionRoutine(ingredient));
+                Debug.Log("움직임!");
                 yield break;        // 움직였엉.
             }
         }
