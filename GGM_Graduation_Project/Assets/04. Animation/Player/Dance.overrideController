@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dance
+  m_Controller: {fileID: 9100000, guid: a3904d68f5f75d542b2f4c523bfc0534, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 36f40e584683ef34893bbb5b829f3117, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2948bc9590efc5e4990dd4cd01debd5f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e7eba681d007dcb4f9f2394d32f34720, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e7eba681d007dcb4f9f2394d32f34720, type: 2}
