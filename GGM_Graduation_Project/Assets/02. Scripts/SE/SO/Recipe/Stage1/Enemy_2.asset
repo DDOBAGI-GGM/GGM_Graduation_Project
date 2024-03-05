@@ -15,6 +15,6 @@ MonoBehaviour:
   weaponPrefab: {fileID: 4542663045351260797, guid: d50892da8d86aa14c95b4f381561c1d3,
     type: 3}
   recipe:
-  - Maple_Leaf_completion
+  - Maple-Leaf_completion
   - Paint_Pot
   weaponType: 0

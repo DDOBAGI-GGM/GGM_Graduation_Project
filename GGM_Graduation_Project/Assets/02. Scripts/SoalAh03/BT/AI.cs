@@ -38,13 +38,12 @@ public class AI : MonoBehaviour
 
     [Header("Test")]
     public string stateTxt;
+    public int canFixHp;
     public bool canFix;
-    public int hp;
-
 
     private void Awake()
     {
-        manager = GameObject.Find("AIMgr").GetComponent<AIManager>();
+        //manager = GameObject.Find("GameManager").GetComponent<AIManager>();
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
 
@@ -251,9 +250,10 @@ public class AI : MonoBehaviour
                             )
                         ),
                         // 공격-폐기 상태 검사
-                        new SequenceNode
+                        new SelectorNode
                         (
                             new InverterNode(new ConditionNode(Recovery)),
+                                new LogNode("111111111111111111111"),
                             // 공격
                             new SequenceNode
                             (
@@ -368,7 +368,7 @@ public class AI : MonoBehaviour
         bt.Update();
         stateTxt = stateType.ToString();
 
-        if (hp < 100)
+        if (HP.Instance.Gage.value > canFixHp)
             canFix = true;
         else
             canFix = false;

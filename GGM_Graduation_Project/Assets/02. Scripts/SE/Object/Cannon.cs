@@ -28,6 +28,7 @@ public class Cannon : MonoBehaviour, IObject
             ingredient.transform.parent = transform;            // 자식으로 넣을까 안넣을까
             ingredient.transform.localPosition = new Vector3(0, 0.5f, 0);
             ingredient.transform.parent = null;
+            SoundManager.Instance.PlaySFX("get");
             //Debug.Log("무기발사 가보자고!");
 
             string type = ingredient.gameObject.name.Substring(ingredient.gameObject.name.IndexOf('-') + 1);

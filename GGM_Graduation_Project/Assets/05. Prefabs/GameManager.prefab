@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &104062456762898531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249594321617290393}
+  - component: {fileID: 1826773279102182000}
+  - component: {fileID: 3610029145967378811}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249594321617290393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104062456762898531}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.013189, y: -9.699762, z: 8.081967}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1826773279102182000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104062456762898531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6047dc0a5bbd2458f8dc806b0fcdf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipes:
+  - recipe: {fileID: 11400000, guid: efdda6220604b124fb71137b9f6d88e6, type: 2}
+    index: 1
+  - recipe: {fileID: 11400000, guid: 9190bb17d9c911844b3b1a8326fda674, type: 2}
+    index: 1
+  - recipe: {fileID: 11400000, guid: 6b4fc092382baed4fbc4eb348a744720, type: 2}
+    index: 1
+  recovery:
+    recipe: {fileID: 11400000, guid: f547286b47ca24f4e98ce2d33f584556, type: 2}
+    index: 80
+  objects:
+  - name: Ingredient
+    obj:
+    - name: Forsythia
+      item: {fileID: 0}
+    - name: Hydrangea
+      item: {fileID: 0}
+    - name: Maple_Leaf
+      item: {fileID: 0}
+    - name: Pot
+      item: {fileID: 0}
+  - name: Processing
+    obj:
+    - name: 
+      item: {fileID: 0}
+  - name: Merge
+    obj:
+    - name: 
+      item: {fileID: 0}
+  - name: Attack
+    obj:
+    - name: 
+      item: {fileID: 0}
+  - name: Trash
+    obj:
+    - name: 
+      item: {fileID: 0}
+  - name: Shelf
+    obj:
+    - name: 
+      item: {fileID: 0}
+--- !u!114 &3610029145967378811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104062456762898531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701e2e69d3f4e7046bdffa00cf96b2b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
+  Gage: {fileID: 0}
+  value: 5
+  Ease: 9

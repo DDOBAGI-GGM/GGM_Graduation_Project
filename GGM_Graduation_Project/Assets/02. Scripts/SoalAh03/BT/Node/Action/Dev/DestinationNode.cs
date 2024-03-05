@@ -23,7 +23,6 @@ public class DestinationNode : INode
     {
         recovery1 = ExtractName(ai.manager.recovery.recipe.recipe[0]);
         recovery2 = ExtractName(ai.manager.recovery.recipe.recipe[1]);
-        Debug.Log(recovery1 + " " + recovery2);
     }
 
     public void OnStart()
@@ -76,45 +75,6 @@ public class DestinationNode : INode
     {
         string temp = ExtractName(tttt);
         string prefix = null;
-        
-        //switch (temp)
-        //{
-        //    case "completion":
-        //        {
-        //            prefix = ExtractPrefix(tttt);
-        //            foreach (ITEM str in ai.manager.objects[0].obj)
-        //            {
-        //                if (str.name == prefix)
-        //                    target = str.item;
-        //            }
-        //            break;
-        //        }
-        //    case "Pot":
-        //        {
-        //            foreach (ITEM str in ai.manager.objects[0].obj)
-        //            {
-        //                if (str.name == temp)
-        //                    target = str.item;
-        //            }
-        //            break;
-        //        }
-        //    case "Floor":
-        //    case "Object":
-        //        {
-        //            foreach (RECIPE a in ai.manager.recipes)
-        //            {
-        //                if (a.recipe.name == temp)
-        //                {
-        //                    ai.oldRecipe.recipe = a.recipe;
-        //                    CheckRecipe(ai.oldRecipe.recipe.recipe[ai.oldRecipe.index]);
-        //                }
-        //            }
-        //        }
-        //        break;
-        //    default:
-        //        Debug.LogError("올바르지 않은 레시피 값이 읽혔다.");
-        //        break;
-        //}
 
         if (temp == "completion")
         {
@@ -145,7 +105,7 @@ public class DestinationNode : INode
             }
         }
         else
-            Debug.LogError("올바르지 않은 레시피 값이 읽혔다.");
+            Debug.LogError("올바르지 않은 레시피 값이 읽혔다 : " + temp);
 
         if (target == null)
             Debug.LogError("목적지를 설정할 수 없음");
@@ -155,14 +115,14 @@ public class DestinationNode : INode
 
     string ExtractName(string itemName)
     {
-        string pattern = @"-";
-        Match match = Regex.Match(itemName, pattern);
-        return itemName.Split('-')[1];
+        //string pattern = @"_";
+        //Match match = Regex.Match(itemName, pattern);
+        return itemName.Split('_')[1];
     }
 
     string ExtractPrefix(string itemName)
     {
-        return itemName.Split('-')[0];
+        return itemName.Split('_')[0];
     }
 
     GameObject Closest(List<ITEM> objs)

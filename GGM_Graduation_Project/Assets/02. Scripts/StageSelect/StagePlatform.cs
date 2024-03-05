@@ -25,9 +25,6 @@ public class StagePlatform : MonoBehaviour
     public void Interact()
     {
         Debug.Log("F 키 누름.");
-        StageDataSO copySO= ScriptableObject.CreateInstance<StageDataSO>(); ;     // 새 것으로 복사해서 넣어줌.
-        copySO = thisStageData.CopySO(copySO);
-        GameManager.Instance.nowStageData = copySO;     // 넣어주기
 
         CloudManager.Instance?.Move(true);
         LoadingSceneManager.Instance?.ChangeLoadScene(moveSceneName);

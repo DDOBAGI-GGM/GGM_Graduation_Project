@@ -9,6 +9,7 @@ public class Table : MonoBehaviour, IObject
 
     public GameObject Interaction(GameObject ingredient = null)
     {
+        SoundManager.Instance.PlaySFX("get");
         if (!is_existObject)
         {
             if (ingredient != null)
