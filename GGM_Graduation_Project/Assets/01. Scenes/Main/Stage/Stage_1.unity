@@ -5919,6 +5919,12 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3367483066046398991, guid: a1e9f9cc4adbc1f46b03931a9a80682c,
+        type: 3}
+      propertyPath: giveIngredientPrefab
+      value: 
+      objectReference: {fileID: 8823161407868274700, guid: 7725fd791c944764aa66800d12159a4e,
+        type: 3}
     - target: {fileID: 4981036880572724752, guid: a1e9f9cc4adbc1f46b03931a9a80682c,
         type: 3}
       propertyPath: m_LocalScale.x

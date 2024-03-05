@@ -71,9 +71,10 @@ public class MergeIngredient : MonoBehaviour, IObject
         }
         else if (((!one || !two) && result) && ingredient == null)       // 인터랙션 가능하고 조합이 완료되었으며 리솔츠가 있고 매개변수로 들어온 값이 없을 때
         {
-           /* if (playerInteraction.CurrentObjectInHand == null) {
-                //Debug.Log("완성품 가져갑니다!");
-                playerInteraction.Is_Object = true;     // 오브젝트가 손에 들려있으니까.*/
+            /* if (playerInteraction.CurrentObjectInHand == null) {
+                 //Debug.Log("완성품 가져갑니다!");
+                 playerInteraction.Is_Object = true;     // 오브젝트가 손에 들려있으니까.*/
+            Debug.Log("가져감");
                 result = false;     // 가져갔으니까.
                 return resultObject;
              //}
@@ -128,11 +129,9 @@ public class MergeIngredient : MonoBehaviour, IObject
             }
 
             int n = gameObject.transform.childCount;
-            for (int i = n - 2; i >= 2; i--)
+            for (int i = n - 2; i  > n - 4; i--)            // 뒤에서 첫번째를 제외한 2개를 제거 0, 1, 2, 3 라면 3를 제외한 2와 1을 제거
             {
-                // 2보다 클 때까지
-                // 오브젝트들 지워주기 풀링 나중에 사용하기!
-                //Debug.Log(gameObject.transform.GetChild(i).name);
+                Debug.Log((i));
                 Destroy(gameObject.transform.GetChild(i).gameObject);
             }
 

@@ -144,7 +144,8 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     Debug.Log("가공은 여기서");
                     objectToPickup.Interaction(currentObjectInHand);
-                    if (item.gameObject.name != "ProcessingIngredient" && item.gameObject.name.IndexOf('-') == -1)      // - 이게 찾아와지지 않으면. 즉 재료 상자가 아니면
+                    Debug.Log(item.gameObject.name);
+                    if (item.gameObject.name != "ProcessingIngredient" && item.gameObject.name.IndexOf('-') == -1)      // - 이게 찾아와지지 않으면. 즉 재료 상자가 아니면 쓰레기통일 때
                     {
                         Debug.Log("내 손에 없어용");
                         currentObjectInHand = null;
