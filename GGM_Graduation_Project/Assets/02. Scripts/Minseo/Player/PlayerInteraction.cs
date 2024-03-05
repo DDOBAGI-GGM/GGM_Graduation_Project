@@ -98,6 +98,7 @@ public class PlayerInteraction : MonoBehaviour
             //Debug.Log("오브젝트 들어주기");
             // 오브젝트를 들어주는 로직을 작성
             GameObject item = _playerFOV.CheckForObjectsInView();
+            Debug.Log(item);
             if (item != null)
             {
                 IObject objectToPickup = item.GetComponent<IObject>();           // 오브젝트 가져오기

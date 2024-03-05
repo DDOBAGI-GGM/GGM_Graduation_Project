@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab02a616ede474641a751903c3a59cd9, type: 3}
   m_Name: Floor
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 6057014094844509124, guid: 937b90ff105d1ec4e83dfaf7361b6bb7,
+  weaponPrefab: {fileID: 3201847435891974445, guid: 2570cdbf5a90c0f419771634c9667ece,
     type: 3}
   recipe:
-  - Hydrangea_completion
-  - Paint_Pot
+  - RedColor_completion
+  - Flask
   weaponType: 2

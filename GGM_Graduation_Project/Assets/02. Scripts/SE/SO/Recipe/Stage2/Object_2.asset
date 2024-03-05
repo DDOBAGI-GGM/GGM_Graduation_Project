@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab02a616ede474641a751903c3a59cd9, type: 3}
   m_Name: Object_2
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 4542663045351260797, guid: 5e709f1e56587c54b9375d714297146e,
+  weaponPrefab: {fileID: 3201847435891974445, guid: e1f0571c684a8df4cb49021e44820c92,
     type: 3}
   recipe:
-  - Forsythia_completion
-  - Paint_Pot
+  - PurpleColor_completion
+  - Flask
   weaponType: 1

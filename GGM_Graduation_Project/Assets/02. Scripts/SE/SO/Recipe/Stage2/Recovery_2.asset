@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab02a616ede474641a751903c3a59cd9, type: 3}
   m_Name: Recovery_2
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 4542663045351260797, guid: 04e94c4cbf115374cbf1d2cd57dcf036,
+  weaponPrefab: {fileID: 3201847435891974445, guid: c47ca13f715f1b54ab4df34014c802b0,
     type: 3}
   recipe:
-  - P2_Paint_SkyBlue_Floor
-  - P2_Paint_Purple_Object
+  - P2_SkyBlueFlask_Floor
+  - P2_PurpleFlask_Object
   weaponType: 3
