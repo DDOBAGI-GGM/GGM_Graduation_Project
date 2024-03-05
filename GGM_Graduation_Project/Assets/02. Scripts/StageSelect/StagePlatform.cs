@@ -20,6 +20,8 @@ public class StagePlatform : MonoBehaviour
             starPos[i] = transform.GetChild(i).position;
             starPos[i] = new Vector3(starPos[i].x, starPos[i].y + 0.5f, starPos[i].z);      // y 값 올려주기
         }
+
+        StarInit();
     }
 
     public void Interact()
@@ -28,23 +30,22 @@ public class StagePlatform : MonoBehaviour
 
         CloudManager.Instance?.Move(true);
         LoadingSceneManager.Instance?.ChangeLoadScene(moveSceneName);
-
-/*        if (CloudManager.Instance == null && LoadingSceneManager.Instance == null)      // 디버그용 코드. 씬 셀렉트 씬에서 바로 이동할 때 사용함.
-        {
-            GameManager.Instance.nowStageData = ScriptableObject.CreateInstance<StageDataSO>();         // 새 것으로 복사해서 넣어줌.
-            SceneManager.LoadScene(moveSceneName);
-        }*/
+        GameManager.Instance.nowStageData = thisStageData;
     }
 
-    public void StarInit(int starCnt = 0)
+    public void StarInit()
     {
-        for (int i = 0;i < starCnt;i++)
+        thisStageData.PersentSetting();
+        for (int i = 0;i < 3; i++)
         {
-            GameObject star = Instantiate(starPrefab, starPos[i], Quaternion.identity);       // 월드냐 로컬이냐 테스트 한번 해보기
-            star.transform.parent = transform;
-            if (i == 2)     // 3번째, 가운데 것 이라면 크기를 조금 크게 해주기
+            if (thisStageData.star[i] == true)
             {
-                star.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);      // 키워줌.
+                GameObject star = Instantiate(starPrefab, starPos[i], Quaternion.identity);       // 월드냐 로컬이냐 테스트 한번 해보기
+                star.transform.parent = transform;
+                if (i == 2)     // 3번째, 즉 가운데 것 이라면 크기를 조금 크게 해주기
+                {
+                    star.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);      // 키워줌.
+                }
             }
         }
     }

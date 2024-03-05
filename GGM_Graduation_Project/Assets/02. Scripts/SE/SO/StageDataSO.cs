@@ -12,7 +12,7 @@ public class StageDataSO : ScriptableObject
     [Range(0f, 1f)] public float myPersent;     // 내 퍼센트
     public float gameTime;      // 타임오버 시간
 
-    public void PersentReset()      // 퍼센트에 따라서 리셋을 해주는 것.
+    public void PersentSetting()      // 퍼센트에 따라서 리셋을 해주는 것.
     {
         for (int i = 0; i < 3; i++)
         {
@@ -20,16 +20,16 @@ public class StageDataSO : ScriptableObject
             {
                 star[i] = true;
             }
+            else
+            {
+                star[i] = false;
+            }
         }
     }
 
-    public StageDataSO CopySO(StageDataSO copy)        // 커피하는 것에 오리진에 있는 데이터를 복사해서 넣어줌.
+    public void BackBtn()
     {
-        copy.stageName = this.stageName;
-        copy.starPersent = this.starPersent;
-        copy.star = this.star;
-        copy.myPersent = this.myPersent;
-        copy.gameTime = this.gameTime;
-        return copy;
+        myPersent = 0;
+        PersentSetting();
     }
 }
