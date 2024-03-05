@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab02a616ede474641a751903c3a59cd9, type: 3}
+  m_Name: Floor
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 6057014094844509124, guid: 937b90ff105d1ec4e83dfaf7361b6bb7,
+    type: 3}
+  recipe:
+  - Hydrangea_completion
+  - Paint_Pot
+  weaponType: 2
