@@ -2,7 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Cannon : MonoBehaviour, IObject
 {
     [Header("Floor")]
@@ -58,6 +58,7 @@ public class Cannon : MonoBehaviour, IObject
 
     private void Attack(GameObject weapon, Transform[] pos)
     {
+        Debug.Log("Attak");
         attackCurve.MakeCurve(weapon, pos);
     }
 }
