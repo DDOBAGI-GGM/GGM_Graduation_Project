@@ -18,7 +18,7 @@ public enum AIStateType
 public class RECIPE
 {
     public RecipeListSO recipe;
-    public int probability;
+    public int index;
 }
 
 [System.Serializable]
@@ -39,6 +39,7 @@ public class AIManager : MonoBehaviour
 {
     // 레시피
     public List<RECIPE> recipes = new List<RECIPE>();
+    public RECIPE recovery = null;
 
     // 오브젝트
     public List<OBJ> objects = new List<OBJ>();

@@ -12,9 +12,12 @@ public class OffNeshJump : MonoBehaviour
     private float gravity = -9.8f;
 
     [SerializeField]
-    private int offMexhAreaNumber = 2;
+    private int offMexhAreaNumber = 2;      // Jump 레이어
+
+    [SerializeField] private GameObject airplane;
 
     private NavMeshAgent navAgent;
+    private bool goRight = false;
 
     private void Awake()
     {
@@ -54,21 +57,43 @@ public class OffNeshJump : MonoBehaviour
             pos.y = Mathf.Clamp(pos.y, 1, 5);
 
             transform.position = pos;
+
+            Debug.Log(percent);
+
+            if (goRight)
+            {
+                Debug.Log("오른쪽");
+                gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
+            else
+            {
+                Debug.Log("왼쪽");
+                gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
+
             yield return null;
         }
 
         navAgent.CompleteOffMeshLink();
         navAgent.isStopped = false;
+
+        airplane.transform.SetParent(null);
+        airplane.transform.position = new Vector3(airplane.transform.position.x, 0.35f, airplane.transform.position.z);
     }
 
     private bool IsOnJump()
     {
-        if (navAgent.isOnOffMeshLink)
+        if (navAgent.isOnOffMeshLink)       // 링크 타면 (점프 하면)
         {
             OffMeshLinkData linkData = navAgent.currentOffMeshLinkData;
 
             if (linkData.offMeshLink != null && linkData.offMeshLink.area == offMexhAreaNumber)
             {
+                airplane.transform.SetParent(gameObject.transform);
+                airplane.transform.localPosition = new Vector3(0, 0.15f, 0);
+                airplane.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                goRight = navAgent.destination.x > transform.position.x ? true : false;
+
                 return true;
             }
         }
