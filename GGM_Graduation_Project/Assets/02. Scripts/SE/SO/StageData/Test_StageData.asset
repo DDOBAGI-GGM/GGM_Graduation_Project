@@ -17,5 +17,6 @@ MonoBehaviour:
   - 0.5
   - 0.75
   - 0.95
-  star: 000000
+  star: 010000
   myPersent: 0.683
+  gameTime: 0

@@ -27,12 +27,10 @@ public class AnimationNode : INode
         if (ai.agent.velocity.sqrMagnitude <= 0.5f)
         {
             ai.animator.SetBool("Move", false);
-            Debug.Log(ai.agent.isStopped + "  : 정지");
         }
         else
         {
             ai.animator.SetBool("Move", true);
-            Debug.Log(ai.agent.isStopped + "  : 이동");
         }
 
         return NodeState.Success;

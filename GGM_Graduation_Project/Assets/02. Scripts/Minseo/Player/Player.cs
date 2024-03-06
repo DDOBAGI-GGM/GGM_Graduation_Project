@@ -114,7 +114,6 @@ public class Player : MonoBehaviour
 
     public void HandUp(bool isUp)
     {
-        Debug.Log($"손의 상태가 {isUp} 입니다.");
         rb.layers[0].active = isUp;
     }
 }

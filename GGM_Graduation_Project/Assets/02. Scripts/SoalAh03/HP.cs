@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class HP : Singleton<HP>
 {
-    [SerializeField] private Slider Gage;
+    public Slider Gage;
     [SerializeField] private int value;
     public Ease Ease;
     public void SetValue(bool player)

@@ -10,6 +10,7 @@ public class GarbageCan : MonoBehaviour, IObject
         //풀링 사용해서 해주기
         if (ingredient != null)
         {
+            SoundManager.Instance.PlaySFX("get");
             Debug.Log("버려주기");
             Destroy(ingredient);
         }

@@ -12,7 +12,7 @@ public class StageSOManager : MonoBehaviour
         for (int i = 0; i < SaveAndLoadManager.Instance.saveData.stagePersentData.Count; i++)
         {
             stageData[i].myPersent = SaveAndLoadManager.Instance.saveData.stagePersentData[i];
-            stageData[i].PersentReset();
+            stageData[i].PersentSetting();
         }
     }
 }

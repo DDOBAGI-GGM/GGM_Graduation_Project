@@ -12,14 +12,14 @@ public class TwoIngredient : Ingredient
         Init(type);
         //gameObject.name = gameObject.name.Substring(0, gameObject.name.IndexOf('('));
         name = gameObject.name;
-        gameObject.name = $"{name}-{System.Enum.GetName(typeof(TwoIngredientType), type)}";
+        gameObject.name = $"{name}_{System.Enum.GetName(typeof(TwoIngredientType), type)}";
     }
 
     public void TypeChange()
     {
         if (ChangeType(type))
         {
-            gameObject.name = $"{name}-{System.Enum.GetName(typeof(TwoIngredientType), type + 1)}";
+            gameObject.name = $"{name}_{System.Enum.GetName(typeof(TwoIngredientType), type + 1)}";
             type = type + 1;
         }
     }

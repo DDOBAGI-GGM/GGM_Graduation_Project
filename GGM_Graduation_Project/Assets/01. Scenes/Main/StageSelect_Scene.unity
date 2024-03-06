@@ -286,13 +286,14 @@ PrefabInstance:
     - target: {fileID: 770571033447156523, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
       propertyPath: moveSceneName
-      value: Stage_1
+      value: Stage_2
       objectReference: {fileID: 0}
     - target: {fileID: 770571033447156523, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
       propertyPath: thisStageData
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: e9fb1f03239f97d4588270b990bd8b8a,
+        type: 2}
     - target: {fileID: 5076536978531871586, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
       propertyPath: m_IsActive
@@ -443,7 +444,8 @@ PrefabInstance:
         type: 3}
       propertyPath: thisStageData
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 18d175175ca7b9e4283a3943d7228a7e,
+        type: 2}
     - target: {fileID: 5076536978531871586, guid: 17d67d1f57e1b1b4b8ba2099e5d5aa02,
         type: 3}
       propertyPath: m_IsActive
@@ -2300,7 +2302,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1d431b7261205a445855ecbcc5c606a6, type: 2}
+  - {fileID: 2100000, guid: d3cd09b56a99ff24abab38cfeef65983, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
