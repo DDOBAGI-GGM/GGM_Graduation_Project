@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8305393948952853838}
   - component: {fileID: -497348886614877927}
   m_Layer: 0
-  m_Name: Flask
+  m_Name: Flask_Base
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

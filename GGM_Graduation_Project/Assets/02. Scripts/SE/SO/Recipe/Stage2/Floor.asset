@@ -16,5 +16,5 @@ MonoBehaviour:
     type: 3}
   recipe:
   - RedColor_completion
-  - Flask
+  - Flask_Base
   weaponType: 2

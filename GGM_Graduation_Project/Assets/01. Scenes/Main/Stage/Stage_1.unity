@@ -9305,7 +9305,7 @@ MonoBehaviour:
     index: 1
   - recipe: {fileID: 11400000, guid: a193a99525860be4791c86826be81307, type: 2}
     index: 1
-  - recipe: {fileID: 11400000, guid: 0cd7786e04b840d419115806f4b6cdc8, type: 2}
+  - recipe: {fileID: 11400000, guid: 5f2f795741b98724a947032415da4b7b, type: 2}
     index: 1
   recovery:
     recipe: {fileID: 11400000, guid: a8e03cff603c9ac48bfcd2c3dc603015, type: 2}
@@ -9319,7 +9319,7 @@ MonoBehaviour:
       item: {fileID: 981948720}
     - name: Maple-Leaf-2
       item: {fileID: 2107194274}
-    - name: Pot
+    - name: Base
       item: {fileID: 918421623}
   - name: Processing
     obj:

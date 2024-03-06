@@ -12,7 +12,7 @@ public class DestinationNode : INode
 {
     private AI ai;
     private GameObject target = null;
-        private string recovery1, recovery2;
+    private string baseIngredient, recovery1, recovery2;
 
     public DestinationNode(AI ai)
     {
@@ -21,6 +21,7 @@ public class DestinationNode : INode
 
     public void OnAwake()
     {
+        baseIngredient = ExtractName(ai.manager.recovery.recipe.recipe[0]);
         recovery1 = ExtractName(ai.manager.recovery.recipe.recipe[0]);
         recovery2 = ExtractName(ai.manager.recovery.recipe.recipe[1]);
     }
@@ -79,14 +80,13 @@ public class DestinationNode : INode
         if (temp == "completion")
         {
             prefix = ExtractPrefix(tttt);
-            Debug.Log(prefix);
             foreach (ITEM str in ai.manager.objects[0].obj)
             {
                 if (str.name == prefix)
                     target = str.item;
             }
         }
-        else if (temp == "Pot")
+        else if (temp == "Base")
         {
             foreach (ITEM str in ai.manager.objects[0].obj)
             {
@@ -116,8 +116,6 @@ public class DestinationNode : INode
 
     string ExtractName(string itemName)
     {
-        //string pattern = @"_";
-        //Match match = Regex.Match(itemName, pattern);
         return itemName.Split('_')[1];
     }
 

@@ -20,7 +20,6 @@ public class RangeNode : INode
 
     public NodeState Execute()
     {
-        // 목적지랑 거리가 5 이하라면
         if (ai.destination == null)
             return NodeState.Failure;
 
@@ -28,16 +27,6 @@ public class RangeNode : INode
         if (distance < 2f)
             return NodeState.Success;
         return NodeState.Failure;
-
-        //Vector3 dir = ai.destination.transform.position - ai.transform.position;
-        //if (Physics.Raycast(current.position, dir, out hit)
-        //    && distance <= 5f && hit.transform.CompareTag("Object"))
-        //{
-        //    Debug.Log("여기까지 온다");
-        //    return NodeState.SUCCESS;
-        //}
-        //else
-        //    return NodeState.FAILURE;
     }
 
     public void OnEnd()
