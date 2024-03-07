@@ -44,7 +44,7 @@ public class AttackCurve : MonoBehaviour
         Vector3 projectileXZ = new Vector3(pointList.position.x - transform.position.x, 0f, pointList.position.z - transform.position.z);
         float distance = projectileXZ.magnitude / 2; // 타겟과 현재 위치 사이의 거리
 
-        float radianAngle = 45 * Mathf.Deg2Rad;
+        float radianAngle = 60 * Mathf.Deg2Rad;
         float initialVelocity = Mathf.Sqrt((distance * 9.8f) / Mathf.Sin(2 * radianAngle));
 
         Vector3 velocityXZ = projectileXZ.normalized * initialVelocity;

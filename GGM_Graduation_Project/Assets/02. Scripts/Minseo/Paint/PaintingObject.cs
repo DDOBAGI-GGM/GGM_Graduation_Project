@@ -32,13 +32,18 @@ public class PaintingObject : MonoBehaviour
 //    }
 //}
 
-private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        Paintable p = collision.collider.GetComponent<Paintable>();
-        if (p != null)
+        if (collision.collider.CompareTag("PaintPlane"))
         {
-            Vector3 pos = collision.contacts[0].point;
-            PaintManager.Instance.Paint(p, pos, Random.Range(minRadius, maxRadius), hardness, strength, paintColor);
+            Paintable p = collision.collider.GetComponent<Paintable>();
+            if (p != null)
+            {
+                Vector3 pos = collision.contacts[0].point;
+                PaintManager.Instance.Paint(p, pos, Random.Range(minRadius, maxRadius), hardness, strength, paintColor);
+            }
+
+            Destroy(gameObject);
         }
     }
 }
