@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Net;
 
 public class AttackCurve : MonoBehaviour
 {
     public List<Transform> visitedPoints = new List<Transform>(); // 한 번 공격한 위치 넣어두기 
 
+    Rigidbody _rigidbody;
+
     public void MakeCurve(GameObject weapon, Transform[] transforms)
     {
         Debug.Log("MakeCurve");
+        Debug.Log(weapon.name);
         List<Vector3> pointList = new List<Vector3>();
 
         List<Transform> remainingPoints = new List<Transform>(transforms);
@@ -19,7 +23,6 @@ public class AttackCurve : MonoBehaviour
         pointList.Add(selectedPoint.position);
         visitedPoints.Add(selectedPoint);
         remainingPoints.RemoveAt(randomIndex);
-
 
         Move(weapon, selectedPoint, 1f);
         //StartCoroutine(Move(weapon, selectedPoint, 1f));
@@ -36,15 +39,22 @@ public class AttackCurve : MonoBehaviour
     //private IEnumerator Move(GameObject weapon, List<Vector3> pointList, float time)
     private void Move(GameObject weapon, Transform pointList, float time)
     {
-        Debug.Log("Move");
-        Vector3 center = (gameObject.transform.position + pointList.position) * 0.5f;
+        _rigidbody = weapon.GetComponent<Rigidbody>();
 
-        center.y -= 3;
+        Vector3 projectileXZ = new Vector3(pointList.position.x - transform.position.x, 0f, pointList.position.z - transform.position.z);
+        float distance = projectileXZ.magnitude / 2; // 타겟과 현재 위치 사이의 거리
 
-        Vector3 startPos = gameObject.transform.position - center;
-        Vector3 endPos = pointList.position - center;
+        float radianAngle = 45 * Mathf.Deg2Rad;
+        float initialVelocity = Mathf.Sqrt((distance * 9.8f) / Mathf.Sin(2 * radianAngle));
 
-        weapon.transform.position = Vector3.Slerp(startPos, endPos, time);
+        Vector3 velocityXZ = projectileXZ.normalized * initialVelocity;
+        Vector3 velocityY = Vector3.up * initialVelocity * Mathf.Sin(radianAngle);
+
+        _rigidbody.velocity = velocityXZ + velocityY;
+
+
+        weapon.AddComponent<BoxCollider>(); 
+
         /*
         float animateTime = time / pointList.Count;
         foreach (Vector3 p in pointList)
@@ -55,6 +65,3 @@ public class AttackCurve : MonoBehaviour
         */
     }
 }
-
-
-// 배지호 곡선 마냥 사용해주면 됨.

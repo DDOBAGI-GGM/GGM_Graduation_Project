@@ -50,7 +50,8 @@ public class Cannon : MonoBehaviour, IObject
                 default:
                     Debug.Log("올바른 무기 유형이 아니여서 터졌어요!");
                     // 풀링사용하기?
-                    Destroy(ingredient);
+                    Attack(ingredient, floorPos);
+                    //Destroy(ingredient);
                     break;
             }
         }
@@ -59,6 +60,8 @@ public class Cannon : MonoBehaviour, IObject
 
     private void Attack(GameObject weapon, Transform[] pos)
     {
+        Debug.Log(weapon.name);
+        weapon.AddComponent<Rigidbody>();
         Debug.Log("Attak");
         attackCurve.MakeCurve(weapon, pos);
     }

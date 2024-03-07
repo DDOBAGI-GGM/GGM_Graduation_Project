@@ -18,21 +18,21 @@ public class PaintingObject : MonoBehaviour
     //    {
     //        Debug.Log("¥Í¿Ω   ");
 
-    //        Paintable paintableObjects = collision.transform.gameObject.GetComponent<Paintable>();
+    //        Paintable[] paintableObjects = collision.transform.GetComponentsInChildren<Paintable>();
 
-    //        if (paintableObjects == null || paintableObjects.Length == 0) return;
+        //if (paintableObjects == null || paintableObjects.Length == 0) return;
 
-    //        Vector3 point = collision.contacts[0].point;
+        //Vector3 point = collision.contacts[0].point;
 
-    //        foreach (Paintable obj in paintableObjects)
-    //        {
-    //            PaintManager.Instance.Paint(paintableObjects, point, Random.Range(minRadius, maxRadius), hardness, strength, paintColor);
-    //        }
-    //        Debug.Log("≥°");
-    //    }
-    //}
+        //foreach (Paintable obj in paintableObjects)
+        //{
+        //    GameManager.Instance.PaintManager.Paint(obj, point, Random.Range(0.5f, 0.9f), 1, 1, color);
+        //}
+//        Debug.Log("≥°");
+//    }
+//}
 
-    private void OnCollisionEnter(Collision collision)
+private void OnCollisionEnter(Collision collision)
     {
         Paintable p = collision.collider.GetComponent<Paintable>();
         if (p != null)

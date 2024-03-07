@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
+
     public Transform targetPoint; // 타겟 포인트
 
     public float launchAngle = 45f; // 발사 각도
@@ -13,14 +14,19 @@ public class Test : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        
         Launch();
     }
 
     private void Launch()
     {
+        gameObject.AddComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+
         Vector3 projectileXZ = new Vector3(targetPoint.position.x - transform.position.x, 0f, targetPoint.position.z - transform.position.z);
         float distance = projectileXZ.magnitude / 2; // 타겟과 현재 위치 사이의 거리
+
+        float projectileY = targetPoint.position.y - transform.position.y; // 타겟과 현재 위치의 높이 차이
 
         // 발사 각도를 라디안으로 변환
         float radianAngle = launchAngle * Mathf.Deg2Rad;
@@ -38,3 +44,4 @@ public class Test : MonoBehaviour
         rb.velocity = velocityXZ + velocityY;
     }
 }
+    
