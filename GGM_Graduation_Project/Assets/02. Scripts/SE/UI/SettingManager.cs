@@ -102,9 +102,10 @@ public class SettingManager : Singleton<SettingManager>
         ShowPanel(!is_Setting, settingPanel);
     }
 
-    public void OnGamePauseBackBtn()        // 게임 화면만 나갈 때 쓰는 곳 없음
+    public void OnGamePauseBackBtn()        // 게임 화면만 나갈 때. backBtn 누르면 실행되는.
     {
-        ShowPanel(!is_GamePause, gamePausePanel);
+        is_GamePause= false;
+        gamePausePanel.SetActive(false);
     }
 
     public void OnSettingShow()     // 게임 멈춤에서 사용하는 것.  인트로에서도 찾아와서 사용해줌.
@@ -112,11 +113,14 @@ public class SettingManager : Singleton<SettingManager>
         ShowPanel(true, settingPanel);
     }
 
-    public void BackBtn()       // 게임 하는 중에 스테이지 선택 창으로 나가려면
+    public void BackBtn()       // 게임 하는 중에 스테이지 선택 창으로 나가려면 = 게임중에 뒤로가기 버튼
     {
-        Debug.Log("게임중에 뒤로가기 버튼");
-        LoadingSceneManager.Instance?.ChangeLoadScene("StageSelect_Scene");
-        CloudManager.Instance?.Move(true);
+        Time.timeScale = 1;
+        CloudManager.Instance.Move(true);
+        LoadingSceneManager.Instance.ChangeLoadScene("StageSelect_Scene");
+
         GameManager.Instance.nowStageData.BackBtn();
+
+        Debug.Log("UI 랑 뭐시깽스 꺼줘요");
     }
 }

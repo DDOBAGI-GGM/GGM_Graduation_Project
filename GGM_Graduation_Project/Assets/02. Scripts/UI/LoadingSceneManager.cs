@@ -65,6 +65,7 @@ public class LoadingSceneManager : Singleton<LoadingSceneManager>
 
     public void StartLoading()
     {
+        StopCoroutine(LoadAsyncSceneCoroutine());
         StartCoroutine(LoadAsyncSceneCoroutine());
     }
 
@@ -72,23 +73,6 @@ public class LoadingSceneManager : Singleton<LoadingSceneManager>
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(changeScene);
         operation.allowSceneActivation = false;
-
-        //while (!operation.isDone)
-        //{
-        //    _time += Time.deltaTime;
-        //    _time += 0.1f;
-
-        //    _slider.value = _time / 3f;
-
-        //    if (_time > 3)
-        //    {
-        //        CloudManager.Instance?.gameObject.SetActive(true);
-        //        CloudManager.Instance?.Move(false);
-        //        operation.allowSceneActivation = true;
-        //    }
-
-        //    yield return new WaitForSeconds(0.1f);
-        //}
 
         while (!operation.isDone)
         {
@@ -98,7 +82,6 @@ public class LoadingSceneManager : Singleton<LoadingSceneManager>
 
             if (operation.progress < 0.9f)      // 로드되는 맵이 클 때
             {
-                Debug.Log("로드되는 맵이 좀 커서");
                 _slider.value = Mathf.Lerp(_slider.value, operation.progress, _time);
                 if (_slider.value >= operation.progress)
                 {
@@ -108,13 +91,11 @@ public class LoadingSceneManager : Singleton<LoadingSceneManager>
             else
             {
                 _slider.value = Mathf.Lerp(_slider.value, 1f, _time);
-                Debug.Log("아 여기서 그래되니");
                 if (_slider.value == 1.0f)      // 1초는 이 로딩 씬에서 있어야 해.
                 {
                     operation.allowSceneActivation = true;
                     CloudManager.Instance?.gameObject.SetActive(true);
                     CloudManager.Instance?.Move(false);
-                    Debug.Log("씬 이동되고 구름 보여지기!");
                     yield break;
                 }
             }
