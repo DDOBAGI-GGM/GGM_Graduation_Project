@@ -98,3 +98,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintObj: {fileID: 7612814490733723395, guid: fc656c6e77aafed44978bbabd8c95717,
     type: 3}
+  isPlayer: 0
