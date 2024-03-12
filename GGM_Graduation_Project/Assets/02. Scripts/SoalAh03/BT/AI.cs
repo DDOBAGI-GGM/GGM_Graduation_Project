@@ -167,9 +167,8 @@ public class AI : MonoBehaviour
                     // 아이템을 들고 있다면
                     new InverterNode(new ConditionNode(HandNull)),
                     // 상호작용
-                        new WaitNode(1.5f),
+                    new WaitNode(1.5f),
                     new InteractionNode(this),
-                    //new WaitNode(1.5f),
                     // 상태 로그 출력
                     new LogNode("병합"),
                     // 빈 손이라면 (아이템 부착)
@@ -253,7 +252,6 @@ public class AI : MonoBehaviour
                         new SelectorNode
                         (
                             new InverterNode(new ConditionNode(Recovery)),
-                                new LogNode("111111111111111111111"),
                             // 공격
                             new SequenceNode
                             (
@@ -335,7 +333,7 @@ public class AI : MonoBehaviour
                 new ConditionNode(HandNull),
                 // 상태 로그 출력
                 new LogNode(" 공격"),
-                new ActionNode(test),
+                //new ActionNode(test),
                 // 레시피 초기화
                 new ActionNode(ClearRecipe)
             ),
@@ -372,11 +370,6 @@ public class AI : MonoBehaviour
             canFix = true;
         else
             canFix = false;
-    }
-
-    void test()
-    {
-        HP.Instance.SetValue(false);
     }
 
     bool NullRecipe()
