@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TimeOutManager : MonoBehaviour
+public class TimeOutManager : Singleton<TimeOutManager>
 {
     [SerializeField] GameObject timeOutPanel;
     [SerializeField] float animTime = 1f;
@@ -37,21 +37,11 @@ public class TimeOutManager : MonoBehaviour
        to.Kill();
 
         Time.timeScale = 1f;
-        SettingManager.Instance?.FadeAnim(true);
-        yield return new WaitForSeconds(0.5f);      // 저 셋팅페이드가 0.5 초라서
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync("StageResult_Scene");
-        operation.allowSceneActivation = false;
-
-        while (!operation.isDone)
-        {
-            //Debug.Log(operation.progress);
-            if (operation.progress >= 0.9f)      // 로드가 다 되었을 때
-            {
-                SettingManager.Instance?.FadeAnim(false);
-                operation.allowSceneActivation = true;   // 씬 이동
-                yield break;
-            }
-        }
+        HP.Instance.Gage.gameObject.SetActive(false);
+        GameManager.Instance.nowStageData.myPersent = HP.Instance.Gage.value;
+        GameManager.Instance.nowStageData.PersentSetting();
+        CloudManager.Instance?.Move(true);
+        LoadingSceneManager.Instance?.ChangeLoadScene("StageResult_Scene");
     }
 }

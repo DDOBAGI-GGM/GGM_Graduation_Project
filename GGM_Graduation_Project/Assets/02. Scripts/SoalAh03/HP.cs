@@ -26,7 +26,7 @@ public class HP : Singleton<HP>
     {
         if (Gage.value <= 0 || Gage.value >= 100)
         {
-            // ∞‘¿” ≥°...
+            TimeOutManager.Instance.timeOutShow();
         }
     }
 }

@@ -43,12 +43,4 @@ public class AIManager : MonoBehaviour
 
     // 오브젝트
     public List<OBJ> objects = new List<OBJ>();
-
-    private void Awake()
-    {
-    }
-
-    private void Start()
-    {
-    }
 }
