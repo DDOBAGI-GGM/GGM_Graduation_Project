@@ -49,8 +49,8 @@ public class Cannon : MonoBehaviour, IObject
                     break;
                 default:
                     Debug.Log("올바른 무기 유형이 아니여서 터졌어요!");
-                    // 풀링사용하기?
                     Attack(ingredient, floorPos);
+                    // 풀링사용하기?
                     //Destroy(ingredient);
                     break;
             }

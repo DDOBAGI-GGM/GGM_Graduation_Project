@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 370570657026985072}
   - component: {fileID: 9172594922634965676}
   - component: {fileID: 7633305125600582568}
+  - component: {fileID: -2733290404804674804}
   m_Layer: 0
   m_Name: P1_Paint_Green_Enemy
   m_TagString: Item
@@ -96,3 +97,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea1b8f5b6137494ca600d6a0bf04a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2733290404804674804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981936137921399894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b2611cc269802458134e5b95bd7e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintObj: {fileID: 9051514164871662102, guid: ad2649f4c17b7f74ca7b960cdae43c74,
+    type: 3}
