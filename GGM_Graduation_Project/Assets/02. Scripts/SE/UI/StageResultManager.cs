@@ -13,12 +13,10 @@ public class StageResultManager : MonoBehaviour
     [SerializeField] private Slider resultSlider;
     [SerializeField] private GameObject sliderGagePos;
     [SerializeField] private GameObject crownPrefab;        // 왕관
-    //[SerializeField] private StageDataSO testSO;
 
     private void Awake()
     {
         nowStageData = GameManager.Instance.nowStageData;
-        //nowStageData = testSO;
     }
 
     void Start()
@@ -46,8 +44,8 @@ public class StageResultManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))       // Enter 를 누르면 뒤로 가게.
         {
             Debug.Log("스테이지 선택 씬으로 이동하기");
-            CloudManager.Instance?.Move(true);
-            LoadingSceneManager.Instance?.ChangeLoadScene("StageSelect_Scene");     // 스테이지 씬으로 이동하기 하면서 저장도 해주고?
+            CloudManager.Instance.Move(true);
+            LoadingSceneManager.Instance.ChangeLoadScene("StageSelect_Scene");     // 스테이지 씬으로 이동하기 하면서 저장도 해주고?
         }
     }
 

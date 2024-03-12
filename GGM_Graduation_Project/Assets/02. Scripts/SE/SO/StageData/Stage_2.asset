@@ -9,10 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0509af16975a15e489e9a28f123131b4, type: 3}
-  m_Name: Apple
+  m_Script: {fileID: 11500000, guid: 13cf3480ca7ee5b4789741ece1a8de4d, type: 3}
+  m_Name: Stage_2
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
-  objType: 1
-  source: []
-  device: 0
+  stageName: Stage 2
+  starPersent:
+  - 0.6
+  - 0.75
+  - 0.95
+  star: 000000
+  myPersent: 0
+  gameTime: 180
