@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8305393948952853838}
   - component: {fileID: -457903829641049760}
+  - component: {fileID: 6608269086815933857}
   m_Layer: 0
   m_Name: P2_PurpleFlask_Object
   m_TagString: Item
@@ -46,6 +47,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea1b8f5b6137494ca600d6a0bf04a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6608269086815933857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3201847435891974445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b2611cc269802458134e5b95bd7e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintObj: {fileID: 7612814490733723395, guid: fc656c6e77aafed44978bbabd8c95717,
+    type: 3}
 --- !u!1 &4528347215382513086
 GameObject:
   m_ObjectHideFlags: 0
