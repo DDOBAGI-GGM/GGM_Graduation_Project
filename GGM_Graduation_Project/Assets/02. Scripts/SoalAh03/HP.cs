@@ -13,9 +13,9 @@ public class HP : Singleton<HP>
     {
         float gage = Gage.value;
         if (player)
-            gage += value;
-        else
             gage -= value;
+        else
+            gage += value;
 
         DOTween.To(() => Gage.value, x => Gage.value = x, gage, 1).SetEase(Ease);
 
@@ -24,7 +24,7 @@ public class HP : Singleton<HP>
 
     private void EndCheck()
     {
-        if (Gage.value <= 0 || Gage.value >= 100)
+        if (Gage.value < Gage.minValue || Gage.value > Gage.maxValue)
         {
             TimeOutManager.Instance.timeOutShow();
         }
