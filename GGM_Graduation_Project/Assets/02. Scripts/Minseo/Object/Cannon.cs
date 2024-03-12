@@ -30,7 +30,7 @@ public class Cannon : MonoBehaviour, IObject
             SoundManager.Instance.PlaySFX("get");
             //Debug.Log("무기발사 가보자고!");
 
-            string type = ingredient.gameObject.name.Substring(ingredient.gameObject.name.IndexOf('-') + 1);
+            string type = ingredient.gameObject.name.Substring(ingredient.gameObject.name.LastIndexOf('_') + 1);
             Debug.Log(type);
             switch (type)
             {
