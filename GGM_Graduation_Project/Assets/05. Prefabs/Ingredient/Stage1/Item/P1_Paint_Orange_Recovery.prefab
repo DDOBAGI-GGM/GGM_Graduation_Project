@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5435387554483692740}
   - component: {fileID: 2405928834784044900}
   - component: {fileID: 4132185021826719311}
+  - component: {fileID: 9074710847123470933}
   m_Layer: 0
   m_Name: P1_Paint_Orange_Recovery
   m_TagString: Item
@@ -96,3 +97,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea1b8f5b6137494ca600d6a0bf04a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9074710847123470933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829876970955186434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b2611cc269802458134e5b95bd7e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintObj: {fileID: 1812708815180674968, guid: 51907c82ef01b014fbbb878605d28632,
+    type: 3}

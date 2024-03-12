@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2585925389989707226}
   - component: {fileID: 7341779095644958663}
   - component: {fileID: 7179435098744643301}
+  - component: {fileID: -6501799891815151954}
   m_Layer: 0
   m_Name: P2_Paint_Brown_Enemy
   m_TagString: Item
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-6501799891815151954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542663045351260797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b2611cc269802458134e5b95bd7e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintObj: {fileID: 5146150596737380915, guid: c5dccfa504ff3054381a878f2e20a1e5,
+    type: 3}

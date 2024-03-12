@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2405928834784044900}
   - component: {fileID: 8175314924680924569}
   - component: {fileID: -7032744773757972081}
-  - component: {fileID: -4157032434952178234}
+  - component: {fileID: 6345828405036073028}
   m_Layer: 0
   m_Name: P1_Paint_Yellow_Object
   m_TagString: Item
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea1b8f5b6137494ca600d6a0bf04a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4157032434952178234
+--- !u!114 &6345828405036073028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,8 +131,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b2611cc269802458134e5b95bd7e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintColor: {r: 1, g: 0.73018867, b: 0.73018867, a: 1}
-  minRadius: 1.5
-  maxRadius: 1.5
-  strength: 1
-  hardness: 0.1
+  paintObj: {fileID: 5847257782230760887, guid: e51aaaab199bfac409c276a8b818e14c,
+    type: 3}

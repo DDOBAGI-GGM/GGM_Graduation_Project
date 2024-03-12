@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2585925389989707226}
   - component: {fileID: 7341779095644958663}
   - component: {fileID: 7179435098744643301}
+  - component: {fileID: -6860226585559587572}
   m_Layer: 0
   m_Name: P2_Paint_SkyBlue_Floor
   m_TagString: Item
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-6860226585559587572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542663045351260797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b2611cc269802458134e5b95bd7e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintObj: {fileID: 7117215916252395174, guid: 4c7ec896de66dee47848fce0f13a7b6f,
+    type: 3}

@@ -54,7 +54,6 @@ public class AttackCurve : MonoBehaviour
 
 
         weapon.AddComponent<BoxCollider>(); 
-
         /*
         float animateTime = time / pointList.Count;
         foreach (Vector3 p in pointList)

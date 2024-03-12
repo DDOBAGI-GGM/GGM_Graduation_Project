@@ -2,14 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+ enum AttakType{
+    FLOOR, ENEMY, OBJECT
+} 
+
 public class PaintingObject : MonoBehaviour
 {
-    [SerializeField] private Color paintColor;
+    [SerializeField] private GameObject paintObj;
 
-    [SerializeField] private float minRadius = 0.05f;
-    [SerializeField] private float maxRadius = 0.2f;
-    [SerializeField] private float strength = 1;
-    [SerializeField] private float hardness = 1;
+    AttakType attakType;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("PaintPlane"))
+        {
+            /* 페인트 전 코드
+             * Paintable p = collision.collider.GetComponent<Paintable>();
+            if (p != null)
+            {
+                Vector3 pos = collision.contacts[0].point;
+                PaintManager.Instance.Paint(p, pos, Random.Range(minRadius, maxRadius), hardness, strength, paintColor);
+            }*/
+
+            Vector3 pos = collision.contacts[0].point;
+
+            Instantiate(paintObj, pos, Quaternion.identity);
+
+            Destroy(gameObject);
+        }
+    }
+    //[SerializeField] private float minRadius = 0.05f;
+    //[SerializeField] private float maxRadius = 0.2f;
+    //[SerializeField] private float strength = 1;
+    //[SerializeField] private float hardness = 1;
 
     //void OnCollisionEnter(Collision collision)
     //{
@@ -31,19 +56,4 @@ public class PaintingObject : MonoBehaviour
 //        Debug.Log("끝");
 //    }
 //}
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("PaintPlane"))
-        {
-            Paintable p = collision.collider.GetComponent<Paintable>();
-            if (p != null)
-            {
-                Vector3 pos = collision.contacts[0].point;
-                PaintManager.Instance.Paint(p, pos, Random.Range(minRadius, maxRadius), hardness, strength, paintColor);
-            }
-
-            Destroy(gameObject);
-        }
-    }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Object
   - Item
+  - PaintPlane
   layers:
   - Default
   - TransparentFX
