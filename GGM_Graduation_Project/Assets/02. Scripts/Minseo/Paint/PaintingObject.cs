@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
- enum AttakType{
-    FLOOR, ENEMY, OBJECT
-} 
 
 public class PaintingObject : MonoBehaviour
 {
     [SerializeField] private GameObject paintObj;
-
-    AttakType attakType;
+    [SerializeField] private bool isPlayer = true;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -27,6 +23,7 @@ public class PaintingObject : MonoBehaviour
             Vector3 pos = collision.contacts[0].point;
 
             Instantiate(paintObj, pos, Quaternion.identity);
+            HP.Instance.SetValue(isPlayer);
 
             Destroy(gameObject);
         }
