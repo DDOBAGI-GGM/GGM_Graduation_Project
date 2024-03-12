@@ -10,7 +10,8 @@ public class PlayerInput : ScriptableObject, PlayerControls.IPlayerActions
     private PlayerControls _playerControls;
 
     public Action<Vector2> OnMovement;
-    public Action OnInteraction;    
+    public Action OnInteraction;
+    public Action OnAttack;
 
     private void OnEnable()
     {
@@ -33,6 +34,14 @@ public class PlayerInput : ScriptableObject, PlayerControls.IPlayerActions
         if (context.performed)
         {
             OnInteraction?.Invoke();
+        }
+    }
+
+    void PlayerControls.IPlayerActions.OnAttack(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            OnAttack?.Invoke();
         }
     }
 }

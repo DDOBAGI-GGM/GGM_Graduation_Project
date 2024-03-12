@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 3145327423326520629}
   - component: {fileID: 5435387554483692740}
   - component: {fileID: 2405928834784044900}
+  - component: {fileID: 8175314924680924569}
   - component: {fileID: -7032744773757972081}
+  - component: {fileID: -4157032434952178234}
   m_Layer: 0
   m_Name: P1_Paint_Yellow_Object
   m_TagString: Item
@@ -84,6 +86,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8175314924680924569
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829876970955186434}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.522758, y: 0.45129344, z: 0.5009838}
+  m_Center: {x: 0, y: 0.000000014901161, z: 0.000000059604645}
 --- !u!114 &-7032744773757972081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,3 +119,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea1b8f5b6137494ca600d6a0bf04a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4157032434952178234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829876970955186434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b2611cc269802458134e5b95bd7e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintColor: {r: 1, g: 0.73018867, b: 0.73018867, a: 1}
+  minRadius: 1.5
+  maxRadius: 1.5
+  strength: 1
+  hardness: 0.1

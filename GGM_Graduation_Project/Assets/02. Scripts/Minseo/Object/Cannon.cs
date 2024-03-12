@@ -2,16 +2,15 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-//[RequireComponent(typeof(SphereCollider))]
+using UnityEngine.UI;
 public class Cannon : MonoBehaviour, IObject
 {
     [Header("Floor")]
-    [SerializeField] private Transform[] floorPos = new Transform[4];
+    [SerializeField] private Transform[] floorPos = new Transform[7];
     [Header("Enemy")]
-    [SerializeField] private Transform[] enemyPos = new Transform[4];
+    [SerializeField] private Transform[] enemyPos = new Transform[1];
     [Header("Object")]
-    [SerializeField] private Transform[] objectPos = new Transform[4];         // 4개 까지만 가능
+    [SerializeField] private Transform[] objectPos = new Transform[7];   
 
     private AttackCurve attackCurve;
 
@@ -51,7 +50,8 @@ public class Cannon : MonoBehaviour, IObject
                 default:
                     Debug.Log("올바른 무기 유형이 아니여서 터졌어요!");
                     // 풀링사용하기?
-                    Destroy(ingredient);
+                    Attack(ingredient, floorPos);
+                    //Destroy(ingredient);
                     break;
             }
         }
@@ -60,6 +60,9 @@ public class Cannon : MonoBehaviour, IObject
 
     private void Attack(GameObject weapon, Transform[] pos)
     {
+        Debug.Log(weapon.name);
+        weapon.AddComponent<Rigidbody>();
+        Debug.Log("Attak");
         attackCurve.MakeCurve(weapon, pos);
     }
 }

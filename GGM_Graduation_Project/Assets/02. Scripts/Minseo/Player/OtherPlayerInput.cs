@@ -11,6 +11,7 @@ public class OtherPlayerInput : ScriptableObject, OtherPlayerControls.IPlayerAct
 
     public Action<Vector2> OnMovement;
     public Action OnInteraction;
+    public Action OnAttack;
 
     private void OnEnable()
     {
@@ -33,6 +34,14 @@ public class OtherPlayerInput : ScriptableObject, OtherPlayerControls.IPlayerAct
         if (context.performed)
         {
             OnInteraction?.Invoke();
+        }
+    }
+
+    void OtherPlayerControls.IPlayerActions.OnAttack(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            OnAttack?.Invoke();
         }
     }
 }
