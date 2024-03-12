@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7341779095644958663}
   - component: {fileID: 7179435098744643301}
   - component: {fileID: -6570217637223306425}
+  - component: {fileID: -427242933865972769}
   m_Layer: 0
   m_Name: P2_Paint_Navy_Recovery
   m_TagString: Item
@@ -98,3 +99,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintObj: {fileID: 8687047088506108778, guid: 918d58fea4fd004458a32150cc295477,
     type: 3}
+--- !u!114 &-427242933865972769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542663045351260797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea1b8f5b6137494ca600d6a0bf04a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
