@@ -20,6 +20,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         SetTime();
+        HP.Instance.ResetValue();
     }
 
     private void Update()

@@ -12,6 +12,7 @@ public class HP : Singleton<HP>
 
     public void ResetValue()
     {
+        Gage.gameObject.SetActive(true);
         Gage.value = Gage.maxValue / 2;
     }
 

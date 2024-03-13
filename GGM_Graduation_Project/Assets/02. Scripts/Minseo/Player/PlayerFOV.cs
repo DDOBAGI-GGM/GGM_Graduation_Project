@@ -11,11 +11,12 @@ public class PlayerFOV : MonoBehaviour
 
     private void Update()
     {
-        CheckForObjectsInView();
+        //CheckForObjectsInView();
     }
 
     public GameObject CheckForObjectsInView() // 시야각 체크
     {
+        Debug.Log(transform.position);
         Vector3 playerPosition = transform.position; // 플레이어 위치
         Vector3 forward = transform.forward;
 
