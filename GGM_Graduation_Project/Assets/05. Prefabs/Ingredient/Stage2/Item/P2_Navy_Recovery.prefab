@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintObj: {fileID: 8687047088506108778, guid: 918d58fea4fd004458a32150cc295477,
     type: 3}
-  isPlayer: 1
+  isPlayer: 0
 --- !u!1 &4528347215382513086
 GameObject:
   m_ObjectHideFlags: 0
