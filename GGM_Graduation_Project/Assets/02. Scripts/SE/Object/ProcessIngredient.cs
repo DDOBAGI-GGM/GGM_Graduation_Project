@@ -34,14 +34,21 @@ public class ProcessIngredient : MonoBehaviour, IObject
             Tween t = DOTween.To(() => deleySlider.value, value => deleySlider.value  = value,  i / deleyTime, 1f);
             t.Play();
             yield return time;
-            if (Vector3.Distance(ingredient.transform.position, playerTrm) > 1f)
+            if (ingredient == null)
             {
-                // 또 여러가지 작업중...
-                deleySlider.value = 0;
-                deleySlider.gameObject.SetActive(false);
-                StopCoroutine(InteractionRoutine(ingredient));
-                Debug.Log("움직임!");
-                yield break;        // 움직였엉.
+                yield break;
+            }
+            else
+            {
+                if (Vector3.Distance(ingredient.transform.position, playerTrm) > 0.75f)
+                {
+                    // 또 여러가지 작업중...
+                    deleySlider.value = 0;
+                    deleySlider.gameObject.SetActive(false);
+                    StopCoroutine(InteractionRoutine(ingredient));
+                    Debug.Log("움직임!");
+                    yield break;        // 움직였엉.
+                }
             }
         }
 
