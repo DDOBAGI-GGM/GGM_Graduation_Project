@@ -2481,7 +2481,7 @@ MonoBehaviour:
     \uD074\uB9BD\uC744 \uB123\uC740 \uB4A4 \uCF54\uB4DC\uC5D0\uC11C SoundManager.Instance.PlayBGM
     \uD558\uAC70\uB098 PlaySFX \uD574\uC8FC\uBA74 \uB40C."
   bgmSounds:
-  - soundName: Base
+  - soundName: intro
     clip: {fileID: 8300000, guid: 513f78c50f5c01c46ba2e37ccd8e5196, type: 3}
   effectSounds:
   - soundName: get

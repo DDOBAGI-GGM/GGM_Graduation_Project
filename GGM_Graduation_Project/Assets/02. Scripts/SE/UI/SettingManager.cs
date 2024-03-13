@@ -115,6 +115,8 @@ public class SettingManager : Singleton<SettingManager>
 
     public void BackBtn()       // 게임 하는 중에 스테이지 선택 창으로 나가려면 = 게임중에 뒤로가기 버튼
     {
+        HP.Instance.gameObject.SetActive(false);
+
         Time.timeScale = 1;
         CloudManager.Instance.Move(true);
         LoadingSceneManager.Instance.ChangeLoadScene("StageSelect_Scene");

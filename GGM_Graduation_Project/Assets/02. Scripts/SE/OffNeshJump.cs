@@ -58,8 +58,6 @@ public class OffNeshJump : MonoBehaviour
 
             transform.position = pos;
 
-            Debug.Log(percent);
-
             if (goRight)
             {
                 Debug.Log("¿À¸¥ÂÊ");
