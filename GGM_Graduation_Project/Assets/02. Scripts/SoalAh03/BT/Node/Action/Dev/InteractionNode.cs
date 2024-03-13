@@ -51,7 +51,15 @@ public class InteractionNode : INode
             }
             case AIStateType.Merge:
             {
-                GameObject item = ai.destination.GetComponent<IObject>().Interaction(ai.hand);
+                    GameObject item;
+                if (ai.hand == null)
+                {
+                    item = ai.destination.GetComponent<IObject>().Interaction(null);
+                }
+                else
+                {
+                    item = ai.destination.GetComponent<IObject>().Interaction(ai.hand);
+                }
                 if (item != null)
                 {
                     item.transform.position = ai.handPos.position;     

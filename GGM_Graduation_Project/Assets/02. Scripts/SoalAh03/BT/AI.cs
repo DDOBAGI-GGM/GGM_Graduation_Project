@@ -137,11 +137,11 @@ public class AI : MonoBehaviour
                     new RangeNode(this),
                     // 아이템을 들고 있다면
                     new InverterNode(new ConditionNode(HandNull)),
-                    //new WaitNode(1.5f),
                     // 상호작용 로그 출력
                     new LogNode("가공중"),
                     // 상호작용
                     new InteractionNode(this),
+                    new WaitNode(3.5f),
                     // 상태 로그 출력
                     new LogNode("가공"),
                     // 상태 초기화
