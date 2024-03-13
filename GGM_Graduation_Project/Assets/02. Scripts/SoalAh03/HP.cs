@@ -13,9 +13,9 @@ public class HP : Singleton<HP>
     {
         float gage = Gage.value;
         if (player)
-            gage -= value;
-        else
             gage += value;
+        else
+            gage -= value;
 
         DOTween.To(() => Gage.value, x => Gage.value = x, gage, 1).SetEase(Ease);
 
