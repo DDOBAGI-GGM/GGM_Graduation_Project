@@ -7,9 +7,9 @@ using UnityEngine;
 public class StageDataSO : ScriptableObject
 {
     public string stageName;        // 스테이지 이름
-    [Range(0.5f, 1f)] public float[] starPersent = new float[3];        // 별이 있어야 하는 것
+    [Range(50f, 200f)] public float[] starPersent = new float[3];        // 별이 있어야 하는 것
     public bool[] star = new bool[3];       // 별 개수
-    [Range(0f, 1f)] public float myPersent;     // 내 퍼센트
+    [Range(0f, 200f)] public float myPersent;     // 내 퍼센트
     public float gameTime;      // 타임오버 시간
 
     public void PersentSetting()      // 퍼센트에 따라서 리셋을 해주는 것.

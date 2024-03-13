@@ -10183,7 +10183,7 @@ PrefabInstance:
     - target: {fileID: 2708932566082776586, guid: bf1d42560e90b0444bed5f8e6c092dcd,
         type: 3}
       propertyPath: m_Name
-      value: Cannon_NoAnim
+      value: Cannon
       objectReference: {fileID: 0}
     - target: {fileID: 7359175263536969326, guid: bf1d42560e90b0444bed5f8e6c092dcd,
         type: 3}

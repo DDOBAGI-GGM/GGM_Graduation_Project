@@ -24,18 +24,15 @@ public class Cannon : MonoBehaviour, IObject
         // 상대편을 비추고, 발사를 누르면 상대편으로 날라감.
         if (ingredient != null)
         {
-            ingredient.transform.parent = transform;            // 자식으로 넣을까 안넣을까
+            ingredient.transform.parent = transform;   
             ingredient.transform.localPosition = new Vector3(0, 0.5f, 0);
             ingredient.transform.parent = null;
             SoundManager.Instance.PlaySFX("get");
-            //Debug.Log("무기발사 가보자고!");
 
             string type = ingredient.gameObject.name.Substring(ingredient.gameObject.name.LastIndexOf('_') + 1);
-            Debug.Log(type);
             switch (type)
             {
                 case "Floor":
-                    //Debug.Log("플로어 공격시잗!");
                     Attack(ingredient, floorPos);
                     break;
                 case "Object":
@@ -49,8 +46,6 @@ public class Cannon : MonoBehaviour, IObject
                     break;
                 default:
                     Debug.Log("올바른 무기 유형이 아니여서 터졌어요!");
-                    //Attack(ingredient, floorPos);
-                    // 풀링사용하기?
                     Destroy(ingredient);
                     break;
             }
@@ -60,9 +55,7 @@ public class Cannon : MonoBehaviour, IObject
 
     private void Attack(GameObject weapon, Transform[] pos)
     {
-        Debug.Log(weapon.name);
         weapon.AddComponent<Rigidbody>();
-        Debug.Log("Attak");
         attackCurve.MakeCurve(weapon, pos);
     }
 }

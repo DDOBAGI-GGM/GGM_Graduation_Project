@@ -12,8 +12,6 @@ public class AttackCurve : MonoBehaviour
 
     public void MakeCurve(GameObject weapon, Transform[] transforms)
     {
-        Debug.Log("MakeCurve");
-        Debug.Log(weapon.name);
         List<Vector3> pointList = new List<Vector3>();
 
         List<Transform> remainingPoints = new List<Transform>(transforms);
@@ -25,18 +23,8 @@ public class AttackCurve : MonoBehaviour
         remainingPoints.RemoveAt(randomIndex);
 
         Move(weapon, selectedPoint, 1f);
-        //StartCoroutine(Move(weapon, selectedPoint, 1f));
-
-        /*
-        List<Vector3> pointList = new List<Vector3>();
-
-        DOCurve.CubicBezier.GetSegmentPointCloud(pointList, transforms[0].position, transforms[1].position, transforms[2].position, transforms[3].position, 20);
-
-        StartCoroutine(Move(weapon, pointList, 1f));
-        */
     }
 
-    //private IEnumerator Move(GameObject weapon, List<Vector3> pointList, float time)
     private void Move(GameObject weapon, Transform pointList, float time)
     {
         _rigidbody = weapon.GetComponent<Rigidbody>();
@@ -54,13 +42,5 @@ public class AttackCurve : MonoBehaviour
 
 
         weapon.AddComponent<BoxCollider>(); 
-        /*
-        float animateTime = time / pointList.Count;
-        foreach (Vector3 p in pointList)
-        {
-            yield return new WaitForSeconds(animateTime);
-            weapon.transform.DOMove(p, animateTime).SetEase(Ease.InOutElastic);
-        }
-        */
     }
 }

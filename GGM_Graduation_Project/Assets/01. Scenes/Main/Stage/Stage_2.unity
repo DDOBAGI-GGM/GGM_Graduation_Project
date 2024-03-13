@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 71621a12d0082b9498770b601cc9672d,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -122,7 +123,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 80f1057bd085e634baf399a314525afc, type: 2}
 --- !u!1 &19213483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,6 +1298,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 206738915637735523, guid: 559b8d1e43f2104458d96bcc7ea09b7c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 206738915637735523, guid: 559b8d1e43f2104458d96bcc7ea09b7c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3340302207354277881, guid: 559b8d1e43f2104458d96bcc7ea09b7c,
         type: 3}
       propertyPath: m_Name
@@ -2581,6 +2592,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6465486778237147427, guid: 857d691df722b7941893a816ec739d2c,
+        type: 3}
+      propertyPath: m_Name
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 7669064996671244793, guid: 857d691df722b7941893a816ec739d2c,
         type: 3}
       propertyPath: m_Name
@@ -2590,6 +2606,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825812085627598923, guid: 857d691df722b7941893a816ec739d2c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5946,6 +5967,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stage02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255468518923559635, guid: 981612d4605452a4b8ffbf4e19a5f094,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5601182330458604838, guid: 981612d4605452a4b8ffbf4e19a5f094,
         type: 3}

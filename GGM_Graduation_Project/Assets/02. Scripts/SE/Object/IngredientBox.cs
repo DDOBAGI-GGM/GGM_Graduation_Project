@@ -9,7 +9,7 @@ public class IngredientBox : MonoBehaviour, IObject
     public GameObject Interaction(GameObject ingredient = null)
     {
         GameObject item = Instantiate(giveIngredientPrefab, transform.position, Quaternion.identity);
-        SoundManager.Instance.PlaySFX("get");
+        SoundManager.Instance?.PlaySFX("get");
         return item;
     }
 }
