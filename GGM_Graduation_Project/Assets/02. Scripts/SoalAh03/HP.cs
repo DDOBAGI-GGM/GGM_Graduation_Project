@@ -9,6 +9,12 @@ public class HP : Singleton<HP>
     public Slider Gage;
     [SerializeField] private int value;
     public Ease Ease;
+
+    public void ResetValue()
+    {
+        Gage.value = Gage.maxValue / 2;
+    }
+
     public void SetValue(bool player)
     {
         float gage = Gage.value;
