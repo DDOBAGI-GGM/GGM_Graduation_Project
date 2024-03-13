@@ -142,12 +142,15 @@ public class PlayerInteraction : MonoBehaviour
                 IObject objectToPickup = item.GetComponent<IObject>();
                 if (objectToPickup != null)      
                 {
-                    Debug.Log("가공은 여기서");
-                    objectToPickup.Interaction(currentObjectInHand);
-                    Debug.Log(item.gameObject.name);
-                    if (item.gameObject.name != "ProcessingIngredient" && item.gameObject.name.IndexOf('-') == -1)      // - 이게 찾아와지지 않으면. 즉 재료 상자가 아니면 쓰레기통일 때
+                    if (item.gameObject.name == "ProcessingIngredient")
                     {
-                        Debug.Log("내 손에 없어용");
+                        Debug.Log("가공은 여기서");
+                        objectToPickup.Interaction(currentObjectInHand);
+                    }
+                    else if (item.gameObject.name == "TrashCan")      // - 이게 찾아와지지 않으면. 즉 재료 상자가 아니면 쓰레기통일 때
+                    {
+                        Debug.Log("쓰레기통");
+                        objectToPickup.Interaction(currentObjectInHand);
                         currentObjectInHand = null;
                     }
                 }

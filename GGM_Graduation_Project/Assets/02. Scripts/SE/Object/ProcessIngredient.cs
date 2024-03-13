@@ -14,14 +14,20 @@ public class ProcessIngredient : MonoBehaviour, IObject
 
     public GameObject Interaction(GameObject ingredient)
     {
-        string name = ingredient.name;
-        if (ingredient.GetComponent<Ingredient>() != null && name.IndexOf("completion") == -1)
+        if (ingredient != null)
         {
-            // 스크립트 받아와주기
-            deleySlider.gameObject.SetActive(true);
-            playerTrm = ingredient.transform.position;
-            StopCoroutine(InteractionRoutine(ingredient));
-            StartCoroutine(InteractionRoutine(ingredient));
+            if (ingredient.GetComponent<Ingredient>() != null)
+            {
+                string name = ingredient.name;
+                if (name.IndexOf("completion") == -1)
+                {
+                    // 스크립트 받아와주기
+                    deleySlider.gameObject.SetActive(true);
+                    playerTrm = ingredient.transform.position;
+                    StopCoroutine(InteractionRoutine(ingredient));
+                    StartCoroutine(InteractionRoutine(ingredient));
+                }
+            }
         }
         return null;
     }
