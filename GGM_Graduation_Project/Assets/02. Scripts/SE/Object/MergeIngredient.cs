@@ -53,7 +53,7 @@ public class MergeIngredient : MonoBehaviour, IObject
 
     public GameObject Interaction(GameObject ingredient = null)
     {
-        SoundManager.Instance.PlaySFX("get");
+        SoundManager.Instance?.PlaySFX("get");
         if (((!one || !two) && !result) && ingredient)
         {
             //Debug.Log("재료합치기");

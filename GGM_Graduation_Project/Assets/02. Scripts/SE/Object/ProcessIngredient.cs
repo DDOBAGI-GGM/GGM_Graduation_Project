@@ -37,10 +37,11 @@ public class ProcessIngredient : MonoBehaviour, IObject
         var time = new WaitForSeconds(1f);
         for (int i = 1; i <= deleyTime; i++)
         {
+            if (ingredient == null) yield break;
             Tween t = DOTween.To(() => deleySlider.value, value => deleySlider.value  = value,  i / deleyTime, 1f);
             t.Play();
             yield return time;
-            if (Vector3.Distance(ingredient.transform.position, playerTrm) > 1f)
+            if (Vector3.Distance(ingredient.transform.position, playerTrm) > 0.75f)
             {
                 // 또 여러가지 작업중...
                 deleySlider.value = 0;

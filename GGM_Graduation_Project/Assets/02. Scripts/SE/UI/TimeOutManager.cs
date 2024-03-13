@@ -22,7 +22,6 @@ public class TimeOutManager : Singleton<TimeOutManager>
     Tween to;
     public void timeOutShow()
     {
-
         timeOutPanel.transform.DOScale(new Vector3(1, 1, 1), animTime / 2).SetEase(Ease.OutBack).OnComplete(() => StartCoroutine(LoadStageResultScene()));
         to = DOTween.To(() => Time.timeScale, scale => Time.timeScale = scale, 0, animTime);
         to.Play();
@@ -43,5 +42,8 @@ public class TimeOutManager : Singleton<TimeOutManager>
         GameManager.Instance.nowStageData.PersentSetting();
         CloudManager.Instance?.Move(true);
         LoadingSceneManager.Instance?.ChangeLoadScene("StageResult_Scene");
+
+        yield return new WaitForSeconds(2f);
+        timeOutPanel.transform.localScale = Vector3.zero;
     }
 }
