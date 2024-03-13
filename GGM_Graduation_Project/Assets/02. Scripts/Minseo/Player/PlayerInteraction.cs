@@ -29,6 +29,15 @@ public class PlayerInteraction : MonoBehaviour
             _playerInput.OnInteraction += PerformInteraction;
     }
 
+    private void OnDisable()
+    {
+        if (_playerInput == null)
+            _otherPlayerInput.OnInteraction -= PerformInteraction;
+
+        if (_otherPlayerInput == null)
+            _playerInput.OnInteraction -= PerformInteraction;
+    }
+
     private void PerformInteraction()
     {
         Debug.Log("상호작용 키를 눌렀습니다.");
