@@ -21,7 +21,7 @@ public class ProcessIngredient : MonoBehaviour, IObject
                 string name = ingredient.name;
                 if (name.IndexOf("completion") == -1)
                 {
-                    // ½ºÅ©¸³Æ® ¹Þ¾Æ¿ÍÁÖ±â
+                    // ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½Þ¾Æ¿ï¿½ï¿½Ö±ï¿½
                     deleySlider.gameObject.SetActive(true);
                     playerTrm = ingredient.transform.position;
                     StopCoroutine(InteractionRoutine(ingredient));
@@ -41,14 +41,21 @@ public class ProcessIngredient : MonoBehaviour, IObject
             Tween t = DOTween.To(() => deleySlider.value, value => deleySlider.value  = value,  i / deleyTime, 1f);
             t.Play();
             yield return time;
-            if (Vector3.Distance(ingredient.transform.position, playerTrm) > 0.75f)
+            if (ingredient == null)
             {
-                // ¶Ç ¿©·¯°¡Áö ÀÛ¾÷Áß...
-                deleySlider.value = 0;
-                deleySlider.gameObject.SetActive(false);
-                StopCoroutine(InteractionRoutine(ingredient));
-                Debug.Log("¿òÁ÷ÀÓ!");
-                yield break;        // ¿òÁ÷¿´¾û.
+                yield break;
+            }
+            else
+            {
+                if (Vector3.Distance(ingredient.transform.position, playerTrm) > 0.75f)
+                {
+                    // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½...
+                    deleySlider.value = 0;
+                    deleySlider.gameObject.SetActive(false);
+                    StopCoroutine(InteractionRoutine(ingredient));
+                    Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
+                    yield break;        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+                }
             }
         }
 
@@ -57,7 +64,7 @@ public class ProcessIngredient : MonoBehaviour, IObject
         ThreeIngredient three = ingredient.GetComponent<ThreeIngredient>();
         if (three != null)
         {
-            Debug.Log("¼¼ °³¸¦ Ã£¾Ò¾î¿ä!");
+            Debug.Log("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Ò¾ï¿½ï¿½!");
             three.TypeChange();
         }
         else
@@ -65,7 +72,7 @@ public class ProcessIngredient : MonoBehaviour, IObject
             TwoIngredient two = ingredient.GetComponent<TwoIngredient>();
             if (two != null)
             {
-                Debug.Log("µÎ °³¸¦ Ã£¾Ò¾î¿ä!");
+                Debug.Log("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Ò¾ï¿½ï¿½!");
                 two.TypeChange();
             }
         }
