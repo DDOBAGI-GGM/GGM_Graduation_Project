@@ -141,7 +141,7 @@ public class AI : MonoBehaviour
                     new LogNode("가공중"),
                     // 상호작용
                     new InteractionNode(this),
-                    new WaitNode(3.5f),
+                    new WaitNode(4f),
                     // 상태 로그 출력
                     new LogNode("가공"),
                     // 상태 초기화

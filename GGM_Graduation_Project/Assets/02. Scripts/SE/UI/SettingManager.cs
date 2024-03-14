@@ -128,4 +128,13 @@ public class SettingManager : Singleton<SettingManager>
 
         Debug.Log("UI ¶û ¹¹½Ã²¤½º ²¨Áà¿ä");
     }
+
+    public void OnExitBtn()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 }
