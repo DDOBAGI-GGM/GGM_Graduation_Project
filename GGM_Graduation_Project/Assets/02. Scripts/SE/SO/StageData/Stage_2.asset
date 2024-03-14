@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageName: Stage 2
   starPersent:
-  - 0.6
-  - 0.75
-  - 0.95
+  - 70
+  - 90
+  - 110
   star: 000000
   myPersent: 0
   gameTime: 60

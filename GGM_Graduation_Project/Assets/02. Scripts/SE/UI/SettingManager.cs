@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SettingManager : Singleton<SettingManager>
 {
     [SerializeField] private GameObject gamePausePanel, settingPanel;       // 게임일때 표시되는 설정창, 셋팅 창 따로 존재함.
+    [SerializeField] private TMP_Text gamePauseText;        // 게임 펄스 창이 떴을 때 보여질 텍스트
     [SerializeField] private Animator fadeAnim;     // 위아래로 움직이는 페이드
 
     private bool is_Setting = false;        // 셋팅창이 켜져있는가
@@ -50,6 +52,7 @@ public class SettingManager : Singleton<SettingManager>
         if (panel == gamePausePanel)        // 게임 설정창이라면
         {
             is_GamePause = is_PanelShow;        // 게임 창의 상태를 설정해줌.
+            gamePauseText.text = GameManager.Instance.nowStageData.stageName;
         }
         else if (panel == settingPanel)
         {

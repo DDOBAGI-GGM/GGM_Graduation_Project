@@ -14,6 +14,7 @@ public class StageDataSO : ScriptableObject
 
     public void PersentSetting()      // 퍼센트에 따라서 리셋을 해주는 것.
     {
+        Debug.Log(myPersent);
         for (int i = 0; i < 3; i++)
         {
             if (myPersent >= starPersent[i])     // 내 퍼센트가 별 얻는 퍼센트보다 크거나 같으면
