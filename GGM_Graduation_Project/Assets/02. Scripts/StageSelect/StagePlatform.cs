@@ -12,7 +12,7 @@ public class StagePlatform : MonoBehaviour
 
     private PlayerInteract playerInteract;
 
-    private void Awake()
+    private void Start()
     {
         starPos = new Vector3[3];
         for (int i = 0; i < starPos.Length; i++)
