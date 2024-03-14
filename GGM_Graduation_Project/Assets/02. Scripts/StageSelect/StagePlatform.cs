@@ -41,6 +41,7 @@ public class StagePlatform : MonoBehaviour
             if (thisStageData.star[i] == true)
             {
                 GameObject star = Instantiate(starPrefab, starPos[i], Quaternion.identity);       // 월드냐 로컬이냐 테스트 한번 해보기
+                star.transform.Rotate(new Vector3(45f, 0, 0));
                 star.transform.parent = transform;
                 if (i == 2)     // 3번째, 즉 가운데 것 이라면 크기를 조금 크게 해주기
                 {
