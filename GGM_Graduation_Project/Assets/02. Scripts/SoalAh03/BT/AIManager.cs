@@ -37,10 +37,8 @@ public class ITEM
 
 public class AIManager : MonoBehaviour
 {
-    // 레시피
     public List<RECIPE> recipes = new List<RECIPE>();
     public RECIPE recovery = null;
 
-    // 오브젝트
     public List<OBJ> objects = new List<OBJ>();
 }
